@@ -4,20 +4,22 @@ import Logo from '../Logo/Logo'
 
 const Navbar = () => {
     const tabs = [
-        {label: "Home", link: "#Home"},
         {label: "About", link: "#About"},
+        {label: "Experience", link: "#Experience"},
+        {label: "Education", link: "#Education"},
+        {label: "Projects", link: "#Projects"},
         {label: "Contact", link: "#Contact"},
     ];
 
     return (
         <div className="navbar">
-            <Logo color="white"/>
-
+            <Logo />
             <h1><a href="#top">Ariel Levi</a></h1>
-            
-            {tabs.reverse().map(tab => {
+        
+            {tabs.map(tab => {
                 return <a href={tab.link}>{tab.label}</a>;
             })}
+
         </div>
     );
 }
