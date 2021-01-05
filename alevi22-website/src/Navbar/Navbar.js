@@ -12,15 +12,18 @@ const Navbar = () => {
     ];
 
     return (
-        <div className="navbar">
-            <Logo />
-            <h1><a href="#top">Ariel Levi</a></h1>
-        
-            {tabs.map(tab => {
-                return <a href={tab.link}>{tab.label}</a>;
-            })}
+        <nav>
+            <div style={{float: "left"}}>
+                <a href="#top"><Logo /></a>
+                <h1><a href="#top">Ariel Levi</a></h1>
+            </div>
 
-        </div>
+            <div style={{float: "right"}}>
+                {tabs.map(tab => {
+                    return <a href={tab.link}>{tab.label}</a>;
+                })}
+            </div>
+        </nav>
     );
 }
 
