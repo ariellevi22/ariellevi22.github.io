@@ -19,18 +19,18 @@ const WEB_TABS = [
 const Navbar = () => {
     return (
         <nav>
-            <div class="nav-heading">
+            <div className="nav-heading">
                 <a href="#top"><Logo /></a>
                 <h1><a href="#top">Ariel Levi</a></h1>
             </div>
 
-            <div class="nav-tabs">
+            <div className="nav-tabs">
                 {WEB_TABS.map(tab => {
-                    return <a href={tab.link}>{tab.label}</a>;
+                    return <a href={tab.link} key={tab.label}>{tab.label}</a>;
                 })}
 
                 {WEB_ICON_TABS.map(tab => {
-                    return <a href={tab.link} target="_blank"><i class={tab.icon}/></a>
+                    return <a href={tab.link} target="_blank" key={tab.icon}><i className={tab.icon}/></a>
                 })}
             </div>
         </nav>
