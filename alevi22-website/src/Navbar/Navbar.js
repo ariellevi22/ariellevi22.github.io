@@ -19,12 +19,12 @@ const Navbar = () => {
 
     return (
         <nav>
-            <div style={{float: "left"}}>
+            <div class="nav-heading">
                 <a href="#top"><Logo /></a>
                 <h1><a href="#top">Ariel Levi</a></h1>
             </div>
 
-            <div style={{float: "right"}}>
+            <div class="nav-tabs">
                 {tabs.map(tab => {
                     return <a href={tab.link}>{tab.label}</a>;
                 })}
