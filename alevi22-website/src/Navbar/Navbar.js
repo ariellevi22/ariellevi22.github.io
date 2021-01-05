@@ -11,6 +11,12 @@ const Navbar = () => {
         {label: "Contact", link: "#Contact"},
     ];
 
+    // Icon reference: https://www.w3schools.com/icons/icons_reference.asp
+    const iconTabs = [
+        {icon: "fa fa-linkedin", link: "https://www.linkedin.com/in/ariel-levi/"},
+        {icon: "fa fa-github", link: "https://github.com/alevi22"},
+    ];
+
     return (
         <nav>
             <div style={{float: "left"}}>
@@ -21,6 +27,10 @@ const Navbar = () => {
             <div style={{float: "right"}}>
                 {tabs.map(tab => {
                     return <a href={tab.link}>{tab.label}</a>;
+                })}
+
+                {iconTabs.map(tab => {
+                    return <a href={tab.link} target="_blank"><i class={tab.icon}/></a>
                 })}
             </div>
         </nav>
