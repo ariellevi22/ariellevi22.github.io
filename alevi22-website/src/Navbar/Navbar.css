@@ -3,22 +3,35 @@
     padding: 0px;
     top: 0px;
     width: 100%;
-    overflow: hidden;
+    overflow: auto;
     position: sticky;
     background-color: rgb(36, 36, 36);
 }
 
 .navbar a {
     float: right;
-    display: block;
     color: white;
     text-align: center;
-    padding: 10px 10px;
     text-decoration: none;
+    margin: 0px;
+    padding: 15px 15px;
     transition-duration: 0.2s;
 }
 
 .navbar a:hover {
-    background-color: rgb(75, 75, 75);
+    color: rgb(120, 255, 255);
     transition-duration: 0.2s;
+}
+
+.navbar svg {
+    float: left;
+    padding: 15px 15px;
+    height: 40px;
+}
+
+.navbar h1 {
+    float: left;
+    color: white;
+    font-weight: normal;
+    margin: 0px;
 }

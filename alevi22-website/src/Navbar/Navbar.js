@@ -1,23 +1,22 @@
 import React from 'react';
 import './Navbar.css';
-
-const NavbarTab = (props) => {
-    return (
-        <a href={props.href}>{props.children}</a>
-    );
-}
+import Logo from '../Logo/Logo'
 
 const Navbar = () => {
     const tabs = [
-        {name: "Home", link: "#Home"},
-        {name: "About", link: "#About"},
-        {name: "Contact", link: "#Contact"},
+        {label: "Home", link: "#Home"},
+        {label: "About", link: "#About"},
+        {label: "Contact", link: "#Contact"},
     ];
 
     return (
         <div className="navbar">
+            <Logo color="white"/>
+
+            <h1><a href="#top">Ariel Levi</a></h1>
+            
             {tabs.reverse().map(tab => {
-                return <NavbarTab href={tab.link}>{tab.name}</NavbarTab>
+                return <a href={tab.link}>{tab.label}</a>;
             })}
         </div>
     );
