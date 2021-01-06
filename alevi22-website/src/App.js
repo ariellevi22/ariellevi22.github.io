@@ -18,9 +18,11 @@ const App = () => {
 		{icon: "fa fa-github", link: "https://github.com/alevi22"},
 	];
 
+	const NAME = "Ariel Levi"
+
 	return (
 		<div>
-			<Navbar title="Ariel Levi" logoSrc={logo}>
+			<Navbar title={NAME} logoSrc={logo}>
 				{WEB_TABS.map(tab => {
 					return <a href={tab.link} key={tab.label}>{tab.label}</a>;
 				})}
@@ -34,7 +36,7 @@ const App = () => {
 				})}
 			</Navbar>
 
-			<Footer />
+			<Footer copyrightName={NAME} />
 		</div>
 	);
 }
