@@ -41,7 +41,7 @@ const App = () => {
 				})}
 			</Navbar>
 
-			<Footer logoSrc={logo} webTabs={WEB_TABS} socialButtons={CONNECT_BUTTONS} copyrightName={NAME} />
+			<Footer logoSrc={logo} webTabs={WEB_TABS} socialButtons={CONNECT_BUTTONS} title={NAME} />
 		</div>
 	);
 }

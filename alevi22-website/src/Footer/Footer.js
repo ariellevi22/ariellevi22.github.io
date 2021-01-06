@@ -8,7 +8,7 @@ import './Footer.css';
  * 
  * Usage:
  * ```js
- * <Footer copyrightName="YourName"/>
+ * <Footer logoSrc="./link/to/logo" webTabs=[list of navbar tabs] socialButtons=[list of buttons] title="Website Title"/>
  * ```
  */
 const Footer = (props) => {
@@ -19,7 +19,7 @@ const Footer = (props) => {
                     <img src={props.logoSrc} alt="Logo" />
                 </a>
                 <a href="">
-                    <h1>Ariel Levi</h1>
+                    <h1>{props.title}</h1>
                 </a>
             </div>
             
@@ -49,7 +49,7 @@ const Footer = (props) => {
             
 
             <p className="copyright">
-                &#169; {getCurrentYear()} {props.copyrightName}
+                &#169; {getCurrentYear()} {props.title}
             </p>
         </footer>
     );
