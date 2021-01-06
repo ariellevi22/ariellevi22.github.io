@@ -1,6 +1,7 @@
+/* Base formatting for the navigation bar */
 nav {
     margin: 0px;
-    padding: 10px 5px;
+    padding: 15px 5px;
     top: 0px;
     overflow: auto;
     position: sticky;
@@ -11,21 +12,18 @@ nav {
     align-items: center;
 }
 
-/* Base formatting for all navbar links */
+/* Base formatting for all navbar tabs */
 nav a {
-    display: inline-block;
     color: white;
     text-decoration: none;
     padding: 5px 15px;
     transition: all 0.2s linear 0s;
 }
 
-nav a:hover {
-    color: rgb(120, 255, 255);
-}
-
-nav .nav-tabs {
-    vertical-align: middle;
+@media(hover: hover) and (pointer: fine) {
+    nav a:hover {
+        color: rgb(120, 255, 255);
+    }
 }
 
 /* For small screens, hide the navbar tabs (the menu button will be shown instead) */
@@ -34,14 +32,17 @@ nav .nav-tabs {
 }
 
 nav .nav-tabs.show {
-    display: block;
-    position: relative;
+    display: flex;
+    flex-direction: column;
     text-align: right;
     width: 100%;
 }
 
-nav .nav-tabs a {
-    display: block;
+nav .nav-heading {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    align-items: center;
 }
 
 nav .nav-menu {
@@ -49,17 +50,22 @@ nav .nav-menu {
 }
 
 /* For large screens, show the full navbar instead of the menu button */
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 750px) {
     nav .nav-menu {
         display: none;
     }
 
     nav .nav-tabs {
-        display: block;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        align-items: baseline;
         width: auto;
     }
 
     nav .nav-tabs.show {
+        display: flex;
+        flex-direction: row;
         width: auto;
     }
 
@@ -78,15 +84,11 @@ nav a img:hover {
 }
 
 nav img {
-    display: inline-block;
-    vertical-align: middle;
     height: 40px;
     filter: invert();
 }
 
 nav h1 {
-    display: inline-block;
-    vertical-align: middle;
     color: white;
     font-size: 26px;
     font-weight: normal;
