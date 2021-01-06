@@ -31,7 +31,7 @@ const Navbar = (props) => {
                 <h1><a href="">{props.title}</a></h1>
             </div>
 
-            <a className="nav-menu" onClick={() => setMenuState(!menuState)}            >
+            <a className="nav-menu" onClick={() => setMenuState(!menuState)}>
                 <i className="fa fa-bars"/>
             </a>
 

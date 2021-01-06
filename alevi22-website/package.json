@@ -1,5 +1,6 @@
 {
   "name": "alevi22-website",
+  "homepage": "https://alevi22.github.io",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
