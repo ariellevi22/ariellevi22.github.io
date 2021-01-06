@@ -7,7 +7,7 @@ import './Navbar.css';
  * 
  * Usage:
  * ```js
- * <Navbar title="Website Title">
+ * <Navbar title="Website Title" logoSrc="./link/to/logo">
  *     <a href="#Home">Home</a>
  *     <a href="#About">About</a>
  *     <a href="#Contact">Contact</a>

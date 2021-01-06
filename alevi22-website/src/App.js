@@ -18,6 +18,11 @@ const App = () => {
 		{icon: "fa fa-github", link: "https://github.com/alevi22"},
 	];
 
+	const CONNECT_BUTTONS = [
+		...WEB_ICON_TABS,
+		{icon: "fa fa-envelope", link: "mailto:alevi2@huskers.unl.edu"}
+	]
+
 	const NAME = "Ariel Levi"
 
 	return (
@@ -36,7 +41,7 @@ const App = () => {
 				})}
 			</Navbar>
 
-			<Footer copyrightName={NAME} />
+			<Footer logoSrc={logo} webTabs={WEB_TABS} socialButtons={CONNECT_BUTTONS} copyrightName={NAME} />
 		</div>
 	);
 }

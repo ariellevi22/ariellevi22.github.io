@@ -1,6 +1,6 @@
 footer {
     margin: 0px;
-    padding: 15px 5px;
+    padding: 40px 15%;
     box-sizing: border-box;
     bottom: 0px;
     overflow: auto;
@@ -8,6 +8,64 @@ footer {
     width: 100%;
     background-color: rgb(36, 36, 36);
     color: white;
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: top;
+}
+
+footer * {
+    margin: 0px;
+}
+
+footer div.container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: top;
+    max-width: 100%;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+    transition: all 0.2s linear 0s;
+    display: block;
+}
+
+@media(hover: hover) and (pointer: fine) {
+    footer a:hover {
+        color: rgb(120, 255, 255);
+    }
+}
+
+footer h1 {
+    color: white;
+    font-size: 26px;
+    font-weight: normal;
+}
+
+footer h2 {
+    font-size: 20px;
+    padding: 0px 0px 10px 0px;
+}
+
+footer p.copyright {
     font-size: 12px;
+    width: 100%;
+    text-align: center;
+    padding: 40px 0px 0px 0px;
+}
+
+footer img {
+    height: 40px;
+    filter: invert();
+    transition: all 0.2s linear 0s;
+}
+
+@media(hover: hover) and (pointer: fine) {
+    footer a img:hover {
+        /* CSS filter generator: https://codepen.io/sosuke/pen/Pjoqqp */
+        filter: invert(98%) sepia(55%) saturate(1682%) hue-rotate(147deg) brightness(98%) contrast(107%);
+    }
 }

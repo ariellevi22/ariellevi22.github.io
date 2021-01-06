@@ -14,7 +14,43 @@ import './Footer.css';
 const Footer = (props) => {
     return (
         <footer>
-            &#169; {getCurrentYear()} {props.copyrightName}
+            <div>
+                <a href="">
+                    <img src={props.logoSrc} alt="Logo" />
+                </a>
+                <a href="">
+                    <h1>Ariel Levi</h1>
+                </a>
+            </div>
+            
+
+            <div>
+                <h2>Navigate</h2>
+
+                {props.webTabs.map(tab => {
+                    return <a href={tab.link} key={tab.label}>{tab.label}</a>;
+                })}
+            </div>
+
+            <div>
+                <h2>Let's Connect</h2>
+
+                <div className="container">
+                    {props.socialButtons.map(tab => {
+                        return (
+                            <a href={tab.link} target="_blank" key={tab.icon}>
+                                <i className={tab.icon}/>
+                            </a>
+                        );
+                    })}
+                </div>
+            </div>
+
+            
+
+            <p className="copyright">
+                &#169; {getCurrentYear()} {props.copyrightName}
+            </p>
         </footer>
     );
 }

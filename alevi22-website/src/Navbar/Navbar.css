@@ -8,6 +8,7 @@ nav {
     position: sticky;
     z-index: 1;
     background-color: rgb(36, 36, 36);
+    color: white;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -72,18 +73,17 @@ nav .nav-menu {
     }
 }
 
-nav a img {
-    transition: all 0.2s linear 0s;
-}
-
-nav a img:hover {
-    /* CSS filter generator: https://codepen.io/sosuke/pen/Pjoqqp */
-    filter: invert(98%) sepia(55%) saturate(1682%) hue-rotate(147deg) brightness(98%) contrast(107%);
-}
-
 nav img {
     height: 40px;
     filter: invert();
+    transition: all 0.2s linear 0s;
+}
+
+@media(hover: hover) and (pointer: fine) {
+    nav a img:hover {
+        /* CSS filter generator: https://codepen.io/sosuke/pen/Pjoqqp */
+        filter: invert(98%) sepia(55%) saturate(1682%) hue-rotate(147deg) brightness(98%) contrast(107%);
+    }
 }
 
 nav h1 {
