@@ -5,6 +5,7 @@ nav {
     top: 0px;
     overflow: auto;
     position: sticky;
+    z-index: 1;
     background-color: rgb(36, 36, 36);
     display: flex;
     justify-content: space-between;
