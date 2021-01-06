@@ -68,10 +68,6 @@ nav .nav-menu {
         flex-direction: row;
         width: auto;
     }
-
-    nav .nav-tabs a {
-        display: inline-block;
-    }
 }
 
 nav a img {
