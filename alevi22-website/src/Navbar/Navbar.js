@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './Navbar.css';
 
 /**
@@ -15,6 +15,13 @@ import './Navbar.css';
  * ```
  */
 const Navbar = (props) => {
+    const [menuState, setMenuState] = useState(false);
+
+    let navTabClass = "nav-tabs";
+    if (menuState) {
+        navTabClass = "nav-tabs show"
+    }
+
     return (
         <nav>
             <div className="nav-heading">
@@ -24,11 +31,11 @@ const Navbar = (props) => {
                 <h1><a href="">{props.title}</a></h1>
             </div>
 
-            <a className="nav-menu">
+            <a className="nav-menu" onClick={() => setMenuState(!menuState)}            >
                 <i className="fa fa-bars"/>
             </a>
 
-            <div className="nav-tabs">
+            <div className={navTabClass}>
                 {props.children}
             </div>
         </nav>
