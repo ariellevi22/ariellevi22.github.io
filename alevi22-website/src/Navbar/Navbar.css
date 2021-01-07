@@ -40,7 +40,7 @@ nav img {
     nav a img:hover {
         /* CSS filter generator: https://codepen.io/sosuke/pen/Pjoqqp */
         filter: invert(98%) sepia(55%) saturate(1682%) hue-rotate(147deg) brightness(98%) contrast(107%);
-        transform: scale(1.1, 1.1);
+        transform: scale(1.1);
     }
 }
 
@@ -68,7 +68,7 @@ nav .nav-menu {
 }
 
 /* For large screens, show the full navbar instead of the menu button */
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 800px) {
     nav .nav-menu {
         display: none;
     }

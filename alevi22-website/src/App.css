@@ -3,7 +3,7 @@ main * {
 }
 
 section {
-    padding: 60px 15%;
+    padding: 60px 10%;
 }
 
 section h1 {
@@ -15,9 +15,15 @@ section h1 {
 }
 
 section p {
-    text-align: justify;
+    text-align: left;
     font-size: 18px;
     padding-bottom: 6px;
+}
+
+@media screen and (min-width: 800px) {
+    section p {
+        text-align: justify;
+    }
 }
 
 a {
@@ -48,6 +54,6 @@ section button:active {
         background-color: var(--accent-color);
         cursor: pointer;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.15);
-        transform: scale(1.15, 1.15);
+        transform: scale(1.1);
     }
 }

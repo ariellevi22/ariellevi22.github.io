@@ -71,7 +71,7 @@ footer p a:active {
     footer .heading:hover a img {
         /* CSS filter generator: https://codepen.io/sosuke/pen/Pjoqqp */
         filter: invert(98%) sepia(55%) saturate(1682%) hue-rotate(147deg) brightness(98%) contrast(107%);
-        transform: scale(1.1, 1.1);
+        transform: scale(1.1);
     }
 
     footer .heading:hover a h1 {
@@ -81,7 +81,7 @@ footer p a:active {
     footer button:hover {
         background-color: var(--highlight-color);
         cursor: pointer;
-        transform: scale(1.15, 1.15);
+        transform: scale(1.1);
     }
 
     footer p a:hover {
