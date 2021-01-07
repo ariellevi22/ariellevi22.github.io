@@ -44,6 +44,7 @@ footer button {
     width: 45px;
     overflow: clip;
     word-wrap: break-word;
+    color: var(--footer-color);
     background-color: var(--text-color);
     border: none;
     border-radius: 50%;

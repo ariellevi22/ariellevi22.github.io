@@ -8,7 +8,7 @@ import './Footer.css';
  * 
  * Usage:
  * ```js
- * <Footer logoSrc="./link/to/logo" socialButtons=[button list] title="Website Title"/>
+ * <Footer logoSrc="./link/to/logo" title="Website Title" socialButtons=[button list]/>
  * ```
  */
 const Footer = (props) => {
