@@ -34,7 +34,7 @@ const App = () => {
 
 				{WEB_ICON_TABS.map(tab => {
 					return (
-						<a href={tab.link} target="_blank" key={tab.icon}>
+						<a href={tab.link} target="_blank" rel="noopener noreferrer" key={tab.icon}>
 							<i className={tab.icon}/>
 						</a>
 					);

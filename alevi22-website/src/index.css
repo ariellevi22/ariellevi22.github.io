@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 
 :root {
-    --text-color: white;
+    --light-color: white;
     --highlight-color: rgb(120, 255, 255);
     --accent-color: rgb(0, 125, 155);
     --accent-color-transparent: rgba(0, 125, 155, 0.25);

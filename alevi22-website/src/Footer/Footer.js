@@ -25,7 +25,7 @@ const Footer = (props) => {
             <div className="container">
                 {props.socialButtons.map(tab => {
                     return (
-                        <a href={tab.link} key={tab.icon}>
+                        <a href={tab.link} target="_blank" rel="noopener noreferrer" key={tab.icon}>
                             <button>
                                 <i className={tab.icon}/>
                             </button>
