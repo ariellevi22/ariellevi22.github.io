@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 
+:root {
+  --text-color: white;
+  --highlight-color: rgb(120, 255, 255);
+  --footer-color: rgb(36, 36, 36);
+  --background-color: lightcyan;
+}
+
 * {
   font-family: Montserrat, Helvetica, Arial, sans-serif;
 }
@@ -13,5 +20,20 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background-color: lightcyan;
+  background-color: var(--background-color);
+}
+
+a {
+  color: inherit;
+  transition: all 0.2s linear 0s;
+}
+
+@media(hover: hover) and (pointer: fine) {
+  a:hover {
+      color: var(--highlight-color);
+  }
+}
+
+a:active {
+  color: var(--highlight-color);
 }

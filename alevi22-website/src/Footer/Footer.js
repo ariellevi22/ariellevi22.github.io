@@ -8,49 +8,34 @@ import './Footer.css';
  * 
  * Usage:
  * ```js
- * <Footer logoSrc="./link/to/logo" webTabs=[list of navbar tabs] socialButtons=[list of buttons] title="Website Title"/>
+ * <Footer logoSrc="./link/to/logo" socialButtons=[button list] title="Website Title"/>
  * ```
  */
 const Footer = (props) => {
     return (
         <footer>
-            <div>
-                <a href="">
-                    <img src={props.logoSrc} alt="Logo" />
-                </a>
-                <a href="">
-                    <h1>{props.title}</h1>
-                </a>
-            </div>
-            
+            <a href="">
+                <img src={props.logoSrc} alt="Logo" />
+            </a>
 
-            <div>
-                <h2>Navigate</h2>
+            <a href="" style={{textDecoration: "none"}}>
+                <h1>{props.title}</h1>
+            </a>
 
-                {props.webTabs.map(tab => {
-                    return <a href={tab.link} key={tab.label}>{tab.label}</a>;
+            <div className="container">
+                {props.socialButtons.map(tab => {
+                    return (
+                        <a href={tab.link} key={tab.icon}>
+                            <button>
+                                <i className={tab.icon}/>
+                            </button>
+                        </a>
+                    );
                 })}
             </div>
 
-            <div>
-                <h2>Let's Connect</h2>
-
-                <div className="container">
-                    {props.socialButtons.map(tab => {
-                        return (
-                            <a href={tab.link} target="_blank" key={tab.icon}>
-                                <i className={tab.icon}/>
-                            </a>
-                        );
-                    })}
-                </div>
-            </div>
-
-            
-
-            <p className="copyright">
-                &#169; {getCurrentYear()} {props.title}
-            </p>
+            <p>&#169; {getCurrentYear()} {props.title}</p>
+            <p>Powered by <a href="https://www.reactjs.org">React</a></p>
         </footer>
     );
 }
