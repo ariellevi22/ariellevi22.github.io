@@ -22,6 +22,10 @@ nav a {
     transition: all 0.2s linear 0s;
 }
 
+nav a:active {
+    color: var(--highlight-color);
+}
+
 nav img {
     height: 40px;
     filter: invert();
@@ -29,6 +33,10 @@ nav img {
 }
 
 @media(hover: hover) and (pointer: fine) {
+    nav a:hover {
+        color: var(--highlight-color);
+    }
+
     nav a img:hover {
         /* CSS filter generator: https://codepen.io/sosuke/pen/Pjoqqp */
         filter: invert(98%) sepia(55%) saturate(1682%) hue-rotate(147deg) brightness(98%) contrast(107%);

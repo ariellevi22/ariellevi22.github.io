@@ -3,16 +3,6 @@ a {
     transition: all 0.2s linear 0s;
 }
 
-@media(hover: hover) and (pointer: fine) {
-    a:hover {
-        color: var(--highlight-color);
-    }
-}
-
-a:active {
-    color: var(--highlight-color);
-}
-
 button {
     font-size: 16px;
     color: var(--text-color);

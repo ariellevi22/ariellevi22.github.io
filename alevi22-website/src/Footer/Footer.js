@@ -14,13 +14,16 @@ import './Footer.css';
 const Footer = (props) => {
     return (
         <footer>
-            <a href="">
-                <img src={props.logoSrc} alt="Logo" />
-            </a>
+            <div class="heading">
+                <a href="">
+                    <img src={props.logoSrc} alt="Logo" />
+                </a>
 
-            <a href="" style={{textDecoration: "none"}}>
-                <h1>{props.title}</h1>
-            </a>
+                <a href="" style={{textDecoration: "none"}}>
+                    <h1>{props.title}</h1>
+                </a>
+            </div>
+            
 
             <div className="container">
                 {props.socialButtons.map(tab => {
