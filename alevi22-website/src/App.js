@@ -41,6 +41,18 @@ const App = () => {
 				})}
 			</Navbar>
 
+			<section>
+				<h1 id="About">About</h1>
+			</section>
+
+			<section>
+				<h1 id="Experience">Experience</h1>
+			</section>
+
+			<section>
+				<h1 id="Education">Education</h1>
+			</section>
+
 			<Footer logoSrc={logo} title={NAME} socialButtons={CONNECT_BUTTONS}/>
 		</div>
 	);

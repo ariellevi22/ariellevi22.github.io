@@ -14,7 +14,7 @@ import './Footer.css';
 const Footer = (props) => {
     return (
         <footer>
-            <div class="heading">
+            <div className="heading">
                 <a href="">
                     <img src={props.logoSrc} alt="Logo" />
                 </a>

@@ -18,8 +18,10 @@ const Navbar = (props) => {
     const [menuState, setMenuState] = useState(false);
 
     let navTabClass = "nav-tabs";
+    let menuButton = "fa fa-bars";
     if (menuState) {
         navTabClass = "nav-tabs show"
+        menuButton = "fa fa-close";
     }
 
     return (
@@ -32,7 +34,7 @@ const Navbar = (props) => {
             </div>
 
             <a className="nav-menu" onClick={() => setMenuState(!menuState)}>
-                <i className="fa fa-bars"/>
+                <i className={menuButton}/>
             </a>
 
             <div className={navTabClass}>
