@@ -1,12 +1,12 @@
-section {
-    padding: 60px 15%;
-}
-
 main * {
     margin: 0px;
 }
 
-main h1 {
+section {
+    padding: 60px 15%;
+}
+
+section h1 {
     text-align: center;
     font-size: 40px;
     font-weight: 700;
@@ -14,7 +14,7 @@ main h1 {
     padding-bottom: 10px;
 }
 
-main p {
+section p {
     text-align: justify;
     font-size: 18px;
     padding-bottom: 6px;
@@ -25,7 +25,7 @@ a {
     transition: all 0.2s linear 0s;
 }
 
-button {
+section button {
     font-size: 16px;
     color: var(--light-color);
     background-color: var(--dark-color);
@@ -34,13 +34,17 @@ button {
     transition: all 0.2s ease 0s;
 }
 
-button:active {
+section button:active {
     background-color: var(--accent-color);
     cursor: pointer;
 }
 
 @media(hover: hover) and (pointer: fine) {
-    button:hover {
+    section a:hover {
+        color: var(--accent-color);
+    }
+
+    section button:hover {
         background-color: var(--accent-color);
         cursor: pointer;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.15);

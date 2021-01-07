@@ -38,7 +38,7 @@ const Footer = (props) => {
             </div>
 
             <p>&copy; {getCurrentYear()} {props.title}</p>
-            <p>Powered by <a href="https://www.reactjs.org">React</a></p>
+            <p>Powered by <a href="https://www.reactjs.org" target="_blank" rel="noopener noreferrer">React</a></p>
         </footer>
     );
 }

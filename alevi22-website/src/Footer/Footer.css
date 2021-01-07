@@ -34,11 +34,11 @@ footer img {
 }
 
 footer button {
+    padding: 0px;
     font-size: 22px;
     height: 45px;
     width: 45px;
-    overflow: clip;
-    word-wrap: break-word;
+    text-align: center;
     color: var(--dark-color);
     background-color: var(--light-color);
     border: none;
