@@ -1,9 +1,3 @@
-nav ::selection {
-    background: var(--accent-color-transparent);
-    color: var(--highlight-color);
-    filter: none;
-}
-
 /* Base formatting for the navigation bar */
 nav {
     margin: 0px;
