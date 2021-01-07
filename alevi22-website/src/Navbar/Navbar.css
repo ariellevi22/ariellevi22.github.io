@@ -1,7 +1,13 @@
+nav ::selection {
+    background: var(--accent-color-transparent);
+    color: var(--highlight-color);
+    filter: none;
+}
+
 /* Base formatting for the navigation bar */
 nav {
     margin: 0px;
-    padding: 15px 5px;
+    padding: 15px;
     box-sizing: border-box;
     top: 0px;
     overflow: auto;
@@ -40,6 +46,7 @@ nav img {
     nav a img:hover {
         /* CSS filter generator: https://codepen.io/sosuke/pen/Pjoqqp */
         filter: invert(98%) sepia(55%) saturate(1682%) hue-rotate(147deg) brightness(98%) contrast(107%);
+        transform: scale(1.1, 1.1);
     }
 }
 

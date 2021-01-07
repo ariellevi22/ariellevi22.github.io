@@ -15,11 +15,11 @@ const Footer = (props) => {
     return (
         <footer>
             <div className="heading">
-                <a href="">
+                <a href="#top">
                     <img src={props.logoSrc} alt="Logo" />
                 </a>
 
-                <a href="" style={{textDecoration: "none"}}>
+                <a href="#top" style={{textDecoration: "none"}}>
                     <h1>{props.title}</h1>
                 </a>
             </div>
@@ -37,7 +37,7 @@ const Footer = (props) => {
                 })}
             </div>
 
-            <p>&#169; {getCurrentYear()} {props.title}</p>
+            <p>&copy; {getCurrentYear()} {props.title}</p>
             <p>Powered by <a href="https://www.reactjs.org">React</a></p>
         </footer>
     );

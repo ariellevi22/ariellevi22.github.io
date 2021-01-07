@@ -27,10 +27,10 @@ const Navbar = (props) => {
     return (
         <nav>
             <div className="nav-heading">
-                <a href="">
+                <a href="#top">
                     <img src={props.logoSrc} alt="Logo" />
                 </a>
-                <h1><a href="">{props.title}</a></h1>
+                <h1><a href="#top">{props.title}</a></h1>
             </div>
 
             <a className="nav-menu" onClick={() => setMenuState(!menuState)}>

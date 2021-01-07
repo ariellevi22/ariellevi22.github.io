@@ -1,6 +1,11 @@
+footer ::selection {
+    background: var(--accent-color-transparent);
+    color: var(--highlight-color);
+    filter: none;
+}
+
 footer {
-    margin: 0px;
-    padding: 40px 40px;
+    padding: 40px;
     box-sizing: border-box;
     width: 100%;
     background-color: var(--dark-color);
@@ -52,24 +57,6 @@ footer button:active {
     cursor: pointer;
 }
 
-@media(hover: hover) and (pointer: fine) {
-    footer .heading:hover a img {
-        /* CSS filter generator: https://codepen.io/sosuke/pen/Pjoqqp */
-        filter: invert(98%) sepia(55%) saturate(1682%) hue-rotate(147deg) brightness(98%) contrast(107%);
-        transform: scale(1.15, 1.15);
-    }
-
-    footer .heading:hover a h1 {
-        color: var(--highlight-color);
-    }
-
-    footer button:hover {
-        background-color: var(--highlight-color);
-        cursor: pointer;
-        transform: scale(1.15, 1.15);
-    }
-}
-
 footer h1 {
     font-size: 26px;
     font-weight: normal;
@@ -82,12 +69,28 @@ footer p {
     text-align: center;
 }
 
+footer p a:active {
+    color: var(--highlight-color);
+}
+
 @media(hover: hover) and (pointer: fine) {
+    footer .heading:hover a img {
+        /* CSS filter generator: https://codepen.io/sosuke/pen/Pjoqqp */
+        filter: invert(98%) sepia(55%) saturate(1682%) hue-rotate(147deg) brightness(98%) contrast(107%);
+        transform: scale(1.1, 1.1);
+    }
+
+    footer .heading:hover a h1 {
+        color: var(--highlight-color);
+    }
+
+    footer button:hover {
+        background-color: var(--highlight-color);
+        cursor: pointer;
+        transform: scale(1.15, 1.15);
+    }
+
     footer p a:hover {
         color: var(--highlight-color);
     }
-}
-
-footer p a:active {
-    color: var(--highlight-color);
 }

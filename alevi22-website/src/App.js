@@ -41,17 +41,29 @@ const App = () => {
 				})}
 			</Navbar>
 
-			<section>
-				<h1 id="About">About</h1>
-			</section>
+			<main>
+				<section>
+					<h1 id="About">About</h1>
+				</section>
 
-			<section>
-				<h1 id="Experience">Experience</h1>
-			</section>
+				<section>
+					<h1 id="Experience">Experience</h1>
+				</section>
 
-			<section>
-				<h1 id="Education">Education</h1>
-			</section>
+				<section>
+					<h1 id="Education">Education</h1>
+				</section>
+
+				<section style={{backgroundColor: "gray", height:"1000px"}}>
+					<h1>Test</h1>
+					<p>Hello</p>
+					<p>Howdy</p>
+				</section>
+
+				<section>
+					<h1 id="Projects">Projects</h1>
+				</section>
+			</main>
 
 			<Footer logoSrc={logo} title={NAME} socialButtons={CONNECT_BUTTONS}/>
 		</div>
