@@ -17,11 +17,11 @@ import './Navbar.css';
 const Navbar = (props) => {
     const [menuState, setMenuState] = useState(false);
 
-    let navTabClass = "nav-tabs";
+    let navTabStyle = undefined;
     let menuButton = "fa fa-bars";
     if (menuState) {
-        navTabClass = "nav-tabs show"
         menuButton = "fa fa-close";
+        navTabStyle = {display: "flex"};
     }
 
     return (
@@ -37,7 +37,7 @@ const Navbar = (props) => {
                 <i className={menuButton}/>
             </a>
 
-            <div className={navTabClass}>
+            <div className="nav-tabs" style={navTabStyle}>
                 {props.children}
             </div>
         </nav>

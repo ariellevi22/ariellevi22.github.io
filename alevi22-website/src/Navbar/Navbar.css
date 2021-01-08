@@ -4,7 +4,6 @@ nav {
     padding: 15px;
     box-sizing: border-box;
     top: 0px;
-    overflow: auto;
     position: sticky;
     z-index: 1;
     background-color: var(--dark-color);
@@ -13,6 +12,7 @@ nav {
     justify-content: space-between;
     flex-wrap: wrap;
     align-items: center;
+    overflow: hidden;
 }
 
 /* Base formatting for all navbar tabs */
@@ -57,20 +57,17 @@ nav .nav-tabs {
     width: auto;
 }
 
-/* For small screens, hide the navbar tabs (the menu button will be shown instead) */
+/* For small screens, show the menu button instead of all tabs */
 @media screen and (max-width: 800px) {
     nav .nav-tabs {
         display: none;
+        flex-direction: column;
+        align-items: flex-end; /* right align */
+        width: 100%;
     }
 
     nav .nav-menu-button {
         display: block;
-    }
-
-    nav .nav-tabs.show {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
     }
 }
 
