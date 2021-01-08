@@ -1,9 +1,13 @@
+main {
+    padding: 50px 0px;
+}
+
 main * {
     margin: 0px;
 }
 
 section {
-    padding: 60px 10%;
+    padding: 30px 10%;
 }
 
 section h1 {
@@ -11,13 +15,19 @@ section h1 {
     font-size: 40px;
     font-weight: 700;
     text-transform: uppercase;
+    padding-bottom: 20px;
+}
+
+section h2 {
+    font-size: 30px;
+    font-weight: 700;
     padding-bottom: 10px;
 }
 
 section p {
     text-align: left;
     font-size: 18px;
-    padding-bottom: 6px;
+    padding-bottom: 10px;
 }
 
 @media screen and (min-width: 800px) {
@@ -48,6 +58,7 @@ section button:active {
 @media(hover: hover) and (pointer: fine) {
     section a:hover {
         color: var(--accent-color);
+        background-color: var(--accent-color-transparent);
     }
 
     section button:hover {

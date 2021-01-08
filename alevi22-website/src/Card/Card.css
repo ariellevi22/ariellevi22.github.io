@@ -1,8 +1,8 @@
 .card {
-    background-color: var(--light-color);
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: all 0.3s ease 0s;
-    padding: 30px;
+    overflow: hidden;
+    min-width: 250px;
 }
 
 @media(hover: hover) and (pointer: fine) {

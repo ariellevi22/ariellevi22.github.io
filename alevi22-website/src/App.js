@@ -45,6 +45,22 @@ const App = () => {
 			<main>
 				<section>
 					<h1 id="About">About</h1>
+
+					<p>
+						Hi there, I’m Ariel! I am an undergraduate computer science student at the
+						University of Nebraska-Lincoln’s <a href="https://raikes.unl.edu/" target="_blank" rel="noopener noreferrer">Raikes School</a> of
+						Computer Science and Management who is passionate about technology
+						and its ability to make the world a better place.
+					</p>
+
+					<p>
+						This past summer, I worked at <a href="https://zoom.us" target="_blank" rel="noopener noreferrer">Zoom</a> as
+						a technical support engineer intern, helping customers achieve success using
+						Zoom’s products during the difficult times of the COVID-19 pandemic.
+						This upcoming summer, I will be working as an application developer intern
+						at <a href="https://evergy.com" target="_blank" rel="noopener noreferrer">Evergy</a>,
+						where I am excited to continue to grow my skillset and apply my learning to a real-world environment.
+					</p>
 				</section>
 
 				<section>
@@ -53,12 +69,18 @@ const App = () => {
 
 				<section>
 					<h1 id="Education">Education</h1>
-				</section>
 
-				<section style={{backgroundColor: "gray", height:"1000px"}}>
-					<h1>Test</h1>
-					<p>Hello</p>
-					<p>Howdy</p>
+					<Card>
+						<h2>University of Nebraska-Lincoln</h2>
+						<p>Lincoln, NE</p>
+						<p>Bachelor of Science in Computer Science, May 2023</p>
+					</Card>
+
+					<Card>
+						<h2>Blue Valley North High School</h2>
+						<p>Overland Park, KS</p>
+						<p>High School Diploma, May 2019</p>
+					</Card>
 				</section>
 
 				<section>
@@ -67,7 +89,7 @@ const App = () => {
 
 				<section>
 					<Card>
-						<h1>Hello</h1>
+						<h2>Hello</h2>
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tristique viverra ex, vel lacinia ante bibendum ut. Nunc vehicula, nibh sit amet elementum tempor, ligula libero sagittis ex, non hendrerit nisl leo et magna. Suspendisse tempor tempus leo, nec interdum urna fermentum vel. Nullam tempus, eros vel consectetur faucibus, mauris metus rhoncus mauris, et tincidunt turpis augue id erat. Sed dictum molestie ipsum, id facilisis sem efficitur eget. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque porttitor ligula ut neque rhoncus, sed rutrum ligula consequat. Nullam id dolor vel ante tempor aliquet. Pellentesque non porta est. Phasellus sagittis orci ut nibh finibus, a suscipit orci feugiat. Donec sed dignissim leo. Nunc porttitor urna odio, pretium iaculis odio mattis id. Sed cursus, orci at sodales suscipit, elit turpis ultrices sapien, sed condimentum ligula neque et ex. Maecenas neque lectus, aliquam vitae velit ac, sodales sagittis nisl.</p>
 					</Card>
 				</section>
