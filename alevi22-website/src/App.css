@@ -58,7 +58,6 @@ section button:active {
 @media(hover: hover) and (pointer: fine) {
     section a:hover {
         color: var(--accent-color);
-        background-color: var(--accent-color-transparent);
     }
 
     section button:hover {

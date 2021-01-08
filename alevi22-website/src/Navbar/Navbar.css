@@ -35,6 +35,7 @@ nav img {
 @media(hover: hover) and (pointer: fine) {
     nav a:hover {
         color: var(--highlight-color);
+        cursor: pointer;
     }
 
     nav a img:hover {
@@ -44,16 +45,33 @@ nav img {
     }
 }
 
-/* For small screens, hide the navbar tabs (the menu button will be shown instead) */
-nav .nav-tabs {
+nav .nav-menu-button {
     display: none;
 }
 
-nav .nav-tabs.show {
+nav .nav-tabs {
     display: flex;
-    flex-direction: column;
-    text-align: right;
-    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: baseline;
+    width: auto;
+}
+
+/* For small screens, hide the navbar tabs (the menu button will be shown instead) */
+@media screen and (max-width: 800px) {
+    nav .nav-tabs {
+        display: none;
+    }
+
+    nav .nav-menu-button {
+        display: block;
+    }
+
+    nav .nav-tabs.show {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
 }
 
 nav .nav-heading {
@@ -61,31 +79,6 @@ nav .nav-heading {
     justify-content: space-between;
     flex-wrap: nowrap;
     align-items: center;
-}
-
-nav .nav-menu {
-    cursor: pointer;
-}
-
-/* For large screens, show the full navbar instead of the menu button */
-@media screen and (min-width: 800px) {
-    nav .nav-menu {
-        display: none;
-    }
-
-    nav .nav-tabs {
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        align-items: baseline;
-        width: auto;
-    }
-
-    nav .nav-tabs.show {
-        display: flex;
-        flex-direction: row;
-        width: auto;
-    }
 }
 
 nav h1 {

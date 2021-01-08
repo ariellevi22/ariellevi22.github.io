@@ -69,18 +69,6 @@ const App = () => {
 
 				<section>
 					<h1 id="Education">Education</h1>
-
-					<Card>
-						<h2>University of Nebraska-Lincoln</h2>
-						<p>Lincoln, NE</p>
-						<p>Bachelor of Science in Computer Science, May 2023</p>
-					</Card>
-
-					<Card>
-						<h2>Blue Valley North High School</h2>
-						<p>Overland Park, KS</p>
-						<p>High School Diploma, May 2019</p>
-					</Card>
 				</section>
 
 				<section>

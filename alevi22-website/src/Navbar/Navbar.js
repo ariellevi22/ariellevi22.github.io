@@ -33,7 +33,7 @@ const Navbar = (props) => {
                 <h1><a href="#top">{props.title}</a></h1>
             </div>
 
-            <a className="nav-menu" onClick={() => setMenuState(!menuState)}>
+            <a className="nav-menu-button" onClick={() => setMenuState(!menuState)}>
                 <i className={menuButton}/>
             </a>
 
