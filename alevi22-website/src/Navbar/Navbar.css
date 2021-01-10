@@ -22,6 +22,7 @@ nav a {
     transition: all 0.2s linear 0s;
 }
 
+/* Change the navbar tab color when it is being clicked or tapped */
 nav a:active {
     color: var(--highlight-color);
 }
@@ -33,11 +34,13 @@ nav img {
 }
 
 @media(hover: hover) and (pointer: fine) {
+    /* Change the navbar tab color when it is being hovered over with a mouse */
     nav a:hover {
         color: var(--highlight-color);
         cursor: pointer;
     }
 
+    /* Change the navbar image color when it is being clicked or tapped */
     nav a img:hover {
         /* CSS filter generator: https://codepen.io/sosuke/pen/Pjoqqp */
         filter: invert(98%) sepia(55%) saturate(1682%) hue-rotate(147deg) brightness(98%) contrast(107%);
@@ -45,6 +48,7 @@ nav img {
     }
 }
 
+/* On large screens, do not display the menu button on the navbar */
 nav .nav-menu-button {
     display: none;
 }
@@ -55,15 +59,19 @@ nav .nav-tabs {
     flex-wrap: wrap;
     align-items: baseline;
     width: auto;
+    height: auto;
+    overflow: hidden;
 }
 
 /* For small screens, show the menu button instead of all tabs */
 @media screen and (max-width: 800px) {
     nav .nav-tabs {
-        display: none;
+        height: 0; /* hidden by default */
         flex-direction: column;
+        flex-wrap: nowrap;
         align-items: flex-end; /* right align */
         width: 100%;
+        transition: height 0.4s ease 0s;
     }
 
     nav .nav-menu-button {

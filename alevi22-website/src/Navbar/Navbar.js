@@ -21,16 +21,16 @@ const Navbar = (props) => {
     let menuButton = "fa fa-bars";
     if (menuState) {
         menuButton = "fa fa-close";
-        navTabStyle = {display: "flex"};
+        navTabStyle = {height: "200px"};
     }
 
     return (
         <nav>
             <div className="nav-heading">
                 <a href="#top">
-                    <img src={props.logoSrc} alt="Logo" />
+                    <img src={props.logoSrc} alt="Logo"/>
                 </a>
-                <h1><a href="#top">{props.title}</a></h1>
+                <a href="#top"><h1>{props.title}</h1></a>
             </div>
 
             <a className="nav-menu-button" onClick={() => setMenuState(!menuState)}>
