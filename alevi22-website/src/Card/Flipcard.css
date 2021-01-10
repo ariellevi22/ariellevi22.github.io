@@ -1,0 +1,43 @@
+.flipcard {
+    background-color: transparent;
+    perspective: 1250px;
+}
+
+.flipcard .flipcard-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: transform 0.5s ease 0s, box-shadow 0.5s ease 0s;
+}
+
+@media(hover: hover) and (pointer: fine) {
+    .flipcard:hover .flipcard-inner {
+        transform: scale(1.01);
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        cursor: pointer;
+    }
+}
+
+/* Position the front and back of the card */
+.flipcard .front, .flipcard .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+/* Style the front of the card */
+.flipcard .front {
+    background-color: var(--dark-color);
+    color: var(--light-color);
+}
+
+/* Style the back of the card */
+.flipcard .back {
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    transform: rotateY(180deg);
+}

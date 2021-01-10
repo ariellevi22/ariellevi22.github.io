@@ -3,7 +3,7 @@ import './Footer.css';
 
 /**
  * React component representing the footer of the website, which contains
- * copyright information. The copyright name should be specified as a property,
+ * copyright information. The copyright title should be specified as a property,
  * while the copyright year automatically updates to the current year.
  * 
  * Usage:
@@ -38,7 +38,6 @@ const Footer = (props) => {
             </div>
 
             <p>&copy; {getCurrentYear()} {props.title}</p>
-            <p>Powered by <a href="https://www.reactjs.org" target="_blank" rel="noopener noreferrer">React</a></p>
         </footer>
     );
 }
