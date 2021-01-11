@@ -49,8 +49,8 @@ const App = () => {
 			</Navbar>
 
 			<main>
-				<section>
-					<h1 id="About">About</h1>
+				<section id="About">
+					<h1>About</h1>
 
 					<p>
 						Hi there, I’m Ariel! I am an undergraduate computer science student at the
@@ -69,16 +69,16 @@ const App = () => {
 					</p>
 				</section>
 
-				<section>
-					<h1 id="Experience">Experience</h1>
+				<section id="Experience">
+					<h1>Experience</h1>
 				</section>
 
-				<section>
-					<h1 id="Education">Education</h1>
+				<section id="Education">
+					<h1>Education</h1>
 				</section>
 
-				<section>
-					<h1 id="Projects">Projects</h1>
+				<section id="Projects">
+					<h1>Projects</h1>
 				</section>
 			</main>
 
