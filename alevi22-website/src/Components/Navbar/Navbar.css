@@ -2,7 +2,6 @@
 nav {
     margin: 0px;
     padding: 15px;
-    box-sizing: border-box;
     top: 0px;
     position: sticky;
     z-index: 1;

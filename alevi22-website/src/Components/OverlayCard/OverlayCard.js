@@ -8,6 +8,7 @@ import './OverlayCard.css';
  * ```js
  * <OverlayCard
  *     imgSrc="./path/to/image"
+ *     logoSrc="./path/to/logo"
  *     title="Title Text" subtitle="Subtitle Text"
  *     width="width" height="height" padding="padding"
  * >
@@ -49,6 +50,12 @@ const OverlayCard = (props) => {
         transformStyle = {height: "100%"};
     }
 
+    // Determine if displaying the logo
+    let logoCode = undefined;
+    if (props.logoSrc !== undefined) {
+        logoCode = <img src={props.logoSrc} alt={props.title + " Logo"} className="logo"/>;
+    }
+
     return (
         <div className="overlay-card" style={{width: width, height: height}}
             onClick={() => setDisplayState(!displayState)}
@@ -56,7 +63,7 @@ const OverlayCard = (props) => {
         >
             <div className="card-content">
                 <img src={props.imgSrc} alt={props.title} className="background"/>
-                <img src={props.logoSrc} alt={props.title + " Logo"} className="logo"/>
+                {logoCode}
                 <div className="intro-text" style={{padding: padding}}>
                     <h2>{props.title}</h2>
                     <p>{props.subtitle}</p>

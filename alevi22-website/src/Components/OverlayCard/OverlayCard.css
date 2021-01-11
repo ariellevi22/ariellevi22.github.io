@@ -4,10 +4,6 @@
     transition: all 0.3s ease 0s;
 }
 
-.overlay-card div {
-    box-sizing: border-box;
-}
-
 .overlay-card .card-content {
     background-color: var(--dark-color);
     height: 100%;
