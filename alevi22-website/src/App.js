@@ -3,29 +3,34 @@ import './App.css';
 import logo from './Logo.svg';
 import Navbar from './Navbar/Navbar';
 import Footer from './Footer/Footer';
-import OverlayCard from './OverlayCard/OverlayCard';
 
+// Personal website title
+const NAME = "Ariel Levi"
+
+// Tabs for navbar
+const WEB_TABS = [
+	{label: "About", link: "#About"},
+	{label: "Experience", link: "#Experience"},
+	{label: "Education", link: "#Education"},
+	{label: "Projects", link: "#Projects"},
+];
+
+// Icon tabs for navbar
+const WEB_ICON_TABS = [
+	{icon: "fa fa-linkedin", link: "https://www.linkedin.com/in/ariel-levi/"},
+	{icon: "fa fa-github", link: "https://github.com/alevi22"},
+];
+
+// Social buttons for "about" section and footer
+const SOCIAL_BUTTONS = [
+	...WEB_ICON_TABS,
+	{icon: "fa fa-envelope", link: "mailto:alevi2@huskers.unl.edu"}
+];
+
+/**
+ * React web app for Ariel Levi's personal website.
+ */
 const App = () => {
-	const WEB_TABS = [
-		{label: "About", link: "#About"},
-		{label: "Experience", link: "#Experience"},
-		{label: "Education", link: "#Education"},
-		{label: "Projects", link: "#Projects"},
-	];
-	
-	// Icon reference: https://www.w3schools.com/icons/icons_reference.asp
-	const WEB_ICON_TABS = [
-		{icon: "fa fa-linkedin", link: "https://www.linkedin.com/in/ariel-levi/"},
-		{icon: "fa fa-github", link: "https://github.com/alevi22"},
-	];
-
-	const CONNECT_BUTTONS = [
-		...WEB_ICON_TABS,
-		{icon: "fa fa-envelope", link: "mailto:alevi2@huskers.unl.edu"}
-	]
-
-	const NAME = "Ariel Levi"
-
 	return (
 		<div>
 			<Navbar title={NAME} logoSrc={logo}>
@@ -76,7 +81,7 @@ const App = () => {
 				</section>
 			</main>
 
-			<Footer logoSrc={logo} title={NAME} socialButtons={CONNECT_BUTTONS}/>
+			<Footer logoSrc={logo} title={NAME} socialButtons={SOCIAL_BUTTONS}/>
 		</div>
 	);
 }
