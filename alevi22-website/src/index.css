@@ -4,9 +4,10 @@
     --light-color: white;
     --highlight-color: rgb(120, 255, 255);
     --accent-color: rgb(0, 125, 155);
-    --accent-color-transparent: rgba(0, 125, 155, 0.25);
+    --accent-color-transparent: rgba(0, 125, 155, 0.35);
     --dark-color: rgb(36, 36, 36);
     --background-color: lightcyan;
+    --shadow-color: rgba(0, 0, 0, 0.15);
 }
 
 * {

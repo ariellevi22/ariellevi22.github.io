@@ -3,7 +3,7 @@ import './App.css';
 import logo from './Logo.svg';
 import Navbar from './Navbar/Navbar';
 import Footer from './Footer/Footer';
-import Card from './Card/Card';
+import OverlayCard from './OverlayCard/OverlayCard';
 
 const App = () => {
 	const WEB_TABS = [
@@ -73,14 +73,6 @@ const App = () => {
 
 				<section>
 					<h1 id="Projects">Projects</h1>
-				</section>
-
-				<section>
-					<Card>
-						<h2>Hello</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tristique viverra ex, vel lacinia ante bibendum ut. Nunc vehicula, nibh sit amet elementum tempor, ligula libero sagittis ex, non hendrerit nisl leo et magna. Suspendisse tempor tempus leo, nec interdum urna fermentum vel. Nullam tempus, eros vel consectetur faucibus, mauris metus rhoncus mauris, et tincidunt turpis augue id erat. Sed dictum molestie ipsum, id facilisis sem efficitur eget. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque porttitor ligula ut neque rhoncus, sed rutrum ligula consequat. Nullam id dolor vel ante tempor aliquet. Pellentesque non porta est. Phasellus sagittis orci ut nibh finibus, a suscipit orci feugiat. Donec sed dignissim leo. Nunc porttitor urna odio, pretium iaculis odio mattis id. Sed cursus, orci at sodales suscipit, elit turpis ultrices sapien, sed condimentum ligula neque et ex. Maecenas neque lectus, aliquam vitae velit ac, sodales sagittis nisl.</p>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tristique viverra ex, vel lacinia ante bibendum ut. Nunc vehicula, nibh sit amet elementum tempor, ligula libero sagittis ex, non hendrerit nisl leo et magna.</p>
-					</Card>
 				</section>
 			</main>
 

@@ -1,0 +1,63 @@
+.overlay-card {
+    position: relative;
+    box-shadow: 0 4px 8px 0 var(--shadow-color);
+    transition: all 0.3s ease 0s;
+}
+
+.overlay-card div {
+    box-sizing: border-box;
+}
+
+.overlay-card .card-content {
+    background-color: var(--dark-color);
+    height: 100%;
+    width: 100%;
+}
+
+.overlay-card .card-content .intro-text {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    max-width: 100%;
+    color: var(--light-color);
+    text-shadow: 2px 2px 6px black;
+}
+
+.overlay-card .card-content img.background {
+    display: block;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    filter: brightness(45%);
+}
+
+.overlay-card .card-content img.logo {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    height: 40px;
+}
+
+.overlay-card .card-content img.logo {
+    height: 40px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+
+.overlay-card .overlay {
+    position: absolute;
+    top: 0px;
+    height: 0px;
+    width: 100%;
+    overflow: hidden;
+    transition: height 0.4s ease;
+}
+
+@media(hover: hover) and (pointer: fine) {
+    .overlay-card:hover {
+        box-shadow: 0 8px 16px 0 var(--shadow-color);
+        transform: scale(1.01);
+        cursor: pointer;
+    }
+}

@@ -9,14 +9,14 @@
     height: 100%;
     transform-style: preserve-3d;
     text-align: center;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px 0 var(--shadow-color);
     transition: transform 0.5s ease 0s, box-shadow 0.5s ease 0s;
 }
 
 @media(hover: hover) and (pointer: fine) {
     .flipcard:hover .flipcard-inner {
         transform: scale(1.01);
-        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        box-shadow: 0 8px 16px 0 var(--shadow-color);
         cursor: pointer;
     }
 }

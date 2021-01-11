@@ -1,5 +1,5 @@
 .card {
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px 0 var(--shadow-color);
     transition: all 0.5s ease 0s;
     overflow: hidden;
     min-width: 250px;
@@ -7,7 +7,7 @@
 
 @media(hover: hover) and (pointer: fine) {
     .card:hover {
-        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        box-shadow: 0 8px 16px 0 var(--shadow-color);
         transform: scale(1.01);
     }
 }
