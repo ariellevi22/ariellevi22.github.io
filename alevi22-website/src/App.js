@@ -5,9 +5,11 @@ import './App.css';
 import logo from './Assets/Logo.svg';
 import Navbar from './Components/Navbar/Navbar';
 import Footer from './Components/Footer/Footer';
+import OverlayCard from './Components/OverlayCard/OverlayCard';
 
 // Import data
-import {NAME, NAVBAR_TABS, NAVBAR_ICON_TABS, SOCIAL_BUTTONS} from './Data';
+import {NAME, NAVBAR_TABS, NAVBAR_ICON_TABS, SOCIAL_BUTTONS} from './Data/Data';
+import {EDUCATION} from './Data/EducationData';
 
 /**
  * React web app for Ariel Levi's personal website.
@@ -52,10 +54,26 @@ const App = () => {
 
 				<section id="Experience">
 					<h1>Experience</h1>
+					<button>Test</button>
 				</section>
 
 				<section id="Education">
 					<h1>Education</h1>
+
+					<div className="grid">
+						{EDUCATION.map(education => {
+							return (
+								<OverlayCard
+									imgSrc={education.photo} logoSrc={education.logo}
+									title={education.school}
+									subtitle={[education.location, education.degree].join(" \u2022 ")}
+									width="100%" height="45vh" key={education.id}
+								>
+									{education.content}
+								</OverlayCard>
+							);
+						})}
+					</div>
 				</section>
 
 				<section id="Projects">

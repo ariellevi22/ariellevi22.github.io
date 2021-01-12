@@ -36,7 +36,7 @@ const OverlayCard = (props) => {
     }
 
     // Set the background color of the overlay (either default or user-provided value)
-    let overlayColor = "white";
+    let overlayColor = undefined;
     if (props.overlayColor !== undefined) {
         overlayColor = props.overlayColor;
     }
@@ -73,10 +73,13 @@ const OverlayCard = (props) => {
             <div className="overlay" style={{...transformStyle, backgroundColor: overlayColor}}>
                 <div style={{margin: padding}}>
                     <h2>{props.title}</h2>
+                    <p>{props.subtitle}</p>
 
-                    {props.children}
+                    <div style={{paddingTop: "20px"}}>
+                        {props.children}
+                    </div>
+                    
                 </div>
-                
             </div>
         </div>
     );

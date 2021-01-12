@@ -17,7 +17,7 @@ section h1 {
     font-size: 40px;
     font-weight: 700;
     text-transform: uppercase;
-    padding-bottom: 20px;
+    padding-bottom: 30px;
 }
 
 /* Style heading 2 elements */
@@ -39,13 +39,6 @@ section p:last-child {
     padding-bottom: 0px;
 }
 
-/* On larger screens, justify text instead of left-aligning */
-@media screen and (min-width: 700px) {
-    section p {
-        text-align: justify;
-    }
-}
-
 /* Style all anchor/link elements */
 a {
     color: inherit;
@@ -56,6 +49,28 @@ a {
 @media (hover: hover) and (pointer: fine) {
     section a:hover {
         color: var(--accent-color);
+    }
+}
+
+/* Style grid containers */
+.grid {
+    width: 100%;
+    display: grid;
+    grid: auto / 1fr 1fr 1fr;
+    gap: 10px;
+}
+
+/* Style grid containers on medium screens */
+@media screen and (max-width: 1600px) {
+    .grid {
+        grid: auto / 1fr 1fr;
+    }
+}
+
+/* Style grid containers on small screens */
+@media screen and (max-width: 900px) {
+    .grid {
+        grid: auto / 1fr;
     }
 }
 
@@ -75,14 +90,14 @@ button {
         background-color: var(--accent-color);
         cursor: pointer;
         box-shadow: 0 4px 8px 0 var(--shadow-color);
-        transform: scale(0.95);
+        transform: scale(1.05);
     }
 }
 
 /* Style buttons when they are being clicked on */
 button:active {
     background-color: var(--accent-color);
-    cursor: pointer;
+    transform: scale(0.95);
 }
 
 /* Style default social buttons */
@@ -102,7 +117,6 @@ button.social-button {
 @media (hover: hover) and (pointer: fine) {
     button.social-button:hover {
         background-color: var(--highlight-color);
-        cursor: pointer;
         transform: scale(1.1);
     }
 }
@@ -110,7 +124,7 @@ button.social-button {
 /* Style default social buttons being clicked on */
 button.social-button:active {
     background-color: var(--highlight-color);
-    cursor: pointer;
+    transform: scale(0.95);
 }
 
 /* Style LinkedIn button when hovered over */

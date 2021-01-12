@@ -2,6 +2,7 @@
     position: relative;
     box-shadow: 0 4px 8px 0 var(--shadow-color);
     transition: all 0.3s ease 0s;
+    min-height: 150px;
 }
 
 .overlay-card .card-content {
@@ -28,13 +29,6 @@
 }
 
 .overlay-card .card-content img.logo {
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    height: 40px;
-}
-
-.overlay-card .card-content img.logo {
     height: 40px;
     position: absolute;
     top: 15px;
@@ -46,7 +40,9 @@
     top: 0px;
     height: 0px;
     width: 100%;
-    overflow: hidden;
+    overflow: auto;
+    background-color: var(--dark-color);
+    color: var(--light-color);
     transition: height 0.4s ease;
 }
 
@@ -56,4 +52,8 @@
         transform: scale(1.01);
         cursor: pointer;
     }
+}
+
+.overlay-card:active {
+    transform: scale(0.99);
 }
