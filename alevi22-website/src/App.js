@@ -54,7 +54,6 @@ const App = () => {
 
 				<section id="Experience">
 					<h1>Experience</h1>
-					<button>Test</button>
 				</section>
 
 				<section id="Education">

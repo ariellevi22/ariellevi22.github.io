@@ -46,6 +46,10 @@ nav img {
     }
 }
 
+nav a img:active {
+    transform: scale(0.975);
+}
+
 /* On large screens, do not display the menu button on the navbar */
 nav .nav-menu-button {
     display: none;
