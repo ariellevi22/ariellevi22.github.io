@@ -51,8 +51,7 @@ footer p a:active {
 
 @media(hover: hover) and (pointer: fine) {
     footer .heading:hover a img {
-        /* CSS filter generator: https://codepen.io/sosuke/pen/Pjoqqp */
-        filter: invert(98%) sepia(55%) saturate(1682%) hue-rotate(147deg) brightness(98%) contrast(107%);
+        filter: var(--highlight-filter);
         transform: scale(1.1);
     }
 

@@ -2,7 +2,8 @@
 
 :root {
     --light-color: white;
-    --highlight-color: rgb(120, 255, 255);
+    --highlight-color: rgb(100, 228, 228);
+    --highlight-filter: invert(78%) sepia(91%) saturate(303%) hue-rotate(129deg) brightness(94%) contrast(89%); /* CSS filter generator: https://codepen.io/sosuke/pen/Pjoqqp */
     --accent-color: rgb(0, 125, 155);
     --accent-color-transparent: rgba(0, 125, 155, 0.35);
     --dark-color: rgb(36, 36, 36);

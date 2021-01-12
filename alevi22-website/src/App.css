@@ -140,3 +140,17 @@ button.fa-github:active {
     background-color: lightgray;
     color: #25292E;
 }
+
+/* Style email button when hovered over */
+@media (hover: hover) and (pointer: fine) {
+    button.fa-envelope:hover {
+        background-color: gray;
+        color: white;
+    }
+}
+
+/* Style email button being clicked on */
+button.fa-envelope:active {
+    background-color: gray;
+    color: white;
+}

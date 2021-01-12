@@ -1,31 +1,13 @@
 import React from 'react';
 import './App.css';
+
+// Import assets and components
 import logo from './Assets/Logo.svg';
 import Navbar from './Components/Navbar/Navbar';
 import Footer from './Components/Footer/Footer';
 
-// Personal website title
-const NAME = "Ariel Levi"
-
-// Tabs for navbar
-const WEB_TABS = [
-	{label: "About", link: "#About"},
-	{label: "Experience", link: "#Experience"},
-	{label: "Education", link: "#Education"},
-	{label: "Projects", link: "#Projects"},
-];
-
-// Icon tabs for navbar
-const WEB_ICON_TABS = [
-	{icon: "fa fa-linkedin", link: "https://www.linkedin.com/in/ariel-levi/"},
-	{icon: "fa fa-github", link: "https://github.com/alevi22"},
-];
-
-// Social buttons for "about" section and footer
-const SOCIAL_BUTTONS = [
-	...WEB_ICON_TABS,
-	{icon: "fa fa-envelope", link: "mailto:alevi2@huskers.unl.edu"}
-];
+// Import data
+import {NAME, NAVBAR_TABS, NAVBAR_ICON_TABS, SOCIAL_BUTTONS} from './Data';
 
 /**
  * React web app for Ariel Levi's personal website.
@@ -34,11 +16,11 @@ const App = () => {
 	return (
 		<div>
 			<Navbar title={NAME} logoSrc={logo}>
-				{WEB_TABS.map(tab => {
+				{NAVBAR_TABS.map(tab => {
 					return <a href={tab.link} key={tab.label}>{tab.label}</a>;
 				})}
 
-				{WEB_ICON_TABS.map(tab => {
+				{NAVBAR_ICON_TABS.map(tab => {
 					return (
 						<a href={tab.link} target="_blank" rel="noopener noreferrer" key={tab.icon}>
 							<i className={tab.icon}/>

@@ -41,8 +41,7 @@ nav img {
 
     /* Change the navbar image color when it is being hovered over with a mouse */
     nav a img:hover {
-        /* CSS filter generator: https://codepen.io/sosuke/pen/Pjoqqp */
-        filter: invert(98%) sepia(55%) saturate(1682%) hue-rotate(147deg) brightness(98%) contrast(107%);
+        filter: var(--highlight-filter);
         transform: scale(1.1);
     }
 }
