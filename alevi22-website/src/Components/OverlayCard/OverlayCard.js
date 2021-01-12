@@ -41,7 +41,7 @@ const OverlayCard = (props) => {
         overlayColor = props.overlayColor;
     }
 
-    // Initially, the back of the card is not showing
+    // Initially, the overlay on top of the card is not showing
     const [displayState, setDisplayState] = useState(false);
 
     // Determine if showing the overlay or the base of the card

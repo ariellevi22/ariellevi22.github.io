@@ -3,7 +3,6 @@ import './App.css';
 import logo from './Assets/Logo.svg';
 import Navbar from './Components/Navbar/Navbar';
 import Footer from './Components/Footer/Footer';
-import OverlayCard from './Components/OverlayCard/OverlayCard';
 
 // Personal website title
 const NAME = "Ariel Levi"

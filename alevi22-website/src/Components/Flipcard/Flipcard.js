@@ -14,6 +14,7 @@ import './Flipcard.css';
  * ```
  */
 const Flipcard = (props) => {
+    // Set the width (either default or user-provided value)
     let width;
     if (props.width !== undefined) {
         width = props.width;
@@ -21,6 +22,7 @@ const Flipcard = (props) => {
         width = "100%";
     }
 
+    // Set the height (either default or user-provided value)
     let height;
     if (props.height !== undefined) {
         height = props.height;

@@ -13,6 +13,7 @@ import './Card.css';
  * ```
  */
 const Card = (props) => {
+    // Set the width (either default or user-provided value)
     let width;
     if (props.width !== undefined) {
         width = props.width;
@@ -20,6 +21,7 @@ const Card = (props) => {
         width = "auto";
     }
 
+    // Set the height (either default or user-provided value)
     let height;
     if (props.height !== undefined) {
         height = props.height;
@@ -27,6 +29,7 @@ const Card = (props) => {
         height = "auto";
     }
 
+    // Set the padding (either default or user-provided value)
     let padding;
     if (props.padding !== undefined) {
         padding = props.padding;
@@ -34,11 +37,12 @@ const Card = (props) => {
         padding = "30px";
     }
 
-    let color;
+    // Set the background color (either default or user-provided value)
+    let backgroundColor;
     if (props.color !== undefined) {
-        padding = props.color;
+        backgroundColor = props.backgroundColor;
     } else {
-        color = "white";
+        backgroundColor = "white";
     }
 
     return (
@@ -46,7 +50,7 @@ const Card = (props) => {
             width: width,
             height: height,
             padding: padding,
-            backgroundColor: color,
+            backgroundColor: backgroundColor,
         }}>
             {props.children}
         </div>

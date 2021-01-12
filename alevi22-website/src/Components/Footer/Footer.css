@@ -10,7 +10,7 @@ footer * {
     margin: 0px;
 }
 
-footer .container {
+footer .social-button-container {
     margin: auto;
     display: flex;
     justify-content: space-between;
@@ -19,6 +19,7 @@ footer .container {
     width: 175px;
     max-width: 100%;
     padding: 30px 0px;
+    font-size: 22px;
 }
 
 footer .heading {
@@ -30,24 +31,6 @@ footer img {
     height: 40px;
     filter: invert();
     transition: all 0.2s linear 0s;
-}
-
-footer button {
-    padding: 0px;
-    font-size: 22px;
-    height: 45px;
-    width: 45px;
-    text-align: center;
-    color: var(--dark-color);
-    background-color: var(--light-color);
-    border: none;
-    border-radius: 50%;
-    transition: all 0.2s ease 0s;
-}
-
-footer button:active {
-    background-color: var(--highlight-color);
-    cursor: pointer;
 }
 
 footer h1 {
@@ -74,16 +57,6 @@ footer p a:active {
     }
 
     footer .heading:hover a h1 {
-        color: var(--highlight-color);
-    }
-
-    footer button:hover {
-        background-color: var(--highlight-color);
-        cursor: pointer;
-        transform: scale(1.1);
-    }
-
-    footer p a:hover {
         color: var(--highlight-color);
     }
 }

@@ -6,10 +6,12 @@ main * {
     margin: 0px;
 }
 
+/* Set spacing between sections */
 section {
     padding: 30px 10%;
 }
 
+/* Style heading 1 elements */
 section h1 {
     text-align: center;
     font-size: 40px;
@@ -18,35 +20,48 @@ section h1 {
     padding-bottom: 20px;
 }
 
+/* Style heading 2 elements */
 section h2 {
     font-size: 30px;
     font-weight: 700;
     padding-bottom: 10px;
 }
 
+/* Style paragraphs */
 section p {
     text-align: left;
     font-size: 18px;
     padding-bottom: 10px;
 }
 
+/* Remove spacing from last paragraph in an element */
 section p:last-child {
     padding-bottom: 0px;
 }
 
-@media screen and (min-width: 800px) {
+/* On larger screens, justify text instead of left-aligning */
+@media screen and (min-width: 700px) {
     section p {
         text-align: justify;
     }
 }
 
+/* Style all anchor/link elements */
 a {
     color: inherit;
     transition: all 0.2s linear 0s;
 }
 
-section button {
-    font-size: 16px;
+/* Style links when they are hovered over */
+@media (hover: hover) and (pointer: fine) {
+    section a:hover {
+        color: var(--accent-color);
+    }
+}
+
+/* Style buttons */
+button {
+    font-size: 18px;
     color: var(--light-color);
     background-color: var(--dark-color);
     border: none;
@@ -54,20 +69,74 @@ section button {
     transition: all 0.2s ease 0s;
 }
 
-section button:active {
+/* Style buttons when they are being hovered over */
+@media (hover: hover) and (pointer: fine) {
+    button:hover {
+        background-color: var(--accent-color);
+        cursor: pointer;
+        box-shadow: 0 4px 8px 0 var(--shadow-color);
+        transform: scale(0.95);
+    }
+}
+
+/* Style buttons when they are being clicked on */
+button:active {
     background-color: var(--accent-color);
     cursor: pointer;
 }
 
-@media(hover: hover) and (pointer: fine) {
-    section a:hover {
-        color: var(--accent-color);
-    }
+/* Style default social buttons */
+button.social-button {
+    padding: 0px;
+    height: 45px;
+    width: 45px;
+    text-align: center;
+    color: var(--dark-color);
+    background-color: var(--light-color);
+    border: none;
+    border-radius: 50%;
+    transition: all 0.2s ease 0s;
+}
 
-    section button:hover {
-        background-color: var(--accent-color);
+/* Style default social buttons when hovered over */
+@media (hover: hover) and (pointer: fine) {
+    button.social-button:hover {
+        background-color: var(--highlight-color);
         cursor: pointer;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.15);
         transform: scale(1.1);
     }
+}
+
+/* Style default social buttons being clicked on */
+button.social-button:active {
+    background-color: var(--highlight-color);
+    cursor: pointer;
+}
+
+/* Style LinkedIn button when hovered over */
+@media (hover: hover) and (pointer: fine) {
+    button.fa-linkedin:hover {
+        background-color: #0A66C2;
+        color: white;
+    }
+}
+
+/* Style LinkedIn button being clicked on */
+button.fa-linkedin:active {
+    background-color: #0A66C2;
+    color: white;
+}
+
+/* Style GitHub button when hovered over */
+@media (hover: hover) and (pointer: fine) {
+    button.fa-github:hover {
+        background-color: lightgray;
+        color: #25292E;
+    }
+}
+
+/* Style GitHub button being clicked on */
+button.fa-github:active {
+    background-color: lightgray;
+    color: #25292E;
 }

@@ -39,7 +39,7 @@ nav img {
         cursor: pointer;
     }
 
-    /* Change the navbar image color when it is being clicked or tapped */
+    /* Change the navbar image color when it is being hovered over with a mouse */
     nav a img:hover {
         /* CSS filter generator: https://codepen.io/sosuke/pen/Pjoqqp */
         filter: invert(98%) sepia(55%) saturate(1682%) hue-rotate(147deg) brightness(98%) contrast(107%);
@@ -52,6 +52,7 @@ nav .nav-menu-button {
     display: none;
 }
 
+/* Style the container that holds all navbar tabs */
 nav .nav-tabs {
     display: flex;
     justify-content: space-between;
@@ -78,6 +79,7 @@ nav .nav-tabs {
     }
 }
 
+/* Style the section of the navbar containing the website logo and title */
 nav .nav-heading {
     display: flex;
     justify-content: space-between;
