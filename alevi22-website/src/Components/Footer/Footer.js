@@ -24,12 +24,11 @@ const Footer = (props) => {
                 </a>
             </div>
             
-
             <div className="social-button-container">
-                {props.socialButtons.map(tab => {
+                {props.socialButtons.map(button => {
                     return (
-                        <a href={tab.link} target="_blank" rel="noopener noreferrer" key={tab.icon}>
-                            <button className={["social-button", tab.icon].join(" ")}/>
+                        <a href={button.link} target="_blank" rel="noopener noreferrer" key={button.icon}>
+                            <button className={["social-button", button.icon].join(" ")}/>
                         </a>
                     );
                 })}

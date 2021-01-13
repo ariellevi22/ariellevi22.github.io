@@ -17,7 +17,7 @@ nav {
 /* Base formatting for all navbar tabs */
 nav a {
     text-decoration: none;
-    padding: 5px 15px;
+    padding: 5px 12px;
     transition: all 0.2s linear 0s;
 }
 

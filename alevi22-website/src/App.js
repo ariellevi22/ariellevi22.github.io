@@ -1,11 +1,15 @@
 import React from 'react';
 import './App.css';
 
-// Import assets and components
+// Import assets
 import logo from './Assets/Logo.svg';
+import profilePicture from './Assets/ProfilePicture.jpg';
+
+// Import components
 import Navbar from './Components/Navbar/Navbar';
 import Footer from './Components/Footer/Footer';
 import OverlayCard from './Components/OverlayCard/OverlayCard';
+import HeroHeader from './Components/HeroHeader/HeroHeader';
 
 // Import data
 import {NAME, NAVBAR_TABS, NAVBAR_ICON_TABS, SOCIAL_BUTTONS} from './Data/Data';
@@ -30,6 +34,10 @@ const App = () => {
 					);
 				})}
 			</Navbar>
+
+			<HeroHeader imgSrc={profilePicture} heading={NAME} socialButtons={SOCIAL_BUTTONS}>
+					<p>Computer Science Student at the University of Nebraska-Lincoln’s Raikes School</p>
+			</HeroHeader>
 
 			<main>
 				<section id="About">
