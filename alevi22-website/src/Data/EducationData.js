@@ -7,6 +7,7 @@ import bvnLogo from '../Assets/BVN_Logo.png';
 import bvnPhoto from '../Assets/BVN_Photo.jpg';
 
 export const EDUCATION = [
+	// UNL
 	{
         id: 1,
 		school: "University of Nebraska-Lincoln",
@@ -32,6 +33,8 @@ export const EDUCATION = [
         photo: unlPhoto,
 		logo: unlLogo,
 	},
+	
+	// BVN
 	{
         id: 0,
 		school: "Blue Valley North High School",
