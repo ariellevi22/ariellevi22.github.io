@@ -40,6 +40,7 @@
 /* Style the text container in the hero header */
 .hero-header .hero-container .hero-content {
     display: block;
+    max-width: 700px;
     margin: auto 0px;
     padding: 40px;
     text-align: left;
