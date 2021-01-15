@@ -75,8 +75,9 @@ a {
 button {
     font-size: 18px;
     color: var(--light-color);
-    background-color: var(--dark-color);
+    background-color: var(--accent-color);
     border: none;
+    outline: none;
     padding: 5px 10px;
     box-shadow: 0 4px 8px 0 var(--shadow-color);
     transition: all 0.2s ease 0s;
@@ -85,7 +86,7 @@ button {
 /* Style buttons when they are being hovered over */
 @media (hover: hover) and (pointer: fine) {
     button:hover {
-        background-color: var(--accent-color);
+        background-color: var(--dark-color);
         cursor: pointer;
         box-shadow: 0 6px 12px 0 var(--shadow-color);
         transform: scale(1.05);
@@ -94,7 +95,6 @@ button {
 
 /* Style buttons when they are being clicked on */
 button:active {
-    background-color: var(--accent-color);
     transform: scale(0.95);
 }
 
@@ -104,9 +104,6 @@ button.social-button {
     height: 45px;
     width: 45px;
     text-align: center;
-    color: var(--dark-color);
-    background-color: var(--light-color);
-    border: none;
     border-radius: 50%;
     transition: all 0.2s ease 0s;
 }
@@ -114,14 +111,12 @@ button.social-button {
 /* Style default social buttons when hovered over */
 @media (hover: hover) and (pointer: fine) {
     button.social-button:hover {
-        background-color: var(--highlight-color);
         transform: scale(1.1);
     }
 }
 
 /* Style default social buttons being clicked on */
 button.social-button:active {
-    background-color: var(--highlight-color);
     transform: scale(0.95);
 }
 
@@ -142,14 +137,14 @@ button.fa-linkedin:active {
 /* Style GitHub button when hovered over */
 @media (hover: hover) and (pointer: fine) {
     button.fa-github:hover {
-        background-color: lightgray;
+        background-color: rgb(228, 228, 228);
         color: #25292E;
     }
 }
 
 /* Style GitHub button being clicked on */
 button.fa-github:active {
-    background-color: lightgray;
+    background-color: rgb(228, 228, 228);
     color: #25292E;
 }
 

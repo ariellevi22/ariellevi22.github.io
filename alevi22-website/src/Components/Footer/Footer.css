@@ -52,6 +52,17 @@ footer .heading:active a img {
     transform: scale(0.975);
 }
 
+footer button {
+    color: var(--dark-color);
+    background-color: var(--light-color);
+}
+
+@media(hover: hover) and (pointer: fine) {
+    footer button:hover {
+        background-color: var(--highlight-color);
+    }
+}
+
 footer .social-button-container {
     margin: 30px auto;
 }
