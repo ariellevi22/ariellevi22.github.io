@@ -1,14 +1,8 @@
 /* Set spacing between sections */
 section {
-    padding: 30px 10%;
-}
-
-section:first-child {
-    padding-top: 60px;
-}
-
-section:last-child {
-    padding-bottom: 60px;
+    width: var(--default-app-width);
+    max-width: var(--default-app-max-width);
+    margin: 60px auto;
 }
 
 /* Style heading 1 elements */
@@ -54,7 +48,7 @@ a {
     width: 100%;
     display: grid;
     grid: auto / 1fr 1fr 1fr;
-    gap: 10px;
+    gap: 20px;
 }
 
 /* Style grid containers on medium screens */
