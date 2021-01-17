@@ -33,7 +33,7 @@ const HeroHeader = (props) => {
             <div className="gradient"/>
 
             <div className="hero-container">
-                <div> </div>
+                <div></div>
 
                 <img src={props.imgSrc} alt={props.heading}/>
 

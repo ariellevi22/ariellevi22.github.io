@@ -40,9 +40,9 @@
     top: 0px;
     height: 0px;
     width: 100%;
-    overflow: auto;
-    background-color: var(--dark-color);
-    color: var(--light-color);
+    overflow: hidden;
+    background-color: var(--light-color);
+    color: var(--dark-color);
     transition: height 0.4s ease;
 }
 
@@ -52,8 +52,4 @@
         transform: scale(1.01);
         cursor: pointer;
     }
-}
-
-.overlay-card:active {
-    transform: scale(0.99);
 }

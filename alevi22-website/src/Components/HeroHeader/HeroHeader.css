@@ -24,7 +24,7 @@
     }
 }
 
-/* Style the hero header's container (for the image and text) */
+/* Style the hero header's main container (for the image and text) */
 .hero-header .hero-container {
     width: var(--default-app-width);
     max-width: var(--default-app-max-width);
@@ -41,14 +41,15 @@
 
 /* Style the text container in the hero header */
 .hero-header .hero-container .hero-content {
-    display: block;
-    margin: auto 40px;
+    margin: auto;
+    width: 75%;
     text-align: left;
 }
 
 @media screen and (max-width: 1000px) {
     .hero-header .hero-container .hero-content {
         margin: 40px auto 0px;
+        width: auto;
         text-align: center;
     }
 }
@@ -67,7 +68,7 @@
 @media screen and (max-width: 1000px) {
     .hero-header img {
         height: 250px;
-        margin: 0 auto;
+        margin: 0px auto;
     }
 }
 
