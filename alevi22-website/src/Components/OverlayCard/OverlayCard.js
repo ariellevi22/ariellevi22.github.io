@@ -2,15 +2,17 @@ import React, {useState} from 'react';
 import './OverlayCard.css';
 
 /**
- * React component representing a card.
+ * React component representing a card with an overlay layer that slides
+ * in when clicked.
  * 
  * Usage:
  * ```js
- * <OverlayCard
+ * <OverlayCard>
  *     imgSrc="./path/to/image"
  *     logoSrc="./path/to/logo"
  *     title="Title Text" subtitle="Subtitle Text"
  *     width="width" height="height" padding="padding"
+ *     overlayColor = "color"
  * >
  *     <p>Lorem ipsum dolor sit amet...</p>
  * </OverlayCard>
@@ -73,12 +75,10 @@ const OverlayCard = (props) => {
             <div className="overlay" style={{...transformStyle, backgroundColor: overlayColor}}>
                 <div style={{margin: padding}}>
                     <h2>{props.title}</h2>
-                    <p>{props.subtitle}</p>
+                    <p style={{paddingBottom: "20px"}}>{props.subtitle}</p>
 
-                    <div style={{paddingTop: "20px"}}>
-                        {props.children}
-                    </div>
-                    
+                    {props.children}
+
                 </div>
             </div>
         </div>
