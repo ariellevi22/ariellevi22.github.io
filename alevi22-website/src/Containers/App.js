@@ -1,26 +1,25 @@
 import React from 'react';
-import './App.css';
 
 // Import assets
-import logo from './Assets/Logo.svg';
-import profilePicture from './Assets/ProfilePicture.jpg';
+import logo from '../Assets/Logo.svg';
+import profilePicture from '../Assets/ProfilePicture.jpg';
 
 // Import components
-import Navbar from './Components/Navbar/Navbar';
-import Footer from './Components/Footer/Footer';
-import OverlayCard from './Components/OverlayCard/OverlayCard';
-import HeroHeader from './Components/HeroHeader/HeroHeader';
+import Navbar from '../Components/Navbar/Navbar';
+import Footer from '../Components/Footer/Footer';
+import OverlayCard from '../Components/OverlayCard/OverlayCard';
+import HeroHeader from '../Components/HeroHeader/HeroHeader';
 
 // Import data
-import {NAME, NAVBAR_TABS, NAVBAR_ICON_TABS, SOCIAL_BUTTONS} from './Data/Data';
-import {EDUCATION} from './Data/EducationData';
+import {NAME, NAVBAR_TABS, NAVBAR_ICON_TABS, SOCIAL_BUTTONS} from '../Data/Data';
+import {EDUCATION} from '../Data/EducationData';
 
 /**
  * React web app for Ariel Levi's personal website.
  */
 const App = () => {
 	return (
-		<div>
+		<React.Fragment>
 			<Navbar title={NAME} logoSrc={logo}>
 				{NAVBAR_TABS.map(tab => {
 					return <a href={tab.link} key={tab.label}>{tab.label}</a>;
@@ -89,7 +88,7 @@ const App = () => {
 			</main>
 
 			<Footer logoSrc={logo} title={NAME} socialButtons={SOCIAL_BUTTONS}/>
-		</div>
+		</React.Fragment>
 	);
 }
 
