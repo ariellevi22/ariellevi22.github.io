@@ -7,7 +7,7 @@ import profilePicture from '../Assets/ProfilePicture.jpg';
 // Import components
 import Navbar from '../Components/Navbar/Navbar';
 import Footer from '../Components/Footer/Footer';
-import OverlayCard from '../Components/OverlayCard/OverlayCard';
+import OverlayCard from '../Components/Card/OverlayCard/OverlayCard';
 import HeroHeader from '../Components/HeroHeader/HeroHeader';
 
 // Import data
