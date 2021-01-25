@@ -78,7 +78,6 @@ const OverlayCard = (props) => {
                     <p style={{paddingBottom: "20px"}}>{props.subtitle}</p>
 
                     {props.children}
-
                 </div>
             </div>
         </div>
