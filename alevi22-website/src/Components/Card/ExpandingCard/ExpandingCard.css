@@ -48,10 +48,6 @@
     overflow: hidden;
 }
 
-.expanding-card.expanded {
-    grid-column-end: span 3;
-}
-
 .expanding-card.expanded .header {
     height: 225px;
 }

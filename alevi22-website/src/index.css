@@ -87,10 +87,18 @@ a {
     gap: 20px;
 }
 
+.grid .expanded {
+    grid-column-end: span 3;
+}
+
 /* Style grid containers on medium screens */
 @media screen and (max-width: 1500px) {
     .grid {
         grid: auto / 1fr 1fr;
+    }
+
+    .grid .expanded {
+        grid-column-end: span 2;
     }
 }
 
@@ -98,6 +106,10 @@ a {
 @media screen and (max-width: 900px) {
     .grid {
         grid: auto / 1fr;
+    }
+
+    .grid .expanded {
+        grid-column-end: span 1;
     }
 }
 
