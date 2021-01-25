@@ -1,6 +1,22 @@
 import React, {useState} from 'react';
 import './ExpandingCard.css';
 
+/**
+ * React component representing a card with a header image, logo, and text
+ * that expands to show additional content when clicked.
+ * 
+ * Usage:
+ * ```js
+ * <ExpandingCard>
+ *     imgSrc="./path/to/image"
+ *     logoSrc="./path/to/logo"
+ *     heading="Title Text" subheading="Subtitle Text"
+ *     alt="Image/Logo Title"
+ * >
+ *     <p>Lorem ipsum dolor sit amet...</p>
+ * </ExpandingCard>
+ * ```
+ */
 const ExpandingCard = (props) => {
     // Initially, the expanding card is not expanded
     const [isExpanded, setIsExpanded] = useState(false);

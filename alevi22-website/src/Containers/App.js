@@ -4,16 +4,16 @@ import React from 'react';
 import logo from '../Assets/Logo.svg';
 import profilePicture from '../Assets/ProfilePicture.jpg';
 
+// Import data
+import {NAME, NAVBAR_TABS, NAVBAR_ICON_TABS, SOCIAL_BUTTONS} from '../Data/Data';
+import {EDUCATION} from '../Data/EducationData';
+import {EXPERIENCE} from '../Data/ExperienceData';
+
 // Import components
 import Navbar from '../Components/Navbar/Navbar';
 import Footer from '../Components/Footer/Footer';
 import HeroHeader from '../Components/HeroHeader/HeroHeader';
 import ExpandingCard from '../Components/Card/ExpandingCard/ExpandingCard';
-
-// Import data
-import {NAME, NAVBAR_TABS, NAVBAR_ICON_TABS, SOCIAL_BUTTONS} from '../Data/Data';
-import {EDUCATION} from '../Data/EducationData';
-import {EXPERIENCE} from '../Data/ExperienceData';
 
 /**
  * React web app for Ariel Levi's personal website.

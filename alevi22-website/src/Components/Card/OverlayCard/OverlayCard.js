@@ -10,33 +10,14 @@ import './OverlayCard.css';
  * <OverlayCard>
  *     imgSrc="./path/to/image"
  *     logoSrc="./path/to/logo"
- *     title="Title Text" subtitle="Subtitle Text"
- *     width="width" height="height" padding="padding"
- *     overlayColor = "color"
+ *     heading="Title Text" subheading="Subtitle Text"
+ *     overlayColor="color"
  * >
  *     <p>Lorem ipsum dolor sit amet...</p>
  * </OverlayCard>
  * ```
  */
 const OverlayCard = (props) => {
-    // Set the width (either default or user-provided value)
-    let width = "auto";
-    if (props.width !== undefined) {
-        width = props.width;
-    }
-
-    // Set the height (either default or user-provided value)
-    let height = "auto";
-    if (props.height !== undefined) {
-        height = props.height;
-    }
-
-    // Set the padding (either default or user-provided value)
-    let padding = "30px";
-    if (props.padding !== undefined) {
-        padding = props.padding;
-    }
-
     // Set the background color of the overlay (either default or user-provided value)
     let overlayColor = undefined;
     if (props.overlayColor !== undefined) {
@@ -53,29 +34,29 @@ const OverlayCard = (props) => {
     }
 
     // Determine if displaying the logo
-    let logoCode = undefined;
+    let logo = undefined;
     if (props.logoSrc !== undefined) {
-        logoCode = <img src={props.logoSrc} alt={props.title + " Logo"} className="logo"/>;
+        logo = <img src={props.logoSrc} alt={props.heading + " Logo"} className="logo"/>;
     }
 
     return (
-        <div className="overlay-card" style={{width: width, height: height}}
+        <div className="overlay-card"
             onClick={() => setDisplayState(!displayState)}
             onMouseLeave={() => setDisplayState(false)}
         >
-            <div className="card-content">
-                <img src={props.imgSrc} alt={props.title} className="background"/>
-                {logoCode}
-                <div className="intro-text" style={{padding: padding}}>
-                    <h2>{props.title}</h2>
-                    <p>{props.subtitle}</p>
+            <div className="header">
+                <img src={props.imgSrc} alt={props.heading} className="background"/>
+                {logo}
+                <div className="header-text">
+                    <h2>{props.heading}</h2>
+                    <p>{props.subheading}</p>
                 </div>
             </div>
 
             <div className="overlay" style={{...transformStyle, backgroundColor: overlayColor}}>
-                <div style={{margin: padding}}>
-                    <h2>{props.title}</h2>
-                    <p style={{paddingBottom: "20px"}}>{props.subtitle}</p>
+                <div style={{margin: "30px"}}>
+                    <h2>{props.heading}</h2>
+                    <p style={{paddingBottom: "20px"}}>{props.subheading}</p>
 
                     {props.children}
                 </div>
