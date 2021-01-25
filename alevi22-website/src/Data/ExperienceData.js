@@ -1,3 +1,7 @@
+// Zoom assets
+import zoomLogo from '../Assets/Zoom_Logo.png';
+import zoomPhoto from '../Assets/Zoom_Photo.jpg';
+
 export const EXPERIENCE = [
     // Zoom
     {
@@ -13,7 +17,7 @@ export const EXPERIENCE = [
             "Performed an analysis of Zoom support tickets, documentation, and procedures during the COVID-19 pandemic to present support management with recommendations for future support",
         ],
         companyWebsite: "https://zoom.us",
-        photo: undefined,
-        logo: undefined,
+        photo: zoomPhoto,
+        logo: zoomLogo,
     },
 ]

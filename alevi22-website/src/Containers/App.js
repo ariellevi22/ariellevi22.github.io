@@ -7,12 +7,13 @@ import profilePicture from '../Assets/ProfilePicture.jpg';
 // Import components
 import Navbar from '../Components/Navbar/Navbar';
 import Footer from '../Components/Footer/Footer';
-import OverlayCard from '../Components/Card/OverlayCard/OverlayCard';
 import HeroHeader from '../Components/HeroHeader/HeroHeader';
+import ExpandingCard from '../Components/Card/ExpandingCard/ExpandingCard';
 
 // Import data
 import {NAME, NAVBAR_TABS, NAVBAR_ICON_TABS, SOCIAL_BUTTONS} from '../Data/Data';
 import {EDUCATION} from '../Data/EducationData';
+import {EXPERIENCE} from '../Data/ExperienceData';
 
 /**
  * React web app for Ariel Levi's personal website.
@@ -61,22 +62,46 @@ const App = () => {
 
 				<section id="Experience">
 					<h1>Experience</h1>
+
+					<div className="grid">
+						{EXPERIENCE.map(experience => {
+							return (
+								<ExpandingCard
+									heading={experience.jobTitle}
+									subheading={[experience.companyName, experience.location, experience.timeline].join(" \u2022 ")}
+									imgSrc={experience.photo}
+									logoSrc={experience.logo}
+									alt={experience.companyName}
+									key={experience.id}
+								>
+									<p>{experience.companyDescription}</p>
+
+									<ul>
+										{experience.jobDescription.map((item, index) => {
+											return <li key={index}>{item}</li>
+										})}
+									</ul>
+								</ExpandingCard>
+							)
+						})}
+					</div>
 				</section>
 
 				<section id="Education">
 					<h1>Education</h1>
-
 					<div className="grid">
 						{EDUCATION.map(education => {
 							return (
-								<OverlayCard
-									imgSrc={education.photo} logoSrc={education.logo}
-									title={education.school}
-									subtitle={[education.location, education.degree].join(" \u2022 ")}
-									width="100%" height="45vh" key={education.id}
+								<ExpandingCard
+									heading={education.school}
+									subheading={[education.location, education.degree].join(" \u2022 ")}
+									imgSrc={education.photo}
+									logoSrc={education.logo}
+									alt={education.school}
+									key={education.id}
 								>
 									{education.content}
-								</OverlayCard>
+								</ExpandingCard>
 							);
 						})}
 					</div>
