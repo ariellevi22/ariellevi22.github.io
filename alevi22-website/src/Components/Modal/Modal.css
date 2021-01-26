@@ -12,6 +12,7 @@
     overflow: auto;
     z-index: 1000;
     background-color: var(--light-color);
+    animation: grow 0.3s ease 0s 1 normal;
 }
 
 .modal-background {
@@ -26,6 +27,7 @@
     background-color: black;
     background-color: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(3px);
+    animation: fade 0.25s ease 0s 1 normal;
 }
 
 /* On small screens, make the modal full screen */
@@ -71,17 +73,19 @@
     left: 30px;
 }
 
-.modal .close-button {
+.modal-close-button {
     position: fixed;
     top: 30px;
     right: 30px;
     color: var(--light-color);
     text-shadow: 2px 2px 6px black;
     transition: color 0.3s ease 0s;
+    z-index: 1000;
+    animation: spin 0.25s ease 0s 1 normal;
 }
 
 @media(hover: hover) and (pointer: fine) {
-    .modal .close-button:hover {
+    .modal-close-button:hover {
         color: var(--highlight-color);
         cursor: pointer;
     }

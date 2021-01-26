@@ -40,13 +40,13 @@
 }
 
 /* Style the text container in the hero header */
-.hero-header .hero-container .hero-content {
+.hero-header .hero-content {
     margin: auto;
     text-align: left;
 }
 
 @media screen and (max-width: 1000px) {
-    .hero-header .hero-container .hero-content {
+    .hero-header .hero-content {
         margin: 40px auto 0px;
         text-align: center;
     }

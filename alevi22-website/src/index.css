@@ -130,7 +130,7 @@ button {
     button:hover {
         background-color: var(--dark-color);
         cursor: pointer;
-        box-shadow: 0 6px 12px 0 var(--shadow-color);
+        box-shadow: 0 5px 10px 0 var(--shadow-color);
         transform: scale(1.05);
     }
 }
@@ -212,4 +212,38 @@ button.fa-envelope:active {
     gap: 15px;
     width: 175px;
     max-width: 100%;
+}
+
+/* Fade animation */
+@keyframes fade {
+    from {
+        opacity: 0%;
+    }
+    to {
+        opacity: 100%;
+    }
+}
+
+/* Fade and grow animation */
+@keyframes grow {
+    from {
+        opacity: 0%;
+        transform: scale(0.25);
+    }
+    to {
+        opacity: 100%;
+        transform: scale(1);
+    }
+}
+
+/* Fade and spin animation */
+@keyframes spin {
+    from {
+        opacity: 0%;
+        transform: scale(0.01) rotate(360deg);
+    }
+    to {
+        opacity: 100%;
+        transform: scale(1) rotate(0deg);
+    }
 }

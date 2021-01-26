@@ -23,12 +23,13 @@ const Modal = (props) => {
 
     // Define a function for closing the modal
     let closeModal = () => {
+        // Restore background scrolling
+        document.body.style.overflow = "auto";
+
+        // Run user-defined close modal operations
         if (props.closeModal) {
             props.closeModal();
         }
-
-        // Restore background scrolling when closing the modal
-        document.body.style.overflow = "auto";
     }
 
     let image = undefined;
@@ -52,10 +53,6 @@ const Modal = (props) => {
                         <h2>{props.heading}</h2>
                         <p>{props.subheading}</p>
                     </div>
-
-                    <div className="close-button" onClick={closeModal}>
-                        <i className="fa fa-close"/>
-                    </div>
                 </div>
 
                 <div className="content">
@@ -64,6 +61,10 @@ const Modal = (props) => {
             </div>
 
             <div className="modal-background" onClick={closeModal}/>
+
+            <div className="modal-close-button" onClick={closeModal}>
+                <i className="fa fa-close"/>
+            </div>
         </React.Fragment>
     );
 }
