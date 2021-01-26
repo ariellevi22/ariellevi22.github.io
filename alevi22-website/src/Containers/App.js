@@ -74,7 +74,9 @@ const App = () => {
 									alt={experience.companyName}
 									key={experience.id}
 								>
-									<p>{experience.companyDescription}</p>
+									<p>
+										<b>{experience.companyDescription}</b> <a href={experience.companyWebsite} target="_blank" rel="noopener noreferrer"><i className="fa fa-info-circle"/></a>
+									</p>
 
 									<ul>
 										{experience.jobDescription.map((item, index) => {

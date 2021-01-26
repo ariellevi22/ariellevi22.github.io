@@ -69,7 +69,7 @@ section p:last-child {
 /* Style all anchor/link elements */
 a {
     color: inherit;
-    transition: all 0.2s linear 0s;
+    transition: all 0.2s ease 0s;
 }
 
 /* Style links when they are hovered over */

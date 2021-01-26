@@ -18,7 +18,7 @@ nav {
 nav a {
     text-decoration: none;
     padding: 5px 12px;
-    transition: all 0.2s linear 0s;
+    transition: all 0.3s ease 0s;
 }
 
 /* Change the navbar tab color when it is being clicked or tapped */
@@ -29,7 +29,7 @@ nav a:active {
 nav img {
     height: 40px;
     filter: invert();
-    transition: all 0.2s linear 0s;
+    transition: all 0.3s ease 0s;
 }
 
 @media(hover: hover) and (pointer: fine) {
