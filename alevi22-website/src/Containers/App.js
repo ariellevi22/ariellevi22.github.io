@@ -13,7 +13,7 @@ import {EXPERIENCE} from '../Data/ExperienceData';
 import Navbar from '../Components/Navbar/Navbar';
 import Footer from '../Components/Footer/Footer';
 import HeroHeader from '../Components/HeroHeader/HeroHeader';
-import ExpandingCard from '../Components/Card/ExpandingCard/ExpandingCard';
+import ModalCard from '../Components/Card/ModalCard/ModalCard';
 
 /**
  * React web app for Ariel Levi's personal website.
@@ -66,7 +66,7 @@ const App = () => {
 					<div className="grid">
 						{EXPERIENCE.map(experience => {
 							return (
-								<ExpandingCard
+								<ModalCard
 									heading={experience.jobTitle}
 									subheading={[experience.companyName, experience.location, experience.timeline].join(" \u2022 ")}
 									imgSrc={experience.photo}
@@ -81,7 +81,7 @@ const App = () => {
 											return <li key={index}>{item}</li>
 										})}
 									</ul>
-								</ExpandingCard>
+								</ModalCard>
 							)
 						})}
 					</div>
@@ -92,7 +92,7 @@ const App = () => {
 					<div className="grid">
 						{EDUCATION.map(education => {
 							return (
-								<ExpandingCard
+								<ModalCard
 									heading={education.school}
 									subheading={[education.location, education.degree].join(" \u2022 ")}
 									imgSrc={education.photo}
@@ -101,7 +101,7 @@ const App = () => {
 									key={education.id}
 								>
 									{education.content}
-								</ExpandingCard>
+								</ModalCard>
 							);
 						})}
 					</div>

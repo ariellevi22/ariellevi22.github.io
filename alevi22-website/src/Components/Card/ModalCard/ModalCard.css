@@ -1,23 +1,17 @@
-.expanding-card {
+.modal-card {
     position: relative;
+    height: 400px;
     transition: all 0.3s ease 0s;
 }
 
 @media(hover: hover) and (pointer: fine) {
-    .expanding-card:hover {
+    .modal-card:hover {
         transform: scale(1.01);
         cursor: pointer;
     }
 }
 
-.expanding-card .header {
-    height: 400px;
-    width: 100%;
-    position: relative;
-    transition: all 0.3s ease 0s;
-}
-
-.expanding-card .header-text {
+.modal-card .card-text {
     position: absolute;
     bottom: 0px;
     left: 0px;
@@ -27,7 +21,7 @@
     text-shadow: 2px 2px 6px black;
 }
 
-.expanding-card img.background {
+.modal-card img.background {
     display: block;
     height: 100%;
     width: 100%;
@@ -35,23 +29,15 @@
     filter: brightness(45%);
 }
 
-.expanding-card img.logo {
+.modal-card img.logo {
     height: 40px;
     position: absolute;
     top: 30px;
     left: 30px;
 }
 
-.expanding-card .content {
+.modal-card .content {
     background-color: var(--light-color);
-    max-height: 0;
+    /*max-height: 0;*/
     overflow: hidden;
-}
-
-.expanding-card.expanded .header {
-    height: 225px;
-}
-
-.expanding-card.expanded .content {
-    max-height: 100%;
 }

@@ -1,0 +1,91 @@
+.modal {
+    width: 75vw;
+    max-width: 1000px;
+    height: 80vh;
+    max-height: 750px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    overflow: auto;
+    z-index: 1000;
+    background-color: var(--light-color);
+}
+
+.modal-background {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    background-color: black;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(3px);
+}
+
+/* On small screens, make the modal full screen */
+@media screen and (max-width: 800px) {
+    .modal {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .modal-background {
+        display: none;
+    }
+}
+
+.modal .header {
+    height: 225px;
+    width: 100%;
+    position: relative;
+}
+
+.modal .header-text {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    padding: 30px;
+    max-width: 100%;
+    color: var(--light-color);
+    text-shadow: 2px 2px 6px black;
+}
+
+.modal img.background {
+    display: block;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    filter: brightness(45%);
+}
+
+.modal img.logo {
+    height: 40px;
+    position: absolute;
+    top: 30px;
+    left: 30px;
+}
+
+.modal .close-button {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    color: var(--light-color);
+    transition: color 0.3s ease 0s;
+}
+
+@media(hover: hover) and (pointer: fine) {
+    .modal .close-button:hover {
+        color: var(--highlight-color);
+        cursor: pointer;
+    }
+}
+
+.modal .content {
+    padding: 30px;
+}
