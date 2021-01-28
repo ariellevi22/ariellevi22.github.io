@@ -49,22 +49,21 @@ section:last-child {
 }
 
 /* Style heading 1 elements */
-section h1 {
+h1 {
     font-size: 36px;
     font-weight: 700;
-    text-transform: uppercase;
     margin-bottom: 30px;
 }
 
 /* Style heading 2 elements */
-section h2 {
+h2 {
     font-size: 30px;
     font-weight: 700;
     margin-bottom: 10px;
 }
 
 /* Style paragraphs */
-section p {
+p {
     margin-bottom: 10px;
 }
 
@@ -77,7 +76,7 @@ a {
 
 /* Style links when they are hovered over */
 @media (hover: hover) and (pointer: fine) {
-    section a:hover {
+    a:hover {
         color: var(--accent-color);
     }
 }

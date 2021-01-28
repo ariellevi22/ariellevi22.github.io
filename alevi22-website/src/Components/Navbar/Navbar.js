@@ -25,7 +25,7 @@ const Navbar = (props) => {
      * If the menu is CLOSED, the menu button is shown as three stacked horizontal lines,
      * and the height of the menu remains as its default (0 px)
      */
-    let navTabHeightModifier = undefined;
+    let navTabClasses = ["nav-tabs"];
     let menuButton = "fa fa-bars";
 
     /*
@@ -34,7 +34,7 @@ const Navbar = (props) => {
      */
     if (openMenu) {
         menuButton = "fa fa-close";
-        navTabHeightModifier = {height: "200px"};
+        navTabClasses.push("expanded");
     }
 
     // Display the navigation bar
@@ -51,7 +51,7 @@ const Navbar = (props) => {
                 <i className={menuButton}/>
             </a>
 
-            <div className="nav-tabs" style={navTabHeightModifier} onClick={() => setOpenMenu(false)}>
+            <div className={navTabClasses.join(" ")} onClick={() => setOpenMenu(false)}>
                 {props.children}
             </div>
         </nav>
