@@ -7,7 +7,7 @@ export const EXPERIENCE = [
     {
         id: 0,
         jobTitle: "Technical Support Engineer Intern",
-        companyName: "Zoom Video Communications, Inc.",
+        companyName: "Zoom",
         timeline: "May 2020 \u2013 August 2020",
         location: "Overland Park, KS",
         companyDescription: "Zoom helps organizations bring their teams together with a reliable cloud platform for video conferencing, content sharing, messaging, and phone across all devices.",

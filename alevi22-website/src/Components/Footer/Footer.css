@@ -38,6 +38,10 @@ footer p a:active {
 }
 
 @media(hover: hover) and (pointer: fine) {
+    footer .heading:hover {
+        cursor: pointer;
+    }
+
     footer .heading:hover a img {
         filter: var(--highlight-filter);
         transform: scale(1.1);

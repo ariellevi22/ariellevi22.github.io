@@ -27,7 +27,7 @@ const ModalCard = (props) => {
         image = <img src={props.imgSrc} alt={props.alt} className="background"/>;
     }
 
-    let logo = undefined;
+    let logo = <div/>;
     if (props.logoSrc) {
         logo = <img src={props.logoSrc} alt={props.alt + " Logo"} className="logo"/>;
     }
@@ -37,7 +37,7 @@ const ModalCard = (props) => {
             <div className="modal-card" onClick={setShowModal.bind(true)}>
                 {image}
                 {logo}
-                <div className="card-text">
+                <div>
                     <h2>{props.heading}</h2>
                     <p>{props.subheading}</p>
                 </div>
