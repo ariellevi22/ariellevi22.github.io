@@ -34,11 +34,20 @@ body {
     font-size: 18px;
 }
 
+header {
+    margin-top: 85px;
+}
+
 /* Set spacing between sections */
 section {
     width: var(--default-app-width);
     max-width: var(--default-app-max-width);
-    margin: 60px auto;
+    margin: auto;
+    padding-top: 90px;
+}
+
+section:last-child {
+    padding-bottom: 90px;
 }
 
 /* Style heading 1 elements */
@@ -46,29 +55,25 @@ section h1 {
     font-size: 36px;
     font-weight: 700;
     text-transform: uppercase;
-    padding-bottom: 30px;
+    margin-bottom: 30px;
 }
 
 /* Style heading 2 elements */
 section h2 {
     font-size: 30px;
     font-weight: 700;
-    padding-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 /* Style paragraphs */
 section p {
-    padding-bottom: 10px;
-}
-
-/* Remove spacing from last paragraph in an element */
-section p:last-child {
-    padding-bottom: 0px;
+    margin-bottom: 10px;
 }
 
 /* Style all anchor/link elements */
 a {
     color: inherit;
+    position: relative;
     transition: all 0.2s ease 0s;
 }
 
@@ -80,36 +85,35 @@ a {
 }
 
 /* Style grid containers */
-.grid {
+.grid-2, .grid-3 {
     width: 100%;
-    display: grid;
-    grid: auto / 1fr 1fr 1fr;
+    display: grid; 
     gap: 20px;
 }
 
-.grid .expanded {
-    grid-column-end: span 3;
+.grid-2 {
+    grid: auto / 1fr 1fr;
+}
+
+.grid-3 {
+    grid: auto / 1fr 1fr 1fr;
 }
 
 /* Style grid containers on medium screens */
 @media screen and (max-width: 1500px) {
-    .grid {
+    .grid-3 {
         grid: auto / 1fr 1fr;
-    }
-
-    .grid .expanded {
-        grid-column-end: span 2;
     }
 }
 
 /* Style grid containers on small screens */
 @media screen and (max-width: 900px) {
-    .grid {
+    .grid-2 {
         grid: auto / 1fr;
     }
 
-    .grid .expanded {
-        grid-column-end: span 1;
+    .grid-3 {
+        grid: auto / 1fr;
     }
 }
 
@@ -228,22 +232,10 @@ button.fa-envelope:active {
 @keyframes grow {
     from {
         opacity: 0%;
-        transform: scale(0.25);
+        transform: scale(0.5);
     }
     to {
         opacity: 100%;
         transform: scale(1);
-    }
-}
-
-/* Fade and spin animation */
-@keyframes spin {
-    from {
-        opacity: 0%;
-        transform: scale(0.01) rotate(360deg);
-    }
-    to {
-        opacity: 100%;
-        transform: scale(1) rotate(0deg);
     }
 }

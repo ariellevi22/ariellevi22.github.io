@@ -34,10 +34,12 @@ const App = () => {
 					);
 				})}
 			</Navbar>
-
-			<HeroHeader imgSrc={profilePicture} heading={NAME} socialButtons={SOCIAL_BUTTONS}>
+			
+			<header>
+				<HeroHeader imgSrc={profilePicture} heading={NAME} socialButtons={SOCIAL_BUTTONS}>
 					<p>Computer Science Student at the University of Nebraska-Lincoln’s Raikes School</p>
-			</HeroHeader>
+				</HeroHeader>
+			</header>
 
 			<main>
 				<section id="About">
@@ -63,7 +65,7 @@ const App = () => {
 				<section id="Experience">
 					<h1>Experience</h1>
 
-					<div className="grid">
+					<div className="grid-3">
 						{EXPERIENCE.map(experience => {
 							return (
 								<ModalCard
@@ -91,7 +93,7 @@ const App = () => {
 
 				<section id="Education">
 					<h1>Education</h1>
-					<div className="grid">
+					<div className="grid-2">
 						{EDUCATION.map(education => {
 							return (
 								<ModalCard

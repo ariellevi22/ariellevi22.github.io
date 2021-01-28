@@ -51,7 +51,7 @@ const Navbar = (props) => {
                 <i className={menuButton}/>
             </a>
 
-            <div className="nav-tabs" style={navTabHeightModifier}>
+            <div className="nav-tabs" style={navTabHeightModifier} onClick={() => setOpenMenu(false)}>
                 {props.children}
             </div>
         </nav>
