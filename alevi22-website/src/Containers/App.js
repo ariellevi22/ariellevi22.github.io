@@ -111,8 +111,8 @@ const App = () => {
 					</div>
 				</section>
 
-				<section id="Projects">
-					<h1>Projects</h1>
+				<section id="Portfolio">
+					<h1>Portfolio</h1>
 				</section>
 			</main>
 

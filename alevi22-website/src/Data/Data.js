@@ -10,7 +10,7 @@ export const NAVBAR_TABS = [
 	{label: "About", link: "#About"},
 	{label: "Experience", link: "#Experience"},
 	{label: "Education", link: "#Education"},
-	{label: "Projects", link: "#Projects"},
+	{label: "Portfolio", link: "#Portfolio"},
 ];
 
 /**
