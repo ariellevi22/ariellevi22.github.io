@@ -6,14 +6,13 @@ import profilePicture from '../Assets/ProfilePicture.jpg';
 
 // Import data
 import {NAME, NAVBAR_TABS, NAVBAR_ICON_TABS, SOCIAL_BUTTONS} from '../Data/Data';
-import {EDUCATION} from '../Data/EducationData';
-import {EXPERIENCE} from '../Data/ExperienceData';
 
 // Import components
 import Navbar from '../Components/Navbar/Navbar';
 import Footer from '../Components/Footer/Footer';
 import HeroHeader from '../Components/HeroHeader/HeroHeader';
-import ModalCard from '../Components/Card/ModalCard/ModalCard';
+import Education from './Education';
+import Experience from './Experience';
 
 /**
  * React web app for Ariel Levi's personal website.
@@ -64,51 +63,12 @@ const App = () => {
 
 				<section id="Experience">
 					<h1>Experience</h1>
-
-					<div className="grid-3">
-						{EXPERIENCE.map(experience => {
-							return (
-								<ModalCard
-									heading={experience.jobTitle}
-									subheading={[experience.companyName, experience.location, experience.timeline].join(" \u2022 ")}
-									imgSrc={experience.photo}
-									logoSrc={experience.logo}
-									alt={experience.companyName}
-									key={experience.id}
-								>
-									<p>
-										<b>{experience.companyDescription}</b> <a href={experience.companyWebsite} target="_blank" rel="noopener noreferrer"><i className="fa fa-info-circle"/></a>
-									</p>
-
-									<ul>
-										{experience.jobDescription.map((item, index) => {
-											return <li key={index}>{item}</li>
-										})}
-									</ul>
-								</ModalCard>
-							)
-						})}
-					</div>
+					<Experience/>
 				</section>
 
 				<section id="Education">
 					<h1>Education</h1>
-					<div className="grid-2">
-						{EDUCATION.map(education => {
-							return (
-								<ModalCard
-									heading={education.school}
-									subheading={[education.location, education.degree].join(" \u2022 ")}
-									imgSrc={education.photo}
-									logoSrc={education.logo}
-									alt={education.school}
-									key={education.id}
-								>
-									{education.content}
-								</ModalCard>
-							);
-						})}
-					</div>
+					<Education/>
 				</section>
 
 				<section id="Portfolio">

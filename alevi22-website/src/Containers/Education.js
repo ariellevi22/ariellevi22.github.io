@@ -1,5 +1,8 @@
 import React from 'react';
 
+// Components
+import ModalCard from '../Components/Card/ModalCard/ModalCard';
+
 // UNL assets
 import unlLogo from '../Assets/UNL_Logo.png';
 import unlPhoto from '../Assets/UNL_Photo.jpg';
@@ -8,7 +11,31 @@ import unlPhoto from '../Assets/UNL_Photo.jpg';
 import bvnLogo from '../Assets/BVN_Logo.png';
 import bvnPhoto from '../Assets/BVN_Photo.jpg';
 
-export const EDUCATION = [
+const Education = () => {
+    return (
+        <div className="grid-2">
+            {EDUCATION_DATA.map(education => {
+                return (
+                    <ModalCard
+                        heading={education.school}
+                        subheading={[education.location, education.degree].join(" \u2022 ")}
+                        imgSrc={education.photo}
+                        logoSrc={education.logo}
+                        alt={education.school}
+                        key={education.id}
+                    >
+                        {education.content}
+                    </ModalCard>
+                );
+            })}
+        </div>
+    );
+}
+
+/**
+ * Education data
+ */
+const EDUCATION_DATA = [
 	// UNL
 	{
         id: 1,
@@ -68,3 +95,5 @@ export const EDUCATION = [
         logo: bvnLogo,
 	},
 ];
+
+export default Education;
