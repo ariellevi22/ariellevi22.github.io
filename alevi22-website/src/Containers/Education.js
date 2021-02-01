@@ -9,7 +9,7 @@ import bvnLogo from '../Assets/BVN_Logo.png';
 import bvnPhoto from '../Assets/BVN_Photo.jpg';
 
 // Components
-import ModalCard from '../Components/Card/ModalCard/ModalCard';
+import ModalCard from '../Components/ModalCard/ModalCard';
 
 const Education = () => {
     return (

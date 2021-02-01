@@ -5,7 +5,7 @@ import zoomLogo from '../Assets/Zoom_Logo.png';
 import zoomPhoto from '../Assets/Zoom_Photo.jpg';
 
 // Components
-import ModalCard from '../Components/Card/ModalCard/ModalCard';
+import ModalCard from '../Components/ModalCard/ModalCard';
 
 const Experience = () => {
     return (
