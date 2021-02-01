@@ -7,7 +7,7 @@ import './Navbar.css';
  * 
  * Usage:
  * ```js
- * <Navbar title="Website Title" logoSrc="./link/to/logo">
+ * <Navbar heading="Website Title" logoSrc="./link/to/logo">
  *     <a href="#Home">Home</a>
  *     <a href="#About">About</a>
  *     <a href="#Contact">Contact</a>
@@ -44,14 +44,14 @@ const Navbar = (props) => {
                 <a href="#top">
                     <img src={props.logoSrc} alt="Logo"/>
                 </a>
-                <a href="#top"><h1>{props.title}</h1></a>
+                <a href="#top"><h1>{props.heading}</h1></a>
             </div>
 
-            <a className="nav-menu-button" onClick={() => setOpenMenu(!openMenu)}>
+            <a className="nav-menu-button" onClick={setOpenMenu.bind(!openMenu)}>
                 <i className={menuButton}/>
             </a>
 
-            <div className={navTabClasses.join(" ")} onClick={() => setOpenMenu(false)}>
+            <div className={navTabClasses.join(" ")} onClick={setOpenMenu.bind(false)}>
                 {props.children}
             </div>
         </nav>

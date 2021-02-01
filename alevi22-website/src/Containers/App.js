@@ -20,7 +20,7 @@ import Experience from './Experience';
 const App = () => {
 	return (
 		<React.Fragment>
-			<Navbar title={NAME} logoSrc={logo}>
+			<Navbar heading={NAME} logoSrc={logo}>
 				{NAVBAR_TABS.map(tab => {
 					return <a href={tab.link} key={tab.label}>{tab.label}</a>;
 				})}
