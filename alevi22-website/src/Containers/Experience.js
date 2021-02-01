@@ -1,15 +1,15 @@
 import React from 'react';
 
-// Components
-import ModalCard from '../Components/Card/ModalCard/ModalCard';
-
 // Zoom assets
 import zoomLogo from '../Assets/Zoom_Logo.png';
 import zoomPhoto from '../Assets/Zoom_Photo.jpg';
 
+// Components
+import ModalCard from '../Components/Card/ModalCard/ModalCard';
+
 const Experience = () => {
     return (
-        <div className="grid-3">
+        <div className="grid-3 priority-grid">
             {EXPERIENCE_DATA.map(experience => {
                 return (
                     <ModalCard
@@ -54,6 +54,6 @@ const EXPERIENCE_DATA = [
         photo: zoomPhoto,
         logo: zoomLogo,
     },
-]
+];
 
 export default Experience;

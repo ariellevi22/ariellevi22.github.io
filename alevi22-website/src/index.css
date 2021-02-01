@@ -8,7 +8,7 @@
     --background-color: rgb(200, 235, 235);
     --shadow-color: rgba(0, 0, 0, 0.15);
     --default-app-width: 80%;
-    --default-app-max-width: 1350px;
+    --default-app-max-width: 1250px;
 }
 
 * {
@@ -67,7 +67,7 @@ h2 {
 
 /* Style paragraphs */
 p {
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
 /* Style all anchor/link elements */
@@ -97,6 +97,10 @@ a {
 
 .grid-3 {
     grid: auto / 1fr 1fr 1fr;
+}
+
+.priority-grid :first-child {
+    grid-column: 1 / -1;
 }
 
 /* Style grid containers on medium screens */
@@ -232,10 +236,10 @@ button.fa-envelope:active {
 @keyframes grow {
     from {
         opacity: 0%;
-        transform: scale(0.5);
+        transform: scale(0.7);
     }
     to {
         opacity: 100%;
-        transform: scale(1);
+        transform: none;
     }
 }

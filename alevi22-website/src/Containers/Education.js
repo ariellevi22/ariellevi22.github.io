@@ -1,8 +1,5 @@
 import React from 'react';
 
-// Components
-import ModalCard from '../Components/Card/ModalCard/ModalCard';
-
 // UNL assets
 import unlLogo from '../Assets/UNL_Logo.png';
 import unlPhoto from '../Assets/UNL_Photo.jpg';
@@ -10,6 +7,9 @@ import unlPhoto from '../Assets/UNL_Photo.jpg';
 // BVN assets
 import bvnLogo from '../Assets/BVN_Logo.png';
 import bvnPhoto from '../Assets/BVN_Photo.jpg';
+
+// Components
+import ModalCard from '../Components/Card/ModalCard/ModalCard';
 
 const Education = () => {
     return (
@@ -44,24 +44,33 @@ const EDUCATION_DATA = [
 		degree: "Bachelor of Science in Computer Science",
 		content: (
 			<React.Fragment>
-				<h3>Major</h3>
-				<p>Computer Science</p>
+				<div className="grid-3">
+					<div>
+						<h3>Major</h3>
+						<p>Computer Science</p>
+					</div>
 
-				<h3>Minors</h3>
-				<p>Business and Mathematics</p>
-
-				<h3>Timeline</h3>
-				<p>August 2019 &ndash; May 2023</p>
-
+					<div>
+						<h3>Minors</h3>
+						<p>Business and Mathematics</p>
+					</div>
+					
+					<div>
+						<h3>Timeline</h3>
+						<p>August 2019 &ndash; May 2023</p>
+					</div>
+					
+				</div>
 				<h3>Jeffrey S. Raikes School of Computer Science and Management</h3>
 				<p>
-                    The Raikes School at the University of Nebraska-Lincoln is a selective, 
+                    The <a href="https://raikes.unl.edu" target="_blank" rel="noopener noreferrer">Raikes School</a> at
+					the University of Nebraska-Lincoln is a selective, 
 					interdisciplinary honors program integrating innovative business concepts 
 					into a traditional computer science curriculum, with an emphasis on 
 					practical and real-world experience taught through collaborative projects.
 				</p>
 
-				<h3>Relevant Coursework</h3>
+				<h3>What I Learned</h3>
 				<p>
 					Data Structures (Java), Algorithms (JavaScript),
 					Computer Systems Engineering (C), Unix Programming,
@@ -84,9 +93,9 @@ const EDUCATION_DATA = [
 				<h3>Timeline</h3>
 				<p>August 2015 &ndash; May 2019</p>
 
-				<h3>Relevant Coursework</h3>
+				<h3>What I Learned</h3>
 				<p>
-					Honors Java Programming (Java), Web Design (HTML and CSS),
+					Beginning Programming (Java), Web Design (HTML and CSS),
 					Graphic Design, Computer Graphics/Desktop Publishing
 				</p>
 			</React.Fragment>
