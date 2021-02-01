@@ -8,7 +8,7 @@ import './Footer.css';
  * 
  * Usage:
  * ```js
- * <Footer logoSrc="./link/to/logo" title="Website Title" socialButtons=[button list]/>
+ * <Footer logoSrc="./link/to/logo" heading="Website Title" socialButtons=[button list]/>
  * ```
  */
 const Footer = (props) => {
@@ -19,8 +19,8 @@ const Footer = (props) => {
                     <img src={props.logoSrc} alt="Logo" />
                 </a>
 
-                <a href="#top" style={{textDecoration: "none"}}>
-                    <h1>{props.title}</h1>
+                <a href="#top">
+                    <h1>{props.heading}</h1>
                 </a>
             </div>
             
@@ -28,19 +28,21 @@ const Footer = (props) => {
                 {props.socialButtons.map(button => {
                     return (
                         <a href={button.link} target="_blank" rel="noopener noreferrer" key={button.icon}>
-                            <button className={["social-button", button.icon].join(" ")}/>
+                            <button className={["social-button", button.icon, "alt"].join(" ")}/>
                         </a>
                     );
                 })}
             </div>
 
-            <p>&copy; {getCurrentYear()} {props.title}</p>
+            <p>&copy; {getCurrentYear()} {props.heading}</p>
         </footer>
     );
 }
 
 /**
- * Returns the current year
+ * Gets the current year
+ * 
+ * @returns the current year
  */
 const getCurrentYear = () => {
     const today = new Date();

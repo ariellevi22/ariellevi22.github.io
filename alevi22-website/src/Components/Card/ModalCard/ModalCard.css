@@ -27,11 +27,12 @@
     height: inherit;
     width: inherit;
     object-fit: cover;
-    filter: brightness(45%);
+    filter: brightness(35%);
     z-index: -1;
 }
 
 .modal-card img.logo {
     height: 40px;
     display: block;
+    filter: drop-shadow(2px 2px 6px black);
 }

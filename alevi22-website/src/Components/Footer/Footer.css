@@ -28,6 +28,10 @@ footer h1 {
     transition: all 0.2s ease 0s;
 }
 
+footer a {
+    text-decoration: none;
+}
+
 footer p {
     font-size: 12px;
     text-align: center;

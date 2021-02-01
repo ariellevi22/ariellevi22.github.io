@@ -1,8 +1,8 @@
 .modal {
     width: 75vw;
     max-width: 1000px;
-    height: 80vh;
-    max-height: 750px;
+    height: min-content;
+    max-height: min(750px, 80vh);
     position: fixed;
     top: 0;
     bottom: 0;
@@ -36,6 +36,7 @@
     .modal {
         width: 100vw;
         height: 100vh;
+        max-height: none;
     }
 
     .modal-background {
@@ -70,13 +71,14 @@
     height: inherit;
     width: inherit;
     object-fit: cover;
-    filter: brightness(45%);
+    filter: brightness(35%);
     z-index: -1;
 }
 
 .modal img.logo {
     height: 40px;
     display: block;
+    filter: drop-shadow(2px 2px 6px black);
 }
 
 .modal-close-button {
@@ -99,4 +101,8 @@
 
 .modal .content {
     padding: 30px;
+}
+
+.modal .grid-2, .modal .grid-3 {
+    row-gap: 0;
 }

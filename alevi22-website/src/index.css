@@ -187,14 +187,24 @@ button.fa-linkedin:active {
 /* Style GitHub button when hovered over */
 @media (hover: hover) and (pointer: fine) {
     button.fa-github:hover {
-        background-color: rgb(228, 228, 228);
+        background-color: #25292E;
+        color: white;
+    }
+
+    button.fa-github.alt:hover {
+        background-color: lightgray;
         color: #25292E;
     }
 }
 
 /* Style GitHub button being clicked on */
 button.fa-github:active {
-    background-color: rgb(228, 228, 228);
+    background-color: #25292E;
+    color: white;
+}
+
+button.fa-github.alt:hover {
+    background-color: lightgray;
     color: #25292E;
 }
 

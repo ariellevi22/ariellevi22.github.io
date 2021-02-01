@@ -76,7 +76,7 @@ const App = () => {
 				</section>
 			</main>
 
-			<Footer logoSrc={logo} title={NAME} socialButtons={SOCIAL_BUTTONS}/>
+			<Footer logoSrc={logo} heading={NAME} socialButtons={SOCIAL_BUTTONS}/>
 		</React.Fragment>
 	);
 }
