@@ -1,12 +1,12 @@
 import React from 'react';
 
 // UNL assets
-import unlLogo from '../Assets/UNL_Logo.png';
-import unlPhoto from '../Assets/UNL_Photo.jpg';
+import unlLogo from '../Assets/UNL/UNL_Logo.png';
+import unlPhoto from '../Assets/UNL/UNL_Photo.jpg';
 
 // BVN assets
-import bvnLogo from '../Assets/BVN_Logo.png';
-import bvnPhoto from '../Assets/BVN_Photo.jpg';
+import bvnLogo from '../Assets/BVN/BVN_Logo.png';
+import bvnPhoto from '../Assets/BVN/BVN_Photo.jpg';
 
 // Components
 import ModalCard from '../Components/ModalCard/ModalCard';

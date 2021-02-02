@@ -41,17 +41,17 @@ const Navbar = (props) => {
     return (
         <nav>
             <div className="nav-heading">
-                <a href="#top">
+                <a href="#top" onClick={() => setOpenMenu(false)}>
                     <img src={props.logoSrc} alt="Logo"/>
                 </a>
-                <a href="#top"><h1>{props.heading}</h1></a>
+                <a href="#top" onClick={() => setOpenMenu(false)}><h1>{props.heading}</h1></a>
             </div>
 
-            <a className="nav-menu-button" onClick={setOpenMenu.bind(!openMenu)}>
+            <a className="nav-menu-button" onClick={() => setOpenMenu(!openMenu)}>
                 <i className={menuButton}/>
             </a>
 
-            <div className={navTabClasses.join(" ")} onClick={setOpenMenu.bind(false)}>
+            <div className={navTabClasses.join(" ")} onClick={() => setOpenMenu(false)}>
                 {props.children}
             </div>
         </nav>

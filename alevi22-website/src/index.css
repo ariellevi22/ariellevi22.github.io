@@ -1,11 +1,12 @@
 :root {
     --light-color: white;
     --highlight-color: rgb(100, 228, 228);
-    --highlight-filter: invert(78%) sepia(91%) saturate(303%) hue-rotate(129deg) brightness(94%) contrast(89%); /* CSS filter generator: https://codepen.io/sosuke/pen/Pjoqqp */
+    --highlight-filter: invert(22%) sepia(91%) saturate(303%) hue-rotate(129deg) brightness(94%) contrast(89%); /* filter to change a white logo image to the highlight color */
     --accent-color: rgb(0, 125, 155);
     --accent-color-transparent: rgba(0, 125, 155, 0.35);
     --dark-color: rgb(36, 36, 36);
-    --background-color: rgb(200, 235, 235);
+    --background-color: rgb(190, 230, 230);
+    --background-color-secondary: rgb(166, 222, 222);
     --shadow-color: rgba(0, 0, 0, 0.15);
     --default-app-width: 80%;
     --default-app-max-width: 1250px;
@@ -32,6 +33,7 @@ body {
     overflow-y: scroll;
     padding: 0;
     background-color: var(--background-color);
+    color: var(--dark-color);
     font-size: 18px;
 }
 

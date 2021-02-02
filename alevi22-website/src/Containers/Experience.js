@@ -1,8 +1,8 @@
 import React from 'react';
 
 // Zoom assets
-import zoomLogo from '../Assets/Zoom_Logo.png';
-import zoomPhoto from '../Assets/Zoom_Photo.jpg';
+import zoomLogo from '../Assets/Zoom/Zoom_Logo.png';
+import zoomPhoto from '../Assets/Zoom/Zoom_Photo.jpg';
 
 // Components
 import ModalCard from '../Components/ModalCard/ModalCard';

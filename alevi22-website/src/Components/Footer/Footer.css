@@ -17,7 +17,6 @@ footer .heading {
 
 footer img {
     height: 40px;
-    filter: invert();
     transition: all 0.2s linear 0s;
 }
 

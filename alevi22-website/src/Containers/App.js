@@ -4,9 +4,6 @@ import React from 'react';
 import logo from '../Assets/Logo.svg';
 import profilePicture from '../Assets/ProfilePicture.jpg';
 
-// Import data
-import {NAME, NAVBAR_TABS, NAVBAR_ICON_TABS, SOCIAL_BUTTONS} from '../Data/Data';
-
 // Import components
 import Navbar from '../Components/Navbar/Navbar';
 import Footer from '../Components/Footer/Footer';
@@ -25,10 +22,10 @@ const App = () => {
 					return <a href={tab.link} key={tab.label}>{tab.label}</a>;
 				})}
 
-				{NAVBAR_ICON_TABS.map(tab => {
+				{SOCIAL_BUTTONS.slice(0, SOCIAL_BUTTONS.length - 1).map(button => {
 					return (
-						<a href={tab.link} target="_blank" rel="noopener noreferrer" key={tab.icon}>
-							<i className={tab.icon}/>
+						<a href={button.link} target="_blank" rel="noopener noreferrer" key={button.icon}>
+							<i className={button.icon}/>
 						</a>
 					);
 				})}
@@ -80,5 +77,29 @@ const App = () => {
 		</React.Fragment>
 	);
 }
+
+/**
+ * Personal website title
+ */
+const NAME = "Ariel Levi"
+
+/**
+ * Navigation bar tabs' labels and links
+ */
+const NAVBAR_TABS = [
+	{label: "About", link: "#About"},
+	{label: "Experience", link: "#Experience"},
+	{label: "Education", link: "#Education"},
+	{label: "Portfolio", link: "#Portfolio"},
+];
+
+/**
+ * Social button icons and links
+ */
+const SOCIAL_BUTTONS = [
+	{icon: "fa fa-linkedin", link: "https://www.linkedin.com/in/ariel-levi/"},
+	{icon: "fa fa-github", link: "https://github.com/alevi22"},
+	{icon: "fa fa-envelope", link: "mailto:alevi2@huskers.unl.edu"},
+];
 
 export default App;
