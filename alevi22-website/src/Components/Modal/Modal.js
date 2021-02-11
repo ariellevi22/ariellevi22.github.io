@@ -63,7 +63,7 @@ const Modal = (props) => {
             <div className="modal-background" onClick={closeModal}/>
 
             <div className="modal-close-button" onClick={closeModal}>
-                <i className="fa fa-close"/>
+                <i className="fas fa-times"/>
             </div>
         </React.Fragment>
     );

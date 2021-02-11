@@ -97,9 +97,9 @@ const NAVBAR_TABS = [
  * Social button icons and links
  */
 const SOCIAL_BUTTONS = [
-	{icon: "fa fa-linkedin", link: "https://www.linkedin.com/in/ariel-levi/"},
-	{icon: "fa fa-github", link: "https://github.com/alevi22"},
-	{icon: "fa fa-envelope", link: "mailto:alevi2@huskers.unl.edu"},
+	{icon: "fab fa-linkedin-in", link: "https://www.linkedin.com/in/ariel-levi/"},
+	{icon: "fab fa-github", link: "https://github.com/alevi22"},
+	{icon: "fas fa-envelope", link: "mailto:alevi2@huskers.unl.edu"},
 ];
 
 export default App;

@@ -173,14 +173,14 @@ button.social-button:active {
 
 /* Style LinkedIn button when hovered over */
 @media (hover: hover) and (pointer: fine) {
-    button.fa-linkedin:hover {
+    button.fa-linkedin-in:hover {
         background-color: #0A66C2;
         color: white;
     }
 }
 
 /* Style LinkedIn button being clicked on */
-button.fa-linkedin:active {
+button.fa-linkedin-in:active {
     background-color: #0A66C2;
     color: white;
 }
