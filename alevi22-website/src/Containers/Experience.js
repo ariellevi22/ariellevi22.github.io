@@ -21,7 +21,7 @@ const Experience = () => {
                         key={experience.id}
                     >
                         <p>
-                            <b>{experience.companyDescription}</b> <a href={experience.companyWebsite} target="_blank" rel="noopener noreferrer"><i className="fa fa-info-circle"/></a>
+                            <b>{experience.companyDescription}</b> <a href={experience.companyWebsite} target="_blank" rel="noopener noreferrer"><i className="fas fa-info-circle"/></a>
                         </p>
 
                         <ul>
