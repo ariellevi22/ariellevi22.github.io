@@ -1,12 +1,11 @@
 /* Base formatting for the navigation bar */
 nav {
-    margin: 0px;
-    padding: 15px;
+    padding: 15px 30px;
     top: 0px;
-    width: 100%;
+    width: 100vw;
     min-height: 85px;
     position: fixed;
-    z-index: 1;
+    z-index: 10;
     background-color: var(--dark-color);
     color: var(--light-color);
     display: flex;

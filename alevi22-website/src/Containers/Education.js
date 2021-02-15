@@ -72,8 +72,8 @@ const EDUCATION_DATA = [
 
 				<h3>What I Learned</h3>
 				<p>
-					Data Structures (Java), Algorithms (JavaScript),
-					Computer Systems Engineering (C), Unix Programming,
+					Software Engineering, Data Structures (Java),
+					Algorithms (JavaScript), Computer Systems Engineering (C), Unix Programming,
 					Statistics (R and Python), Innovation Processes (Design Thinking)
 				</p>
 			</React.Fragment>
