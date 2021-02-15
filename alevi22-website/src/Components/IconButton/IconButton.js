@@ -24,7 +24,7 @@ const IconButton = (props) => {
     return (
         <a href={props.href} target="_blank" rel="noopener noreferrer">
             <button className={buttonClasses.join(" ")}>
-                <FontAwesomeIcon icon={[props.iconPrefix, props.icon]}/>
+                <FontAwesomeIcon icon={[props.iconPrefix, props.icon]} fixedWidth/>
             </button>
         </a>
     );

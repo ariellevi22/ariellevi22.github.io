@@ -35,7 +35,7 @@ const App = () => {
 				{SOCIAL_BUTTONS.slice(0, SOCIAL_BUTTONS.length - 1).map(button => {
 					return (
 						<a href={button.link} target="_blank" rel="noopener noreferrer" key={button.icon}>
-							<FontAwesomeIcon icon={[button.prefix, button.icon]}/>
+							<FontAwesomeIcon icon={[button.prefix, button.icon]} fixedWidth/>
 						</a>
 					);
 				})}
