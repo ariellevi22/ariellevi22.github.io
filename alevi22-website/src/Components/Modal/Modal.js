@@ -1,5 +1,6 @@
 import React from 'react';
 import './Modal.css';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 /**
  * React component representing a modal box with a header image, logo, heading, and subheading.
@@ -63,7 +64,7 @@ const Modal = (props) => {
             <div className="modal-background" onClick={closeModal}/>
 
             <div className="modal-close-button" onClick={closeModal}>
-                <i className="fas fa-times"/>
+                <FontAwesomeIcon icon="times" title="Close"/>
             </div>
         </React.Fragment>
     );

@@ -1,5 +1,6 @@
 import React from 'react';
 import './Footer.css';
+import IconButton from '../IconButton/IconButton';
 
 /**
  * React component representing the footer of the website, which contains
@@ -27,9 +28,10 @@ const Footer = (props) => {
             <div className="social-button-container">
                 {props.socialButtons.map(button => {
                     return (
-                        <a href={button.link} target="_blank" rel="noopener noreferrer" key={button.icon}>
-                            <button className={["social-button", button.icon, "alt"].join(" ")}/>
-                        </a>
+                        <IconButton icon={button.icon} iconPrefix={button.prefix}
+                            href={button.link} alt={true}
+                            key={[button.prefix, button.icon].join(" ")}
+                        />
                     );
                 })}
             </div>

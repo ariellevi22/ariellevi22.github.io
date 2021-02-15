@@ -6,6 +6,7 @@ import zoomPhoto from '../Assets/Zoom/Zoom_Photo.jpg';
 
 // Components
 import ModalCard from '../Components/ModalCard/ModalCard';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 const Experience = () => {
     return (
@@ -21,7 +22,9 @@ const Experience = () => {
                         key={experience.id}
                     >
                         <p>
-                            <b>{experience.companyDescription}</b> <a href={experience.companyWebsite} target="_blank" rel="noopener noreferrer"><i className="fas fa-info-circle"/></a>
+                            <b>{experience.companyDescription}</b> <a href={experience.companyWebsite} target="_blank" rel="noopener noreferrer">
+                                <FontAwesomeIcon icon="info-circle"/>
+                            </a>
                         </p>
 
                         <ul>

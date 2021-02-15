@@ -11,6 +11,16 @@ import HeroHeader from '../Components/HeroHeader/HeroHeader';
 import Education from './Education';
 import Experience from './Experience';
 
+/* Import icons and make available to all files of the app
+ * 
+ * Reference: https://fontawesome.com/how-to-use/on-the-web/using-with/react
+ */
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {library} from '@fortawesome/fontawesome-svg-core';
+import {fas} from '@fortawesome/free-solid-svg-icons';
+import {fab} from '@fortawesome/free-brands-svg-icons';
+library.add(fas, fab);
+
 /**
  * React web app for Ariel Levi's personal website.
  */
@@ -25,7 +35,7 @@ const App = () => {
 				{SOCIAL_BUTTONS.slice(0, SOCIAL_BUTTONS.length - 1).map(button => {
 					return (
 						<a href={button.link} target="_blank" rel="noopener noreferrer" key={button.icon}>
-							<i className={button.icon}/>
+							<FontAwesomeIcon icon={[button.prefix, button.icon]}/>
 						</a>
 					);
 				})}
@@ -97,9 +107,9 @@ const NAVBAR_TABS = [
  * Social button icons and links
  */
 const SOCIAL_BUTTONS = [
-	{icon: "fab fa-linkedin-in", link: "https://www.linkedin.com/in/ariel-levi/"},
-	{icon: "fab fa-github", link: "https://github.com/alevi22"},
-	{icon: "fas fa-envelope", link: "mailto:alevi2@huskers.unl.edu"},
+	{icon: "linkedin-in", prefix: "fab", link: "https://www.linkedin.com/in/ariel-levi/"},
+	{icon: "github", prefix: "fab", link: "https://github.com/alevi22"},
+	{icon: "envelope", prefix: "fas", link: "mailto:alevi2@huskers.unl.edu"},
 ];
 
 export default App;

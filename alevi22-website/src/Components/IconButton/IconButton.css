@@ -1,0 +1,83 @@
+/* Style default social buttons */
+button.social-button {
+    padding: 0px;
+    height: 45px;
+    width: 45px;
+    text-align: center;
+    border-radius: 50%;
+    transition: all 0.2s ease 0s;
+}
+
+/* Style default social buttons when hovered over */
+@media (hover: hover) and (pointer: fine) {
+    button.social-button:hover {
+        transform: scale(1.1);
+    }
+}
+
+/* Style default social buttons being clicked on */
+button.social-button:active {
+    transform: scale(0.95);
+}
+
+/* Style LinkedIn button when hovered over */
+@media (hover: hover) and (pointer: fine) {
+    button.linkedin-in:hover {
+        background-color: #0A66C2;
+        color: white;
+    }
+}
+
+/* Style LinkedIn button being clicked on */
+button.linkedin-in:active {
+    background-color: #0A66C2;
+    color: white;
+}
+
+/* Style GitHub button when hovered over */
+@media (hover: hover) and (pointer: fine) {
+    button.github:hover {
+        background-color: #25292E;
+        color: white;
+    }
+
+    button.github.alt:hover {
+        background-color: lightgray;
+        color: #25292E;
+    }
+}
+
+/* Style GitHub button being clicked on */
+button.github:active {
+    background-color: #25292E;
+    color: white;
+}
+
+button.fa-github.alt:hover {
+    background-color: lightgray;
+    color: #25292E;
+}
+
+/* Style email button when hovered over */
+@media (hover: hover) and (pointer: fine) {
+    button.envelope:hover {
+        background-color: gray;
+        color: white;
+    }
+}
+
+/* Style email button being clicked on */
+button.envelope:active {
+    background-color: gray;
+    color: white;
+}
+
+/* Style a container for social buttons */
+.social-button-container {
+    font-size: 22px;
+    display: grid;
+    grid: auto / 1fr 1fr 1fr;
+    gap: 15px;
+    width: 175px;
+    max-width: 100%;
+}

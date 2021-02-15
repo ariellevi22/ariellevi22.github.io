@@ -1,5 +1,6 @@
 import React from 'react';
 import './HeroHeader.css';
+import IconButton from '../IconButton/IconButton';
 
 /**
  * React component representing the hero header of the website, which contains
@@ -19,9 +20,9 @@ const HeroHeader = (props) => {
             <div className="social-button-container">
                 {props.socialButtons.map(button => {
                     return (
-                        <a href={button.link} target="_blank" rel="noopener noreferrer" key={button.icon}>
-                            <button className={["social-button", button.icon].join(" ")}/>
-                        </a>
+                        <IconButton icon={button.icon} iconPrefix={button.prefix}
+                            href={button.link} key={[button.prefix, button.icon].join(" ")}
+                        />
                     );
                 })}
             </div>
