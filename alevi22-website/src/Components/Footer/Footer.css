@@ -15,16 +15,11 @@ footer .heading {
     width: 175px;
 }
 
-footer img {
-    height: 40px;
-    transition: all 0.2s linear 0s;
-}
-
 footer h1 {
     font-size: 26px;
     font-weight: normal;
     text-align: center;
-    transition: all 0.2s ease 0s;
+    transition: all 0.3s ease 0s;
 }
 
 footer a {
@@ -36,38 +31,24 @@ footer p {
     text-align: center;
 }
 
-footer p a:active {
-    color: var(--highlight-color);
-}
-
 @media(hover: hover) and (pointer: fine) {
     footer .heading:hover {
         cursor: pointer;
     }
 
-    footer .heading:hover a img {
-        filter: var(--highlight-filter);
-        transform: scale(1.1);
-    }
-
     footer .heading:hover a h1 {
         color: var(--highlight-color);
     }
-}
 
-footer .heading:active a img {
-    transform: scale(0.975);
+    footer .heading:hover a .app-logo {
+        color: var(--highlight-color);
+        transform: scale(1.1);
+    }
 }
 
 footer button {
     color: var(--dark-color);
     background-color: var(--light-color);
-}
-
-@media(hover: hover) and (pointer: fine) {
-    footer button:hover {
-        background-color: var(--highlight-color);
-    }
 }
 
 footer .social-button-container {

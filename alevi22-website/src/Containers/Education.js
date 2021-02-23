@@ -11,6 +11,9 @@ import bvnPhoto from '../Assets/BVN/BVN_Photo.jpg';
 // Components
 import ModalCard from '../Components/ModalCard/ModalCard';
 
+/**
+ * React container for "Education" section elements and data.
+ */
 const Education = () => {
     return (
         <div className="grid-2">

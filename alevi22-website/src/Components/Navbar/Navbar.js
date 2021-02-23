@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import Logo from '../Logo/Logo';
 import './Navbar.css';
 
 /**
@@ -40,11 +41,12 @@ const Navbar = (props) => {
     // Display the navigation bar
     return (
         <nav>
-            <div className="nav-heading">
-                <a href="#top" onClick={() => setOpenMenu(false)}>
-                    <img src={props.logoSrc} alt="Logo"/>
+            <div className="nav-heading" onClick={() => setOpenMenu(false)}>
+                <Logo href="#top"/>
+
+                <a href="#top">
+                    <h1>{props.heading}</h1>
                 </a>
-                <a href="#top" onClick={() => setOpenMenu(false)}><h1>{props.heading}</h1></a>
             </div>
 
             <a className="nav-menu-button" onClick={() => setOpenMenu(!openMenu)}>

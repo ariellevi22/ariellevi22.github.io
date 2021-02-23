@@ -27,27 +27,12 @@ nav a:active {
     color: var(--highlight-color);
 }
 
-nav img {
-    height: 40px;
-    transition: all 0.3s ease 0s;
-}
-
 @media(hover: hover) and (pointer: fine) {
     /* Change the navbar tab color when it is being hovered over with a mouse */
     nav a:hover {
         color: var(--highlight-color);
         cursor: pointer;
     }
-
-    /* Change the navbar image color when it is being hovered over with a mouse */
-    nav a img:hover {
-        filter: var(--highlight-filter);
-        transform: scale(1.1);
-    }
-}
-
-nav a img:active {
-    transform: scale(0.975);
 }
 
 /* On large screens, do not display the menu button on the navbar */

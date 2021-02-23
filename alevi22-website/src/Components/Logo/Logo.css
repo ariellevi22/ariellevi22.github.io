@@ -1,0 +1,16 @@
+svg.app-logo {
+    height: 40px;
+    color: var(--light-color);
+    transition: all 0.3s ease 0s;
+}
+
+@media(hover: hover) and (pointer: fine) {
+    a:hover svg.app-logo {
+        color: var(--highlight-color);
+        transform: scale(1.1);
+    }
+}
+
+a:active svg.app-logo {
+    transform: scale(0.975);
+}

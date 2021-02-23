@@ -1,6 +1,7 @@
 import React from 'react';
 import './Footer.css';
 import IconButton from '../IconButton/IconButton';
+import Logo from '../Logo/Logo';
 
 /**
  * React component representing the footer of the website, which contains
@@ -9,16 +10,14 @@ import IconButton from '../IconButton/IconButton';
  * 
  * Usage:
  * ```js
- * <Footer logoSrc="./link/to/logo" heading="Website Title" socialButtons=[button list]/>
+ * <Footer heading="Website Title" socialButtons=[button list]/>
  * ```
  */
 const Footer = (props) => {
     return (
         <footer>
             <div className="heading">
-                <a href="#top">
-                    <img src={props.logoSrc} alt="Logo" />
-                </a>
+                <Logo href="#top"/>
 
                 <a href="#top">
                     <h1>{props.heading}</h1>

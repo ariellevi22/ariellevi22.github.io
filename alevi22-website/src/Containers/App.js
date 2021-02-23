@@ -1,7 +1,6 @@
 import React from 'react';
 
 // Import assets
-import logo from '../Assets/Logo.svg';
 import profilePicture from '../Assets/ProfilePicture.jpg';
 
 // Import components
@@ -27,7 +26,7 @@ library.add(fas, fab);
 const App = () => {
 	return (
 		<React.Fragment>
-			<Navbar heading={NAME} logoSrc={logo}>
+			<Navbar heading={NAME}>
 				{NAVBAR_TABS.map(tab => {
 					return <a href={tab.link} key={tab.label}>{tab.label}</a>;
 				})}
@@ -83,7 +82,7 @@ const App = () => {
 				</section>
 			</main>
 
-			<Footer logoSrc={logo} heading={NAME} socialButtons={SOCIAL_BUTTONS}/>
+			<Footer heading={NAME} socialButtons={SOCIAL_BUTTONS}/>
 		</React.Fragment>
 	);
 }

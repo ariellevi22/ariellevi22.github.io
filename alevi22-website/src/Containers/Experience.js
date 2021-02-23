@@ -8,6 +8,9 @@ import zoomPhoto from '../Assets/Zoom/Zoom_Photo.jpg';
 import ModalCard from '../Components/ModalCard/ModalCard';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
+/**
+ * React container for "Experience" section elements and data.
+ */
 const Experience = () => {
     return (
         <div className="grid-3 priority-grid">
