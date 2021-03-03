@@ -1,3 +1,4 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, {useState} from 'react';
 import Logo from '../Logo/Logo';
 import './Navbar.css';
@@ -27,14 +28,14 @@ const Navbar = (props) => {
      * and the height of the menu remains as its default (0 px)
      */
     let navTabClasses = ["nav-tabs"];
-    let menuButton = "fa fa-bars";
+    let menuButton = "bars";
 
     /*
      * If the menu is OPEN, the menu button is shown as an X (to close the menu),
      * and the height of the menu is modified to fit all navigation tabs
      */
     if (openMenu) {
-        menuButton = "fa fa-close";
+        menuButton = "times";
         navTabClasses.push("expanded");
     }
 
@@ -50,7 +51,7 @@ const Navbar = (props) => {
             </div>
 
             <a className="nav-menu-button" onClick={() => setOpenMenu(!openMenu)}>
-                <i className={menuButton}/>
+                <FontAwesomeIcon icon={["fas", menuButton]} />
             </a>
 
             <div className={navTabClasses.join(" ")} onClick={() => setOpenMenu(false)}>

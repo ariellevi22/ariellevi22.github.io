@@ -13,32 +13,36 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
  */
 const Experience = () => {
     return (
-        <div className="grid-3 priority-grid">
-            {EXPERIENCE_DATA.map(experience => {
-                return (
-                    <ModalCard
-                        heading={experience.jobTitle}
-                        subheading={[experience.companyName, experience.location, experience.timeline].join(" \u2022 ")}
-                        imgSrc={experience.photo}
-                        logoSrc={experience.logo}
-                        alt={experience.companyName}
-                        key={experience.id}
-                    >
-                        <p>
-                            <b>{experience.companyDescription}</b> <a href={experience.companyWebsite} target="_blank" rel="noopener noreferrer">
-                                <FontAwesomeIcon icon="info-circle"/>
-                            </a>
-                        </p>
+        <section id="Experience">
+            <h1>Experience</h1>
 
-                        <ul>
-                            {experience.jobDescription.map((item, index) => {
-                                return <li key={index}>{item}</li>
-                            })}
-                        </ul>
-                    </ModalCard>
-                )
-            })}
-        </div>
+            <div className="grid-3 priority-grid">
+                {EXPERIENCE_DATA.map(experience => {
+                    return (
+                        <ModalCard
+                            heading={experience.jobTitle}
+                            subheading={[experience.companyName, experience.location, experience.timeline].join(" \u2022 ")}
+                            imgSrc={experience.photo}
+                            logoSrc={experience.logo}
+                            alt={experience.companyName}
+                            key={experience.id}
+                        >
+                            <p>
+                                <b>{experience.companyDescription}</b> <a href={experience.companyWebsite} target="_blank" rel="noopener noreferrer">
+                                    <FontAwesomeIcon icon="info-circle"/>
+                                </a>
+                            </p>
+
+                            <ul>
+                                {experience.jobDescription.map((item, index) => {
+                                    return <li key={index}>{item}</li>
+                                })}
+                            </ul>
+                        </ModalCard>
+                    )
+                })}
+            </div>
+        </section>
     );
 }
 
