@@ -58,7 +58,7 @@
     margin: 30px 40px;
     height: 50vh;
     min-height: 300px;
-    max-height: 600px;
+    max-height: 500px;
     object-fit: cover;
     border-radius: 50%;
     box-shadow: 0 4px 8px 0 var(--shadow-color);

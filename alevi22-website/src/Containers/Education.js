@@ -48,7 +48,7 @@ const EDUCATION_DATA = [
         id: 1,
         school: "University of Nebraska-Lincoln",
         location: "Lincoln, NE",
-        degree: "Bachelor of Science in Computer Science",
+        degree: "Bachelor of Science, Computer Science",
         content: (
             <React.Fragment>
                 <div className="grid-3">

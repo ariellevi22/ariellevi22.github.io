@@ -22,6 +22,7 @@
 
 html {
     scroll-behavior: smooth;
+    font-size: 18px;
 }
 
 body {
@@ -31,7 +32,6 @@ body {
     padding: 0;
     background-color: var(--background-color);
     color: var(--dark-color);
-    font-size: 18px;
 }
 
 /* Move the header down to account for the fixed navbar */
@@ -53,21 +53,21 @@ section:last-child {
 
 /* Style heading 1 elements */
 h1 {
-    font-size: 36px;
+    font-size: 2em;
     font-weight: 700;
     margin-bottom: 30px;
 }
 
 /* Style heading 2 elements */
 h2 {
-    font-size: 30px;
+    font-size: 1.65em;
     font-weight: 700;
     margin-bottom: 10px;
 }
 
 /* Style paragraphs */
 p {
-    margin-bottom: 12px;
+    margin-bottom: 0.75em;
 }
 
 /* Style all anchor/link elements */
