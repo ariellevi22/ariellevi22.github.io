@@ -17,7 +17,7 @@ const Experience = () => {
             <h1>Experience</h1>
 
             <div className="grid-3 priority-grid">
-                {EXPERIENCE_DATA.map(experience => {
+                {experienceData.map(experience => {
                     return (
                         <ModalCard
                             heading={experience.jobTitle}
@@ -46,7 +46,7 @@ const Experience = () => {
     );
 }
 
-const EXPERIENCE_DATA = [
+const experienceData = [
     // Zoom
     {
         id: 0,

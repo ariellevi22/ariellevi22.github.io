@@ -11,14 +11,7 @@ import Education from './Education';
 import Experience from './Experience';
 import Portfolio from './Portfolio';
 import Footer from '../Components/Footer/Footer';
-
-// Import icons and make available to all files of the app
-// Reference: https://fontawesome.com/how-to-use/on-the-web/using-with/react
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {library} from '@fortawesome/fontawesome-svg-core';
-import {fas} from '@fortawesome/free-solid-svg-icons';
-import {fab} from '@fortawesome/free-brands-svg-icons';
-library.add(fas, fab);
 
 /**
  * React web app for Ariel Levi's personal website.
@@ -27,12 +20,12 @@ const App = () => {
     return (
         <React.Fragment>
             <header>
-                <Navbar heading={NAME}>
-                    {NAVBAR_TABS.map(tab => {
+                <Navbar heading={name}>
+                    {navbarTabs.map(tab => {
                         return <a href={tab.link} key={tab.label}>{tab.label}</a>;
                     })}
 
-                    {SOCIAL_BUTTONS.slice(0, -1).map(button => {
+                    {socialButtons.slice(0, -1).map(button => {
                         return (
                             <a href={button.link} target="_blank" rel="noopener noreferrer" key={button.icon}>
                                 <FontAwesomeIcon icon={[button.prefix, button.icon]} fixedWidth/>
@@ -41,7 +34,7 @@ const App = () => {
                     })}
                 </Navbar>
             
-                <HeroHeader imgSrc={profilePicture} heading={NAME} socialButtons={SOCIAL_BUTTONS}>
+                <HeroHeader imgSrc={profilePicture} heading={name} socialButtons={socialButtons}>
                     <p>Computer Science Student at the University of Nebraska-Lincoln’s Raikes School</p>
                 </HeroHeader>
             </header>
@@ -53,7 +46,7 @@ const App = () => {
                 <Portfolio/>
             </main>
 
-            <Footer heading={NAME} socialButtons={SOCIAL_BUTTONS}/>
+            <Footer heading={name} socialButtons={socialButtons}/>
         </React.Fragment>
     );
 }
@@ -61,12 +54,12 @@ const App = () => {
 /**
  * Personal website title
  */
-const NAME = "Ariel Levi"
+const name = "Ariel Levi"
 
 /**
  * Navigation bar tabs' labels and links
  */
-const NAVBAR_TABS = [
+const navbarTabs = [
     {label: "About", link: "#About"},
     {label: "Experience", link: "#Experience"},
     {label: "Education", link: "#Education"},
@@ -76,7 +69,7 @@ const NAVBAR_TABS = [
 /**
  * Social button icons and links
  */
-const SOCIAL_BUTTONS = [
+const socialButtons = [
     {icon: "linkedin-in", prefix: "fab", link: "https://www.linkedin.com/in/ariel-levi/"},
     {icon: "github", prefix: "fab", link: "https://github.com/alevi22"},
     {icon: "envelope", prefix: "fas", link: "mailto:alevi2@huskers.unl.edu"},

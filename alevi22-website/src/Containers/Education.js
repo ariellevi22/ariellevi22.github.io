@@ -20,7 +20,7 @@ const Education = () => {
             <h1>Education</h1>	
 
             <div className="grid-2">
-                {EDUCATION_DATA.map(education => {
+                {educationData.map(education => {
                     return (
                         <ModalCard
                             heading={education.school}
@@ -42,7 +42,7 @@ const Education = () => {
 /**
  * Education data
  */
-const EDUCATION_DATA = [
+const educationData = [
     // UNL
     {
         id: 1,
