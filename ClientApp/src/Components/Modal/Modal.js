@@ -33,15 +33,9 @@ const Modal = (props) => {
         }
     }
 
-    let image = undefined;
-    if (props.imgSrc) {
-        image = <img src={props.imgSrc} alt={props.alt} className="background"/>;
-    }
+    let image = props.imgSrc ? <img src={props.imgSrc} alt={props.alt} className="background"/> : undefined;
 
-    let logo = <div/>;
-    if (props.logoSrc) {
-        logo = <img src={props.logoSrc} alt={props.alt + " Logo"} className="logo"/>;
-    }
+    let logo = props.logoSrc ? <img src={props.logoSrc} alt={props.alt + " Logo"} className="logo"/> : <React.Fragment/>;
 
     return (
         <React.Fragment>
