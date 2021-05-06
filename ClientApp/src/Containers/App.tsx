@@ -44,7 +44,6 @@ const App = () => {
                 <About/>
                 <Experience/>
                 <Education/>
-                <Portfolio/>
             </main>
 
             <Footer heading={name} socialButtons={socialButtons}/>
