@@ -1,4 +1,3 @@
-import React from 'react';
 import './Logo.css';
 
 type LogoProps = {
@@ -11,7 +10,7 @@ type LogoProps = {
  * a website or part of the app when clicked.
  * 
  * Usage:
- * ```js
+ * ```tsx
  * <Logo color="logo color (white by default)" href="link/pointed/to/by/logo"/>
  * ```
  */

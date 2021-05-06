@@ -1,14 +1,6 @@
-import React from 'react';
 import './IconButton.css';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import { IconName, IconPrefix } from '@fortawesome/fontawesome-common-types';
-
-export interface IconButtonProps {
-    iconName: IconName,
-    iconPrefix: IconPrefix,
-    href: string,
-    alt?: boolean,
-}
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import IIconButton from '../../Models/IIconButton';
 
 /**
  * React component representing a button with an icon, such as for social buttons.
@@ -23,9 +15,9 @@ export interface IconButtonProps {
  * />
  * ```
  */
-const IconButton = (props: IconButtonProps) => {
+const IconButton = (props: IIconButton) => {
     let buttonClasses = ["social-button", props.iconName];
-    if (props.alt) {
+    if (props.alternate) {
         buttonClasses.push("alt");
     }
 

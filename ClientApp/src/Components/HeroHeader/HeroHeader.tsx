@@ -1,12 +1,13 @@
-import React from 'react';
 import './HeroHeader.css';
-import IconButton, { IconButtonProps } from '../IconButton/IconButton';
+import IconButton from '../IconButton/IconButton';
+import { IReactChildren } from '../../Models/IReactChildren';
+import IIconButton from '../../Models/IIconButton';
 
 type HeroHeaderProps = {
     imgSrc: string,
     heading: string,
-    socialButtons: IconButtonProps[],
-    children: React.ReactElement | React.ReactElement[] | React.ReactNode[] | JSX.Element[] | JSX.Element,
+    socialButtons: IIconButton[],
+    children: IReactChildren,
 }
 
 /**
@@ -14,7 +15,7 @@ type HeroHeaderProps = {
  * a heading, a photo, and optional additional content.
  * 
  * Usage:
- * ```js
+ * ```tsx
  * <HeroHeader imgSrc="./link/to/photo" heading="Heading Text" socialButtons=[button list]>
  *     Additional content
  * </HeroHeader>

@@ -12,10 +12,10 @@ import Experience from './Experience';
 import Portfolio from './Portfolio';
 import Footer from '../Components/Footer/Footer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { IconButtonProps } from '../Components/IconButton/IconButton';
+import { name, navbarTabs, socialButtons } from '../globals';
 
 /**
- * React web app for Ariel Levi's personal website.
+ * React web app for Ariel Levi's personal website
  */
 const App = () => {
     return (
@@ -51,29 +51,5 @@ const App = () => {
         </React.Fragment>
     );
 }
-
-/**
- * Personal website title
- */
-const name = "Ariel Levi"
-
-/**
- * Navigation bar tabs' labels and links
- */
-const navbarTabs = [
-    {label: "About", href: "#About"},
-    {label: "Experience", href: "#Experience"},
-    {label: "Education", href: "#Education"},
-    {label: "Portfolio", href: "#Portfolio"},
-];
-
-/**
- * Social button icons and links
- */
-const socialButtons: IconButtonProps[] = [
-    {iconName: "linkedin-in", iconPrefix: "fab", href: "https://www.linkedin.com/in/ariel-levi/"},
-    {iconName: "github", iconPrefix: "fab", href: "https://github.com/alevi22"},
-    {iconName: "envelope", iconPrefix: "fas", href: "mailto:alevi2@huskers.unl.edu"},
-];
 
 export default App;

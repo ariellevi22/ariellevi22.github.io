@@ -1,7 +1,5 @@
-import React from 'react';
-
 /**
- * React container for "About" section elements and data.
+ * React container for "About" section elements and data
  */
 const About = () => {
     return (

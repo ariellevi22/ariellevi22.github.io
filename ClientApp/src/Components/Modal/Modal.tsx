@@ -1,6 +1,7 @@
 import React from 'react';
 import './Modal.css';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { IReactChildren } from '../../Models/IReactChildren';
 
 export type ModalProps = {
     imgSrc?: string,
@@ -9,7 +10,7 @@ export type ModalProps = {
     subheading: string,
     alt: string,
     closeModal?: () => void,
-    children: React.ReactElement | React.ReactElement[] | React.ReactNode[] | JSX.Element[] | JSX.Element,
+    children: IReactChildren,
 }
 
 /**

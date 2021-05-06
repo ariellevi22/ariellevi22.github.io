@@ -1,12 +1,13 @@
 import { IconName } from '@fortawesome/fontawesome-common-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, {useState} from 'react';
+import { useState } from 'react';
+import { IReactChildren } from '../../Models/IReactChildren';
 import Logo from '../Logo/Logo';
 import './Navbar.css';
 
 type NavbarProps = {
     heading: string,
-    children?: React.ReactElement | React.ReactElement[] | React.ReactNode[] | JSX.Element[] | JSX.Element,
+    children?: IReactChildren,
 }
 
 /**
@@ -14,7 +15,7 @@ type NavbarProps = {
  * left-aligned logo and title and right-aligned links.
  * 
  * Usage:
- * ```js
+ * ```tsx
  * <Navbar heading="Website Title" logoSrc="./link/to/logo">
  *     <a href="#Home">Home</a>
  *     <a href="#About">About</a>

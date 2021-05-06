@@ -1,11 +1,12 @@
-import React from 'react';
 import './Footer.css';
-import IconButton, { IconButtonProps } from '../IconButton/IconButton';
+import IconButton from '../IconButton/IconButton';
 import Logo from '../Logo/Logo';
+import IIconButton from '../../Models/IIconButton';
+import { getCurrentYear } from '../../utils';
 
 type FooterProps = {
     heading: string,
-    socialButtons: IconButtonProps[],
+    socialButtons: IIconButton[],
 }
 
 /**
@@ -33,7 +34,7 @@ const Footer = (props: FooterProps) => {
                 {props.socialButtons.map(button => {
                     return (
                         <IconButton iconName={button.iconName} iconPrefix={button.iconPrefix}
-                            href={button.href} alt={true}
+                            href={button.href} alternate={true}
                             key={[button.iconPrefix, button.iconName].join(" ")}
                         />
                     );
@@ -43,16 +44,6 @@ const Footer = (props: FooterProps) => {
             <p>&copy; {getCurrentYear()} {props.heading}</p>
         </footer>
     );
-}
-
-/**
- * Gets the current year
- * 
- * @returns the current year
- */
-const getCurrentYear = () => {
-    const today = new Date();
-    return today.getFullYear();
 }
 
 export default Footer;

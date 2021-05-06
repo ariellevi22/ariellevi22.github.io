@@ -1,5 +1,3 @@
-import React from 'react';
-
 /**
  * React container for "Portfolio" section elements and data.
  */

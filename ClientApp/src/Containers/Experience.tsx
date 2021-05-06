@@ -1,12 +1,10 @@
-import React from 'react';
-
 // Zoom assets
 import zoomLogo from '../Assets/Zoom/Zoom_Logo.png';
 import zoomPhoto from '../Assets/Zoom/Zoom_Photo.jpg';
 
-// Components
 import ModalCard from '../Components/ModalCard/ModalCard';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import IExperienceData from '../Models/IExperienceData';
 
 /**
  * React container for "Experience" section elements and data
@@ -44,19 +42,6 @@ const Experience = () => {
             </div>
         </section>
     );
-}
-
-interface IExperienceData {
-    id: number,
-    jobTitle: string,
-    companyName: string,
-    timeline: string,
-    location: string,
-    companyDescription: string,
-    jobDescription: string[],
-    companyWebsite: string,
-    photo: string,
-    logo: string,
 }
 
 const experienceData: IExperienceData[] = [

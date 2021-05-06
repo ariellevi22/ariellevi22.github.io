@@ -1,9 +1,10 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
+import { IReactChildren } from '../../Models/IReactChildren';
 import Modal, { ModalProps } from '../Modal/Modal';
 import './ModalCard.css';
 
 type ModalCardProps = ModalProps & {
-    children: React.ReactElement | React.ReactElement[] | React.ReactNode[] | JSX.Element[] | JSX.Element,
+    children: IReactChildren,
 }
 
 /**
