@@ -11,7 +11,8 @@ import Education from './Education';
 import Experience from './Experience';
 import Portfolio from './Portfolio';
 import Footer from '../Components/Footer/Footer';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { IconButtonProps } from '../Components/IconButton/IconButton';
 
 /**
  * React web app for Ariel Levi's personal website.
@@ -22,13 +23,13 @@ const App = () => {
             <header>
                 <Navbar heading={name}>
                     {navbarTabs.map(tab => {
-                        return <a href={tab.link} key={tab.label}>{tab.label}</a>;
+                        return <a href={tab.href} key={tab.label}>{tab.label}</a>;
                     })}
 
                     {socialButtons.slice(0, -1).map(button => {
                         return (
-                            <a href={button.link} target="_blank" rel="noopener noreferrer" key={button.icon}>
-                                <FontAwesomeIcon icon={[button.prefix, button.icon]} fixedWidth/>
+                            <a href={button.href} target="_blank" rel="noopener noreferrer" key={button.iconName}>
+                                <FontAwesomeIcon icon={[button.iconPrefix, button.iconName]} fixedWidth/>
                             </a>
                         );
                     })}
@@ -60,19 +61,19 @@ const name = "Ariel Levi"
  * Navigation bar tabs' labels and links
  */
 const navbarTabs = [
-    {label: "About", link: "#About"},
-    {label: "Experience", link: "#Experience"},
-    {label: "Education", link: "#Education"},
-    {label: "Portfolio", link: "#Portfolio"},
+    {label: "About", href: "#About"},
+    {label: "Experience", href: "#Experience"},
+    {label: "Education", href: "#Education"},
+    {label: "Portfolio", href: "#Portfolio"},
 ];
 
 /**
  * Social button icons and links
  */
-const socialButtons = [
-    {icon: "linkedin-in", prefix: "fab", link: "https://www.linkedin.com/in/ariel-levi/"},
-    {icon: "github", prefix: "fab", link: "https://github.com/alevi22"},
-    {icon: "envelope", prefix: "fas", link: "mailto:alevi2@huskers.unl.edu"},
+const socialButtons: IconButtonProps[] = [
+    {iconName: "linkedin-in", iconPrefix: "fab", href: "https://www.linkedin.com/in/ariel-levi/"},
+    {iconName: "github", iconPrefix: "fab", href: "https://github.com/alevi22"},
+    {iconName: "envelope", iconPrefix: "fas", href: "mailto:alevi2@huskers.unl.edu"},
 ];
 
 export default App;

@@ -1,7 +1,12 @@
 import React from 'react';
 import './Footer.css';
-import IconButton from '../IconButton/IconButton';
+import IconButton, { IconButtonProps } from '../IconButton/IconButton';
 import Logo from '../Logo/Logo';
+
+type FooterProps = {
+    heading: string,
+    socialButtons: IconButtonProps[],
+}
 
 /**
  * React component representing the footer of the website, which contains
@@ -9,11 +14,11 @@ import Logo from '../Logo/Logo';
  * while the copyright year automatically updates to the current year.
  * 
  * Usage:
- * ```js
+ * ```tsx
  * <Footer heading="Website Title" socialButtons=[button list]/>
  * ```
  */
-const Footer = (props) => {
+const Footer = (props: FooterProps) => {
     return (
         <footer>
             <div className="heading">
@@ -27,9 +32,9 @@ const Footer = (props) => {
             <div className="social-button-container">
                 {props.socialButtons.map(button => {
                     return (
-                        <IconButton icon={button.icon} iconPrefix={button.prefix}
-                            href={button.link} alt={true}
-                            key={[button.prefix, button.icon].join(" ")}
+                        <IconButton iconName={button.iconName} iconPrefix={button.iconPrefix}
+                            href={button.href} alt={true}
+                            key={[button.iconPrefix, button.iconName].join(" ")}
                         />
                     );
                 })}

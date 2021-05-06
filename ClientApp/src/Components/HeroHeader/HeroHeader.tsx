@@ -1,6 +1,13 @@
 import React from 'react';
 import './HeroHeader.css';
-import IconButton from '../IconButton/IconButton';
+import IconButton, { IconButtonProps } from '../IconButton/IconButton';
+
+type HeroHeaderProps = {
+    imgSrc: string,
+    heading: string,
+    socialButtons: IconButtonProps[],
+    children: React.ReactElement | React.ReactElement[] | React.ReactNode[] | JSX.Element[] | JSX.Element,
+}
 
 /**
  * React component representing the hero header of the website, which contains
@@ -13,15 +20,15 @@ import IconButton from '../IconButton/IconButton';
  * </HeroHeader>
  * ```
  */
-const HeroHeader = (props) => {
+const HeroHeader = (props: HeroHeaderProps) => {
     let socialButtonDisplay = undefined;
     if (props.socialButtons) {
         socialButtonDisplay = (
             <div className="social-button-container">
                 {props.socialButtons.map(button => {
                     return (
-                        <IconButton icon={button.icon} iconPrefix={button.prefix}
-                            href={button.link} key={[button.prefix, button.icon].join(" ")}
+                        <IconButton iconName={button.iconName} iconPrefix={button.iconPrefix}
+                            href={button.href} key={[button.iconPrefix, button.iconName].join(" ")}
                         />
                     );
                 })}
@@ -34,7 +41,7 @@ const HeroHeader = (props) => {
             <div className="gradient"/>
 
             <div className="hero-container">
-                <div></div>
+                <div/>
 
                 <img src={props.imgSrc} alt={props.heading}/>
 

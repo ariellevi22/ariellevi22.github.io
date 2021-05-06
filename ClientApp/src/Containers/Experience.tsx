@@ -6,10 +6,10 @@ import zoomPhoto from '../Assets/Zoom/Zoom_Photo.jpg';
 
 // Components
 import ModalCard from '../Components/ModalCard/ModalCard';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 /**
- * React container for "Experience" section elements and data.
+ * React container for "Experience" section elements and data
  */
 const Experience = () => {
     return (
@@ -46,7 +46,20 @@ const Experience = () => {
     );
 }
 
-const experienceData = [
+interface IExperienceData {
+    id: number,
+    jobTitle: string,
+    companyName: string,
+    timeline: string,
+    location: string,
+    companyDescription: string,
+    jobDescription: string[],
+    companyWebsite: string,
+    photo: string,
+    logo: string,
+}
+
+const experienceData: IExperienceData[] = [
     // Zoom
     {
         id: 0,

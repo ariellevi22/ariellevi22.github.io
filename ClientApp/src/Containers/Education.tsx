@@ -12,7 +12,7 @@ import bvnPhoto from '../Assets/BVN/BVN_Photo.jpg';
 import ModalCard from '../Components/ModalCard/ModalCard';
 
 /**
- * React container for "Education" section elements and data.
+ * React container for "Education" section elements and data
  */
 const Education = () => {
     return (
@@ -39,10 +39,20 @@ const Education = () => {
     );
 }
 
+interface IEducationData {
+    id: number,
+    school: string,
+    location: string,
+    degree: string,
+    content: React.ReactElement | React.ReactElement[] | React.ReactNode[] | JSX.Element[] | JSX.Element,
+    photo: string,
+    logo: string,
+}
+
 /**
  * Education data
  */
-const educationData = [
+const educationData: IEducationData[] = [
     // UNL
     {
         id: 1,

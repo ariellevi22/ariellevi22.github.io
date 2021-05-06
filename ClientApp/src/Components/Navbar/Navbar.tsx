@@ -1,7 +1,13 @@
+import { IconName } from '@fortawesome/fontawesome-common-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, {useState} from 'react';
 import Logo from '../Logo/Logo';
 import './Navbar.css';
+
+type NavbarProps = {
+    heading: string,
+    children?: React.ReactElement | React.ReactElement[] | React.ReactNode[] | JSX.Element[] | JSX.Element,
+}
 
 /**
  * React component representing a responsive navigation bar with a
@@ -16,7 +22,7 @@ import './Navbar.css';
  * </Navbar>
  * ```
  */
-const Navbar = (props) => {
+const Navbar = (props: NavbarProps) => {
     /*
      * Keep track of whether the navigation bar menu (shown on small screens instead
      * of the full navigation bar) is open (true) or closed (false). Initially, it is closed.
@@ -28,7 +34,7 @@ const Navbar = (props) => {
      * and the height of the menu remains as its default (0 px)
      */
     let navTabClasses = ["nav-tabs"];
-    let menuButton = "bars";
+    let menuButton: IconName = "bars";
 
     /*
      * If the menu is OPEN, the menu button is shown as an X (to close the menu),

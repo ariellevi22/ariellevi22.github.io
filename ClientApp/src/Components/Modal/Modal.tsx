@@ -2,12 +2,22 @@ import React from 'react';
 import './Modal.css';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
+export type ModalProps = {
+    imgSrc?: string,
+    logoSrc?: string,
+    heading: string,
+    subheading: string,
+    alt: string,
+    closeModal?: () => void,
+    children: React.ReactElement | React.ReactElement[] | React.ReactNode[] | JSX.Element[] | JSX.Element,
+}
+
 /**
  * React component representing a modal box with a header image, logo, heading, and subheading.
  * 
  * Usage:
- * ```js
- * <Modal>
+ * ```tsx
+ * <Modal
  *     imgSrc="./path/to/image"
  *     logoSrc="./path/to/logo"
  *     heading="Title Text" subheading="Subtitle Text"
@@ -18,7 +28,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
  * </Modal>
  * ```
  */
-const Modal = (props) => {
+const Modal = (props: ModalProps) => {
     // Disable background scrolling
     document.body.style.overflowY = "hidden";
 
@@ -34,8 +44,7 @@ const Modal = (props) => {
     }
 
     let image = props.imgSrc ? <img src={props.imgSrc} alt={props.alt} className="background"/> : undefined;
-
-    let logo = props.logoSrc ? <img src={props.logoSrc} alt={props.alt + " Logo"} className="logo"/> : <React.Fragment/>;
+    let logo = props.logoSrc ? <img src={props.logoSrc} alt={props.alt + " Logo"} className="logo"/> : undefined;
 
     return (
         <React.Fragment>
