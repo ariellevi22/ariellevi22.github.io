@@ -23,7 +23,7 @@ const Education = () => {
             <div className="grid-2">
                 {educationData.map(education => {
                     let timelineInfo = (
-                        <div>
+                        <div key={education.id}>
                             <h3>Timeline</h3>
                             <p>{education.startDate} &ndash; {education.endDate}</p>
                         </div>
@@ -87,9 +87,9 @@ const Education = () => {
                         >
                             {educationInfo}
 
-                            {education.additionalInfo?.map(info => {
+                            {education.additionalInfo?.map((info, index) => {
                                 return (
-                                    <React.Fragment>
+                                    <React.Fragment key={index}>
                                         <h3>{info.heading}</h3>
                                         <p>{info.text}</p>
                                     </React.Fragment>
