@@ -8,27 +8,31 @@ import unlPhoto from '../Assets/UNL/UNL_Photo.jpg';
 import bvnLogo from '../Assets/BVN/BVN_Logo.png';
 import bvnPhoto from '../Assets/BVN/BVN_Photo.jpg';
 
-import IEducationData from '../Models/IEducationData';
-import ModalCard from '../Components/ModalCard/ModalCard';
+import ModalCard from '../Components/ModalCard';
 import { pluralize } from '../utils';
+import SimpleGrid from './SimpleGrid';
+import Section from './Section';
+import { noSpacing } from '../globals';
 
 /**
  * React container for "Education" section elements and data
  */
 const Education = () => {
     return (
-        <section id="Education">
-            <h1>Education</h1>	
+        <Section id="Education">
+            <h1>Education</h1>
 
-            <div className="grid-2">
+            <SimpleGrid numColumnsLarge={2} numColumnsMedium={2} numColumnsSmall={1}>
                 {educationData.map(education => {
+                    // Create a component for the education's timeline (start and end dates)
                     let timelineInfo = (
                         <div key={education.id}>
                             <h3>Timeline</h3>
-                            <p>{education.startDate} &ndash; {education.endDate}</p>
+                            <p>{education.startDate} to {education.endDate ? education.endDate : "present"}</p>
                         </div>
                     );
-
+                    
+                    // Create a component for the education's major
                     let majorInfo;
                     if (education.majors) {
                         majorInfo = (
@@ -39,6 +43,7 @@ const Education = () => {
                         );
                     }
 
+                    // Create a component for the education's minor
                     let minorInfo;
                     if (education.minors) {
                         minorInfo = (
@@ -49,30 +54,35 @@ const Education = () => {
                         );
                     }
                     
+                    // Combine the timeline, major, and minor components as needed
                     let educationInfo;
                     if (majorInfo && minorInfo) {
+                        // If both major info and minor info are given, create a three-column display for the major, minor, and timeline
                         educationInfo = (
-                            <div className="grid-3">
+                            <SimpleGrid numColumnsLarge={3} numColumnsMedium={2} numColumnsSmall={1} rowGap={0}>
                                 {majorInfo}
                                 {minorInfo}
                                 {timelineInfo}
-                            </div>
+                            </SimpleGrid>
                         );
                     } else if (majorInfo) {
+                        // If only the major is given, create a two-column display for the major and timeline
                         educationInfo = (
-                            <div className="grid-2">
+                            <SimpleGrid numColumnsLarge={2} numColumnsMedium={2} numColumnsSmall={1} rowGap={0}>
                                 {majorInfo}
                                 {timelineInfo}
-                            </div>
+                            </SimpleGrid>
                         );
                     } else if (minorInfo) {
+                        // If only the minor is given, create a two-column display for the minor and timeline
                         educationInfo = (
-                            <div className="grid-2">
+                            <SimpleGrid numColumnsLarge={2} numColumnsMedium={2} numColumnsSmall={1} rowGap={0}>
                                 {minorInfo}
                                 {timelineInfo}
-                            </div>
+                            </SimpleGrid>
                         );
                     } else {
+                        // If neither a major nor minor are given, display only the timeline
                         educationInfo = timelineInfo;
                     }
 
@@ -82,7 +92,6 @@ const Education = () => {
                             subheading={[education.location, education.degree].join(" \u2022 ")}
                             imgSrc={education.photo}
                             logoSrc={education.logo}
-                            alt={education.school}
                             key={education.id}
                         >
                             {educationInfo}
@@ -97,19 +106,34 @@ const Education = () => {
                             })}
 
                             <h3>What I Learned</h3>
-                            <p>{education.classes.join(", ")}</p>
+                            <p className={noSpacing}>{education.classes.join(", ")}</p>
                         </ModalCard>
                     );
                 })}
-            </div>
-        </section>
+            </SimpleGrid>
+        </Section>
     );
+}
+
+type EducationData = {
+    id: number,
+    school: string,
+    location: string,
+    degree: string,
+    majors?: string[],
+    minors?: string[],
+    startDate: string,
+    endDate?: string,
+    classes: string[],
+    additionalInfo?: {heading: string, text: string}[],
+    photo: string,
+    logo: string,
 }
 
 /**
  * Education data
  */
-const educationData: IEducationData[] = [
+const educationData: EducationData[] = [
     // UNL
     {
         id: 1,

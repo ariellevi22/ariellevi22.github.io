@@ -1,11 +1,13 @@
+import Section from "./Section";
+
 /**
  * React container for "Portfolio" section elements and data.
  */
 const Portfolio = () => {
     return (
-        <section id="Portfolio">
+        <Section id="Portfolio">
             <h1>Portfolio</h1>
-        </section>
+        </Section>
     );
 }
 

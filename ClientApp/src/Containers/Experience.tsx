@@ -2,33 +2,39 @@
 import zoomLogo from '../Assets/Zoom/Zoom_Logo.png';
 import zoomPhoto from '../Assets/Zoom/Zoom_Photo.jpg';
 
-import ModalCard from '../Components/ModalCard/ModalCard';
+import ModalCard from '../Components/ModalCard';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import IExperienceData from '../Models/IExperienceData';
+import Section from './Section';
+import Link from '../Components/Link';
+import SimpleGrid from './SimpleGrid';
 
 /**
  * React container for "Experience" section elements and data
  */
 const Experience = () => {
     return (
-        <section id="Experience">
+        <Section id="Experience">
             <h1>Experience</h1>
 
-            <div className="grid-3 priority-grid">
+            <SimpleGrid numColumnsLarge={3} numColumnsMedium={2} numColumnsSmall={1} priority>
                 {experienceData.map(experience => {
                     return (
                         <ModalCard
                             heading={experience.jobTitle}
-                            subheading={[experience.companyName, experience.location, experience.timeline].join(" \u2022 ")}
+                            subheading={
+                                [
+                                    experience.companyName, experience.location,
+                                    `${experience.startDate} to ${experience.endDate ? experience.endDate : "Present"}`
+                                ].join(" \u2022 ")
+                            }
                             imgSrc={experience.photo}
                             logoSrc={experience.logo}
-                            alt={experience.companyName}
                             key={experience.id}
                         >
                             <p>
-                                <b>{experience.companyDescription}</b> <a href={experience.companyWebsite} target="_blank" rel="noopener noreferrer">
+                                <b>{experience.companyDescription}</b> <Link href={experience.companyWebsite} openWithNewTab aria-label={`Learn more about ${experience.companyName}`}>
                                     <FontAwesomeIcon icon="info-circle"/>
-                                </a>
+                                </Link>
                             </p>
 
                             <ul>
@@ -39,18 +45,33 @@ const Experience = () => {
                         </ModalCard>
                     )
                 })}
-            </div>
-        </section>
+            </SimpleGrid>
+        </Section>
     );
 }
 
-const experienceData: IExperienceData[] = [
+type ExperienceData = {
+    id: number,
+    jobTitle: string,
+    companyName: string,
+    startDate: string,
+    endDate?: string,
+    location: string,
+    companyDescription: string,
+    jobDescription: string[],
+    companyWebsite: string,
+    photo: string,
+    logo: string,
+}
+
+const experienceData: ExperienceData[] = [
     // Zoom
     {
         id: 0,
         jobTitle: "Technical Support Engineer Intern",
         companyName: "Zoom",
-        timeline: "May 2020 \u2013 August 2020",
+        startDate: "May 2020",
+        endDate: "August 2020",
         location: "Overland Park, KS",
         companyDescription: "Zoom helps organizations bring their teams together with a reliable cloud platform for video conferencing, content sharing, messaging, and phone across all devices.",
         jobDescription: [

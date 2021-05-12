@@ -11,9 +11,9 @@
 }
 
 * {
-    font-family: 'Montserrat', Helvetica, Arial, sans-serif;
     box-sizing: border-box;
     margin: 0px;
+    font-family: inherit;
 }
 
 ::selection {
@@ -22,7 +22,8 @@
 
 html {
     scroll-behavior: smooth;
-    font-size: 18px;
+    font-size: 16px;
+    font-family: 'Montserrat', Helvetica, Arial, sans-serif;
 }
 
 body {
@@ -34,118 +35,26 @@ body {
     color: var(--dark-color);
 }
 
-/* Move the header down to account for the fixed navbar */
-header {
-    margin-top: 85px;
-}
-
-/* Set spacing between sections */
-section {
-    width: var(--default-app-width);
-    max-width: var(--default-app-max-width);
-    margin: auto;
-    padding-top: 90px;
-}
-
-section:last-child {
-    padding-bottom: 90px;
-}
-
 /* Style heading 1 elements */
 h1 {
     font-size: 2em;
-    font-weight: 700;
-    margin-bottom: 30px;
+    margin-bottom: 0.5em;
 }
 
 /* Style heading 2 elements */
 h2 {
-    font-size: 1.65em;
-    font-weight: 700;
-    margin-bottom: 10px;
+    font-size: 1.7em;
+    margin-bottom: 0.3em;
 }
 
-/* Style paragraphs */
+/* Style paragraph elements */
 p {
     margin-bottom: 0.9em;
 }
 
-/* Style all anchor/link elements */
-a {
-    color: inherit;
-    position: relative;
-    transition: all 0.2s ease 0s;
-}
-
-/* Style links when they are hovered over */
-@media (hover: hover) and (pointer: fine) {
-    a:hover {
-        color: var(--accent-color);
-    }
-}
-
-/* Style grid containers */
-.grid-2, .grid-3 {
-    width: 100%;
-    display: grid; 
-    gap: 20px;
-}
-
-.grid-2 {
-    grid: auto / 1fr 1fr;
-}
-
-.grid-3 {
-    grid: auto / 1fr 1fr 1fr;
-}
-
-.priority-grid :first-child {
-    grid-column: 1 / -1;
-}
-
-/* Style grid containers on medium screens */
-@media screen and (max-width: 1500px) {
-    .grid-3 {
-        grid: auto / 1fr 1fr;
-    }
-}
-
-/* Style grid containers on small screens */
-@media screen and (max-width: 900px) {
-    .grid-2 {
-        grid: auto / 1fr;
-    }
-
-    .grid-3 {
-        grid: auto / 1fr;
-    }
-}
-
-/* Style buttons */
-button {
-    font-size: 18px;
-    color: var(--light-color);
-    background-color: var(--accent-color);
-    border: none;
-    outline: none;
-    padding: 5px 10px;
-    box-shadow: 0 4px 8px 0 var(--shadow-color);
-    transition: all 0.2s ease 0s;
-}
-
-/* Style buttons when they are being hovered over */
-@media (hover: hover) and (pointer: fine) {
-    button:hover {
-        background-color: var(--dark-color);
-        cursor: pointer;
-        box-shadow: 0 5px 10px 0 var(--shadow-color);
-        transform: scale(1.05);
-    }
-}
-
-/* Style buttons when they are being clicked on */
-button:active {
-    transform: scale(0.95);
+/* Style text elements that should not have spacing after them */
+.no-spacing {
+    margin: 0;
 }
 
 /* Fade animation */
