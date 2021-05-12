@@ -34,15 +34,15 @@ const useStyles = createUseStyles<"modal" | "background" | "closeButton" | "cont
         animation: "grow 0.25s ease 0s 1 normal",
 
         [`@media screen and (max-width: ${screenSizes.small}px)`]: {
-            width: "100vw",
-            height: "100vh",
+            width: "100%",
+            height: "100%",
             maxHeight: "none",
         }
     },
 
     background: {
-        width: "100vw",
-        height: "100vh",
+        width: "100%",
+        height: "100%",
         position: "fixed",
         top: 0,
         bottom: 0,
@@ -96,7 +96,7 @@ const Modal = (props: ModalProps) => {
         <React.Fragment>
             <IconButton variant="dark" className={styles.closeButton}
                 onClick={closeModal}
-                iconName="times" iconPrefix="fas"
+                iconName="times"
                 aria-label="Close Modal"
             />
 

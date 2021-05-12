@@ -18,7 +18,19 @@ type NavbarProps = {
     iconTabs?: IconTab[],
 };
 
-const useStyles = createUseStyles<"navbar" | "tabs" | "menuButton", NavbarProps, Theme>({
+const useStyles = createUseStyles<"nav" | "navbar" | "tabs" | "menu" | "menuExpanded" | "menuButton", NavbarProps, Theme>({
+    nav: {
+        // Style each link in the navbar
+        '& a': {
+            textDecoration: "none",
+            transition: transition,
+            
+            '&:hover': {
+                color: data => data.theme.colors.secondary,
+            }
+        },
+    },
+
     navbar: data => ({
         padding: "1em 2.5em",
         top: 0,
@@ -45,19 +57,29 @@ const useStyles = createUseStyles<"navbar" | "tabs" | "menuButton", NavbarProps,
         height: "auto",
         overflow: "hidden",
 
-        // Style each individual tab (link)
-        '& a': {
-            textDecoration: "none",
-            transition: transition,
-            '&:hover': {
-                color: data => data.theme.colors.secondary,
-            }
-        },
-
         // On small screens, hide the tabs
         [`@media screen and (max-width: ${screenSizes.small}px)`]: {
             display: "none",
         }
+    },
+
+    menu: {
+        display: "none", // hidden on large screens
+        position: "fixed",
+        width: "100vw",
+        zIndex: 10,
+        padding: "1em 2.5em",
+        backgroundColor: data => data.theme.colors.dark,
+        color: data => data.theme.colors.light,
+    },
+
+    menuExpanded: {
+        [`@media screen and (max-width: ${screenSizes.small}px)`]: {
+            display: "flex",
+            gap: "1em",
+            flexDirection: "column",
+            alignItems: "flex-end", // right align
+        },
     },
 
     menuButton: {
@@ -69,7 +91,7 @@ const useStyles = createUseStyles<"navbar" | "tabs" | "menuButton", NavbarProps,
 });
 
 /**
- * React component representing a responsive navigation bar with a
+ * A React component representing a responsive navigation bar with a
  * left-aligned logo and title and right-aligned links.
  */
 const Navbar = (props: NavbarProps) => {
@@ -98,7 +120,7 @@ const Navbar = (props: NavbarProps) => {
                     <Link href={iconTab.href} key={iconTab.label} openWithNewTab={iconTab.openWithNewTab}
                         aria-label={iconTab.label}
                     >
-                        <FontAwesomeIcon icon={[iconTab.iconPrefix, iconTab.iconName]} fixedWidth/>
+                        <FontAwesomeIcon icon={iconTab.iconPrefix ? [iconTab.iconPrefix, iconTab.iconName] : iconTab.iconName} fixedWidth/>
                     </Link>
                 );
             })}
@@ -107,23 +129,25 @@ const Navbar = (props: NavbarProps) => {
 
     // Display the navigation bar
     return (
-        <nav className={styles.navbar}>
-            <Logo href="#top" onClick={() => setMenuOpen(false)}/>
+        <nav className={styles.nav}>
+            <div className={styles.navbar}>
+                <Logo href="#top" onClick={() => setMenuOpen(false)}/>
 
-            <IconButton isTransparent
-                iconName={isMenuOpen ? "times" : "bars"} iconPrefix="fas"
-                onClick={() => setMenuOpen(!isMenuOpen)}
-                className={styles.menuButton}
-                aria-label={`${isMenuOpen ? "Close" : "Open"} Menu`}
-            />
+                <IconButton isTransparent
+                    iconName={isMenuOpen ? "times" : "bars"}
+                    onClick={() => setMenuOpen(!isMenuOpen)}
+                    className={styles.menuButton}
+                    aria-label={`${isMenuOpen ? "Close" : "Open"} Menu`}
+                />
 
-            <div className={styles.tabs} onClick={() => setMenuOpen(false)}>
-                {navbarTabs}
+                <div className={styles.tabs}>
+                    {navbarTabs}
+                </div>
             </div>
 
-            {/* FIXME: <div>
+            <div className={[styles.menu, isMenuOpen ? styles.menuExpanded : undefined].join(" ")} onClick={() => setMenuOpen(false)}>
                 {navbarTabs}
-            </div> */}
+            </div>
         </nav>
     );
 }

@@ -5,7 +5,7 @@ import ButtonBase, { ButtonBaseProps } from './ButtonBase';
 
 type IconButtonProps = ButtonBaseProps & {
     iconName: IconName,
-    iconPrefix: IconPrefix,
+    iconPrefix?: IconPrefix,
 };
 
 const useStyles = createUseStyles<"iconButton", IconButtonProps>({
@@ -27,7 +27,7 @@ const IconButton = (props: IconButtonProps & React.DetailedHTMLProps<React.Butto
 
     return (
         <ButtonBase {...buttonBaseProps} className={[styles.iconButton, props.className].join(" ")}>
-            <FontAwesomeIcon icon={[iconPrefix, iconName]} fixedWidth/>
+            <FontAwesomeIcon icon={iconPrefix ? [iconPrefix, iconName] : iconName} fixedWidth/>
         </ButtonBase>
     );
 }

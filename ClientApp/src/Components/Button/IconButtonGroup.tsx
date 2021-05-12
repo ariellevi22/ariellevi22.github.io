@@ -12,7 +12,7 @@ const useStyles = createUseStyles<"iconButtonGroup", IconButtonGroupProps>({
         display: "flex",
         gap: "1rem",
         flexWrap: "wrap",
-        fontSize: "1.25em",
+        fontSize: "1.1em",
         justifyContent: data => data.justifyContent ? data.justifyContent : undefined,
     },
 })

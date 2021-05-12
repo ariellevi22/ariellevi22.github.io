@@ -27,7 +27,7 @@ export const navbarTabs: NavbarTab[] = [
  */
 export type IconTab = NavbarTab & {
     iconName: IconName,
-    iconPrefix: IconPrefix,
+    iconPrefix?: IconPrefix,
     colorPrimary?: string,
     colorSecondary?: string,
 }
@@ -79,7 +79,7 @@ export const navbarHeight = 5;
  * Upper limits for various screen sizes (measured in pixels)
  */
 export const screenSizes = {
-    small: 900,
+    small: 840,
     medium: 1280,
     large: 1920,
 }

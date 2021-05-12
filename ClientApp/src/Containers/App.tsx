@@ -8,11 +8,18 @@ import Footer from '../Components/Footer';
 import { name, navbarHeight, navbarTabs, noSpacing, socialButtons } from '../globals';
 import { ThemeProvider } from 'theming';
 import theme from '../theme';
+import { useEffect } from 'react';
 
 /**
  * A React web app for Ariel Levi's personal website
  */
 const App = () => {
+    useEffect(() => {
+        // Set the application background color and text color
+        document.body.style.backgroundColor = theme.colors.background;
+        document.body.style.color = theme.colors.dark;
+    }, []);
+
     return (
         <ThemeProvider theme={theme}>
             <header style={{marginTop: `${navbarHeight}em`}}>
