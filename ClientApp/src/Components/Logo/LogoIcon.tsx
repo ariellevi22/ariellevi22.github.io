@@ -1,12 +1,12 @@
 import { createUseStyles, useTheme } from 'react-jss';
 import { transition } from '../../globals';
-import { Theme } from '../../theme';
+import { AppTheme } from '../../theme';
 
 type LogoIconProps = {
     color?: string,
 }
 
-const useStyles = createUseStyles<"logo", LogoIconProps, Theme>({
+const useStyles = createUseStyles<"logo", LogoIconProps, AppTheme>({
     logo: data => ({
         height: "2.25em",
         color: data.color ? data.color : "inherit",
@@ -22,7 +22,7 @@ const useStyles = createUseStyles<"logo", LogoIconProps, Theme>({
  * * all other SVG properties
  */
 const LogoIcon = (props: LogoIconProps & React.SVGAttributes<SVGElement>) => {
-    const theme = useTheme<Theme>();
+    const theme = useTheme<AppTheme>();
     const styles = useStyles({...props, theme});
 
     const {color, ...svgProps} = props;

@@ -4,7 +4,7 @@ import { disableBodyScrolling, enableBodyScrolling } from '../utils';
 import IconButton from './Button/IconButton';
 import ShowcaseCard from './ShowcaseCard';
 import { createUseStyles, useTheme } from 'react-jss';
-import { Theme } from '../theme';
+import { AppTheme } from '../theme';
 
 export type ModalProps = {
     imgSrc?: string,
@@ -15,7 +15,7 @@ export type ModalProps = {
     children: ReactChildren,
 }
 
-const useStyles = createUseStyles<"modal" | "background" | "closeButton" | "content", ModalProps, Theme>({
+const useStyles = createUseStyles<"modal" | "background" | "closeButton" | "content" | "@keyframes fade" | "@keyframes grow", ModalProps, AppTheme>({
     modal: {
         width: "75vw",
         maxWidth: "1000px",
@@ -29,9 +29,8 @@ const useStyles = createUseStyles<"modal" | "background" | "closeButton" | "cont
         margin: "auto",
         overflow: "auto",
         zIndex: 1000,
-        backgroundColor: data => data.theme.colors.light,
-        boxShadow: data => `0 0 2em 0 ${data.theme.colors.dark}`,
-        animation: "grow 0.25s ease 0s 1 normal",
+        backgroundColor: data => data.theme.colors.background.containerPrimary,
+        animation: "$grow 0.25s ease 0s 1 normal",
 
         [`@media screen and (max-width: ${screenSizes.small}px)`]: {
             width: "100%",
@@ -51,7 +50,7 @@ const useStyles = createUseStyles<"modal" | "background" | "closeButton" | "cont
         zIndex: 999,
         backgroundColor: "rgba(0, 0, 0, 0.6)",
         backdropFilter: "blur(3px)",
-        animation: "fade 0.25s ease 0s 1 normal",
+        animation: "$fade 0.25s ease 0s 1 normal",
 
         [`@media screen and (max-width: ${screenSizes.small}px)`]: {
             display: "none",
@@ -63,19 +62,39 @@ const useStyles = createUseStyles<"modal" | "background" | "closeButton" | "cont
         top: "1.5em",
         right: "1.5em",
         zIndex: 1001,
-        animation: "fade 0.25s ease 0s 1 normal",
+        animation: "$fade 0.25s ease 0s 1 normal",
     },
 
     content: {
         padding: "2em",
     },
+
+    '@keyframes fade': {
+        from: {
+            opacity: 0,
+        },
+        to: {
+            opacity: 1,
+        }
+    },
+
+    '@keyframes grow': {
+        from: {
+            opacity: 0,
+            transform: "scale(0.7)",
+        },
+        to: {
+            opacity: 1,
+            transform: "none",
+        }
+    }
 });
 
 /**
  * React component representing a modal box with a header image, logo, heading, and subheading
  */
 const Modal = (props: ModalProps) => {
-    const theme = useTheme<Theme>();
+    const theme = useTheme<AppTheme>();
     const styles = useStyles({...props, theme});
 
     // Disable background scrolling
@@ -94,7 +113,7 @@ const Modal = (props: ModalProps) => {
 
     return (
         <React.Fragment>
-            <IconButton variant="dark" className={styles.closeButton}
+            <IconButton variant="primary" className={styles.closeButton}
                 onClick={closeModal}
                 iconName="times"
                 aria-label="Close Modal"

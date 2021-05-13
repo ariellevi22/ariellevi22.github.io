@@ -1,10 +1,10 @@
 import React from 'react';
 import { createUseStyles, useTheme } from 'react-jss';
 import { scaleFactors, transition } from '../../globals';
-import { Theme } from '../../theme';
+import { AppTheme } from '../../theme';
 import Link from '../Link';
 
-type ButtonBaseVariant = "primary" | "light" | "dark";
+type ButtonBaseVariant = "primary" | "secondary";
 
 export type ButtonBaseProps = {
     variant?: ButtonBaseVariant,
@@ -20,16 +20,14 @@ export type ButtonBaseProps = {
  * @param variant the name of the button's color variant
  * @returns the button's background color
  */
-const getButtonBackgroundColor = (theme: Theme, variant?: ButtonBaseVariant, isTransparent?: boolean) => {
+const getButtonBackgroundColor = (theme: AppTheme, variant?: ButtonBaseVariant, isTransparent?: boolean) => {
     if (isTransparent) {
         return "transparent";
     } else {
-        if (variant === "light") {
-            return theme.colors.light;
-        } else if (variant === "dark") {
-            return theme.colors.dark;
+        if (variant === "secondary") {
+            return theme.colors.button.secondary;
         } else {
-            return theme.colors.primary;
+            return theme.colors.button.primary;
         }
     }
 }
@@ -40,11 +38,11 @@ const getButtonBackgroundColor = (theme: Theme, variant?: ButtonBaseVariant, isT
  * @param variant the name of the button's color variant
  * @returns the button's text color
  */
-const getButtonTextColor = (theme: Theme, variant?: ButtonBaseVariant) => {
-    if (variant === "light") {
-        return theme.colors.dark;
+const getButtonTextColor = (theme: AppTheme, variant?: ButtonBaseVariant) => {
+    if (variant === "secondary") {
+        return theme.colors.button.secondaryText;
     } else {
-        return theme.colors.light;
+        return theme.colors.button.primaryText;
     }
 }
 
@@ -54,17 +52,17 @@ const getButtonTextColor = (theme: Theme, variant?: ButtonBaseVariant) => {
  * @param variant the name of the button's color variant
  * @returns the button's background color when hovered over
  */
-const getButtonHoverBackgroundColor = (theme: Theme, variant?: ButtonBaseVariant, hoverBgColor?: string, isTransparent?: boolean) => {
+const getButtonHoverBackgroundColor = (theme: AppTheme, variant?: ButtonBaseVariant, hoverBgColor?: string, isTransparent?: boolean) => {
     if (isTransparent) {
         return "transparent";
     } else {
         if (hoverBgColor) {
             return hoverBgColor;
         } else {
-            if (variant === "dark") {
-                return theme.colors.light;
+            if (variant === "secondary") {
+                return theme.colors.button.secondaryHover;
             } else {
-                return theme.colors.dark;
+                return theme.colors.button.primaryHover;
             }
         }
     }
@@ -76,22 +74,14 @@ const getButtonHoverBackgroundColor = (theme: Theme, variant?: ButtonBaseVariant
  * @param variant the name of the button's color variant
  * @returns the button's text color when hovered over
  */
-const getButtonHoverTextColor = (theme: Theme, variant?: ButtonBaseVariant, hoverTextColor?: string, isTransparent?: boolean) => {
-    if (isTransparent) {
-        if (hoverTextColor) {
-            return hoverTextColor;
-        } else {
-            return theme.colors.secondary;
-        }
+const getButtonHoverTextColor = (theme: AppTheme, variant?: ButtonBaseVariant, hoverTextColor?: string) => {
+    if (hoverTextColor) {
+        return hoverTextColor;
     } else {
-        if (hoverTextColor) {
-            return hoverTextColor;
+        if (variant === "secondary") {
+            return theme.colors.button.secondaryHoverText;
         } else {
-            if (variant === "dark") {
-                return theme.colors.dark;
-            } else {
-                return theme.colors.light;
-            }
+            return theme.colors.button.primaryHoverText;
         }
     }
 }
@@ -99,17 +89,17 @@ const getButtonHoverTextColor = (theme: Theme, variant?: ButtonBaseVariant, hove
 /**
  * Creates the button's styles
  */
-const useStyles = createUseStyles<"buttonBase", ButtonBaseProps, Theme>({
+const useStyles = createUseStyles<"buttonBase", ButtonBaseProps, AppTheme>({
     buttonBase: data => ({
         fontSize: "1em",
-        color: getButtonTextColor(data.theme, data.variant),
         backgroundColor: getButtonBackgroundColor(data.theme, data.variant, data.isTransparent),
+        color: getButtonTextColor(data.theme, data.variant),
         border: "none",
         boxShadow: data.isTransparent ? "none" : data.theme.shadows.shadow,
         transition: transition,
         '&:hover': {
             backgroundColor: getButtonHoverBackgroundColor(data.theme, data.variant, data.hoverBgColor, data.isTransparent),
-            color: getButtonHoverTextColor(data.theme, data.variant, data.hoverTextColor, data.isTransparent),
+            color: getButtonHoverTextColor(data.theme, data.variant, data.hoverTextColor),
             cursor: "pointer",
             boxShadow: data.isTransparent ? "none" : data.theme.shadows.hoverShadow,
             transform: data.isTransparent ? "none" : `scale(${1 + scaleFactors.small})`,
@@ -125,7 +115,7 @@ const useStyles = createUseStyles<"buttonBase", ButtonBaseProps, Theme>({
  * in components such as `Button` and `IconButton` for simplicity.
  */
 const ButtonBase = (props: ButtonBaseProps & React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>) => {
-    const theme = useTheme<Theme>();
+    const theme = useTheme<AppTheme>();
     const styles = useStyles({...props, theme});
 
     // Separate out the props so that irrelevant props are not passed into the HTML button

@@ -1,7 +1,7 @@
 import IconButton from './Button/IconButton';
 import IconButtonGroup from './Button/IconButtonGroup';
 import { createUseStyles, useTheme } from 'react-jss';
-import { Theme } from '../theme';
+import { AppTheme } from '../theme';
 import { IconTab, noSpacing, ReactChildren, screenSizes } from '../globals';
 import Container from '../Containers/Container';
 
@@ -12,7 +12,7 @@ type HeroHeaderProps = {
     children: ReactChildren,
 }
 
-const useStyles = createUseStyles<"heroHeader" | "background" | "foreground" | "photo" | "content", HeroHeaderProps, Theme>({
+const useStyles = createUseStyles<"heroHeader" | "background" | "foreground" | "photo" | "content", HeroHeaderProps, AppTheme>({
     heroHeader: {
         width: "100%",
         position: "relative",
@@ -25,8 +25,8 @@ const useStyles = createUseStyles<"heroHeader" | "background" | "foreground" | "
         top: 0,
         left: 0,
         zIndex: -1,
-        backgroundColor: data.theme.colors.primary,
-        backgroundImage: `linear-gradient(to right, ${data.theme.colors.primary}, ${data.theme.colors.secondary})`,
+        backgroundColor: data.theme.colors.main.primary, // fallback background color in case the gradient does not work
+        backgroundImage: `linear-gradient(to right, ${data.theme.colors.main.primary}, ${data.theme.colors.main.secondary})`,
         boxShadow: `0 0 1em 0 ${data.theme.colors.shadow} inset`,
 
         [`@media screen and (max-width: ${screenSizes.small}px)`]: {
@@ -79,7 +79,7 @@ const useStyles = createUseStyles<"heroHeader" | "background" | "foreground" | "
  * a heading, a photo, and optional additional content (including social buttons)
  */
 const HeroHeader = (props: HeroHeaderProps) => {
-    const theme = useTheme<Theme>();
+    const theme = useTheme<AppTheme>();
     const styles = useStyles({...props, theme});
 
     return (

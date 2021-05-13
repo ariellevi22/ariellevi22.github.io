@@ -1,20 +1,20 @@
 import React from 'react';
 import { createUseStyles, useTheme } from 'react-jss';
-import { Theme } from '../theme';
+import { AppTheme } from '../theme';
 import { transition } from '../globals';
 
 type LinkProps = React.DetailedHTMLProps<React.AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement> & {
     openWithNewTab?: boolean,
 }
 
-const useStyles = createUseStyles<"link", LinkProps, Theme>({
+const useStyles = createUseStyles<"link", LinkProps, AppTheme>({
     link: {
         color: "inherit",
         transition: transition,
         cursor: "pointer",
 
         '&:hover': {
-            color: data => data.theme.colors.primary,
+            color: data => data.theme.colors.link.primary,
         },
     },
 });
@@ -27,7 +27,7 @@ const useStyles = createUseStyles<"link", LinkProps, Theme>({
  * * all other `<a>` properties
  */
 const Link = (props: LinkProps) => {
-    const theme = useTheme<Theme>();
+    const theme = useTheme<AppTheme>();
     const styles = useStyles({...props, theme});
 
     const {openWithNewTab, ...anchorProps} = props;

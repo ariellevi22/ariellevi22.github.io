@@ -16,9 +16,9 @@ import { useEffect } from 'react';
 const App = () => {
     useEffect(() => {
         // Set the application background color and text color
-        document.body.style.backgroundColor = theme.colors.background;
-        document.body.style.color = theme.colors.dark;
-    }, []);
+        document.body.style.backgroundColor = theme.colors.background.main;
+        document.body.style.color = theme.colors.text.primary;
+    });
 
     return (
         <ThemeProvider theme={theme}>

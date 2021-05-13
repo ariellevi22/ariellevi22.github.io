@@ -1,7 +1,7 @@
 import React from 'react';
 import { createUseStyles, useTheme } from 'react-jss';
 import { name, scaleFactors, transition } from '../../globals';
-import { Theme } from '../../theme';
+import { AppTheme } from '../../theme';
 import Link from '../Link';
 import LogoIcon from './LogoIcon';
 
@@ -12,7 +12,7 @@ type LogoProps = {
     onClick?: React.MouseEventHandler<HTMLDivElement>,
 }
 
-const useStyles = createUseStyles<"logoText" | "logoContainer" | "stacked" | "logoContainerLink", LogoProps, Theme>({
+const useStyles = createUseStyles<"logoText" | "logoContainer" | "stacked" | "logoContainerLink", LogoProps, AppTheme>({
     logoText: {
         color: data => data.color ? data.color : "inherit",
         fontSize: "1.5em",
@@ -34,14 +34,14 @@ const useStyles = createUseStyles<"logoText" | "logoContainer" | "stacked" | "lo
     logoContainerLink: {
         textDecoration: "none",
         '&:hover svg': {
-            color: data => data.theme.colors.secondary,
+            color: data => data.theme.colors.link.secondary,
             transform: `scale(${1 + scaleFactors.tiny})`,
         },
         '&:active svg': {
             transform: `scale(${1 - scaleFactors.tiny})`,
         },
         '&:hover p': {
-            color: data => data.theme.colors.secondary,
+            color: data => data.theme.colors.link.secondary,
         },
     }
 });
@@ -58,7 +58,7 @@ const useStyles = createUseStyles<"logoText" | "logoContainer" | "stacked" | "lo
  * * `onClick` a function to call when the logo is clicked
  */
 const Logo = (props: LogoProps) => {
-    const theme = useTheme<Theme>();
+    const theme = useTheme<AppTheme>();
     const styles = useStyles({...props, theme})
 
     // Style the container that holds the logo icon and text

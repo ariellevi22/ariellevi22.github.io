@@ -2,7 +2,7 @@ import IconButton from './Button/IconButton';
 import Logo from './Logo/Logo';
 import { getCurrentYear } from '../utils';
 import { createUseStyles, useTheme } from 'react-jss';
-import { Theme } from '../theme';
+import { AppTheme } from '../theme';
 import IconButtonGroup from './Button/IconButtonGroup';
 import { IconTab } from '../globals';
 
@@ -11,12 +11,12 @@ type FooterProps = {
     socialButtons: IconTab[],
 }
 
-const useStyles = createUseStyles<"footer" | "copyrightText", FooterProps, Theme>({
+const useStyles = createUseStyles<"footer" | "copyrightText", FooterProps, AppTheme>({
     footer: {
         padding: "2.5em",
         width: "100%",
-        backgroundColor: data => data.theme.colors.dark,
-        color: data => data.theme.colors.light,
+        backgroundColor: data => data.theme.colors.background.navigationPrimary,
+        color: data => data.theme.colors.text.secondary,
         display: "flex",
         flexDirection: "column",
         gap: "1.5em",
@@ -37,7 +37,7 @@ const useStyles = createUseStyles<"footer" | "copyrightText", FooterProps, Theme
  * * `socialButtons` a list of social buttons to display within the footer
  */
 const Footer = (props: FooterProps) => {
-    const theme = useTheme<Theme>();
+    const theme = useTheme<AppTheme>();
     const styles = useStyles({...props, theme});
 
     return (
@@ -49,7 +49,7 @@ const Footer = (props: FooterProps) => {
                     return (
                         <IconButton iconName={button.iconName} iconPrefix={button.iconPrefix}
                             hoverBgColor={button.colorPrimary} hoverTextColor={button.colorSecondary}
-                            variant="light"
+                            variant="secondary"
                             href={button.href}
                             key={[button.iconPrefix, button.iconName].join(" ")}
                         />

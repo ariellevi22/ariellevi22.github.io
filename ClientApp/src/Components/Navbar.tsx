@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { createUseStyles, useTheme } from 'react-jss';
 import { navbarHeight, IconTab, screenSizes, transition } from '../globals';
-import { Theme } from '../theme';
+import { AppTheme } from '../theme';
 import IconButton from './Button/IconButton';
 import Link from './Link';
 import Logo from './Logo/Logo';
@@ -18,7 +18,7 @@ type NavbarProps = {
     iconTabs?: IconTab[],
 };
 
-const useStyles = createUseStyles<"nav" | "navbar" | "tabs" | "menu" | "menuExpanded" | "menuButton", NavbarProps, Theme>({
+const useStyles = createUseStyles<"nav" | "navbar" | "tabs" | "@keyframes menuSlideRight" | "menu" | "menuExpanded" | "menuButton", NavbarProps, AppTheme>({
     nav: {
         // Style each link in the navbar
         '& a': {
@@ -26,7 +26,7 @@ const useStyles = createUseStyles<"nav" | "navbar" | "tabs" | "menu" | "menuExpa
             transition: transition,
             
             '&:hover': {
-                color: data => data.theme.colors.secondary,
+                color: data => data.theme.colors.link.secondary,
             }
         },
     },
@@ -38,8 +38,8 @@ const useStyles = createUseStyles<"nav" | "navbar" | "tabs" | "menu" | "menuExpa
         height: `${navbarHeight}em`,
         position: "fixed",
         zIndex: 10,
-        backgroundColor: data.theme.colors.dark,
-        color: data.theme.colors.light,
+        backgroundColor: data.theme.colors.background.navigationPrimary,
+        color: data.theme.colors.text.secondary,
         display: "flex",
         justifyContent: "space-between",
         flexWrap: "wrap",
@@ -63,22 +63,45 @@ const useStyles = createUseStyles<"nav" | "navbar" | "tabs" | "menu" | "menuExpa
         }
     },
 
+    '@keyframes menuSlideRight': {
+        '0%': {
+            display: "none",
+            opacity: 0,
+        },
+        '1%': {
+            display: "flex",
+            width: 0,
+        },
+        '100%': {
+            opacity: 1,
+        },
+    },
+
     menu: {
-        display: "none", // hidden on large screens
+        display: "none", // hidden on large screens (and until opened on small screens)
         position: "fixed",
-        width: "100vw",
-        zIndex: 10,
-        padding: "1em 2.5em",
-        backgroundColor: data => data.theme.colors.dark,
-        color: data => data.theme.colors.light,
+        right: 0,
+        width: "80vw",
+        height: `calc(100% - ${navbarHeight}em)`,
+        zIndex: 9,
+        padding: "8em 2.5em",
+        backgroundColor: data => data.theme.colors.background.navigationSecondary,
+        color: data => data.theme.colors.text.secondary,
+        gap: "1em",
+        flexDirection: "column",
+        alignItems: "flex-end", // right align
+        justifyContent: "space-evenly",
+        animation: "$menuSlideRight 0.25s ease 0s 1 normal",
+
+        '@media (orientation: landscape)': {
+            flexDirection: "row",
+            flexWrap: "wrap",
+        }
     },
 
     menuExpanded: {
         [`@media screen and (max-width: ${screenSizes.small}px)`]: {
             display: "flex",
-            gap: "1em",
-            flexDirection: "column",
-            alignItems: "flex-end", // right align
         },
     },
 
@@ -92,10 +115,10 @@ const useStyles = createUseStyles<"nav" | "navbar" | "tabs" | "menu" | "menuExpa
 
 /**
  * A React component representing a responsive navigation bar with a
- * left-aligned logo and title and right-aligned links.
+ * left-aligned logo and title and right-aligned links
  */
 const Navbar = (props: NavbarProps) => {
-    const theme = useTheme<Theme>();
+    const theme = useTheme<AppTheme>();
     const styles = useStyles({...props, theme});
 
     /*

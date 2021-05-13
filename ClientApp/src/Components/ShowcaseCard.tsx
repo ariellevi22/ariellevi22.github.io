@@ -1,6 +1,6 @@
 import { createUseStyles, useTheme } from 'react-jss';
 import Clickable from '../Containers/Clickable';
-import { Theme } from '../theme';
+import { AppTheme } from '../theme';
 import { ReactChildren, scaleFactors, transition } from '../globals';
 import Link from './Link';
 import React from 'react';
@@ -14,7 +14,7 @@ type ShowcaseCardProps = {
     children: ReactChildren,
 }
 
-const useStyles = createUseStyles<"showcaseCard" | "showcaseActionCard" | "backgroundImage" | "logo", ShowcaseCardProps, Theme>({
+const useStyles = createUseStyles<"showcaseCard" | "showcaseActionCard" | "backgroundImage" | "logo", ShowcaseCardProps, AppTheme>({
     showcaseCard: {
         position: "relative",
         width: "100%",
@@ -24,8 +24,8 @@ const useStyles = createUseStyles<"showcaseCard" | "showcaseActionCard" | "backg
         justifyContent: "space-between",
         alignItems: "flex-start",
         gap: "4em",
-        backgroundColor: data => data.imgSrc ? "transparent" : data.theme.colors.dark,
-        color: data => data.theme.colors.light,
+        backgroundColor: data => data.imgSrc ? "transparent" : data.theme.colors.background.containerSecondary,
+        color: data => data.theme.colors.text.secondary,
         transition: transition,
         textDecoration: "none",
     },
@@ -44,7 +44,7 @@ const useStyles = createUseStyles<"showcaseCard" | "showcaseActionCard" | "backg
         height: "100%",
         width: "100%",
         objectFit: "cover",
-        filter: "brightness(30%)",
+        filter: "contrast(50%) brightness(40%)",
         zIndex: -1,
     },
 
@@ -66,7 +66,7 @@ const useStyles = createUseStyles<"showcaseCard" | "showcaseActionCard" | "backg
  * * `children` the contents of the showcase card
  */
 const ShowcaseCard = (props: ShowcaseCardProps) => {
-    const theme = useTheme<Theme>();
+    const theme = useTheme<AppTheme>();
     const styles = useStyles({...props, theme});
 
     const showcaseCardContents = (
