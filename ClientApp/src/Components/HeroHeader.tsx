@@ -77,6 +77,12 @@ const useStyles = createUseStyles<"heroHeader" | "background" | "foreground" | "
 /**
  * React component representing the hero header of the website, which contains
  * a heading, a photo, and optional additional content (including social buttons)
+ * 
+ * Props:
+ * * `imgSrc` the path to the profile photo
+ * * `heading` the heading or title of the hero header
+ * * `socialButtons` a list of social buttons to include in the hero header
+ * * `children` additional content to place in the hero header, between the heading and social buttons
  */
 const HeroHeader = (props: HeroHeaderProps) => {
     const theme = useTheme<AppTheme>();

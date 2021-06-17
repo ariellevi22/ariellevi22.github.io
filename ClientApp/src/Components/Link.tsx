@@ -20,7 +20,8 @@ const useStyles = createUseStyles<"link", LinkProps, AppTheme>({
 });
 
 /**
- * A React component that wraps the HTML `<a>` tag to include proper styling (based on the theme) as well as 
+ * A React component that wraps the HTML `<a>` tag to include proper styling (based on the theme)
+ * and the functionality to easily open the link in a new tab if desired
  * 
  * Props:
  * * `openWithNewTab` whether the link should open in a new tab or in the current tab

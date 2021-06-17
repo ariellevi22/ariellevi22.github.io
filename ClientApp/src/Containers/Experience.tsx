@@ -2,38 +2,44 @@
 import zoomLogo from '../Assets/Zoom/Zoom_Logo.png';
 import zoomPhoto from '../Assets/Zoom/Zoom_Photo.jpg';
 
-import ModalCard from '../Components/ModalCard';
+// Evergy assets
+import evergyLogo from '../Assets/Evergy/Evergy_Logo.png';
+import evergyPhoto from '../Assets/Evergy/Evergy_Photo.jpg';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Section from './Section';
 import Link from '../Components/Link';
 import SimpleGrid from './SimpleGrid';
+import Card from '../Components/Card';
 
 /**
- * React container for "Experience" section elements and data
+ * A React container for "Experience" section elements and data
  */
 const Experience = () => {
     return (
         <Section id="Experience">
             <h1>Experience</h1>
 
-            <SimpleGrid numColumnsLarge={3} numColumnsMedium={2} numColumnsSmall={1} priority>
+            <SimpleGrid numColumnsLarge={2} numColumnsMedium={2} numColumnsSmall={1}>
                 {experienceData.map(experience => {
                     return (
-                        <ModalCard
-                            heading={experience.jobTitle}
-                            subheading={
-                                [
-                                    experience.companyName, experience.location,
-                                    `${experience.startDate} to ${experience.endDate ? experience.endDate : "Present"}`
-                                ].join(" \u2022 ")
-                            }
-                            imgSrc={experience.photo}
-                            logoSrc={experience.logo}
-                            key={experience.id}
-                        >
+                        <Card logoSrc={experience.logo} imgSrc={experience.photo} color={experience.color} key={experience.id}>
+                            <h2>{experience.jobTitle}</h2>
+                            
                             <p>
-                                <b>{experience.companyDescription}</b> <Link href={experience.companyWebsite} openWithNewTab aria-label={`Learn more about ${experience.companyName}`}>
-                                    <FontAwesomeIcon icon="info-circle"/>
+                                <em>
+                                    {
+                                        [
+                                            experience.companyName, experience.location,
+                                            `${experience.startDate} to ${experience.endDate ? experience.endDate : "Present"}`
+                                        ].join(" \u2022 ")
+                                    }
+                                </em>
+                            </p>
+
+                            <p>
+                                {experience.companyDescription} <Link href={experience.companyWebsite} openWithNewTab>
+                                    <FontAwesomeIcon icon="info-circle" aria-label={`Learn more about ${experience.companyName}`}/>
                                 </Link>
                             </p>
 
@@ -42,7 +48,7 @@ const Experience = () => {
                                     return <li key={index}>{item}</li>
                                 })}
                             </ul>
-                        </ModalCard>
+                        </Card>
                     )
                 })}
             </SimpleGrid>
@@ -62,9 +68,26 @@ type ExperienceData = {
     companyWebsite: string,
     photo: string,
     logo: string,
+    color?: string,
 }
 
 const experienceData: ExperienceData[] = [
+    // Evergy
+    {
+        id: 1,
+        jobTitle: "Application Developer Intern",
+        companyName: "Evergy",
+        startDate: "June 2021",
+        endDate: undefined,
+        location: "Kansas City, MO",
+        companyDescription: "Evergy delivers power to 1.7 million customers in Kansas and Missouri, integrating traditional sources of energy with innovative approaches to empower a better future.",
+        jobDescription: [],
+        companyWebsite: "https://evergy.com",
+        photo: evergyPhoto,
+        logo: evergyLogo,
+        color: "#77BC40",
+    },
+
     // Zoom
     {
         id: 0,
@@ -82,6 +105,7 @@ const experienceData: ExperienceData[] = [
         companyWebsite: "https://zoom.us",
         photo: zoomPhoto,
         logo: zoomLogo,
+        color: "#2D8CFF",
     },
 ];
 

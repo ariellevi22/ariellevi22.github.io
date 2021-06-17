@@ -9,6 +9,7 @@ import { name, navbarHeight, navbarTabs, noSpacing, socialButtons } from '../glo
 import { ThemeProvider } from 'theming';
 import theme from '../theme';
 import { useEffect } from 'react';
+import Portfolio from './Portfolio';
 
 /**
  * A React web app for Ariel Levi's personal website
@@ -34,6 +35,7 @@ const App = () => {
                 <About/>
                 <Experience/>
                 <Education/>
+                <Portfolio/>
             </main>
 
             <Footer copyrightHolderName={name} socialButtons={socialButtons}/>

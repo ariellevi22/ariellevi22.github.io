@@ -8,14 +8,14 @@ import unlPhoto from '../Assets/UNL/UNL_Photo.jpg';
 import bvnLogo from '../Assets/BVN/BVN_Logo.png';
 import bvnPhoto from '../Assets/BVN/BVN_Photo.jpg';
 
-import ModalCard from '../Components/ModalCard';
+import Card from '../Components/Card';
 import { pluralize } from '../utils';
 import SimpleGrid from './SimpleGrid';
 import Section from './Section';
 import { noSpacing } from '../globals';
 
 /**
- * React container for "Education" section elements and data
+ * A React container for "Education" section elements and data
  */
 const Education = () => {
     return (
@@ -24,14 +24,6 @@ const Education = () => {
 
             <SimpleGrid numColumnsLarge={2} numColumnsMedium={2} numColumnsSmall={1}>
                 {educationData.map(education => {
-                    // Create a component for the education's timeline (start and end dates)
-                    let timelineInfo = (
-                        <div key={education.id}>
-                            <h3>Timeline</h3>
-                            <p>{education.startDate} to {education.endDate ? education.endDate : "present"}</p>
-                        </div>
-                    );
-                    
                     // Create a component for the education's major
                     let majorInfo;
                     if (education.majors) {
@@ -57,43 +49,32 @@ const Education = () => {
                     // Combine the timeline, major, and minor components as needed
                     let educationInfo;
                     if (majorInfo && minorInfo) {
-                        // If both major info and minor info are given, create a three-column display for the major, minor, and timeline
-                        educationInfo = (
-                            <SimpleGrid numColumnsLarge={3} numColumnsMedium={2} numColumnsSmall={1} rowGap={0}>
-                                {majorInfo}
-                                {minorInfo}
-                                {timelineInfo}
-                            </SimpleGrid>
-                        );
-                    } else if (majorInfo) {
-                        // If only the major is given, create a two-column display for the major and timeline
+                        // If both major info and minor info are given, create a two-column display for the major and minor
                         educationInfo = (
                             <SimpleGrid numColumnsLarge={2} numColumnsMedium={2} numColumnsSmall={1} rowGap={0}>
                                 {majorInfo}
-                                {timelineInfo}
-                            </SimpleGrid>
-                        );
-                    } else if (minorInfo) {
-                        // If only the minor is given, create a two-column display for the minor and timeline
-                        educationInfo = (
-                            <SimpleGrid numColumnsLarge={2} numColumnsMedium={2} numColumnsSmall={1} rowGap={0}>
                                 {minorInfo}
-                                {timelineInfo}
                             </SimpleGrid>
                         );
                     } else {
-                        // If neither a major nor minor are given, display only the timeline
-                        educationInfo = timelineInfo;
+                        // If a major and/or minor is not given, there is no education data to show
+                        educationInfo = undefined;
                     }
 
                     return (
-                        <ModalCard
-                            heading={education.school}
-                            subheading={[education.location, education.degree].join(" \u2022 ")}
-                            imgSrc={education.photo}
-                            logoSrc={education.logo}
-                            key={education.id}
-                        >
+                        <Card logoSrc={education.logo} imgSrc={education.photo} key={education.id} color={education.color}>
+                            <h2>{education.school}</h2>
+
+                            <p>
+                                <em>
+                                    {[
+                                        education.location,
+                                        education.degree,
+                                        `${education.startDate} to ${education.endDate ? education.endDate : "Present"}`
+                                    ].join(" \u2022 ")}
+                                </em>
+                            </p>
+
                             {educationInfo}
 
                             {education.additionalInfo?.map((info, index) => {
@@ -107,7 +88,7 @@ const Education = () => {
 
                             <h3>What I Learned</h3>
                             <p className={noSpacing}>{education.classes.join(", ")}</p>
-                        </ModalCard>
+                        </Card>
                     );
                 })}
             </SimpleGrid>
@@ -128,6 +109,7 @@ type EducationData = {
     additionalInfo?: {heading: string, text: string}[],
     photo: string,
     logo: string,
+    color?: string,
 }
 
 /**
@@ -162,6 +144,7 @@ const educationData: EducationData[] = [
         ],
         photo: unlPhoto,
         logo: unlLogo,
+        color: "#DD1A32",
     },
     
     // BVN
@@ -169,7 +152,7 @@ const educationData: EducationData[] = [
         id: 0,
         school: "Blue Valley North High School",
         location: "Overland Park, KS",
-        degree: "High School",
+        degree: "High School Diploma",
         startDate: "August 2015",
         endDate: "May 2019",
         classes: [
@@ -180,6 +163,7 @@ const educationData: EducationData[] = [
         ],
         photo: bvnPhoto,
         logo: bvnLogo,
+        color: "#143C7D",
     },
 ];
 

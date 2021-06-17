@@ -116,6 +116,10 @@ const useStyles = createUseStyles<"nav" | "navbar" | "tabs" | "@keyframes menuSl
 /**
  * A React component representing a responsive navigation bar with a
  * left-aligned logo and title and right-aligned links
+ * 
+ * Props:
+ * * `tabs` a list of links to display across the navigation bar
+ * * `iconTabs` a list of links (represented as icons) to display across the navigation bar
  */
 const Navbar = (props: NavbarProps) => {
     const theme = useTheme<AppTheme>();

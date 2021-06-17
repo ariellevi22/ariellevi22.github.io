@@ -3,7 +3,7 @@ import { noSpacing } from '../globals';
 import Section from './Section';
 
 /**
- * React container for "About" section elements and data
+ * A React container for "About" section elements and data
  */
 const About = () => {
     return (
@@ -18,10 +18,10 @@ const About = () => {
             </p>
 
             <p className={noSpacing}>
-                This past summer, I worked at <Link href="https://zoom.us" openWithNewTab>Zoom</Link> as
+                Last summer, I worked at <Link href="https://zoom.us" openWithNewTab>Zoom</Link> as
                 a technical support engineer intern, helping customers achieve success using
                 Zoom’s products during the difficult times of the COVID-19 pandemic.
-                This summer, I will be working as an application developer intern
+                This summer, I am working as an application developer intern
                 at <Link href="https://evergy.com" openWithNewTab>Evergy</Link>,
                 where I am excited to continue to grow my skillset and apply my learning to a real-world environment.
             </p>

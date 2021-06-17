@@ -12,10 +12,21 @@ type SimpleGridProps = {
     gap?: CSS.Property.Gap,
     rowGap?: CSS.Property.RowGap,
     columnGap?: CSS.Property.ColumnGap,
+    justifyRows?: boolean,
     children: ReactChildren,
 };
 
-const getColumnTemplate = (size: "small" | "medium" | "large", numColumnsLarge?: number, numColumnsMedium?: number, numColumnsSmall?: number) => {
+/**
+ * Based on the properties for the number of columns, gets the correct number of columns
+ * to display in the grid for the given screen size
+ * 
+ * @param size the size for which to determine the number of columns (small, medium, or large)
+ * @param numColumnsLarge the number of columns for large screens
+ * @param numColumnsMedium the number of columns for medium screens
+ * @param numColumnsSmall the number of columns for small screens
+ * @returns the number of columns to display in the grid for the given screen size
+ */
+const getNumColumnsForSize = (size: "small" | "medium" | "large", numColumnsLarge?: number, numColumnsMedium?: number, numColumnsSmall?: number) => {
     // If the number of columns for small screens is not specified, assume it to be 1
     if (numColumnsSmall === undefined) {
         numColumnsSmall = 1;
@@ -41,12 +52,56 @@ const getColumnTemplate = (size: "small" | "medium" | "large", numColumnsLarge?:
         numColumns = numColumnsSmall;
     }
 
-    // Create the template for as many equally sized columns as needed: "1fr 1fr ... 1fr"
+    return numColumns;
+}
+
+/**
+ * Constructs the string representing the CSS `grid-template-columns` property for the specified screen size
+ * 
+ * @param size the screen size for which to determine the column template string (small, medium, or large)
+ * @param numColumnsLarge the number of columns for large screens
+ * @param numColumnsMedium the number of columns for medium screens
+ * @param numColumnsSmall the number of columns for small screens
+ * @returns the string representation of the CSS `grid-template-columns` property based on the given
+ *          screen size and column counts
+ */
+const getColumnTemplate = (size: "small" | "medium" | "large", numColumnsLarge?: number, numColumnsMedium?: number, numColumnsSmall?: number) => {
+    let numColumns = getNumColumnsForSize(size, numColumnsLarge, numColumnsMedium, numColumnsSmall);
     return Array(numColumns).fill("1fr").join(" ");
 }
 
+/**
+ * Constructs the string representing the CSS `grid-auto-rows` property for the specified screen size
+ * 
+ * @param size the screen size for which to determine the auto rows string (small, medium, or large)
+ * @param numColumnsLarge the number of columns for large screens
+ * @param numColumnsMedium the number of columns for medium screens
+ * @param numColumnsSmall the number of columns for small screens
+ * @param justifyRows whether the rows of the grid should have equal heights
+ * @returns the string representation of the CSS `grid-auto-rows` property based on the given
+ *          screen size and column counts
+ */
+const getAutoRows = (size: "small" | "medium" | "large", numColumnsLarge?: number, numColumnsMedium?: number, numColumnsSmall?: number, justifyRows?: boolean) => {
+    let numColumns = getNumColumnsForSize(size, numColumnsLarge, numColumnsMedium, numColumnsSmall);
+    
+    if (justifyRows && (numColumns > 1)) {
+        return "1fr";
+    } else {
+        return "auto";
+    }
+}
+
+/**
+ * Constructs the string representing the CSS `gap` property
+ * 
+ * @param gap the size of the gap (spacing) between rows and columns of the grid
+ * @param rowGap the size of the gap (spacing) between rows of the grid
+ * @param columnGap the size of the gap (spacing) between columns of the grid
+ * @returns the string representation of the CSS `gap` property based on the given
+ *          gap, row gap, and/or column gap values
+ */
 const getGap = (gap?: CSS.Property.Gap, rowGap?: CSS.Property.RowGap, columnGap?: CSS.Property.ColumnGap) => {
-    const defaultGap = "1.5em";
+    const defaultGap = "2.25em";
 
     if (gap) {
         // If a gap value is given, use it
@@ -62,7 +117,9 @@ const useStyles = createUseStyles<"grid", SimpleGridProps>({
         width: data => data.width ? data.width : "100%",
         display: "grid",
         gap: data => getGap(data.gap, data.rowGap, data.columnGap),
-        gridAutoRows: "1fr", // to ensure that all rows of the grid are the same height
+
+        // If more than one column, ensure that all rows of the grid are the same height
+        gridAutoRows: data => getAutoRows("large", data.numColumnsLarge, data.numColumnsMedium, data.numColumnsSmall, data.justifyRows),
 
         // Determine the columns for large screens
         gridTemplateColumns: data => getColumnTemplate("large", data.numColumnsLarge, data.numColumnsMedium, data.numColumnsSmall),
@@ -70,11 +127,17 @@ const useStyles = createUseStyles<"grid", SimpleGridProps>({
         // Determine the columns for medium screens
         [`@media screen and (max-width: ${screenSizes.medium}px)`]: {
             gridTemplateColumns: data => getColumnTemplate("medium", data.numColumnsLarge, data.numColumnsMedium, data.numColumnsSmall),
+
+            // If more than one column, ensure that all rows of the grid are the same height
+            gridAutoRows: data => getAutoRows("medium", data.numColumnsLarge, data.numColumnsMedium, data.numColumnsSmall, data.justifyRows),
         },
 
         // Determine the columns for small screens
         [`@media screen and (max-width: ${screenSizes.small}px)`]: {
             gridTemplateColumns: data => getColumnTemplate("small", data.numColumnsLarge, data.numColumnsMedium, data.numColumnsSmall),
+
+            // If more than one column, ensure that all rows of the grid are the same height
+            gridAutoRows: data => getAutoRows("small", data.numColumnsLarge, data.numColumnsMedium, data.numColumnsSmall, data.justifyRows),
         },
 
         '& :first-child': {
@@ -83,6 +146,9 @@ const useStyles = createUseStyles<"grid", SimpleGridProps>({
     },
 });
 
+/**
+ * A React component representing a container for grid items
+ */
 const SimpleGrid = (props: SimpleGridProps) => {
     const styles = useStyles(props);
 
