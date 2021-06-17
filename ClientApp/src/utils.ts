@@ -9,22 +9,6 @@ export const getCurrentYear = () => {
 }
 
 /**
- * Disables scrolling on the webpage background/body (used, for example, when
- * a modal box is opened)
- */
-export const disableBodyScrolling = () => {
-    document.body.style.overflowY = "hidden";
-}
-
-/**
- * Enables scrolling on the webpage background/body (used, for example, when
- * a modal box that had previously disabled scrolling is now closed)
- */
-export const enableBodyScrolling = () => {
-    document.body.style.overflowY = "auto";
-}
-
-/**
  * Pluralizes a string based on a count value
  * 
  * @param text the string to pluralize
