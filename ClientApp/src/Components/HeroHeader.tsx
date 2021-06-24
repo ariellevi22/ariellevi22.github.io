@@ -106,7 +106,7 @@ const HeroHeader = (props: HeroHeaderProps) => {
                         <IconButtonGroup>
                             {props.socialButtons.map(button => {
                                 return (
-                                    <IconButton iconName={button.iconName} iconPrefix={button.iconPrefix} hoverBgColor={button.colorPrimary} hoverTextColor={button.colorSecondary}
+                                    <IconButton iconName={button.iconName} iconPrefix={button.iconPrefix} hoverBackgroundColor={button.colorPrimary} hoverTextColor={button.colorSecondary}
                                         href={button.href} key={[button.iconPrefix, button.iconName].join(" ")}
                                     />
                                 );

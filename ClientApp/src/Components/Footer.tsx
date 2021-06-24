@@ -48,8 +48,8 @@ const Footer = (props: FooterProps) => {
                 {props.socialButtons.map(button => {
                     return (
                         <IconButton iconName={button.iconName} iconPrefix={button.iconPrefix}
-                            hoverBgColor={button.colorPrimary} hoverTextColor={button.colorSecondary}
-                            variant="secondary"
+                            backgroundColor={theme.colors.text.secondary} textColor={theme.colors.text.primary}
+                            hoverBackgroundColor={button.colorPrimary} hoverTextColor={button.colorSecondary}
                             href={button.href}
                             key={[button.iconPrefix, button.iconName].join(" ")}
                         />

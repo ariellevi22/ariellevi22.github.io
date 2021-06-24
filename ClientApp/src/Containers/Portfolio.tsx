@@ -39,8 +39,8 @@ const Portfolio = () => {
 
                             <h3>View the Project</h3>
                             <IconButtonGroup>
-                                <IconButton iconName="external-link-alt" href={project.website} title="Open Project" variant="secondary"/>
-                                {project.codeWebsite ? <IconButton iconName="code" href={project.codeWebsite} title="View Project Code" variant="secondary"/> : undefined}
+                                <IconButton iconName="external-link-alt" href={project.website} title="Open Project"/>
+                                {project.codeWebsite ? <IconButton iconName="code" href={project.codeWebsite} title="View Project Code"/> : undefined}
                             </IconButtonGroup>
                         </Card>
                     );

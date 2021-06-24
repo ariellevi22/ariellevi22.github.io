@@ -5,7 +5,7 @@ const darkTeal = "rgb(0, 75, 105)";
 const turquoise = "rgb(100, 228, 228)";
 const lightTurquoise = "rgb(200, 230, 230)";
 
-const dark = "rgb(36, 36, 36)";
+const dark = "rgb(0, 0, 0)";
 const light = "white";
 
 const shadow = "rgba(36, 36, 36, 0.25)";
