@@ -15,7 +15,7 @@ import SimpleGrid from './SimpleGrid';
 import Card from '../Components/Card';
 import IconButton from '../Components/Button/IconButton';
 import IconButtonGroup from '../Components/Button/IconButtonGroup';
-import { useTheme } from 'theming';
+import { useTheme } from 'react-jss';
 import { AppTheme } from '../theme';
 
 /**

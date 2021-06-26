@@ -6,7 +6,7 @@ import Education from './Education';
 import Experience from './Experience';
 import Footer from '../Components/Footer';
 import { name, navbarHeight, navbarTabs, noSpacing, socialButtons } from '../globals';
-import { ThemeProvider } from 'theming';
+import { ThemeProvider } from 'react-jss';
 import { useDarkTheme } from '../theme';
 import { useEffect } from 'react';
 import Portfolio from './Portfolio';
