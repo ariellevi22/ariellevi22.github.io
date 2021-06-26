@@ -7,7 +7,7 @@ import Experience from './Experience';
 import Footer from '../Components/Footer';
 import { name, navbarHeight, navbarTabs, noSpacing, socialButtons } from '../globals';
 import { ThemeProvider } from 'theming';
-import theme from '../theme';
+import { useDarkTheme } from '../theme';
 import { useEffect } from 'react';
 import Portfolio from './Portfolio';
 
@@ -15,16 +15,18 @@ import Portfolio from './Portfolio';
  * A React web app for Ariel Levi's personal website
  */
 const App = () => {
+    const {theme, toggleTheme} = useDarkTheme();
     useEffect(() => {
         // Set the application background color and text color
-        document.body.style.backgroundColor = theme.colors.background.main;
-        document.body.style.color = theme.colors.text.primary;
-    });
+        document.body.style.backgroundColor = theme.colors.backgroundPrimary;
+        document.body.style.color = theme.colors.textPrimary;
+        document.body.style.transition = theme.transition;
+    }, [theme]);
 
     return (
         <ThemeProvider theme={theme}>
             <header style={{marginTop: `${navbarHeight}em`}}>
-                <Navbar tabs={navbarTabs} iconTabs={socialButtons.slice(0, -1)}/>
+                <Navbar tabs={navbarTabs} iconTabs={socialButtons.slice(0, -1)} toggleTheme={toggleTheme}/>
             
                 <HeroHeader imgSrc={profilePicture} heading={name} socialButtons={socialButtons}>
                     <p className={noSpacing}>Computer Science Student at the University of Nebraska-Lincoln’s Raikes School</p>

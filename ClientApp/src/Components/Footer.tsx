@@ -15,8 +15,8 @@ const useStyles = createUseStyles<"footer" | "copyrightText", FooterProps, AppTh
     footer: {
         padding: "2.5em",
         width: "100%",
-        backgroundColor: data => data.theme.colors.background.navigationPrimary,
-        color: data => data.theme.colors.text.secondary,
+        backgroundColor: data => data.theme.colors.backgroundNavigation,
+        color: data => data.theme.colors.textNavigation,
         display: "flex",
         flexDirection: "column",
         gap: "1.5em",
@@ -42,13 +42,13 @@ const Footer = (props: FooterProps) => {
 
     return (
         <footer className={styles.footer}>
-            <Logo stacked href="#top"/>
+            <Logo stacked href="#top" hoverColor={theme.colors.accentNavigation}/>
             
             <IconButtonGroup>
                 {props.socialButtons.map(button => {
                     return (
                         <IconButton iconName={button.iconName} iconPrefix={button.iconPrefix}
-                            backgroundColor={theme.colors.text.secondary} textColor={theme.colors.text.primary}
+                            backgroundColor={theme.colors.textNavigation} textColor={theme.colors.backgroundNavigation}
                             hoverBackgroundColor={button.colorPrimary} hoverTextColor={button.colorSecondary}
                             href={button.href}
                             key={[button.iconPrefix, button.iconName].join(" ")}

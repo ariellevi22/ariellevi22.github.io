@@ -1,6 +1,6 @@
 import React from 'react';
 import { createUseStyles, useTheme } from 'react-jss';
-import { name, scaleFactors, transition } from '../../globals';
+import { name, scaleFactors } from '../../globals';
 import { AppTheme } from '../../theme';
 import Link from '../Link';
 import LogoIcon from './LogoIcon';
@@ -9,6 +9,7 @@ type LogoProps = {
     href?: string,
     stacked?: boolean,
     color?: string,
+    hoverColor?: string,
     onClick?: React.MouseEventHandler<HTMLDivElement>,
 }
 
@@ -18,7 +19,7 @@ const useStyles = createUseStyles<"logoText" | "logoContainer" | "stacked" | "lo
         fontSize: "1.5em",
         padding: 0,
         margin: 0,
-        transition: transition,
+        transition: data => data.theme.transition,
     },
     logoContainer: {
         display: "flex",
@@ -34,14 +35,14 @@ const useStyles = createUseStyles<"logoText" | "logoContainer" | "stacked" | "lo
     logoContainerLink: {
         textDecoration: "none",
         '&:hover svg': {
-            color: data => data.theme.colors.link.secondary,
+            color: data => data.hoverColor ? data.hoverColor : data.theme.colors.accentPrimary,
             transform: `scale(${1 + scaleFactors.tiny})`,
         },
         '&:active svg': {
             transform: `scale(${1 - scaleFactors.tiny})`,
         },
         '&:hover p': {
-            color: data => data.theme.colors.link.secondary,
+            color: data => data.hoverColor ? data.hoverColor : data.theme.colors.accentPrimary,
         },
     }
 });
@@ -55,6 +56,7 @@ const useStyles = createUseStyles<"logoText" | "logoContainer" | "stacked" | "lo
  * * `stacked` whether the logo should show the logo text below the icon (stacked) or
  *   side by side with the icon (default)
  * * `color` the color in which the logo should be displayed (default value is "inherit")
+ * * `hoverColor` the color in which the logo should be displayed when hovered over
  * * `onClick` a function to call when the logo is clicked
  */
 const Logo = (props: LogoProps) => {

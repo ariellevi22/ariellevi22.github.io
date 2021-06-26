@@ -25,8 +25,8 @@ const useStyles = createUseStyles<"heroHeader" | "background" | "foreground" | "
         top: 0,
         left: 0,
         zIndex: -1,
-        backgroundColor: data.theme.colors.main.primary, // fallback background color in case the gradient does not work
-        backgroundImage: `linear-gradient(to right, ${data.theme.colors.main.primary}, ${data.theme.colors.main.secondary})`,
+        backgroundColor: data.theme.colors.accentPrimary, // fallback background color in case the gradient does not work
+        backgroundImage: `linear-gradient(to right, ${data.theme.colors.accentPrimary}, ${data.theme.colors.accentSecondary})`,
         boxShadow: `0 0 1em 0 ${data.theme.colors.shadow} inset`,
 
         [`@media screen and (max-width: ${screenSizes.small}px)`]: {

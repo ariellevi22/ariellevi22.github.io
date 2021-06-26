@@ -1,137 +1,181 @@
-const teal = "rgb(0, 125, 160)";
-const tealTransparent = "rgba(0, 125, 160, 0.35)";
-const darkTeal = "rgb(0, 75, 105)";
+import { useEffect, useState } from "react";
 
-const turquoise = "rgb(100, 228, 228)";
-const lightTurquoise = "rgb(200, 230, 230)";
+// Teal colors
+const teal = "#007DA0";
+const darkTeal = "#004B69";
+const darkestTeal = "#1A414D";
+const lightTeal = "#31AFC1";
 
-const dark = "rgb(0, 0, 0)";
-const light = "white";
+// Turquoise colors
+const turquoise = "#64E4E4";
+const lightTurquoise = "#C8E6E6";
 
-const shadow = "rgba(36, 36, 36, 0.25)";
+// Light colors
+const lightest = "#FDFFFF";
+
+// Dark colors
+const dark = "#092229";
+const darkest = "#000000";
+
+// Shadow colors
+const shadow = "rgba(0, 0, 0, 0.2)";
+const shadowStrong = "rgba(0, 0, 0, 0.35)";
 
 /**
  * An interface defining a color palette for the application theme
  */
-interface Palette {
-    /**
-     * The application's main accent colors
-     */
-    main: {
-        primary: string,
-        secondary: string,
-    },
+interface Palette {  
+    accentPrimary: string,
+    accentSecondary: string,
+    accentNavigation: string,
 
-    /**
-     * The colors of the backgrounds of various elements in the application
-     */
-    background: {
-        main: string,
-        navigationPrimary: string,
-        navigationSecondary: string,
-        containerPrimary: string,
-        containerSecondary: string,
-    },
+    textPrimary: string,
+    textSecondary: string,
+    textNavigation: string,
 
-    /**
-     * The application text colors
-     */
-    text: {
-        primary: string,
-        secondary: string,
-        selection: string,
-    },
+    backgroundPrimary: string,
+    backgroundSecondary: string,
+    backgroundNavigation: string,
+    backgroundNavigationMenu: string,
 
-    /**
-     * The colors of buttons throughout the application
-     */
-    button: {
-        primary: string,
-        secondary: string,
-        primaryText: string,
-        secondaryText: string,
-        primaryHover: string,
-        secondaryHover: string,
-        primaryHoverText: string,
-        secondaryHoverText: string,
-    },
-
-    /**
-     * The colors of links throughout the application
-     */
-    link: {
-        primary: string,
-        secondary: string,
-    },
-
-    /**
-     * The color of component drop shadows
-     */
     shadow: string,
 }
 
 /**
- * The application's color palette
+ * The application's color palette (light theme)
  */
-const palette: Palette = {
-    main: {
-        primary: teal,
-        secondary: turquoise,
-    },
+const lightPalette: Palette = {
+    accentPrimary: teal,
+    accentSecondary: turquoise,
+    accentNavigation: turquoise,
 
-    background: {
-        main: lightTurquoise,
-        navigationPrimary: dark,
-        navigationSecondary: darkTeal,
-        containerPrimary: light,
-        containerSecondary: dark,
-    },
+    textPrimary: darkest,
+    textSecondary: lightest,
+    textNavigation: lightest,
 
-    text: {
-        primary: dark,
-        secondary: light,
-        selection: tealTransparent,
-    },
-
-    button: {
-        primary: teal,
-        secondary: light,
-        primaryText: light,
-        secondaryText: dark,
-        primaryHover: dark,
-        secondaryHover: teal,
-        primaryHoverText: light,
-        secondaryHoverText: light,
-    },
-
-    link: {
-        primary: teal,
-        secondary: turquoise,
-    },
+    backgroundPrimary: lightTurquoise,
+    backgroundSecondary: lightest,
+    backgroundNavigation: darkest,
+    backgroundNavigationMenu: darkTeal,
 
     shadow: shadow,
+}
+
+/**
+ * The application's color palette (dark theme)
+ */
+const darkPalette: Palette = {
+    accentPrimary: lightTeal,
+    accentSecondary: darkTeal,
+    accentNavigation: turquoise,
+
+    textPrimary: lightest,
+    textSecondary: darkest,
+    textNavigation: lightest,
+
+    backgroundPrimary: dark,
+    backgroundSecondary: darkestTeal,
+    backgroundNavigation: darkest,
+    backgroundNavigationMenu: darkTeal,
+
+    shadow: shadowStrong,
+}
+
+/**
+ * The default CSS transition for elements of the application
+ */
+const transition = "all 0.25s ease 0s";
+
+/**
+ * Returns the CSS value for box shadows based on a given color
+ * 
+ * @param color the color of the shadow
+ * @param hover whether to return the value for the shadow of an element when
+ *              being hovered over or an element in its normal state
+ * @returns the CSS value of the shadow with the given color
+ */
+const getShadow = (color: string, hover?: boolean) => {
+    return hover ? `0 0.25em 0.7em 0 ${color}` : `0 0.1em 0.7em 0 ${color}`;
 }
 
 /**
  * An interface defining theme variables for the application theme
  */
 export interface AppTheme extends Jss.Theme {
+    type: "light" | "dark",
     colors: Palette,
     shadows: {
         shadow: string,
         hoverShadow: string,
-    }
+    },
+    transition: string,
 }
 
 /**
- * The application's theme
+ * The application's light theme
  */
-const theme: AppTheme = {
-    colors: palette,
+const lightTheme: AppTheme = {
+    type: "light",
+    colors: lightPalette,
     shadows: {
-        shadow: `0 0.1em 0.6em 0 ${palette.shadow}`,
-        hoverShadow: `0 0.25em 0.6em 0 ${palette.shadow}`,
+        shadow: getShadow(lightPalette.shadow),
+        hoverShadow: getShadow(lightPalette.shadow, true),
     },
+    transition: transition,
 };
 
-export default theme;
+/**
+ * The application's dark theme
+ */
+const darkTheme: AppTheme = {
+    type: "dark",
+    colors: darkPalette,
+    shadows: {
+        shadow: getShadow(darkPalette.shadow),
+        hoverShadow: getShadow(darkPalette.shadow, true),
+    },
+    transition: transition,
+};
+
+/**
+ * Provides a theme (light or dark) for the application and a function to toggle the theme,
+ * based on the user's OS settings for preferred theme and local storage in the browser
+ * (reference: https://css-tricks.com/a-dark-mode-toggle-with-react-and-themeprovider)
+ * 
+ * @returns a theme for the application and a function to toggle the theme
+ */
+export const useDarkTheme = () => {
+    const [themeType, setThemeType] = useState("light");
+    const themeTokenName = "theme";
+
+    /**
+     * Toggles the application's theme (changes a dark theme to light and vice versa)
+     */
+    const toggleTheme = () => {
+        // Based on the current theme, get the opposite theme
+        const newThemeType = (themeType === "light") ? "dark" : "light";
+
+        // Store the theme in local storage
+        window.localStorage.setItem(themeTokenName, newThemeType);
+
+        // Set the theme
+        setThemeType(newThemeType);
+    };
+
+    useEffect(() => {
+        // Get the preferred theme from the user's OS settings
+        const prefersDarkMode = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        setThemeType(prefersDarkMode ? "dark" : "light");
+
+        // Get the theme stored in the user's local storage (if there)
+        const localTheme = window.localStorage.getItem(themeTokenName);
+        if (localTheme) {
+            // If the user has a previously specified theme stored, set it as their current theme
+            setThemeType(localTheme);
+        }
+    });
+
+    const theme = (themeType === "dark") ? darkTheme : lightTheme;
+
+    return {theme, toggleTheme};
+}

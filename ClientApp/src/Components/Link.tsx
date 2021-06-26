@@ -1,7 +1,6 @@
 import React from 'react';
 import { createUseStyles, useTheme } from 'react-jss';
 import { AppTheme } from '../theme';
-import { transition } from '../globals';
 
 type LinkProps = React.DetailedHTMLProps<React.AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement> & {
     openWithNewTab?: boolean,
@@ -10,11 +9,11 @@ type LinkProps = React.DetailedHTMLProps<React.AnchorHTMLAttributes<HTMLAnchorEl
 const useStyles = createUseStyles<"link", LinkProps, AppTheme>({
     link: {
         color: "inherit",
-        transition: transition,
         cursor: "pointer",
+        transition: data => data.theme.transition,
 
         '&:hover': {
-            color: data => data.theme.colors.link.primary,
+            color: data => data.theme.colors.accentPrimary,
         },
     },
 });

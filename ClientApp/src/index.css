@@ -1,11 +1,10 @@
 * {
     box-sizing: border-box;
     margin: 0px;
-    font-family: inherit;
 }
 
 ::selection {
-    background: rgba(0, 125, 160, 0.35);
+    background: rgba(49, 175, 193, 0.4);
 }
 
 html {

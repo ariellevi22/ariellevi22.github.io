@@ -3,9 +3,11 @@ import React from 'react';
 // Personal website assets
 import personalWebsitePhoto from '../Assets/PersonalWebsite/Personal_Website_Photo.png';
 import personalWebsiteLogo from '../Assets/PersonalWebsite/Personal_Website_Logo.png';
+import personalWebsiteLogoAlt from '../Assets/PersonalWebsite/Personal_Website_Logo_Alt.png';
 
 // ToGather assets
-import toGatherLogo from '../Assets/ToGather/ToGather_Logo_Light.png';
+import toGatherLogo from '../Assets/ToGather/ToGather_Logo.png';
+import toGatherLogoAlt from '../Assets/ToGather/ToGather_Logo_Alt.png';
 import toGatherPhoto from '../Assets/ToGather/ToGather_Photo.png';
 
 import Section from './Section';
@@ -13,11 +15,15 @@ import SimpleGrid from './SimpleGrid';
 import Card from '../Components/Card';
 import IconButton from '../Components/Button/IconButton';
 import IconButtonGroup from '../Components/Button/IconButtonGroup';
+import { useTheme } from 'theming';
+import { AppTheme } from '../theme';
 
 /**
  * A React container for "Portfolio" section elements and data
  */
 const Portfolio = () => {
+    const theme = useTheme<AppTheme>();
+
     return (
         <Section id="Portfolio">
             <h1>Portfolio</h1>
@@ -25,12 +31,14 @@ const Portfolio = () => {
             <SimpleGrid numColumnsLarge={2} numColumnsMedium={2} numColumnsSmall={1}>
                 {portfolioData.map(project => {
                     return (
-                        <Card logoSrc={project.logo} imgSrc={project.photo} color={project.color} key={project.id}>
+                        <Card logoSrc={(project.logoAlt && theme.type === "dark") ? project.logoAlt : project.logo}
+                            imgSrc={project.photo} color={project.color} key={project.id}
+                        >
                             <h2>{project.title}</h2>
 
                             <p>{project.description}</p>
 
-                            {project.technologiesUsed && project.technologiesUsed.length > 0 ?
+                            {project.technologiesUsed && (project.technologiesUsed.length > 0) ?
                                 <React.Fragment>
                                     <h3>Technologies Used</h3>
                                     <p>{project.technologiesUsed.join(", ")}</p>
@@ -39,8 +47,14 @@ const Portfolio = () => {
 
                             <h3>View the Project</h3>
                             <IconButtonGroup>
-                                <IconButton iconName="external-link-alt" href={project.website} title="Open Project"/>
-                                {project.codeWebsite ? <IconButton iconName="code" href={project.codeWebsite} title="View Project Code"/> : undefined}
+                                <IconButton iconName="external-link-alt" href={project.website} title="Open Project"
+                                    backgroundColor={theme.colors.backgroundSecondary} textColor={theme.colors.textPrimary}
+                                />
+                                {project.codeWebsite ?
+                                    <IconButton iconName="code" href={project.codeWebsite} title="View Project Code"
+                                        backgroundColor={theme.colors.backgroundSecondary} textColor={theme.colors.textPrimary}
+                                    /> : undefined
+                                }
                             </IconButtonGroup>
                         </Card>
                     );
@@ -58,6 +72,7 @@ type PortfolioData = {
     website?: string,
     codeWebsite?: string,
     logo: string,
+    logoAlt?: string,
     photo?: string,
     color?: string,
 }
@@ -72,6 +87,7 @@ const portfolioData: PortfolioData[] = [
         website: "https://alevi22.github.io",
         codeWebsite: "https://github.com/alevi22/alevi22.github.io",
         logo: personalWebsiteLogo,
+        logoAlt: personalWebsiteLogoAlt,
         photo: personalWebsitePhoto,
     },
 
@@ -83,6 +99,7 @@ const portfolioData: PortfolioData[] = [
         technologiesUsed: ["TypeScript", "React.js", "HTML", "CSS"],
         website: "https://www.togatherapp.org",
         logo: toGatherLogo,
+        logoAlt: toGatherLogoAlt,
         photo: toGatherPhoto,
         color: "#439A9C",
     },

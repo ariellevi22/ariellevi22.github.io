@@ -1,5 +1,4 @@
 import { createUseStyles, useTheme } from 'react-jss';
-import { transition } from '../../globals';
 import { AppTheme } from '../../theme';
 
 type LogoIconProps = {
@@ -10,7 +9,7 @@ const useStyles = createUseStyles<"logo", LogoIconProps, AppTheme>({
     logo: data => ({
         height: "2.25em",
         color: data.color ? data.color : "inherit",
-        transition: transition,
+        transition: data.theme.transition,
     }),
 });
 

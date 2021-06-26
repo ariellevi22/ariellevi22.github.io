@@ -1,6 +1,6 @@
 import React from 'react';
 import { createUseStyles, useTheme } from 'react-jss';
-import { scaleFactors, transition } from '../../globals';
+import { scaleFactors } from '../../globals';
 import { AppTheme } from '../../theme';
 import Link from '../Link';
 
@@ -19,14 +19,14 @@ export type ButtonBaseProps = {
 const useStyles = createUseStyles<"buttonBase", ButtonBaseProps, AppTheme>({
     buttonBase: data => ({
         fontSize: "1em",
-        backgroundColor: data.isTransparent ? "transparent" : (data.backgroundColor ? data.backgroundColor : data.theme.colors.main.primary),
-        color: data.textColor ? data.textColor : data.theme.colors.text.secondary,
+        backgroundColor: data.isTransparent ? "transparent" : (data.backgroundColor ? data.backgroundColor : data.theme.colors.accentPrimary),
+        color: data.isTransparent ? "inherit" : (data.textColor ? data.textColor : data.theme.colors.textSecondary),
         border: "none",
         boxShadow: data.isTransparent ? "none" : data.theme.shadows.shadow,
-        transition: transition,
+        transition: data.theme.transition,
         '&:hover': {
-            backgroundColor: data.isTransparent ? "transparent" : (data.hoverBackgroundColor ? data.hoverBackgroundColor : data.theme.colors.text.primary),
-            color: data.isTransparent ? data.theme.colors.main.secondary : (data.hoverTextColor ? data.hoverTextColor : data.theme.colors.text.secondary),
+            backgroundColor: data.isTransparent ? "transparent" : (data.hoverBackgroundColor ? data.hoverBackgroundColor : data.theme.colors.textPrimary),
+            color: data.hoverTextColor ? data.hoverTextColor : (data.isTransparent ? data.theme.colors.accentPrimary : data.theme.colors.textSecondary),
             cursor: "pointer",
             boxShadow: data.isTransparent ? "none" : data.theme.shadows.hoverShadow,
             transform: data.isTransparent ? "none" : `scale(${1 + scaleFactors.small})`,
@@ -46,7 +46,7 @@ const ButtonBase = (props: ButtonBaseProps & React.DetailedHTMLProps<React.Butto
     const styles = useStyles({...props, theme});
 
     // Separate out the props so that irrelevant props are not passed into the HTML button
-    const {isTransparent, href, hoverBackgroundColor, hoverTextColor, children, ...buttonProps} = props;
+    const {isTransparent, href, backgroundColor, textColor, hoverBackgroundColor, hoverTextColor, children, ...buttonProps} = props;
 
     // Create the general HTML button
     let buttonBase = (

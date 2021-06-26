@@ -12,9 +12,9 @@ type CardProps = {
 const useStyles = createUseStyles<"card" | "innerContainer" | "logo" | "coverPhoto", CardProps, AppTheme>({
     card: {
         width: "100%",
-        backgroundColor: data => data.theme.colors.background.containerPrimary,
+        backgroundColor: data => data.theme.colors.backgroundSecondary,
         borderRadius: "0.6em",
-        borderLeft: data => `0.7em solid ${data.color ? data.color : data.theme.colors.main.primary}`,
+        borderLeft: data => `0.6em solid ${data.color ? data.color : data.theme.colors.accentPrimary}`,
         boxShadow: data => data.theme.shadows.shadow,
     },
 

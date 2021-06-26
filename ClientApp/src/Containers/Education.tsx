@@ -13,11 +13,15 @@ import { pluralize } from '../utils';
 import SimpleGrid from './SimpleGrid';
 import Section from './Section';
 import { noSpacing } from '../globals';
+import { useTheme } from 'react-jss';
+import { AppTheme } from '../theme';
 
 /**
  * A React container for "Education" section elements and data
  */
 const Education = () => {
+    const theme = useTheme<AppTheme>();
+
     return (
         <Section id="Education">
             <h1>Education</h1>
@@ -62,7 +66,9 @@ const Education = () => {
                     }
 
                     return (
-                        <Card logoSrc={education.logo} imgSrc={education.photo} key={education.id} color={education.color}>
+                        <Card logoSrc={(education.logoAlt && theme.type === "dark") ? education.logoAlt : education.logo}
+                            imgSrc={education.photo} key={education.id} color={education.color}
+                        >
                             <h2>{education.school}</h2>
 
                             <p>
@@ -109,6 +115,7 @@ type EducationData = {
     additionalInfo?: {heading: string, text: string}[],
     photo: string,
     logo: string,
+    logoAlt?: string,
     color?: string,
 }
 

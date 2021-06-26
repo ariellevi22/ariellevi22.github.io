@@ -92,8 +92,3 @@ export const scaleFactors = {
     small: 0.05,
     large: 0.005,
 }
-
-/**
- * The default transition CSS property used across the application
- */
-export const transition = "all 0.25s ease 0s";

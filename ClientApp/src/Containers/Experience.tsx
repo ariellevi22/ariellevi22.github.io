@@ -4,6 +4,7 @@ import zoomPhoto from '../Assets/Zoom/Zoom_Photo.jpg';
 
 // Evergy assets
 import evergyLogo from '../Assets/Evergy/Evergy_Logo.png';
+import evergyLogoAlt from '../Assets/Evergy/Evergy_Logo_Alt.png';
 import evergyPhoto from '../Assets/Evergy/Evergy_Photo.jpg';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -11,11 +12,15 @@ import Section from './Section';
 import Link from '../Components/Link';
 import SimpleGrid from './SimpleGrid';
 import Card from '../Components/Card';
+import { useTheme } from 'react-jss';
+import { AppTheme } from '../theme';
 
 /**
  * A React container for "Experience" section elements and data
  */
 const Experience = () => {
+    const theme = useTheme<AppTheme>();
+
     return (
         <Section id="Experience">
             <h1>Experience</h1>
@@ -23,7 +28,9 @@ const Experience = () => {
             <SimpleGrid numColumnsLarge={2} numColumnsMedium={2} numColumnsSmall={1}>
                 {experienceData.map(experience => {
                     return (
-                        <Card logoSrc={experience.logo} imgSrc={experience.photo} color={experience.color} key={experience.id}>
+                        <Card logoSrc={(experience.logoAlt && theme.type === "dark") ? experience.logoAlt : experience.logo}
+                            imgSrc={experience.photo} color={experience.color} key={experience.id}
+                        >
                             <h2>{experience.jobTitle}</h2>
                             
                             <p>
@@ -68,6 +75,7 @@ type ExperienceData = {
     companyWebsite: string,
     photo: string,
     logo: string,
+    logoAlt?: string,
     color?: string,
 }
 
@@ -85,6 +93,7 @@ const experienceData: ExperienceData[] = [
         companyWebsite: "https://evergy.com",
         photo: evergyPhoto,
         logo: evergyLogo,
+        logoAlt: evergyLogoAlt,
         color: "#77BC40",
     },
 

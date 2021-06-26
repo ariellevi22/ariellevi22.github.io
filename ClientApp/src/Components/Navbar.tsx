@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { createUseStyles, useTheme } from 'react-jss';
-import { navbarHeight, IconTab, screenSizes, transition } from '../globals';
+import { navbarHeight, IconTab, screenSizes } from '../globals';
 import { AppTheme } from '../theme';
 import IconButton from './Button/IconButton';
 import Link from './Link';
@@ -16,6 +16,7 @@ export type NavbarTab = {
 type NavbarProps = {
     tabs: NavbarTab[],
     iconTabs?: IconTab[],
+    toggleTheme?: () => void,
 };
 
 const useStyles = createUseStyles<"nav" | "navbar" | "tabs" | "@keyframes menuSlideRight" | "menu" | "menuExpanded" | "menuButton", NavbarProps, AppTheme>({
@@ -23,10 +24,9 @@ const useStyles = createUseStyles<"nav" | "navbar" | "tabs" | "@keyframes menuSl
         // Style each link in the navbar
         '& a': {
             textDecoration: "none",
-            transition: transition,
             
             '&:hover': {
-                color: data => data.theme.colors.link.secondary,
+                color: data => data.theme.colors.accentNavigation,
             }
         },
     },
@@ -38,8 +38,8 @@ const useStyles = createUseStyles<"nav" | "navbar" | "tabs" | "@keyframes menuSl
         height: `${navbarHeight}em`,
         position: "fixed",
         zIndex: 10,
-        backgroundColor: data.theme.colors.background.navigationPrimary,
-        color: data.theme.colors.text.secondary,
+        backgroundColor: data.theme.colors.backgroundNavigation,
+        color: data.theme.colors.textNavigation,
         display: "flex",
         justifyContent: "space-between",
         flexWrap: "wrap",
@@ -85,8 +85,8 @@ const useStyles = createUseStyles<"nav" | "navbar" | "tabs" | "@keyframes menuSl
         height: `calc(100% - ${navbarHeight}em)`,
         zIndex: 9,
         padding: "8em 2.5em",
-        backgroundColor: data => data.theme.colors.background.navigationSecondary,
-        color: data => data.theme.colors.text.secondary,
+        backgroundColor: data => data.theme.colors.backgroundNavigationMenu,
+        color: data => data.theme.colors.textNavigation,
         gap: "1em",
         flexDirection: "column",
         alignItems: "flex-end", // right align
@@ -120,6 +120,7 @@ const useStyles = createUseStyles<"nav" | "navbar" | "tabs" | "@keyframes menuSl
  * Props:
  * * `tabs` a list of links to display across the navigation bar
  * * `iconTabs` a list of links (represented as icons) to display across the navigation bar
+ * * `toggleTheme` a function to change the application theme from light to dark mode and vice versa
  */
 const Navbar = (props: NavbarProps) => {
     const theme = useTheme<AppTheme>();
@@ -144,13 +145,20 @@ const Navbar = (props: NavbarProps) => {
 
             {props.iconTabs?.map(iconTab => {
                 return (
-                    <Link href={iconTab.href} key={iconTab.label} openWithNewTab={iconTab.openWithNewTab}
-                        aria-label={iconTab.label}
-                    >
-                        <FontAwesomeIcon icon={iconTab.iconPrefix ? [iconTab.iconPrefix, iconTab.iconName] : iconTab.iconName} fixedWidth/>
+                    <Link href={iconTab.href} key={iconTab.label} openWithNewTab={iconTab.openWithNewTab} title={iconTab.label}>
+                        <FontAwesomeIcon icon={iconTab.iconPrefix ? [iconTab.iconPrefix, iconTab.iconName] : iconTab.iconName} fixedWidth aria-label={iconTab.label}/>
                     </Link>
                 );
             })}
+
+            {props.toggleTheme ?
+                <IconButton isTransparent hoverTextColor={theme.colors.accentNavigation}
+                    iconName={(theme.type === "light") ? "moon" : "sun"}
+                    onClick={props.toggleTheme}
+                    aria-label={`Change to ${theme.type === "light" ? "dark" : "light"} theme`}
+                    title={`Change to ${theme.type === "light" ? "dark" : "light"} theme`}
+                /> : undefined
+            }
         </React.Fragment>
     )
 
@@ -158,13 +166,14 @@ const Navbar = (props: NavbarProps) => {
     return (
         <nav className={styles.nav}>
             <div className={styles.navbar}>
-                <Logo href="#top" onClick={() => setMenuOpen(false)}/>
+                <Logo href="#top" onClick={() => setMenuOpen(false)} hoverColor={theme.colors.accentNavigation}/>
 
-                <IconButton isTransparent
+                <IconButton isTransparent hoverTextColor={theme.colors.accentNavigation}
                     iconName={isMenuOpen ? "times" : "bars"}
                     onClick={() => setMenuOpen(!isMenuOpen)}
                     className={styles.menuButton}
                     aria-label={`${isMenuOpen ? "Close" : "Open"} Menu`}
+                    title={`${isMenuOpen ? "Close" : "Open"} Menu`}
                 />
 
                 <div className={styles.tabs}>
