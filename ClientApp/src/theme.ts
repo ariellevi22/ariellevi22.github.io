@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 // Teal colors
 const teal = "#007DA0";
 const darkTeal = "#004B69";
+const darkTealGray = "#3B6774";
 const darkestTeal = "#1A414D";
 const lightTeal = "#31AFC1";
 
@@ -12,6 +13,7 @@ const lightTurquoise = "#C8E6E6";
 
 // Light colors
 const lightest = "#FDFFFF";
+const light = "#E2E2E2";
 
 // Dark colors
 const dark = "#092229";
@@ -35,6 +37,7 @@ interface Palette {
 
     backgroundPrimary: string,
     backgroundSecondary: string,
+    backgroundTertiary: string,
     backgroundNavigation: string,
     backgroundNavigationMenu: string,
 
@@ -55,6 +58,7 @@ const lightPalette: Palette = {
 
     backgroundPrimary: lightTurquoise,
     backgroundSecondary: lightest,
+    backgroundTertiary: light,
     backgroundNavigation: darkest,
     backgroundNavigationMenu: darkTeal,
 
@@ -75,6 +79,7 @@ const darkPalette: Palette = {
 
     backgroundPrimary: dark,
     backgroundSecondary: darkestTeal,
+    backgroundTertiary: darkTealGray,
     backgroundNavigation: darkest,
     backgroundNavigationMenu: darkTeal,
 

@@ -1,5 +1,3 @@
-import React from 'react';
-
 // Personal website assets
 import personalWebsitePhoto from '../Assets/PersonalWebsite/Personal_Website_Photo.png';
 import personalWebsiteLogo from '../Assets/PersonalWebsite/Personal_Website_Logo.png';
@@ -17,6 +15,9 @@ import IconButton from '../Components/Button/IconButton';
 import IconButtonGroup from '../Components/Button/IconButtonGroup';
 import { useTheme } from 'react-jss';
 import { AppTheme } from '../theme';
+import Chip from '../Components/Chip/Chip';
+import ChipGroup from '../Components/Chip/ChipGroup';
+import React from 'react';
 
 /**
  * A React container for "Portfolio" section elements and data
@@ -38,10 +39,12 @@ const Portfolio = () => {
 
                             <p>{project.description}</p>
 
-                            {project.technologiesUsed && (project.technologiesUsed.length > 0) ?
+                            {project.skills && (project.skills.length > 0) ?
                                 <React.Fragment>
-                                    <h3>Technologies Used</h3>
-                                    <p>{project.technologiesUsed.join(", ")}</p>
+                                    <h3>Skills</h3>
+                                    <ChipGroup style={{marginBottom: "1em"}}>
+                                        {project.skills.map(technologyUsed => <Chip key={technologyUsed}>{technologyUsed}</Chip>)}
+                                    </ChipGroup>
                                 </React.Fragment> : undefined
                             }
 
@@ -68,7 +71,7 @@ type PortfolioData = {
     id: number,
     title: string,
     description: string,
-    technologiesUsed?: string[],
+    skills?: string[],
     website?: string,
     codeWebsite?: string,
     logo: string,
@@ -83,7 +86,7 @@ const portfolioData: PortfolioData[] = [
         id: 0,
         title: "Personal Website",
         description: "To combine my passions for code, writing, and design, I created this personal portfolio website that showcases my experiences, accomplishments, and interests.",
-        technologiesUsed: ["TypeScript", "React.js", "HTML", "CSS"],
+        skills: ["TypeScript", "React.js", "HTML", "CSS"],
         website: "https://alevi22.github.io",
         codeWebsite: "https://github.com/alevi22/alevi22.github.io",
         logo: personalWebsiteLogo,
@@ -96,7 +99,7 @@ const portfolioData: PortfolioData[] = [
         id: 1,
         title: "ToGather Front-End",
         description: "ToGather is an application for safely supporting connections between friends and family members during the COVID-19 pandemic.",
-        technologiesUsed: ["TypeScript", "React.js", "HTML", "CSS"],
+        skills: ["TypeScript", "React.js", "HTML", "CSS"],
         website: "https://www.togatherapp.org",
         logo: toGatherLogo,
         logoAlt: toGatherLogoAlt,

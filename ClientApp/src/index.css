@@ -1,6 +1,7 @@
 * {
     box-sizing: border-box;
     margin: 0px;
+    font-family: inherit;
 }
 
 ::selection {
@@ -30,6 +31,11 @@ h1 {
 h2 {
     font-size: 1.7em;
     margin-bottom: 0.3em;
+}
+
+h3 {
+    font-size: 1.2em;
+    margin-bottom: 0.2em;
 }
 
 /* Style paragraph elements */
