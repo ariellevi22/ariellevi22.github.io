@@ -16,7 +16,7 @@ const useStyles = createUseStyles<"iconButtonGroup", IconButtonGroupProps>({
         fontSize: "1.1em",
         justifyContent: data => data.justifyContent ? data.justifyContent : undefined,
     },
-})
+});
 
 /**
  * A React component representing a container for a group of icon buttons

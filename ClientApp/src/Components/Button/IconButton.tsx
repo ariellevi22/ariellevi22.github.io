@@ -11,13 +11,17 @@ type IconButtonProps = ButtonBaseProps & {
 const useStyles = createUseStyles<"iconButton", IconButtonProps>({
     iconButton: {
         borderRadius: "50%",
-        padding: data => data.isTransparent ? 0 : "0.55em",
+        padding: data => data.isTransparent ? 0 : "0.5em",
         textAlign: "center",
     }
-})
+});
 
 /**
  * A React component representing a button with an icon, such as for social buttons
+ * 
+ * Props:
+ * * `iconName` the name of the Font Awesome icon to place in the button
+ * * `iconPrefix` the prefix of the FontAwesome icon to place in the button (such as "fas" or "fab")
  */
 const IconButton = (props: IconButtonProps & React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>) => {
     const styles = useStyles(props);

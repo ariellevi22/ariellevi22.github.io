@@ -24,6 +24,7 @@ const useStyles = createUseStyles<"buttonBase", ButtonBaseProps, AppTheme>({
         border: "none",
         boxShadow: data.isTransparent ? "none" : data.theme.shadows.shadow,
         transition: data.theme.transition,
+
         '&:hover': {
             backgroundColor: data.isTransparent ? "transparent" : (data.hoverBackgroundColor ? data.hoverBackgroundColor : data.theme.colors.textPrimary),
             color: data.hoverTextColor ? data.hoverTextColor : (data.isTransparent ? data.theme.colors.accentPrimary : data.theme.colors.textSecondary),
@@ -31,6 +32,7 @@ const useStyles = createUseStyles<"buttonBase", ButtonBaseProps, AppTheme>({
             boxShadow: data.isTransparent ? "none" : data.theme.shadows.hoverShadow,
             transform: data.isTransparent ? "none" : `scale(${1 + scaleFactors.small})`,
         },
+        
         '&:active': {
             transform: data.isTransparent ? "none" : `scale(${1 - scaleFactors.small})`,
         },
