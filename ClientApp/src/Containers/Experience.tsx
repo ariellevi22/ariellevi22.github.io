@@ -14,6 +14,9 @@ import SimpleGrid from './SimpleGrid';
 import Card from '../Components/Card';
 import { useTheme } from 'react-jss';
 import { AppTheme } from '../theme';
+import ChipGroup from '../Components/Chip/ChipGroup';
+import Chip from '../Components/Chip/Chip';
+import React from 'react';
 
 /**
  * A React container for "Experience" section elements and data
@@ -43,18 +46,28 @@ const Experience = () => {
                                     }
                                 </em>
                             </p>
-
+                            
                             <p>
                                 {experience.companyDescription} <Link href={experience.companyWebsite} openWithNewTab>
-                                    <FontAwesomeIcon icon="info-circle" aria-label={`Learn more about ${experience.companyName}`}/>
+                                    <FontAwesomeIcon icon="angle-double-right" aria-label={`Learn more about ${experience.companyName}`}/>
                                 </Link>
                             </p>
-
+                            
                             <ul>
                                 {experience.jobDescription.map((item, index) => {
                                     return <li key={index}>{item}</li>
                                 })}
                             </ul>
+                            
+                            {experience.technologies ?
+                                <React.Fragment>
+                                    <h3>Technologies Used</h3>
+
+                                    <ChipGroup>
+                                        {experience.technologies.map(technology => <Chip key={technology}>{technology}</Chip>)}
+                                    </ChipGroup>
+                                </React.Fragment> : undefined
+                            }
                         </Card>
                     )
                 })}
@@ -72,6 +85,7 @@ type ExperienceData = {
     location: string,
     companyDescription: string,
     jobDescription: string[],
+    technologies?: string[],
     companyWebsite: string,
     photo: string,
     logo: string,
@@ -86,10 +100,15 @@ const experienceData: ExperienceData[] = [
         jobTitle: "Application Developer Intern",
         companyName: "Evergy",
         startDate: "June 2021",
-        endDate: undefined,
+        endDate: "August 2021",
         location: "Kansas City, MO",
         companyDescription: "Evergy delivers power to 1.7 million customers in Kansas and Missouri, integrating traditional sources of energy with innovative approaches to empower a better future.",
-        jobDescription: [],
+        jobDescription: [
+            "Designed, developed, and implemented a chatbot to empower employees to easily find relevant corporate information across multiple systems, including HR data, payroll, and policies and procedures",
+            "Created an API-based integration with internal project databases and an enhanced user interface for project managers, significantly reducing the amount of time needed to record project data",
+            "Assisted with automating a data validation process of 1,600 SharePoint sites as part of an on-premise to cloud migration project"
+        ],
+        technologies: ["Power Virtual Agents", "Power Automate", "SQL", "Groovy", "Jira API", "Power Apps", "SharePoint"],
         companyWebsite: "https://evergy.com",
         photo: evergyPhoto,
         logo: evergyLogo,

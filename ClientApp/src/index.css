@@ -35,11 +35,11 @@ h2 {
 
 h3 {
     font-size: 1.2em;
-    margin-bottom: 0.2em;
+    margin-bottom: 0.25em;
 }
 
 /* Style paragraph elements */
-p {
+p, ul {
     margin-bottom: 0.9em;
 }
 

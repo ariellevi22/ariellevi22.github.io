@@ -43,7 +43,7 @@ const Portfolio = () => {
                                 <React.Fragment>
                                     <h3>Skills</h3>
                                     <ChipGroup style={{marginBottom: "1em"}}>
-                                        {project.skills.map(technologyUsed => <Chip key={technologyUsed}>{technologyUsed}</Chip>)}
+                                        {project.skills.map(skill => <Chip key={skill}>{skill}</Chip>)}
                                     </ChipGroup>
                                 </React.Fragment> : undefined
                             }

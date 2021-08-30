@@ -18,12 +18,12 @@ const About = () => {
             </p>
 
             <p className={noSpacing}>
-                Last summer, I worked at <Link href="https://zoom.us" openWithNewTab>Zoom</Link> as
+                During summer 2020, I worked at <Link href="https://zoom.us" openWithNewTab>Zoom</Link> as
                 a technical support engineer intern, helping customers achieve success using
                 Zoom’s products during the difficult times of the COVID-19 pandemic.
-                This summer, I am working as an application developer intern
+                Last summer, I worked as an application developer intern
                 at <Link href="https://evergy.com" openWithNewTab>Evergy</Link>,
-                where I am excited to continue to grow my skillset and apply my learning to a real-world environment.
+                where I continued to grow my skillset and apply my learning to a real-world environment.
             </p>
         </Section>
     );
