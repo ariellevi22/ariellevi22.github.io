@@ -54,7 +54,7 @@ const Experience = () => {
                             </p>
                             
                             <ul>
-                                {experience.jobDescription.map((item, index) => {
+                                {experience.responsibilities.map((item, index) => {
                                     return <li key={index}>{item}</li>
                                 })}
                             </ul>
@@ -84,7 +84,7 @@ type ExperienceData = {
     endDate?: string,
     location: string,
     companyDescription: string,
-    jobDescription: string[],
+    responsibilities: string[],
     technologies?: string[],
     companyWebsite: string,
     photo: string,
@@ -103,7 +103,7 @@ const experienceData: ExperienceData[] = [
         endDate: "August 2021",
         location: "Kansas City, MO",
         companyDescription: "Evergy delivers power to 1.7 million customers in Kansas and Missouri, integrating traditional sources of energy with innovative approaches to empower a better future.",
-        jobDescription: [
+        responsibilities: [
             "Designed, developed, and implemented a chatbot to empower employees to easily find relevant corporate information across multiple systems, including HR data, payroll, and policies and procedures",
             "Created an API-based integration with internal project databases and an enhanced user interface for project managers, significantly reducing the amount of time needed to record project data",
             "Assisted with automating a data validation process of 1,600 SharePoint sites as part of an on-premise to cloud migration project"
@@ -125,7 +125,7 @@ const experienceData: ExperienceData[] = [
         endDate: "August 2020",
         location: "Overland Park, KS",
         companyDescription: "Zoom helps organizations bring their teams together with a reliable cloud platform for video conferencing, content sharing, messaging, and phone across all devices.",
-        jobDescription: [
+        responsibilities: [
             "Assisted over 500 customers throughout the summer via tickets, calls, chats, and social media to address questions, troubleshoot issues, resolve bugs, and consider feature requests",
             "Collaborated with the support, engineering, and social media teams to resolve issues and help customers achieve success using Zoom’s platform",
             "Performed an analysis of Zoom support tickets, documentation, and procedures during the COVID-19 pandemic to present support management with recommendations for future support",

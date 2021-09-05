@@ -30,35 +30,43 @@ const Portfolio = () => {
             <h1>Portfolio</h1>
 
             <SimpleGrid numColumnsLarge={2} numColumnsMedium={2} numColumnsSmall={1}>
-                {portfolioData.map(project => {
+                {portfolioData.map(portfolioItem => {
                     return (
-                        <Card logoSrc={(project.logoAlt && theme.type === "dark") ? project.logoAlt : project.logo}
-                            imgSrc={project.photo} color={project.color} key={project.id}
+                        <Card logoSrc={(portfolioItem.logoAlt && theme.type === "dark") ? portfolioItem.logoAlt : portfolioItem.logo}
+                            imgSrc={portfolioItem.photo} color={portfolioItem.color} key={portfolioItem.id}
                         >
-                            <h2>{project.title}</h2>
+                            <h2>{portfolioItem.title}</h2>
 
-                            <p>{project.description}</p>
+                            <p>{portfolioItem.description}</p>
 
-                            {project.skills && (project.skills.length > 0) ?
+                            <ul>
+                                {portfolioItem.responsibilities.map(responsibility => <li>{responsibility}</li>)}
+                            </ul>
+
+                            {portfolioItem.technologies && (portfolioItem.technologies.length > 0) ?
                                 <React.Fragment>
-                                    <h3>Skills</h3>
+                                    <h3>Technologies Used</h3>
                                     <ChipGroup style={{marginBottom: "1em"}}>
-                                        {project.skills.map(skill => <Chip key={skill}>{skill}</Chip>)}
+                                        {portfolioItem.technologies.map(skill => <Chip key={skill}>{skill}</Chip>)}
                                     </ChipGroup>
                                 </React.Fragment> : undefined
                             }
 
-                            <h3>View the Project</h3>
-                            <IconButtonGroup>
-                                <IconButton iconName="external-link-alt" href={project.website} title="Open Project"
-                                    backgroundColor={theme.colors.backgroundSecondary} textColor={theme.colors.textPrimary}
-                                />
-                                {project.codeWebsite ?
-                                    <IconButton iconName="code" href={project.codeWebsite} title="View Project Code"
-                                        backgroundColor={theme.colors.backgroundSecondary} textColor={theme.colors.textPrimary}
-                                    /> : undefined
-                                }
-                            </IconButtonGroup>
+                            {portfolioItem.website || portfolioItem.codeWebsite ?
+                                <React.Fragment>
+                                    <h3>View the Project</h3>
+                                    <IconButtonGroup>
+                                        <IconButton iconName="external-link-alt" href={portfolioItem.website} title="Open Project"
+                                            backgroundColor={theme.colors.backgroundSecondary} textColor={theme.colors.textPrimary}
+                                        />
+                                        {portfolioItem.codeWebsite ?
+                                            <IconButton iconName="code" href={portfolioItem.codeWebsite} title="View Project Code"
+                                                backgroundColor={theme.colors.backgroundSecondary} textColor={theme.colors.textPrimary}
+                                            /> : undefined
+                                        }
+                                    </IconButtonGroup>
+                                </React.Fragment> : undefined
+                            }
                         </Card>
                     );
                 })}
@@ -71,7 +79,8 @@ type PortfolioData = {
     id: number,
     title: string,
     description: string,
-    skills?: string[],
+    responsibilities: string[],
+    technologies?: string[],
     website?: string,
     codeWebsite?: string,
     logo: string,
@@ -86,7 +95,8 @@ const portfolioData: PortfolioData[] = [
         id: 0,
         title: "Personal Website",
         description: "To combine my passions for code, writing, and design, I created this personal portfolio website that showcases my experiences, accomplishments, and interests.",
-        skills: ["TypeScript", "React.js", "HTML", "CSS"],
+        responsibilities: [],
+        technologies: ["TypeScript", "React.js", "HTML", "CSS"],
         website: "https://alevi22.github.io",
         codeWebsite: "https://github.com/alevi22/alevi22.github.io",
         logo: personalWebsiteLogo,
@@ -97,9 +107,13 @@ const portfolioData: PortfolioData[] = [
     // ToGather
     {
         id: 1,
-        title: "ToGather Front-End",
+        title: "ToGather Web Application",
         description: "ToGather is an application for safely supporting connections between friends and family members during the COVID-19 pandemic.",
-        skills: ["TypeScript", "React.js", "HTML", "CSS"],
+        responsibilities: [
+            "Designed and developed a web application aimed to simplify safe event planning for friends and families during the COVID-19 pandemic",
+            "Collaborated with front-end, back-end, and database developers in an agile team environment"
+        ],
+        technologies: ["TypeScript", "React.js", "HTML", "CSS"],
         website: "https://www.togatherapp.org",
         logo: toGatherLogo,
         logoAlt: toGatherLogoAlt,
