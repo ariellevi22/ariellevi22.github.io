@@ -38,20 +38,13 @@ const Experience = () => {
                             
                             <p>
                                 <em>
-                                    {
-                                        [
-                                            experience.companyName, experience.location,
-                                            `${experience.startDate} to ${experience.endDate ? experience.endDate : "Present"}`
-                                        ].join(" \u2022 ")
-                                    }
+                                    <Link href={experience.companyWebsite} openWithNewTab>
+                                        {experience.companyName}
+                                    </Link> &bull; {experience.location} &bull; {`${experience.startDate} to ${experience.endDate ? experience.endDate : "Present"}`}
                                 </em>
                             </p>
                             
-                            <p>
-                                {experience.companyDescription} <Link href={experience.companyWebsite} openWithNewTab>
-                                    <FontAwesomeIcon icon="angle-double-right" aria-label={`Learn more about ${experience.companyName}`}/>
-                                </Link>
-                            </p>
+                            <p>{experience.companyDescription}</p>
                             
                             <ul>
                                 {experience.responsibilities.map((item, index) => {
