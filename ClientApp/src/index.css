@@ -1,0 +1,49 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    font-family: inherit;
+}
+
+::selection {
+    background: rgba(49, 175, 193, 0.4);
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+    font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+}
+
+body {
+    width: 100vw;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding: 0;
+}
+
+/* Style heading 1 elements */
+h1 {
+    font-size: 2em;
+    margin-bottom: 0.5em;
+}
+
+/* Style heading 2 elements */
+h2 {
+    font-size: 1.7em;
+    margin-bottom: 0.3em;
+}
+
+h3 {
+    font-size: 1.2em;
+    margin-bottom: 0.25em;
+}
+
+/* Style paragraph elements */
+p, ul {
+    margin-bottom: 0.9em;
+}
+
+/* Style text elements that should not have spacing after them */
+.no-spacing {
+    margin: 0;
+}
