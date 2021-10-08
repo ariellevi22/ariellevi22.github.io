@@ -85,14 +85,12 @@ To publish the project at [alevi22.github.io](https://alevi22.github.io), run:
 npm install --save gh-pages
 ```
 
-Change your repository's source branch to be any branch other than `main` (in this case, `development`).
-
-Add the following scripts in your `package.json`:
+Keep the repository's source branch as `main`, and create a new branch called `deployed`. Add the following scripts in your `package.json`:
 
 ```diff
   "scripts": {
 +   "predeploy": "npm run build",
-+   "deploy": "gh-pages -b main -d build",
++   "deploy": "gh-pages -b deployed -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
 ```
@@ -111,7 +109,7 @@ By default, the production build is a fully functional, offline-first [Progressi
 
 ### Step 4: Ensure your project’s settings use `gh-pages`
 
-Finally, make sure the GitHub Pages option in your GitHub project settings is set to use the `main` branch.
+Finally, make sure the GitHub Pages option in your GitHub project settings is set to use the `deployed` branch.
 
 ### Step 5: Optionally, configure the domain
 
