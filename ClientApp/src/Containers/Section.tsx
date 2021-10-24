@@ -1,20 +1,12 @@
 import Container from './Container';
-import { navbarHeight, ReactChildren } from '../globals';
+import { navbarHeight } from '../globals';
 import { createUseStyles } from 'react-jss';
+import { ReactChildren } from '../models';
 
 type SectionProps = {
     id?: string,
     children: ReactChildren,
 }
-
-const useStyles = createUseStyles({
-    section: {
-        paddingTop: `${navbarHeight + 0.5}em`,
-        '&:last-child': {
-            paddingBottom: `${navbarHeight + 0.5}em`,
-        }
-    }
-});
 
 /**
  * A React component representing a container for a section of the app
@@ -34,5 +26,17 @@ const Section = (props: SectionProps) => {
         </section>
     );
 }
+
+/**
+ * Creates the section's styles
+ */
+const useStyles = createUseStyles({
+    section: {
+        paddingTop: `${navbarHeight + 0.5}em`,
+        '&:last-child': {
+            paddingBottom: `${navbarHeight + 0.5}em`,
+        }
+    }
+});
 
 export default Section;

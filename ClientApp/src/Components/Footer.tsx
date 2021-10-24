@@ -4,29 +4,12 @@ import { getCurrentYear } from '../utils';
 import { createUseStyles, useTheme } from 'react-jss';
 import { AppTheme } from '../theme';
 import IconButtonGroup from './Button/IconButtonGroup';
-import { IconTab } from '../globals';
+import { IconTab } from '../models';
 
 type FooterProps = {
     copyrightHolderName: string,
     socialButtons: IconTab[],
 }
-
-const useStyles = createUseStyles<"footer" | "copyrightText", FooterProps, AppTheme>({
-    footer: {
-        padding: "2.5em",
-        width: "100%",
-        backgroundColor: data => data.theme.colors.backgroundNavigation,
-        color: data => data.theme.colors.textNavigation,
-        display: "flex",
-        flexDirection: "column",
-        gap: "1.5em",
-        alignItems: "center",
-    },
-    copyrightText: {
-        fontSize: "0.75em",
-        margin: 0,
-    },
-});
 
 /**
  * React component representing the footer of the website, which contains
@@ -61,5 +44,25 @@ const Footer = (props: FooterProps) => {
         </footer>
     );
 }
+
+/**
+ * Creates the footer's styles
+ */
+const useStyles = createUseStyles<"footer" | "copyrightText", FooterProps, AppTheme>({
+    footer: {
+        padding: "2.5em",
+        width: "100%",
+        backgroundColor: data => data.theme.colors.backgroundNavigation,
+        color: data => data.theme.colors.textNavigation,
+        display: "flex",
+        flexDirection: "column",
+        gap: "1.5em",
+        alignItems: "center",
+    },
+    copyrightText: {
+        fontSize: "0.75em",
+        margin: 0,
+    },
+});
 
 export default Footer;

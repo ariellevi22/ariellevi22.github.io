@@ -1,5 +1,5 @@
 import { createUseStyles, useTheme } from 'react-jss';
-import { ReactChildren } from '../globals';
+import { ReactChildren } from '../models';
 import { AppTheme } from '../theme';
 
 type CardProps = {
@@ -9,6 +9,34 @@ type CardProps = {
     children: ReactChildren,
 }
 
+/**
+ * A React component representing a card
+ * 
+ * Props:
+ * * `color` the card's border accent color
+ * * `logoSrc` the path to a logo to display on the top left corner of the card
+ * * `imgSrc` the path to the image to use as the card's cover photo
+ * * `children` the card's contents
+ */
+const Card = (props: CardProps) => {
+    const theme = useTheme<AppTheme>();
+    const styles = useStyles({ ...props, theme });
+
+    return (
+        <div className={styles.card}>
+            {props.imgSrc && <img src={props.imgSrc} alt="" className={styles.coverPhoto} />}
+
+            <div className={styles.innerContainer}>
+                {props.logoSrc && <img src={props.logoSrc} alt="Logo" className={styles.logo} />}
+                {props.children}
+            </div>
+        </div>
+    );
+}
+
+/**
+ * Creates the card's styles
+ */
 const useStyles = createUseStyles<"card" | "innerContainer" | "logo" | "coverPhoto", CardProps, AppTheme>({
     card: {
         width: "100%",
@@ -36,30 +64,5 @@ const useStyles = createUseStyles<"card" | "innerContainer" | "logo" | "coverPho
         borderRadius: "0 0.6em 0 0",
     },
 });
-
-/**
- * A React component representing a card
- * 
- * Props:
- * * `color` the card's border accent color
- * * `logoSrc` the path to a logo to display on the top left corner of the card
- * * `imgSrc` the path to the image to use as the card's cover photo
- * * `children` the card's contents
- */
-const Card = (props: CardProps) => {
-    const theme = useTheme<AppTheme>();
-    const styles = useStyles({...props, theme});
-
-    return (
-        <div className={styles.card}>
-            {props.imgSrc ? <img src={props.imgSrc} alt="" className={styles.coverPhoto}/> : undefined}
-
-            <div className={styles.innerContainer}>
-                {props.logoSrc ? <img src={props.logoSrc} alt="Logo" className={styles.logo}/> : undefined}
-                {props.children}
-            </div>
-        </div>
-    );
-}
 
 export default Card;

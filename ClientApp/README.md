@@ -10,46 +10,12 @@ This project is made with [React.js](https://reactjs.org/) using [TypeScript](ht
 
 The project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app). Find the [Create React App guide](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md) here.
 
-## Folder Structure
-
-The project's general folder structure looks like this:
-
-```
-ClientApp/
-  README.md (this file)
-  node_modules/
-  package.json
-  public/
-    index.html
-    favicon.ico
-    apple-touch-icon.png
-    social-cover.png
-    manifest.json
-  src/
-    Assets (a folder containing various images used across the application)
-    Components (a folder of React components used within the application)
-    Containers (a folder of React containers used within the application)
-    theme.ts
-    utils.ts
-    (other configuration files)
-```
-
-For the project to build, these files must exist with exact filenames:
-
-* `public/index.html`, the page template
-* `src/index.tsx`, the TypeScript entry point
-
-You can delete or rename the other files.
-
-You may create subdirectories inside `src`. For faster rebuilds, only files inside `src` are processed by Webpack. Make sure any TypeScript and CSS files are inside `src`; otherwise, Webpack won’t see them.
-
-Only files inside `public` can be used from `public/index.html`.
-
 ## Development
 
 To run the app in development mode, run:
 
 ```sh
+npm install
 npm start
 ```
 

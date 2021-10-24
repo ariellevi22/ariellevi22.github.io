@@ -1,17 +1,12 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { createUseStyles, useTheme } from 'react-jss';
-import { navbarHeight, IconTab, screenSizes } from '../globals';
+import { navbarHeight, screenSizes } from '../globals';
 import { AppTheme } from '../theme';
 import IconButton from './Button/IconButton';
 import Link from './Link';
 import Logo from './Logo/Logo';
-
-export type NavbarTab = {
-    label: string,
-    href: string,
-    openWithNewTab?: boolean,
-};
+import { IconTab, NavbarTab } from '../models';
 
 type NavbarProps = {
     tabs: NavbarTab[],
@@ -19,6 +14,85 @@ type NavbarProps = {
     toggleTheme?: () => void,
 };
 
+/**
+ * A React component representing a responsive navigation bar with a
+ * left-aligned logo and title and right-aligned links
+ * 
+ * Props:
+ * * `tabs` a list of links to display across the navigation bar
+ * * `iconTabs` a list of links (represented as icons) to display across the navigation bar
+ * * `toggleTheme` a function to change the application theme from light to dark mode and vice versa
+ */
+const Navbar = (props: NavbarProps) => {
+    const theme = useTheme<AppTheme>();
+    const styles = useStyles({...props, theme});
+
+    /*
+     * Keep track of whether the navigation bar menu (shown on small screens instead
+     * of the full navigation bar) is open (true) or closed (false). Initially, it is closed.
+     */
+    const [isMenuOpen, setMenuOpen] = useState(false);
+
+    // Create the display for the navigation bar tabs
+    const navbarTabs = (
+        <>
+            {props.tabs.map(tab => {
+                return (
+                    <Link href={tab.href} key={tab.label} openWithNewTab={tab.openWithNewTab}>
+                        {tab.label}
+                    </Link>
+                );
+            })}
+
+            {props.iconTabs?.map(iconTab => {
+                return (
+                    <Link href={iconTab.href} key={iconTab.label} openWithNewTab={iconTab.openWithNewTab} title={iconTab.label}>
+                        <FontAwesomeIcon icon={iconTab.iconPrefix ? [iconTab.iconPrefix, iconTab.iconName] : iconTab.iconName} fixedWidth aria-label={iconTab.label}/>
+                    </Link>
+                );
+            })}
+
+            {
+                props.toggleTheme &&
+                <IconButton isTransparent hoverTextColor={theme.colors.accentNavigation}
+                    iconName={(theme.type === "light") ? "moon" : "sun"}
+                    onClick={props.toggleTheme}
+                    aria-label={`Change to ${theme.type === "light" ? "dark" : "light"} theme`}
+                    title={`Change to ${theme.type === "light" ? "dark" : "light"} theme`}
+                />
+            }
+        </>
+    )
+
+    // Display the navigation bar
+    return (
+        <nav className={styles.nav}>
+            <div className={styles.navbar}>
+                <Logo href="#top" onClick={() => setMenuOpen(false)} hoverColor={theme.colors.accentNavigation}/>
+
+                <IconButton isTransparent hoverTextColor={theme.colors.accentNavigation}
+                    iconName={isMenuOpen ? "times" : "bars"}
+                    onClick={() => setMenuOpen(!isMenuOpen)}
+                    className={styles.menuButton}
+                    aria-label={`${isMenuOpen ? "Close" : "Open"} Menu`}
+                    title={`${isMenuOpen ? "Close" : "Open"} Menu`}
+                />
+
+                <div className={styles.tabs}>
+                    {navbarTabs}
+                </div>
+            </div>
+
+            <div className={[styles.menu, isMenuOpen ? styles.menuExpanded : undefined].join(" ")} onClick={() => setMenuOpen(false)}>
+                {navbarTabs}
+            </div>
+        </nav>
+    );
+}
+
+/**
+ * Creates the navbar's styles
+ */
 const useStyles = createUseStyles<"nav" | "navbar" | "tabs" | "@keyframes menuSlideRight" | "menu" | "menuExpanded" | "menuButton", NavbarProps, AppTheme>({
     nav: {
         // Style each link in the navbar
@@ -112,80 +186,5 @@ const useStyles = createUseStyles<"nav" | "navbar" | "tabs" | "@keyframes menuSl
         },
     },
 });
-
-/**
- * A React component representing a responsive navigation bar with a
- * left-aligned logo and title and right-aligned links
- * 
- * Props:
- * * `tabs` a list of links to display across the navigation bar
- * * `iconTabs` a list of links (represented as icons) to display across the navigation bar
- * * `toggleTheme` a function to change the application theme from light to dark mode and vice versa
- */
-const Navbar = (props: NavbarProps) => {
-    const theme = useTheme<AppTheme>();
-    const styles = useStyles({...props, theme});
-
-    /*
-     * Keep track of whether the navigation bar menu (shown on small screens instead
-     * of the full navigation bar) is open (true) or closed (false). Initially, it is closed.
-     */
-    const [isMenuOpen, setMenuOpen] = useState(false);
-
-    // Create the display for the navigation bar tabs
-    const navbarTabs = (
-        <React.Fragment>
-            {props.tabs.map(tab => {
-                return (
-                    <Link href={tab.href} key={tab.label} openWithNewTab={tab.openWithNewTab}>
-                        {tab.label}
-                    </Link>
-                );
-            })}
-
-            {props.iconTabs?.map(iconTab => {
-                return (
-                    <Link href={iconTab.href} key={iconTab.label} openWithNewTab={iconTab.openWithNewTab} title={iconTab.label}>
-                        <FontAwesomeIcon icon={iconTab.iconPrefix ? [iconTab.iconPrefix, iconTab.iconName] : iconTab.iconName} fixedWidth aria-label={iconTab.label}/>
-                    </Link>
-                );
-            })}
-
-            {props.toggleTheme ?
-                <IconButton isTransparent hoverTextColor={theme.colors.accentNavigation}
-                    iconName={(theme.type === "light") ? "moon" : "sun"}
-                    onClick={props.toggleTheme}
-                    aria-label={`Change to ${theme.type === "light" ? "dark" : "light"} theme`}
-                    title={`Change to ${theme.type === "light" ? "dark" : "light"} theme`}
-                /> : undefined
-            }
-        </React.Fragment>
-    )
-
-    // Display the navigation bar
-    return (
-        <nav className={styles.nav}>
-            <div className={styles.navbar}>
-                <Logo href="#top" onClick={() => setMenuOpen(false)} hoverColor={theme.colors.accentNavigation}/>
-
-                <IconButton isTransparent hoverTextColor={theme.colors.accentNavigation}
-                    iconName={isMenuOpen ? "times" : "bars"}
-                    onClick={() => setMenuOpen(!isMenuOpen)}
-                    className={styles.menuButton}
-                    aria-label={`${isMenuOpen ? "Close" : "Open"} Menu`}
-                    title={`${isMenuOpen ? "Close" : "Open"} Menu`}
-                />
-
-                <div className={styles.tabs}>
-                    {navbarTabs}
-                </div>
-            </div>
-
-            <div className={[styles.menu, isMenuOpen ? styles.menuExpanded : undefined].join(" ")} onClick={() => setMenuOpen(false)}>
-                {navbarTabs}
-            </div>
-        </nav>
-    );
-}
 
 export default Navbar;

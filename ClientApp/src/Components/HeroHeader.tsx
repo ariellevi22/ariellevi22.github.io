@@ -2,8 +2,9 @@ import IconButton from './Button/IconButton';
 import IconButtonGroup from './Button/IconButtonGroup';
 import { createUseStyles, useTheme } from 'react-jss';
 import { AppTheme } from '../theme';
-import { IconTab, noSpacing, ReactChildren, screenSizes } from '../globals';
+import { noSpacing, screenSizes } from '../globals';
 import Container from '../Containers/Container';
+import { IconTab, ReactChildren } from '../models';
 
 type HeroHeaderProps = {
     imgSrc: string,
@@ -12,6 +13,55 @@ type HeroHeaderProps = {
     children: ReactChildren,
 }
 
+/**
+ * React component representing the hero header of the website, which contains
+ * a heading, a photo, and optional additional content (including social buttons)
+ * 
+ * Props:
+ * * `imgSrc` the path to the profile photo
+ * * `heading` the heading or title of the hero header
+ * * `socialButtons` a list of social buttons to include in the hero header
+ * * `children` additional content to place in the hero header, between the heading and social buttons
+ */
+const HeroHeader = (props: HeroHeaderProps) => {
+    const theme = useTheme<AppTheme>();
+    const styles = useStyles({ ...props, theme });
+
+    return (
+        <div className={styles.heroHeader}>
+            <div className={styles.background} />
+
+            <Container className={styles.foreground}>
+                <div />
+
+                <img src={props.imgSrc} alt={props.heading} className={styles.photo} />
+
+                <div className={styles.content}>
+                    <h1 className={noSpacing}>{props.heading}</h1>
+
+                    {props.children}
+
+                    {
+                        props.socialButtons &&
+                        <IconButtonGroup>
+                            {props.socialButtons.map(button => {
+                                return (
+                                    <IconButton iconName={button.iconName} iconPrefix={button.iconPrefix} hoverBackgroundColor={button.colorPrimary} hoverTextColor={button.colorSecondary}
+                                        href={button.href} key={[button.iconPrefix, button.iconName].join(" ")}
+                                    />
+                                );
+                            })}
+                        </IconButtonGroup>
+                    }
+                </div>
+            </Container>
+        </div>
+    );
+}
+
+/**
+ * Creates the hero header's styles
+ */
 const useStyles = createUseStyles<"heroHeader" | "background" | "foreground" | "photo" | "content", HeroHeaderProps, AppTheme>({
     heroHeader: {
         width: "100%",
@@ -73,50 +123,5 @@ const useStyles = createUseStyles<"heroHeader" | "background" | "foreground" | "
         }
     }
 });
-
-/**
- * React component representing the hero header of the website, which contains
- * a heading, a photo, and optional additional content (including social buttons)
- * 
- * Props:
- * * `imgSrc` the path to the profile photo
- * * `heading` the heading or title of the hero header
- * * `socialButtons` a list of social buttons to include in the hero header
- * * `children` additional content to place in the hero header, between the heading and social buttons
- */
-const HeroHeader = (props: HeroHeaderProps) => {
-    const theme = useTheme<AppTheme>();
-    const styles = useStyles({...props, theme});
-
-    return (
-        <div className={styles.heroHeader}>
-            <div className={styles.background}/>
-
-            <Container className={styles.foreground}>
-                <div/>
-
-                <img src={props.imgSrc} alt={props.heading} className={styles.photo}/>
-
-                <div className={styles.content}>
-                    <h1 className={noSpacing}>{props.heading}</h1>
-
-                    {props.children}
-
-                    {props.socialButtons ?
-                        <IconButtonGroup>
-                            {props.socialButtons.map(button => {
-                                return (
-                                    <IconButton iconName={button.iconName} iconPrefix={button.iconPrefix} hoverBackgroundColor={button.colorPrimary} hoverTextColor={button.colorSecondary}
-                                        href={button.href} key={[button.iconPrefix, button.iconName].join(" ")}
-                                    />
-                                );
-                            })}
-                        </IconButtonGroup> : undefined
-                    }
-                </div>
-            </Container>
-        </div>
-    );
-}
 
 export default HeroHeader;

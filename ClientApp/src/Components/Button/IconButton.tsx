@@ -8,14 +8,6 @@ type IconButtonProps = ButtonBaseProps & {
     iconPrefix?: IconPrefix,
 };
 
-const useStyles = createUseStyles<"iconButton", IconButtonProps>({
-    iconButton: {
-        borderRadius: "50%",
-        padding: data => data.isTransparent ? 0 : "0.5em",
-        textAlign: "center",
-    }
-});
-
 /**
  * A React component representing a button with an icon, such as for social buttons
  * 
@@ -27,13 +19,24 @@ const IconButton = (props: IconButtonProps & React.DetailedHTMLProps<React.Butto
     const styles = useStyles(props);
 
     // Separate out icon button props and general button props
-    const {iconName, iconPrefix, ...buttonBaseProps} = props;
+    const { iconName, iconPrefix, ...buttonBaseProps } = props;
 
     return (
         <ButtonBase {...buttonBaseProps} className={[styles.iconButton, props.className].join(" ")}>
-            <FontAwesomeIcon icon={iconPrefix ? [iconPrefix, iconName] : iconName} fixedWidth/>
+            <FontAwesomeIcon icon={iconPrefix ? [iconPrefix, iconName] : iconName} fixedWidth />
         </ButtonBase>
     );
 }
+
+/**
+ * Creates the icon button's styles
+ */
+const useStyles = createUseStyles<"iconButton", IconButtonProps>({
+    iconButton: {
+        borderRadius: "50%",
+        padding: data => data.isTransparent ? 0 : "0.5em",
+        textAlign: "center",
+    }
+});
 
 export default IconButton;

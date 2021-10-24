@@ -14,32 +14,6 @@ export type ButtonBaseProps = {
 }
 
 /**
- * Creates the button's styles
- */
-const useStyles = createUseStyles<"buttonBase", ButtonBaseProps, AppTheme>({
-    buttonBase: data => ({
-        fontSize: "1em",
-        backgroundColor: data.isTransparent ? "transparent" : (data.backgroundColor ? data.backgroundColor : data.theme.colors.accentPrimary),
-        color: data.isTransparent ? "inherit" : (data.textColor ? data.textColor : data.theme.colors.textSecondary),
-        border: "none",
-        boxShadow: data.isTransparent ? "none" : data.theme.shadows.shadow,
-        transition: data.theme.transition,
-
-        '&:hover': {
-            backgroundColor: data.isTransparent ? "transparent" : (data.hoverBackgroundColor ? data.hoverBackgroundColor : data.theme.colors.textPrimary),
-            color: data.hoverTextColor ? data.hoverTextColor : (data.isTransparent ? data.theme.colors.accentPrimary : data.theme.colors.textSecondary),
-            cursor: "pointer",
-            boxShadow: data.isTransparent ? "none" : data.theme.shadows.hoverShadow,
-            transform: data.isTransparent ? "none" : `scale(${1 + scaleFactors.small})`,
-        },
-        
-        '&:active': {
-            transform: data.isTransparent ? "none" : `scale(${1 - scaleFactors.small})`,
-        },
-    })
-});
-
-/**
  * A React component representing a simple wrapper for an HTML `<button>`. This component is extended
  * in components such as `Button` and `IconButton` for simplicity.
  */
@@ -65,5 +39,31 @@ const ButtonBase = (props: ButtonBaseProps & React.DetailedHTMLProps<React.Butto
         return buttonBase;
     }
 }
+
+/**
+ * Creates the button base's styles
+ */
+ const useStyles = createUseStyles<"buttonBase", ButtonBaseProps, AppTheme>({
+    buttonBase: data => ({
+        fontSize: "1em",
+        backgroundColor: data.isTransparent ? "transparent" : (data.backgroundColor ? data.backgroundColor : data.theme.colors.accentPrimary),
+        color: data.isTransparent ? "inherit" : (data.textColor ? data.textColor : data.theme.colors.textSecondary),
+        border: "none",
+        boxShadow: data.isTransparent ? "none" : data.theme.shadows.shadow,
+        transition: data.theme.transition,
+
+        '&:hover': {
+            backgroundColor: data.isTransparent ? "transparent" : (data.hoverBackgroundColor ? data.hoverBackgroundColor : data.theme.colors.textPrimary),
+            color: data.hoverTextColor ? data.hoverTextColor : (data.isTransparent ? data.theme.colors.accentPrimary : data.theme.colors.textSecondary),
+            cursor: "pointer",
+            boxShadow: data.isTransparent ? "none" : data.theme.shadows.hoverShadow,
+            transform: data.isTransparent ? "none" : `scale(${1 + scaleFactors.small})`,
+        },
+        
+        '&:active': {
+            transform: data.isTransparent ? "none" : `scale(${1 - scaleFactors.small})`,
+        },
+    })
+});
 
 export default ButtonBase;

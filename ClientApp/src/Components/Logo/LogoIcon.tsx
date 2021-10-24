@@ -5,14 +5,6 @@ type LogoIconProps = {
     color?: string,
 }
 
-const useStyles = createUseStyles<"logo", LogoIconProps, AppTheme>({
-    logo: data => ({
-        height: "2.25em",
-        color: data.color ? data.color : "inherit",
-        transition: data.theme.transition,
-    }),
-});
-
 /**
  * A React component representing the application logo's icon (the logo without the text).
  * 
@@ -33,5 +25,16 @@ const LogoIcon = (props: LogoIconProps & React.SVGAttributes<SVGElement>) => {
         </svg>
     );
 }
+
+/**
+ * Creates the logo icon's styles
+ */
+const useStyles = createUseStyles<"logo", LogoIconProps, AppTheme>({
+    logo: data => ({
+        height: "2.25em",
+        color: data.color ? data.color : "inherit",
+        transition: data.theme.transition,
+    }),
+});
 
 export default LogoIcon;

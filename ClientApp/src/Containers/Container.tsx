@@ -1,4 +1,4 @@
-import { ReactChildren } from '../globals';
+import { ReactChildren } from '../models';
 import { createUseStyles } from 'react-jss';
 
 type ContainerProps = {

@@ -13,40 +13,6 @@ type LogoProps = {
     onClick?: React.MouseEventHandler<HTMLDivElement>,
 }
 
-const useStyles = createUseStyles<"logoText" | "logoContainer" | "stacked" | "logoContainerLink", LogoProps, AppTheme>({
-    logoText: {
-        color: data => data.color ? data.color : "inherit",
-        fontSize: "1.5em",
-        padding: 0,
-        margin: 0,
-        transition: data => data.theme.transition,
-    },
-    logoContainer: {
-        display: "flex",
-        flexDirection: "row",
-        flexWrap: "nowrap",
-        alignItems: "center",
-        gap: "1em",
-    },
-    stacked: {
-        flexDirection: "column",
-        gap: "0.5em",
-    },
-    logoContainerLink: {
-        textDecoration: "none",
-        '&:hover svg': {
-            color: data => data.hoverColor ? data.hoverColor : data.theme.colors.accentPrimary,
-            transform: `scale(${1 + scaleFactors.tiny})`,
-        },
-        '&:active svg': {
-            transform: `scale(${1 - scaleFactors.tiny})`,
-        },
-        '&:hover p': {
-            color: data => data.hoverColor ? data.hoverColor : data.theme.colors.accentPrimary,
-        },
-    }
-});
-
 /**
  * A React component representing the application's logo (including the icon and text),
  * which can optionally link to a website or part of the app when clicked.
@@ -84,5 +50,42 @@ const Logo = (props: LogoProps) => {
         return logo;
     }
 }
+
+/**
+ * Creates the logo's styles
+ */
+const useStyles = createUseStyles<"logoText" | "logoContainer" | "stacked" | "logoContainerLink", LogoProps, AppTheme>({
+    logoText: {
+        color: data => data.color ? data.color : "inherit",
+        fontSize: "1.5em",
+        padding: 0,
+        margin: 0,
+        transition: data => data.theme.transition,
+    },
+    logoContainer: {
+        display: "flex",
+        flexDirection: "row",
+        flexWrap: "nowrap",
+        alignItems: "center",
+        gap: "1em",
+    },
+    stacked: {
+        flexDirection: "column",
+        gap: "0.5em",
+    },
+    logoContainerLink: {
+        textDecoration: "none",
+        '&:hover svg': {
+            color: data => data.hoverColor ? data.hoverColor : data.theme.colors.accentPrimary,
+            transform: `scale(${1 + scaleFactors.tiny})`,
+        },
+        '&:active svg': {
+            transform: `scale(${1 - scaleFactors.tiny})`,
+        },
+        '&:hover p': {
+            color: data => data.hoverColor ? data.hoverColor : data.theme.colors.accentPrimary,
+        },
+    }
+});
 
 export default Logo;

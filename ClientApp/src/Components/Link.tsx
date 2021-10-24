@@ -6,18 +6,6 @@ type LinkProps = React.DetailedHTMLProps<React.AnchorHTMLAttributes<HTMLAnchorEl
     openWithNewTab?: boolean,
 }
 
-const useStyles = createUseStyles<"link", LinkProps, AppTheme>({
-    link: {
-        color: "inherit",
-        cursor: "pointer",
-        transition: data => data.theme.transition,
-
-        '&:hover': {
-            color: data => data.theme.colors.accentPrimary,
-        },
-    },
-});
-
 /**
  * A React component that wraps the HTML `<a>` tag to include proper styling (based on the theme)
  * and the functionality to easily open the link in a new tab if desired
@@ -42,5 +30,20 @@ const Link = (props: LinkProps) => {
         </a>
     );
 }
+
+/**
+ * Creates the link's styles
+ */
+const useStyles = createUseStyles<"link", LinkProps, AppTheme>({
+    link: {
+        color: "inherit",
+        cursor: "pointer",
+        transition: data => data.theme.transition,
+
+        '&:hover': {
+            color: data => data.theme.colors.accentPrimary,
+        },
+    },
+});
 
 export default Link;

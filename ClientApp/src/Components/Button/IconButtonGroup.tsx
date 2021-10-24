@@ -1,4 +1,4 @@
-import { ReactChildren } from '../../globals';
+import { ReactChildren } from '../../models';
 import { createUseStyles } from 'react-jss';
 import * as CSS from 'csstype';
 
@@ -7,16 +7,6 @@ type IconButtonGroupProps = {
     style?: React.CSSProperties,
     children: ReactChildren,
 }
-
-const useStyles = createUseStyles<"iconButtonGroup", IconButtonGroupProps>({
-    iconButtonGroup: {
-        display: "flex",
-        gap: "1rem",
-        flexWrap: "wrap",
-        fontSize: "1.1em",
-        justifyContent: data => data.justifyContent ? data.justifyContent : undefined,
-    },
-});
 
 /**
  * A React component representing a container for a group of icon buttons
@@ -35,5 +25,18 @@ const IconButtonGroup = (props: IconButtonGroupProps) => {
         </div>
     );
 }
+
+/**
+ * Creates the icon button group's styles
+ */
+const useStyles = createUseStyles<"iconButtonGroup", IconButtonGroupProps>({
+    iconButtonGroup: {
+        display: "flex",
+        gap: "1rem",
+        flexWrap: "wrap",
+        fontSize: "1.1em",
+        justifyContent: data => data.justifyContent ? data.justifyContent : undefined,
+    },
+});
 
 export default IconButtonGroup;

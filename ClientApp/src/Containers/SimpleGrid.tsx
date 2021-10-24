@@ -1,4 +1,4 @@
-import { ReactChildren } from '../globals';
+import { ReactChildren } from '../models';
 import { createUseStyles } from 'react-jss';
 import * as CSS from 'csstype';
 import { screenSizes } from '../globals';
@@ -15,6 +15,19 @@ type SimpleGridProps = {
     justifyRows?: boolean,
     children: ReactChildren,
 };
+
+/**
+ * A React component representing a container for grid items
+ */
+const SimpleGrid = (props: SimpleGridProps) => {
+    const styles = useStyles(props);
+
+    return (
+        <div className={styles.grid}>
+            {props.children}
+        </div>
+    );
+}
 
 /**
  * Based on the properties for the number of columns, gets the correct number of columns
@@ -83,7 +96,7 @@ const getColumnTemplate = (size: "small" | "medium" | "large", numColumnsLarge?:
  */
 const getAutoRows = (size: "small" | "medium" | "large", numColumnsLarge?: number, numColumnsMedium?: number, numColumnsSmall?: number, justifyRows?: boolean) => {
     let numColumns = getNumColumnsForSize(size, numColumnsLarge, numColumnsMedium, numColumnsSmall);
-    
+
     if (justifyRows && (numColumns > 1)) {
         return "1fr";
     } else {
@@ -112,6 +125,9 @@ const getGap = (gap?: CSS.Property.Gap, rowGap?: CSS.Property.RowGap, columnGap?
     }
 }
 
+/**
+ * Creates the grid's styles
+ */
 const useStyles = createUseStyles<"grid", SimpleGridProps>({
     grid: {
         width: data => data.width ? data.width : "100%",
@@ -145,18 +161,5 @@ const useStyles = createUseStyles<"grid", SimpleGridProps>({
         },
     },
 });
-
-/**
- * A React component representing a container for grid items
- */
-const SimpleGrid = (props: SimpleGridProps) => {
-    const styles = useStyles(props);
-
-    return (
-        <div className={styles.grid}>
-            {props.children}
-        </div>
-    );
-}
 
 export default SimpleGrid;
