@@ -1,18 +1,11 @@
 import { ReactChildren } from '../models';
 import { createUseStyles } from 'react-jss';
+import { screenSizes } from '../globals';
 
 type ContainerProps = {
     className?: string,
     children: ReactChildren,
 }
-
-const useStyles = createUseStyles({
-    container: {
-        width: "80%",
-        maxWidth: "1100px",
-        margin: "auto",
-    },
-});
 
 /**
  * A React component representing a container for app content
@@ -25,10 +18,21 @@ const Container = (props: ContainerProps) => {
     const styles = useStyles();
 
     return (
-        <div className={[styles.container, props.className].join(" ")}>
+        <div className={[styles.root, props.className].join(" ")}>
             {props.children}
         </div>
     );
 }
+
+/**
+ * Creates the container's styles
+ */
+const useStyles = createUseStyles({
+    root: {
+        width: "85%",
+        maxWidth: screenSizes.medium - 150,
+        margin: "auto",
+    },
+});
 
 export default Container;
