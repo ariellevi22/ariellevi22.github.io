@@ -1,46 +1,30 @@
-import IconButton from './Button/IconButton';
 import Logo from './Logo/Logo';
 import { getCurrentYear } from '../utils';
 import { createUseStyles, useTheme } from 'react-jss';
 import { AppTheme } from '../theme';
-import IconButtonGroup from './Button/IconButtonGroup';
-import { IconTab } from '../models';
-
-type FooterProps = {
-    copyrightHolderName: string,
-    socialButtons: IconTab[],
-}
+import { name } from '../globals';
+import SocialButtons from './Button/SocialButtons';
 
 /**
  * React component representing the footer of the website, which contains
  * copyright information. The copyright year automatically updates to the current year.
- * 
- * Props:
- * * `copyrightHolderName` the person or organization to be shown as the copyright holder
- * * `socialButtons` a list of social buttons to display within the footer
  */
-const Footer = (props: FooterProps) => {
+const Footer = () => {
     const theme = useTheme<AppTheme>();
-    const styles = useStyles({...props, theme});
+    const styles = useStyles({ theme });
 
     return (
         <footer className={styles.footer}>
-            <Logo stacked href="#top" hoverColor={theme.colors.accentNavigation}/>
-            
-            <IconButtonGroup>
-                {props.socialButtons.map(button => {
-                    return (
-                        <IconButton iconName={button.iconName} iconPrefix={button.iconPrefix}
-                            backgroundColor={theme.colors.textNavigation} textColor={theme.colors.backgroundNavigation}
-                            hoverBackgroundColor={button.colorPrimary} hoverTextColor={button.colorSecondary}
-                            href={button.href}
-                            key={[button.iconPrefix, button.iconName].join(" ")}
-                        />
-                    );
-                })}
-            </IconButtonGroup>
+            <Logo stacked href="#top" hoverColor={theme.colors.accentNavigation} />
 
-            <p className={styles.copyrightText}>&copy; {getCurrentYear()} {props.copyrightHolderName}</p>
+            <SocialButtons
+                backgroundColor={theme.colors.textNavigation}
+                textColor={theme.colors.backgroundNavigation}
+                hoverBackgroundColor={theme.colors.accentPrimary}
+                hoverTextColor={theme.colors.textSecondary}
+            />
+
+            <p className={styles.copyrightText}>&copy; {getCurrentYear()} {name}</p>
         </footer>
     );
 }
@@ -48,7 +32,7 @@ const Footer = (props: FooterProps) => {
 /**
  * Creates the footer's styles
  */
-const useStyles = createUseStyles<"footer" | "copyrightText", FooterProps, AppTheme>({
+const useStyles = createUseStyles<"footer" | "copyrightText", {}, AppTheme>({
     footer: {
         padding: "2.5em",
         width: "100%",

@@ -13,7 +13,7 @@ export const navbarTabs: NavbarTab[] = [
 /**
  * Social button icons and links
  */
-export const socialButtons: IconTab[] = [
+export const socialTabs: IconTab[] = [
     {
         label: "LinkedIn",
         href: "https://www.linkedin.com/in/ariel-levi/",

@@ -1,31 +1,17 @@
-import IconButton from './Button/IconButton';
-import IconButtonGroup from './Button/IconButtonGroup';
+import profilePicture from '../Assets/ProfilePicture.jpg';
+import SocialButtons from './Button/SocialButtons';
 import { createUseStyles, useTheme } from 'react-jss';
 import { AppTheme } from '../theme';
-import { noSpacing, screenSizes } from '../globals';
+import { name, noSpacing, screenSizes } from '../globals';
 import Container from '../Containers/Container';
-import { IconTab, ReactChildren } from '../models';
-
-type HeroHeaderProps = {
-    imgSrc: string,
-    heading: string,
-    socialButtons?: IconTab[],
-    children: ReactChildren,
-}
 
 /**
  * React component representing the hero header of the website, which contains
- * a heading, a photo, and optional additional content (including social buttons)
- * 
- * Props:
- * * `imgSrc` the path to the profile photo
- * * `heading` the heading or title of the hero header
- * * `socialButtons` a list of social buttons to include in the hero header
- * * `children` additional content to place in the hero header, between the heading and social buttons
+ * a heading, a photo, and social button
  */
-const HeroHeader = (props: HeroHeaderProps) => {
+const HeroHeader = () => {
     const theme = useTheme<AppTheme>();
-    const styles = useStyles({ ...props, theme });
+    const styles = useStyles({ theme });
 
     return (
         <div className={styles.heroHeader}>
@@ -34,25 +20,13 @@ const HeroHeader = (props: HeroHeaderProps) => {
             <Container className={styles.foreground}>
                 <div />
 
-                <img src={props.imgSrc} alt={props.heading} className={styles.photo} />
+                <img src={profilePicture} alt={name} className={styles.photo} />
 
                 <div className={styles.content}>
-                    <h1 className={noSpacing}>{props.heading}</h1>
+                    <h1 className={noSpacing}>{name}</h1>
+                    <p className={noSpacing}>Computer Science Student at the University of Nebraska-Lincoln’s Raikes School</p>
 
-                    {props.children}
-
-                    {
-                        props.socialButtons &&
-                        <IconButtonGroup>
-                            {props.socialButtons.map(button => {
-                                return (
-                                    <IconButton iconName={button.iconName} iconPrefix={button.iconPrefix} hoverBackgroundColor={button.colorPrimary} hoverTextColor={button.colorSecondary}
-                                        href={button.href} key={[button.iconPrefix, button.iconName].join(" ")}
-                                    />
-                                );
-                            })}
-                        </IconButtonGroup>
-                    }
+                    <SocialButtons />
                 </div>
             </Container>
         </div>
@@ -62,7 +36,7 @@ const HeroHeader = (props: HeroHeaderProps) => {
 /**
  * Creates the hero header's styles
  */
-const useStyles = createUseStyles<"heroHeader" | "background" | "foreground" | "photo" | "content", HeroHeaderProps, AppTheme>({
+const useStyles = createUseStyles<"heroHeader" | "background" | "foreground" | "photo" | "content", {}, AppTheme>({
     heroHeader: {
         width: "100%",
         position: "relative",

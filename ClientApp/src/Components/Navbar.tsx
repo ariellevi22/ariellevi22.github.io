@@ -6,11 +6,9 @@ import { AppTheme } from '../theme';
 import IconButton from './Button/IconButton';
 import Link from './Link';
 import Logo from './Logo/Logo';
-import { IconTab, NavbarTab } from '../models';
+import { navbarTabs, socialTabs } from '../Data/navigationData';
 
 type NavbarProps = {
-    tabs: NavbarTab[],
-    iconTabs?: IconTab[],
     toggleTheme?: () => void,
 };
 
@@ -19,13 +17,11 @@ type NavbarProps = {
  * left-aligned logo and title and right-aligned links
  * 
  * Props:
- * * `tabs` a list of links to display across the navigation bar
- * * `iconTabs` a list of links (represented as icons) to display across the navigation bar
  * * `toggleTheme` a function to change the application theme from light to dark mode and vice versa
  */
 const Navbar = (props: NavbarProps) => {
     const theme = useTheme<AppTheme>();
-    const styles = useStyles({...props, theme});
+    const styles = useStyles({ ...props, theme });
 
     /*
      * Keep track of whether the navigation bar menu (shown on small screens instead
@@ -34,9 +30,9 @@ const Navbar = (props: NavbarProps) => {
     const [isMenuOpen, setMenuOpen] = useState(false);
 
     // Create the display for the navigation bar tabs
-    const navbarTabs = (
+    const tabs = (
         <>
-            {props.tabs.map(tab => {
+            {navbarTabs.map(tab => {
                 return (
                     <Link href={tab.href} key={tab.label} openWithNewTab={tab.openWithNewTab}>
                         {tab.label}
@@ -44,16 +40,15 @@ const Navbar = (props: NavbarProps) => {
                 );
             })}
 
-            {props.iconTabs?.map(iconTab => {
+            {socialTabs.slice(0, -1).map(iconTab => {
                 return (
-                    <Link href={iconTab.href} key={iconTab.label} openWithNewTab={iconTab.openWithNewTab} title={iconTab.label}>
-                        <FontAwesomeIcon icon={iconTab.iconPrefix ? [iconTab.iconPrefix, iconTab.iconName] : iconTab.iconName} fixedWidth aria-label={iconTab.label}/>
+                    <Link href={iconTab.href} key={iconTab.label} openWithNewTab={iconTab.openWithNewTab} title={iconTab.label} aria-label={iconTab.label}>
+                        <FontAwesomeIcon icon={iconTab.iconPrefix ? [iconTab.iconPrefix, iconTab.iconName] : iconTab.iconName} fixedWidth />
                     </Link>
                 );
             })}
 
-            {
-                props.toggleTheme &&
+            {props.toggleTheme &&
                 <IconButton isTransparent hoverTextColor={theme.colors.accentNavigation}
                     iconName={(theme.type === "light") ? "moon" : "sun"}
                     onClick={props.toggleTheme}
@@ -62,13 +57,13 @@ const Navbar = (props: NavbarProps) => {
                 />
             }
         </>
-    )
+    );
 
     // Display the navigation bar
     return (
         <nav className={styles.nav}>
             <div className={styles.navbar}>
-                <Logo href="#top" onClick={() => setMenuOpen(false)} hoverColor={theme.colors.accentNavigation}/>
+                <Logo href="#top" onClick={() => setMenuOpen(false)} hoverColor={theme.colors.accentNavigation} />
 
                 <IconButton isTransparent hoverTextColor={theme.colors.accentNavigation}
                     iconName={isMenuOpen ? "times" : "bars"}
@@ -79,12 +74,12 @@ const Navbar = (props: NavbarProps) => {
                 />
 
                 <div className={styles.tabs}>
-                    {navbarTabs}
+                    {tabs}
                 </div>
             </div>
 
             <div className={[styles.menu, isMenuOpen ? styles.menuExpanded : undefined].join(" ")} onClick={() => setMenuOpen(false)}>
-                {navbarTabs}
+                {tabs}
             </div>
         </nav>
     );
@@ -98,7 +93,7 @@ const useStyles = createUseStyles<"nav" | "navbar" | "tabs" | "@keyframes menuSl
         // Style each link in the navbar
         '& a': {
             textDecoration: "none",
-            
+
             '&:hover': {
                 color: data => data.theme.colors.accentNavigation,
             }

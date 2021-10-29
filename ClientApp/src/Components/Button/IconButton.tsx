@@ -15,7 +15,7 @@ type IconButtonProps = ButtonBaseProps & {
  * * `iconName` the name of the Font Awesome icon to place in the button
  * * `iconPrefix` the prefix of the FontAwesome icon to place in the button (such as "fas" or "fab")
  */
-const IconButton = (props: IconButtonProps & React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>) => {
+const IconButton = (props: IconButtonProps) => {
     const styles = useStyles(props);
 
     // Separate out icon button props and general button props

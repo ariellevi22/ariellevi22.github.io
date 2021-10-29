@@ -4,7 +4,7 @@ import { scaleFactors } from '../../globals';
 import { AppTheme } from '../../theme';
 import Link from '../Link';
 
-export type ButtonBaseProps = {
+export type ButtonBaseProps = React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> & {
     isTransparent?: boolean,
     href?: string,
     backgroundColor?: string,
@@ -17,7 +17,7 @@ export type ButtonBaseProps = {
  * A React component representing a simple wrapper for an HTML `<button>`. This component is extended
  * in components such as `Button` and `IconButton` for simplicity.
  */
-const ButtonBase = (props: ButtonBaseProps & React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>) => {
+const ButtonBase = (props: ButtonBaseProps) => {
     const theme = useTheme<AppTheme>();
     const styles = useStyles({...props, theme});
 

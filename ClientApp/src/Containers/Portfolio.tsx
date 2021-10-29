@@ -46,12 +46,22 @@ const Portfolio = () => {
                                 <>
                                     <h3>View the Project</h3>
                                     <IconButtonGroup>
-                                        <IconButton iconName="external-link-alt" href={portfolioItem.website} title="Open Project"
-                                            backgroundColor={theme.colors.backgroundSecondary} textColor={theme.colors.textPrimary}
+                                        <IconButton
+                                            iconName="external-link-alt"
+                                            href={portfolioItem.website}
+                                            title={`Open ${portfolioItem.title}`}
+                                            aria-label={`Open ${portfolioItem.title}`}
+                                            backgroundColor={theme.colors.backgroundSecondary}
+                                            textColor={theme.colors.textPrimary}
                                         />
                                         {portfolioItem.codeWebsite &&
-                                            <IconButton iconName="code" href={portfolioItem.codeWebsite} title="View Project Code"
-                                                backgroundColor={theme.colors.backgroundSecondary} textColor={theme.colors.textPrimary}
+                                            <IconButton
+                                                iconName="code"
+                                                href={portfolioItem.codeWebsite}
+                                                title={`View Project Code for ${portfolioItem.title}`}
+                                                aria-label={`View Project Code for ${portfolioItem.title}`}
+                                                backgroundColor={theme.colors.backgroundSecondary}
+                                                textColor={theme.colors.textPrimary}
                                             />
                                         }
                                     </IconButtonGroup>

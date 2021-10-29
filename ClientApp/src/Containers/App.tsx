@@ -1,12 +1,10 @@
-import profilePicture from '../Assets/ProfilePicture.jpg';
 import Navbar from '../Components/Navbar';
 import HeroHeader from '../Components/HeroHeader';
 import About from './About';
 import Education from './Education';
 import Experience from './Experience';
 import Footer from '../Components/Footer';
-import { name, navbarHeight, noSpacing } from '../globals';
-import { navbarTabs, socialButtons } from '../Data/navigationData';
+import { navbarHeight } from '../globals';
 import { ThemeProvider } from 'react-jss';
 import { useDarkTheme } from '../theme';
 import { useEffect } from 'react';
@@ -18,7 +16,7 @@ import Portfolio from './Portfolio';
 const App = () => {
     const { theme, toggleTheme } = useDarkTheme();
     useEffect(() => {
-        // Set the application background color and text color
+        // Set the application background color and text color whenever the theme changes
         document.body.style.backgroundColor = theme.colors.backgroundPrimary;
         document.body.style.color = theme.colors.textPrimary;
         document.body.style.transition = theme.transition;
@@ -27,11 +25,8 @@ const App = () => {
     return (
         <ThemeProvider theme={theme}>
             <header style={{ marginTop: `${navbarHeight}em` }}>
-                <Navbar tabs={navbarTabs} iconTabs={socialButtons.slice(0, -1)} toggleTheme={toggleTheme} />
-
-                <HeroHeader imgSrc={profilePicture} heading={name} socialButtons={socialButtons}>
-                    <p className={noSpacing}>Computer Science Student at the University of Nebraska-Lincoln’s Raikes School</p>
-                </HeroHeader>
+                <Navbar toggleTheme={toggleTheme} />
+                <HeroHeader />
             </header>
 
             <main>
@@ -41,7 +36,7 @@ const App = () => {
                 <Portfolio />
             </main>
 
-            <Footer copyrightHolderName={name} socialButtons={socialButtons} />
+            <Footer />
         </ThemeProvider>
     );
 }
