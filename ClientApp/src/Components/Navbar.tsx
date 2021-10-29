@@ -103,7 +103,7 @@ const useStyles = createUseStyles<"nav" | "navbar" | "tabs" | "@keyframes menuSl
     navbar: data => ({
         padding: "1em 2.5em",
         top: 0,
-        width: "100vw",
+        width: "100%",
         height: `${navbarHeight}em`,
         position: "fixed",
         zIndex: 10,
