@@ -20,7 +20,7 @@ const Education = () => {
             <SimpleGrid numColumnsLarge={2} numColumnsMedium={2} numColumnsSmall={1}>
                 {educationData.map(education => {
                     // Create a component for the education's major
-                    let majorInfo;
+                    let majorInfo: JSX.Element | undefined;
                     if (education.majors) {
                         majorInfo = (
                             <div>
@@ -31,7 +31,7 @@ const Education = () => {
                     }
 
                     // Create a component for the education's minor
-                    let minorInfo;
+                    let minorInfo: JSX.Element | undefined;
                     if (education.minors) {
                         minorInfo = (
                             <div>
@@ -42,7 +42,7 @@ const Education = () => {
                     }
 
                     // Combine the timeline, major, and minor components as needed
-                    let educationInfo;
+                    let educationInfo: JSX.Element | undefined;
                     if (majorInfo && minorInfo) {
                         // If both major info and minor info are given, create a two-column display for the major and minor
                         educationInfo = (
@@ -51,6 +51,9 @@ const Education = () => {
                                 {minorInfo}
                             </SimpleGrid>
                         );
+                    } else if (majorInfo) {
+                        // If only a major is given, show it as the education data
+                        educationInfo = majorInfo;
                     } else {
                         // If a major and/or minor is not given, there is no education data to show
                         educationInfo = undefined;

@@ -15,7 +15,7 @@ const experienceData: ExperienceData[] = [
         startDate: "June 2021",
         endDate: "August 2021",
         location: "Kansas City, MO",
-        companyDescription: "Evergy delivers power to 1.7 million customers in Kansas and Missouri, integrating traditional sources of energy with innovative approaches to empower a better future.",
+        companyDescription: "Evergy delivers power to 1.8 million customers in Kansas and Missouri, integrating traditional sources of energy with innovative approaches to empower a better future.",
         responsibilities: [
             "Designed, developed, and implemented a chatbot to empower employees to easily find relevant corporate information across multiple systems, including HR data, payroll, and policies and procedures",
             "Created an API-based integration with internal project databases and an enhanced user interface for project managers, significantly reducing the amount of time needed to record project data",

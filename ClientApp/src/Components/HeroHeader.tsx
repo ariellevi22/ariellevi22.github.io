@@ -48,7 +48,7 @@ const useStyles = createUseStyles<"heroHeader" | "background" | "foreground" | "
         position: "absolute",
         top: 0,
         left: 0,
-        zIndex: -1,
+        zIndex: 0,
         backgroundColor: data.theme.colors.accentPrimary, // fallback background color in case the gradient does not work
         backgroundImage: `linear-gradient(to right, ${data.theme.colors.accentPrimary}, ${data.theme.colors.accentSecondary})`,
         boxShadow: `0 0 1em 0 ${data.theme.colors.shadow} inset`,
@@ -62,6 +62,7 @@ const useStyles = createUseStyles<"heroHeader" | "background" | "foreground" | "
     foreground: {
         display: "grid",
         grid: "auto / 1fr auto 1fr",
+        zIndex: 1,
 
         [`@media screen and (max-width: ${screenSizes.small}px)`]: {
             grid: "1fr auto 6fr / auto",

@@ -2,20 +2,13 @@
     box-sizing: border-box;
     margin: 0px;
     font-family: inherit;
-}
-
-::selection {
-    background: rgba(49, 175, 193, 0.4);
+    z-index: inherit;
 }
 
 html {
     scroll-behavior: smooth;
     font-size: 16px;
     font-family: 'Montserrat', Helvetica, Arial, sans-serif;
-}
-
-body {
-    padding: 0;
 }
 
 /* Style heading 1 elements */

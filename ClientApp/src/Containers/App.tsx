@@ -5,9 +5,8 @@ import Education from './Education';
 import Experience from './Experience';
 import Footer from '../Components/Footer';
 import { navbarHeight } from '../globals';
-import { ThemeProvider } from 'react-jss';
-import { useDarkTheme } from '../theme';
-import { useEffect } from 'react';
+import { createUseStyles, ThemeProvider } from 'react-jss';
+import { AppTheme, useDarkTheme } from '../theme';
 import Portfolio from './Portfolio';
 
 /**
@@ -15,30 +14,39 @@ import Portfolio from './Portfolio';
  */
 const App = () => {
     const { theme, toggleTheme } = useDarkTheme();
-    useEffect(() => {
-        // Set the application background color and text color whenever the theme changes
-        document.body.style.backgroundColor = theme.colors.backgroundPrimary;
-        document.body.style.color = theme.colors.textPrimary;
-        document.body.style.transition = theme.transition;
-    }, [theme]);
+    const styles = useStyles({ theme });
 
     return (
         <ThemeProvider theme={theme}>
-            <header style={{ marginTop: `${navbarHeight}em` }}>
-                <Navbar toggleTheme={toggleTheme} />
-                <HeroHeader />
-            </header>
+            <div className={styles.root}>
+                <header style={{ marginTop: `${navbarHeight}em` }}>
+                    <Navbar toggleTheme={toggleTheme} />
+                    <HeroHeader />
+                </header>
 
-            <main>
-                <About />
-                <Experience />
-                <Education />
-                <Portfolio />
-            </main>
+                <main>
+                    <About />
+                    <Experience />
+                    <Education />
+                    <Portfolio />
+                </main>
 
-            <Footer />
+                <Footer />
+            </div>
         </ThemeProvider>
     );
 }
+
+/**
+ * Creates styles for the App component
+ */
+const useStyles = createUseStyles<"root", {}, AppTheme>({
+    root: {
+        backgroundColor: data => data.theme.colors.backgroundPrimary,
+        color: data => data.theme.colors.textPrimary,
+        transition: data => data.theme.transition,
+        minHeight: `calc(100vh - ${navbarHeight}em)`,
+    }
+})
 
 export default App;
