@@ -16,12 +16,13 @@ type LinkProps = React.DetailedHTMLProps<React.AnchorHTMLAttributes<HTMLAnchorEl
  */
 const Link = (props: LinkProps) => {
     const theme = useTheme<AppTheme>();
-    const styles = useStyles({...props, theme});
+    const styles = useStyles({ ...props, theme });
 
-    const {openWithNewTab, ...anchorProps} = props;
-    
+    const { openWithNewTab, ...anchorProps } = props;
+
     return (
-        <a {...anchorProps}
+        <a
+            {...anchorProps}
             target={props.openWithNewTab ? "_blank" : undefined}
             rel={props.openWithNewTab ? "noopener noreferrer" : undefined}
             className={[styles.link, props.className].join(" ")}

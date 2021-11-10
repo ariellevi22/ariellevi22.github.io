@@ -161,11 +161,6 @@ const useStyles = createUseStyles<"nav" | "navbar" | "tabs" | "@keyframes menuSl
         alignItems: "flex-end", // right align
         justifyContent: "space-evenly",
         animation: "$menuSlideRight 0.25s ease 0s 1 normal",
-
-        '@media (orientation: landscape)': {
-            flexDirection: "row",
-            flexWrap: "wrap",
-        }
     },
 
     menuExpanded: {
@@ -175,9 +170,9 @@ const useStyles = createUseStyles<"nav" | "navbar" | "tabs" | "@keyframes menuSl
     },
 
     menuButton: {
-        display: "none",
+        display: ["none", "!important"],
         [`@media screen and (max-width: ${screenSizes.small}px)`]: {
-            display: "block",
+            display: ["block", "!important"],
         },
     },
 });

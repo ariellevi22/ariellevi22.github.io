@@ -4,7 +4,9 @@ import { scaleFactors } from '../../globals';
 import { AppTheme } from '../../theme';
 import Link from '../Link';
 
-export type ButtonBaseProps = React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> & {
+type ButtonBaseHTMLProps = React.HTMLAttributes<HTMLButtonElement> & React.HTMLAttributes<HTMLAnchorElement>;
+
+export type ButtonBaseProps = ButtonBaseHTMLProps & {
     isTransparent?: boolean,
     href?: string,
     backgroundColor?: string,
@@ -19,33 +21,43 @@ export type ButtonBaseProps = React.DetailedHTMLProps<React.ButtonHTMLAttributes
  */
 const ButtonBase = (props: ButtonBaseProps) => {
     const theme = useTheme<AppTheme>();
-    const styles = useStyles({...props, theme});
+    const styles = useStyles({ ...props, theme });
+    const buttonClasses = [styles.buttonBase, props.className].join(" ")
 
-    // Separate out the props so that irrelevant props are not passed into the HTML button
-    const {isTransparent, href, backgroundColor, textColor, hoverBackgroundColor, hoverTextColor, children, ...buttonProps} = props;
-
-    // Create the general HTML button
-    let buttonBase = (
-        <button {...buttonProps} className={[styles.buttonBase, props.className].join(" ")}>{children}</button>
-    );
+    // Separate out the props so that irrelevant props are not passed into the HTML element
+    const { isTransparent, href, backgroundColor, textColor, hoverBackgroundColor, hoverTextColor, children, ...otherProps } = props;
 
     if (href) {
-        // If the button should link somewhere, wrap it in a link tag
+        // If the button should link somewhere, return a link tag styled as a button
         return (
-            <Link href={href} openWithNewTab>{buttonBase}</Link>
+            <Link
+                {...otherProps}
+                href={props.href}
+                className={buttonClasses}
+                role="button"
+                openWithNewTab
+            >
+                {props.children}
+            </Link>
         );
     } else {
         // If the button does not need to link anywhere, just return it
-        return buttonBase;
+        return (
+            <button {...otherProps} className={buttonClasses}>
+                {props.children}
+            </button>
+        );
     }
 }
 
 /**
  * Creates the button base's styles
  */
- const useStyles = createUseStyles<"buttonBase", ButtonBaseProps, AppTheme>({
+const useStyles = createUseStyles<"buttonBase", ButtonBaseProps, AppTheme>({
     buttonBase: data => ({
         fontSize: "1em",
+        display: "inline-block",
+        textDecoration: "none",
         backgroundColor: data.isTransparent ? "transparent" : (data.backgroundColor ? data.backgroundColor : data.theme.colors.accentPrimary),
         color: data.isTransparent ? "inherit" : (data.textColor ? data.textColor : data.theme.colors.textSecondary),
         border: "none",
@@ -59,7 +71,7 @@ const ButtonBase = (props: ButtonBaseProps) => {
             boxShadow: data.isTransparent ? "none" : data.theme.shadows.hoverShadow,
             transform: data.isTransparent ? "none" : `scale(${1 + scaleFactors.small})`,
         },
-        
+
         '&:active': {
             transform: data.isTransparent ? "none" : `scale(${1 - scaleFactors.small})`,
         },
