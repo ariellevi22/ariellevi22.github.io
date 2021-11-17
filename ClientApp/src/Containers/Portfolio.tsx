@@ -22,8 +22,12 @@ const Portfolio = () => {
             <SimpleGrid numColumnsLarge={2} numColumnsMedium={2} numColumnsSmall={1}>
                 {portfolioData.map(portfolioItem => {
                     return (
-                        <Card logoSrc={(portfolioItem.logoAlt && theme.type === "dark") ? portfolioItem.logoAlt : portfolioItem.logo}
-                            imgSrc={portfolioItem.photo} color={portfolioItem.color} key={portfolioItem.id}
+                        <Card
+                            logoSrc={(portfolioItem.logoAlt && theme.type === "dark") ? portfolioItem.logoAlt : portfolioItem.logo}
+                            logoAlt={`${portfolioItem.title} Logo`}
+                            imgSrc={portfolioItem.photo}
+                            color={portfolioItem.color}
+                            key={portfolioItem.id}
                         >
                             <h2>{portfolioItem.title}</h2>
 

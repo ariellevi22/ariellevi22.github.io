@@ -5,7 +5,9 @@ import { AppTheme } from '../theme';
 type CardProps = {
     color?: string,
     logoSrc?: string,
+    logoAlt?: string,
     imgSrc?: string,
+    imgAlt?: string,
     children: ReactChildren,
 }
 
@@ -24,10 +26,22 @@ const Card = (props: CardProps) => {
 
     return (
         <div className={styles.card}>
-            {props.imgSrc && <img src={props.imgSrc} alt="" className={styles.coverPhoto} />}
+            {props.imgSrc &&
+                <img
+                    src={props.imgSrc}
+                    alt={props.imgAlt ? props.imgAlt : ""}
+                    className={styles.coverPhoto}
+                />
+            }
 
             <div className={styles.innerContainer}>
-                {props.logoSrc && <img src={props.logoSrc} alt="Logo" className={styles.logo} />}
+                {props.logoSrc &&
+                    <img
+                        src={props.logoSrc}
+                        alt={props.logoAlt ? props.logoAlt : ""}
+                        className={styles.logo}
+                    />
+                }
                 {props.children}
             </div>
         </div>

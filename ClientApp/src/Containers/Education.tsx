@@ -60,8 +60,12 @@ const Education = () => {
                     }
 
                     return (
-                        <Card logoSrc={(education.logoAlt && theme.type === "dark") ? education.logoAlt : education.logo}
-                            imgSrc={education.photo} key={education.id} color={education.color}
+                        <Card
+                            logoSrc={(education.logoAlt && theme.type === "dark") ? education.logoAlt : education.logo}
+                            logoAlt={`${education.school} Logo`}
+                            imgSrc={education.photo}
+                            key={education.id}
+                            color={education.color}
                         >
                             <h2>{education.school}</h2>
 

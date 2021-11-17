@@ -21,7 +21,9 @@ const Experience = () => {
             <SimpleGrid numColumnsLarge={2} numColumnsMedium={2} numColumnsSmall={1}>
                 {experienceData.map(experience => {
                     return (
-                        <Card logoSrc={(experience.logoAlt && theme.type === "dark") ? experience.logoAlt : experience.logo}
+                        <Card
+                            logoSrc={(experience.logoAlt && theme.type === "dark") ? experience.logoAlt : experience.logo}
+                            logoAlt={`${experience.companyName} Logo`}
                             imgSrc={experience.photo} color={experience.color} key={experience.id}
                         >
                             <h2>{experience.jobTitle}</h2>
