@@ -94,7 +94,7 @@ const useStyles = createUseStyles<"nav" | "navbar" | "tabs" | "@keyframes menuSl
         '& a': {
             textDecoration: "none",
 
-            '&:hover': {
+            '&:hover, &:focus': {
                 color: data => data.theme.colors.accentNavigation,
             }
         },
