@@ -7,6 +7,7 @@ import IconButton from './Button/IconButton';
 import Link from './Link';
 import Logo from './Logo/Logo';
 import { navbarTabs, socialTabs } from '../Data/navigationData';
+import { CSSTransition } from 'react-transition-group';
 
 type NavbarProps = {
     toggleTheme?: () => void,
@@ -78,17 +79,29 @@ const Navbar = (props: NavbarProps) => {
                 </div>
             </div>
 
-            <div className={[styles.menu, isMenuOpen ? styles.menuExpanded : undefined].join(" ")} onClick={() => setMenuOpen(false)}>
-                {tabs}
-            </div>
+            <CSSTransition
+                in={isMenuOpen}
+                timeout={theme.transitionTime}
+                classNames={{
+                    enter: styles.menuEnter,
+                    enterActive: styles.menuEnterActive,
+                    exit: styles.menuExit,
+                    exitActive: styles.menuExitActive,
+                }}
+                unmountOnExit
+            >
+                <div className={styles.menu} onClick={() => setMenuOpen(false)}>
+                    {tabs}
+                </div>
+            </CSSTransition>
         </nav>
     );
 }
 
-/**
- * Creates the navbar's styles
- */
-const useStyles = createUseStyles<"nav" | "navbar" | "tabs" | "@keyframes menuSlideRight" | "menu" | "menuExpanded" | "menuButton", NavbarProps, AppTheme>({
+const menuWidth = "80vw";
+
+type NavbarClasses = "nav" | "navbar" | "tabs" | "menu" | "menuEnter" | "menuEnterActive" | "menuExit" | "menuExitActive" | "menuButton";
+const useStyles = createUseStyles<NavbarClasses, NavbarProps, AppTheme>({
     nav: {
         // Style each link in the navbar
         '& a': {
@@ -132,41 +145,45 @@ const useStyles = createUseStyles<"nav" | "navbar" | "tabs" | "@keyframes menuSl
         }
     },
 
-    '@keyframes menuSlideRight': {
-        '0%': {
-            display: "none",
-            opacity: 0,
-        },
-        '1%': {
-            display: "flex",
-            width: 0,
-        },
-        '100%': {
-            opacity: 1,
-        },
-    },
-
     menu: {
-        display: "none", // hidden on large screens (and until opened on small screens)
-        position: "fixed",
-        right: 0,
-        width: "80vw",
-        height: `calc(100% - ${navbarHeight}em)`,
-        zIndex: 9,
-        padding: "8em 2.5em",
-        backgroundColor: data => data.theme.colors.backgroundNavigationMenu,
-        color: data => data.theme.colors.textNavigation,
-        gap: "1em",
-        flexDirection: "column",
-        alignItems: "flex-end", // right align
-        justifyContent: "space-evenly",
-        animation: "$menuSlideRight 0.25s ease 0s 1 normal",
-    },
-
-    menuExpanded: {
+        // Only show the menu on small screens
         [`@media screen and (max-width: ${screenSizes.small}px)`]: {
             display: "flex",
-        },
+            position: "fixed",
+            right: 0,
+            width: menuWidth,
+            height: `calc(100% - ${navbarHeight}em)`,
+            zIndex: 9,
+            padding: "8em 2.5em",
+            backgroundColor: data => data.theme.colors.backgroundNavigationMenu,
+            color: data => data.theme.colors.textNavigation,
+            gap: "1em",
+            flexDirection: "column",
+            alignItems: "flex-end", // right align
+            justifyContent: "space-evenly",
+        }
+    },
+
+    menuEnter: {
+        opacity: 0,
+        width: 0,
+    },
+
+    menuEnterActive: {
+        opacity: 1,
+        width: menuWidth,
+        transition: data => data.theme.transition,
+    },
+
+    menuExit: {
+        opacity: 1,
+        width: menuWidth,
+    },
+
+    menuExitActive: {
+        opacity: 0,
+        width: 0,
+        transition: data => data.theme.transition,
     },
 
     menuButton: {

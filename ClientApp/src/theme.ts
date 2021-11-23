@@ -87,9 +87,14 @@ const darkPalette: Palette = {
 }
 
 /**
+ * The default CSS transition time for elements of the application
+ */
+const transitionTime = 250;
+
+/**
  * The default CSS transition for elements of the application
  */
-const transition = "all 0.25s ease 0s";
+const transition = `all ${transitionTime}ms ease 0ms`;
 
 /**
  * Returns the CSS value for box shadows based on a given color
@@ -113,6 +118,7 @@ export interface AppTheme extends Jss.Theme {
         shadow: string,
         hoverShadow: string,
     },
+    transitionTime: number,
     transition: string,
 }
 
@@ -126,6 +132,7 @@ const lightTheme: AppTheme = {
         shadow: getShadow(lightPalette.shadow),
         hoverShadow: getShadow(lightPalette.shadow, true),
     },
+    transitionTime: transitionTime,
     transition: transition,
 };
 
@@ -139,6 +146,7 @@ const darkTheme: AppTheme = {
         shadow: getShadow(darkPalette.shadow),
         hoverShadow: getShadow(darkPalette.shadow, true),
     },
+    transitionTime: transitionTime,
     transition: transition,
 };
 
