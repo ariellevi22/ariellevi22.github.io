@@ -63,6 +63,9 @@ const useStyles = createUseStyles<"card" | "innerContainer" | "logo" | "coverPho
     innerContainer: {
         width: "100%",
         padding: "2em",
+        '& > :last-child': {
+            marginBottom: 0,
+        }
     },
 
     logo: {
@@ -72,7 +75,7 @@ const useStyles = createUseStyles<"card" | "innerContainer" | "logo" | "coverPho
 
     coverPhoto: {
         width: "100%",
-        height: "12.5em",
+        height: "12em",
         objectFit: "cover",
         filter: "contrast(80%) brightness(80%)",
         borderRadius: "0 0.6em 0 0",

@@ -75,14 +75,14 @@ const useStyles = createUseStyles<"logoText" | "logoContainer" | "stacked" | "lo
     },
     logoContainerLink: {
         textDecoration: "none",
-        '&:hover svg, &:focus svg': {
+        '&:hover svg, &:focus-visible svg': {
             color: data => data.hoverColor ? data.hoverColor : data.theme.colors.accentPrimary,
             transform: `scale(${1 + scaleFactors.tiny})`,
         },
         '&:active svg': {
             transform: `scale(${1 - scaleFactors.tiny})`,
         },
-        '&:hover p, &:focus p': {
+        '&:hover p, &:focus-visible p': {
             color: data => data.hoverColor ? data.hoverColor : data.theme.colors.accentPrimary,
         },
     }

@@ -4,11 +4,6 @@
 export const name = "Ariel Levi";
 
 /**
- * The CSS class name for text that should not have paragraph spacing after it
- */
-export const noSpacing = "no-spacing";
-
-/**
  * The height of the navigation bar, measured in em
  */
 export const navbarHeight = 5;

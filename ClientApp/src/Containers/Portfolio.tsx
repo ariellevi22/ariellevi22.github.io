@@ -19,7 +19,7 @@ const Portfolio = () => {
         <Section id="Portfolio">
             <h1>Portfolio</h1>
 
-            <SimpleGrid numColumnsLarge={2} numColumnsMedium={2} numColumnsSmall={1}>
+            <SimpleGrid numColumns={{ large: 2, medium: 2, small: 1 }}>
                 {portfolioData.map(portfolioItem => {
                     return (
                         <Card

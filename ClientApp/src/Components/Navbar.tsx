@@ -107,7 +107,7 @@ const useStyles = createUseStyles<NavbarClasses, NavbarProps, AppTheme>({
         '& a': {
             textDecoration: "none",
 
-            '&:hover, &:focus': {
+            '&:hover, &:focus-visible': {
                 color: data => data.theme.colors.accentNavigation,
             }
         },

@@ -33,8 +33,3 @@ h3 {
 p, ul {
     margin-bottom: 0.9em;
 }
-
-/* Style text elements that should not have spacing after them */
-.no-spacing {
-    margin: 0;
-}

@@ -2,7 +2,7 @@ import profilePicture from '../Assets/ProfilePicture.jpg';
 import SocialButtons from './Button/SocialButtons';
 import { createUseStyles, useTheme } from 'react-jss';
 import { AppTheme } from '../theme';
-import { name, noSpacing, screenSizes } from '../globals';
+import { name, screenSizes } from '../globals';
 import Container from '../Containers/Container';
 
 /**
@@ -23,8 +23,12 @@ const HeroHeader = () => {
                 <img src={profilePicture} alt={name} className={styles.photo} />
 
                 <div className={styles.content}>
-                    <h1 className={noSpacing}>{name}</h1>
-                    <p className={noSpacing}>Computer Science Student at the University of Nebraska-Lincoln’s Raikes School</p>
+                    <h1 style={{ marginBottom: 0 }}>
+                        {name}
+                    </h1>
+                    <p style={{ marginBottom: 0 }}>
+                        Computer Science Student at the University of Nebraska-Lincoln’s Raikes School
+                    </p>
 
                     <SocialButtons />
                 </div>

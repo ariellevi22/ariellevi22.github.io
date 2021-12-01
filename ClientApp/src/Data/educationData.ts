@@ -17,9 +17,15 @@ const educationData: EducationData[] = [
         startDate: "August 2019",
         endDate: "May 2023",
         classes: [
-            "Software Engineering", "Data Structures (Java)", "Algorithms (JavaScript)",
-            "Machine Learning (R)", "Innovation Processes (Design Thinking)",
-            "Computer Systems Engineering (C)", "Unix Programming"
+            "Software Engineering",
+            "Data Structures (Java)",
+            "Algorithms (JavaScript)",
+            "Programming Language Concepts",
+            "Machine Learning (R)",
+            "Innovation Processes (Design Thinking)",
+            "Computer Systems Engineering (C)",
+            "Operating Systems Kernels (C)",
+            "Unix Programming"
         ],
         additionalInfo: [
             {

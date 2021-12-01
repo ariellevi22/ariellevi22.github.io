@@ -18,7 +18,7 @@ const Experience = () => {
         <Section id="Experience">
             <h1>Experience</h1>
 
-            <SimpleGrid numColumnsLarge={2} numColumnsMedium={2} numColumnsSmall={1}>
+            <SimpleGrid numColumns={{ large: 2, medium: 2, small: 1 }} priority={experienceData.length % 2 !== 0}>
                 {experienceData.map(experience => {
                     return (
                         <Card
@@ -32,17 +32,25 @@ const Experience = () => {
                                 <em>
                                     <Link href={experience.companyWebsite} openWithNewTab>
                                         {experience.companyName}
-                                    </Link> &bull; {experience.location} &bull; {`${experience.startDate} to ${experience.endDate ? experience.endDate : "Present"}`}
+                                    </Link>
+                                    {
+                                        `
+                                            \u2022 ${experience.location} \u2022
+                                            ${experience.startDate} to ${experience.endDate ? experience.endDate : "Present"}
+                                        `
+                                    }
                                 </em>
                             </p>
 
                             <p>{experience.companyDescription}</p>
 
-                            <ul>
-                                {experience.responsibilities.map((item, index) => {
-                                    return <li key={index}>{item}</li>
-                                })}
-                            </ul>
+                            {experience.responsibilities.length > 0 &&
+                                <ul>
+                                    {experience.responsibilities.map((item, index) => {
+                                        return <li key={index}>{item}</li>
+                                    })}
+                                </ul>
+                            }
 
                             {experience.technologies &&
                                 <>

@@ -1,5 +1,4 @@
 import Link from '../Components/Link';
-import { noSpacing } from '../globals';
 import Section from './Section';
 
 /**
@@ -17,7 +16,7 @@ const About = () => {
                 and its ability to make the world a better place.
             </p>
 
-            <p className={noSpacing}>
+            <p>
                 Last summer, I worked as an application developer intern
                 at <Link href="https://evergy.com" openWithNewTab>Evergy</Link>,
                 where I created tools and integrations to help employees be more productive at work.

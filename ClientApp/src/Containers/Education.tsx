@@ -2,7 +2,6 @@ import Card from '../Components/Card';
 import { pluralize } from '../utils';
 import SimpleGrid from './SimpleGrid';
 import Section from './Section';
-import { noSpacing } from '../globals';
 import { useTheme } from 'react-jss';
 import { AppTheme } from '../theme';
 import educationData from '../Data/educationData';
@@ -17,7 +16,7 @@ const Education = () => {
         <Section id="Education">
             <h1>Education</h1>
 
-            <SimpleGrid numColumnsLarge={2} numColumnsMedium={2} numColumnsSmall={1}>
+            <SimpleGrid numColumns={{ large: 2, medium: 2, small: 1 }}>
                 {educationData.map(education => {
                     // Create a component for the education's major
                     let majorInfo: JSX.Element | undefined;
@@ -46,7 +45,7 @@ const Education = () => {
                     if (majorInfo && minorInfo) {
                         // If both major info and minor info are given, create a two-column display for the major and minor
                         educationInfo = (
-                            <SimpleGrid numColumnsLarge={2} numColumnsMedium={2} numColumnsSmall={1} rowGap={0}>
+                            <SimpleGrid numColumns={{ large: 2, medium: 2, small: 1 }} rowGap={0}>
                                 {majorInfo}
                                 {minorInfo}
                             </SimpleGrid>
@@ -91,7 +90,7 @@ const Education = () => {
                             })}
 
                             <h3>What I Learned</h3>
-                            <p className={noSpacing}>{education.classes.join(", ")}</p>
+                            <p>{education.classes.join(", ")}</p>
                         </Card>
                     );
                 })}
