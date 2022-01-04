@@ -20,9 +20,9 @@ const experienceData: ExperienceData[] = [
         companyDescription: `
             Nelnet Campus Commerce delivers payment technology for a smarter campus,
             building better experiences for higher-education institutions and their communities.
-            Design Studio is the Raikes School's capstone learning experience,
-            where student teams partner with regional or national businesses
-            to create innovative, software-based solutions that fulfill business needs.
+            Design Studio is the capstone learning experience at the University of Nebraska-Lincoln's Raikes School,
+            where student teams partner with regional or national businesses to create innovative,
+            software-based solutions that fulfill business needs.
         `,
         responsibilities: [
             `
