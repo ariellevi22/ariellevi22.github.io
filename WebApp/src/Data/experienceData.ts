@@ -12,7 +12,7 @@ const experienceData: ExperienceData[] = [
     // Nelnet (Design Studio)
     {
         id: 2,
-        jobTitle: "Student Software Developer (via Raikes School Design Studio)",
+        jobTitle: "Student Software Developer (via UNL Design Studio)",
         companyName: "Nelnet",
         startDate: "September 2021",
         endDate: undefined,
@@ -20,11 +20,24 @@ const experienceData: ExperienceData[] = [
         companyDescription: `
             Nelnet Campus Commerce delivers payment technology for a smarter campus,
             building better experiences for higher-education institutions and their communities.
-            Design Studio is the Raikes School’s capstone learning experience,
+            Design Studio is the Raikes School's capstone learning experience,
             where student teams partner with regional or national businesses
             to create innovative, software-based solutions that fulfill business needs.
         `,
-        responsibilities: [],
+        responsibilities: [
+            `
+                Develop a web application for higher-education institutions
+                and communities to streamline event management, event discovery, and ticket sales
+            `,
+            `
+                Create interactive wireframes and define full-stack architecture
+                to guide product development
+            `,
+            `   
+                Collaborate with project sponsors, product managers, coaches, and software developers
+                in an agile team environment to fulfill the project vision
+            `
+        ],
         technologies: ["React.js", "TypeScript", "HTML", "CSS"],
         companyWebsite: "https://nelnetinc.com/businesses/nelnet-campus-commerce/",
         photo: nelnetPhoto,
@@ -63,7 +76,7 @@ const experienceData: ExperienceData[] = [
         technologies: [
             "Power Virtual Agents",
             "Power Automate",
-            "SQL", 
+            "SQL",
             "Groovy",
             "Jira API",
             "Power Apps",
@@ -96,7 +109,7 @@ const experienceData: ExperienceData[] = [
             `,
             `
                 Collaborated with the support, engineering, and social media teams
-                to resolve issues and help customers achieve success using Zoom’s platform
+                to resolve issues and help customers achieve success using Zoom's platform
             `,
             `
                 Performed an analysis of Zoom support tickets, documentation, and procedures

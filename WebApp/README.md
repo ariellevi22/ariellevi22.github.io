@@ -73,7 +73,7 @@ The `predeploy` script (defined in the step above) will run automatically before
 
 By default, the production build is a fully functional, offline-first [Progressive Web App](https://developers.google.com/web/progressive-web-apps/). Progressive Web Apps are faster and more reliable than traditional web pages, and they provide an engaging mobile experience.
 
-### Step 4: Ensure your project’s settings use `gh-pages`
+### Step 4: Ensure your project's settings use `gh-pages`
 
 Finally, make sure the GitHub Pages option in your GitHub project settings is set to use the `deployed` branch.
 

@@ -27,7 +27,7 @@ const HeroHeader = () => {
                         {name}
                     </h1>
                     <p style={{ marginBottom: 0 }}>
-                        Computer Science Student at the University of Nebraska-Lincoln’s Raikes School
+                        Computer Science Student at the University of Nebraska-Lincoln's Raikes School
                     </p>
 
                     <SocialButtons />

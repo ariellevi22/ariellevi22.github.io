@@ -10,8 +10,8 @@ const About = () => {
             <h1>About</h1>
 
             <p>
-                Hi there, I’m Ariel! I am an undergraduate computer science student at the
-                University of Nebraska-Lincoln’s <Link href="https://raikes.unl.edu/" openWithNewTab>Raikes School</Link> of
+                Hi there, I'm Ariel! I am an undergraduate computer science student at the
+                University of Nebraska-Lincoln's <Link href="https://raikes.unl.edu/" openWithNewTab>Raikes School</Link> of
                 Computer Science and Management who is passionate about technology
                 and its ability to make the world a better place.
             </p>
