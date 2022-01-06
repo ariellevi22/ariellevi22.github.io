@@ -153,11 +153,10 @@ const darkTheme: AppTheme = {
 /**
  * Provides a theme (light or dark) for the application and a function to toggle the theme,
  * based on the user's OS settings for preferred theme and local storage in the browser
- * (reference: https://css-tricks.com/a-dark-mode-toggle-with-react-and-themeprovider)
  * 
  * @returns a theme for the application and a function to toggle the theme
  */
-export const useDarkTheme = () => {
+export const useAppTheme = () => {
     const [themeType, setThemeType] = useState("light");
     const themeTokenName = "theme";
 

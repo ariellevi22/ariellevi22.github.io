@@ -6,14 +6,14 @@ import Experience from './Experience';
 import Footer from '../Components/Footer';
 import { navbarHeight } from '../globals';
 import { createUseStyles, ThemeProvider } from 'react-jss';
-import { AppTheme, useDarkTheme } from '../theme';
+import { AppTheme, useAppTheme } from '../theme';
 import Portfolio from './Portfolio';
 
 /**
  * A React web app for Ariel Levi's personal website
  */
 const App = () => {
-    const { theme, toggleTheme } = useDarkTheme();
+    const { theme, toggleTheme } = useAppTheme();
     const styles = useStyles({ theme });
 
     return (
