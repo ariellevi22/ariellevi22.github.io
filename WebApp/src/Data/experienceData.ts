@@ -17,13 +17,6 @@ const experienceData: ExperienceData[] = [
         startDate: "September 2021",
         endDate: undefined,
         location: "Lincoln, NE",
-        companyDescription: `
-            Nelnet Campus Commerce delivers payment technology for a smarter campus,
-            building better experiences for higher-education institutions and their communities.
-            Design Studio is the capstone learning experience at the University of Nebraska-Lincoln's Raikes School,
-            where student teams partner with regional or national businesses to create innovative,
-            software-based solutions that fulfill business needs.
-        `,
         responsibilities: [
             `
                 Develop a web application for higher-education institutions
@@ -53,10 +46,6 @@ const experienceData: ExperienceData[] = [
         startDate: "June 2021",
         endDate: "August 2021",
         location: "Kansas City, MO",
-        companyDescription: `
-            Evergy delivers power to 1.8 million customers in Kansas and Missouri, integrating
-            traditional sources of energy with innovative approaches to empower a better future.
-        `,
         responsibilities: [
             `
                 Designed, developed, and implemented a chatbot to empower employees
@@ -97,10 +86,6 @@ const experienceData: ExperienceData[] = [
         startDate: "May 2020",
         endDate: "August 2020",
         location: "Overland Park, KS",
-        companyDescription: `
-            Zoom helps organizations bring their teams together with a reliable cloud platform
-            for video conferencing, content sharing, messaging, and phone across all devices.
-        `,
         responsibilities: [
             `
                 Assisted over 500 customers throughout the summer via tickets, calls, chats,

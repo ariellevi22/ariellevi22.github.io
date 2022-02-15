@@ -42,8 +42,6 @@ const Experience = () => {
                                 </em>
                             </p>
 
-                            <p>{experience.companyDescription}</p>
-
                             {experience.responsibilities.length > 0 &&
                                 <ul>
                                     {experience.responsibilities.map((item, index) => {
