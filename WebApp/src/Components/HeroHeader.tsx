@@ -1,9 +1,9 @@
-import profilePicture from '../Assets/ProfilePicture.jpg';
-import SocialButtons from './Button/SocialButtons';
-import { createUseStyles, useTheme } from 'react-jss';
-import { AppTheme } from '../theme';
-import { name, screenSizes } from '../globals';
-import Container from '../Containers/Container';
+import profilePicture from "../Assets/ProfilePicture.jpg";
+import SocialButtons from "./Button/SocialButtons";
+import { createUseStyles, useTheme } from "react-jss";
+import { AppTheme } from "../theme";
+import { title, screenSizes } from "../globals";
+import Container from "../Containers/Container";
 
 /**
  * React component representing the hero header of the website, which contains
@@ -20,14 +20,13 @@ const HeroHeader = () => {
             <Container className={styles.foreground}>
                 <div />
 
-                <img src={profilePicture} alt={name} className={styles.photo} />
+                <img src={profilePicture} alt={title} className={styles.photo} />
 
                 <div className={styles.content}>
-                    <h1 style={{ marginBottom: 0 }}>
-                        {name}
-                    </h1>
+                    <h1 style={{ marginBottom: 0 }}>{title}</h1>
                     <p style={{ marginBottom: 0 }}>
-                        Computer Science Student at the University of Nebraska-Lincoln's Raikes School
+                        Computer Science Student at the University of
+                        Nebraska-Lincoln's Raikes School
                     </p>
 
                     <SocialButtons />
@@ -35,18 +34,22 @@ const HeroHeader = () => {
             </Container>
         </div>
     );
-}
+};
 
 /**
  * Creates the hero header's styles
  */
-const useStyles = createUseStyles<"heroHeader" | "background" | "foreground" | "photo" | "content", {}, AppTheme>({
+const useStyles = createUseStyles<
+    "heroHeader" | "background" | "foreground" | "photo" | "content",
+    {},
+    AppTheme
+>({
     heroHeader: {
         width: "100%",
         position: "relative",
     },
 
-    background: data => ({
+    background: (data) => ({
         width: "50%",
         height: "100%",
         position: "absolute",
@@ -55,7 +58,7 @@ const useStyles = createUseStyles<"heroHeader" | "background" | "foreground" | "
         zIndex: 0,
         backgroundColor: data.theme.colors.accentPrimary, // fallback background color in case the gradient does not work
         backgroundImage: `linear-gradient(to right, ${data.theme.colors.accentPrimary}, ${data.theme.colors.accentSecondary})`,
-        boxShadow: `0 0 1em 0 ${data.theme.colors.shadow} inset`,
+        boxShadow: `0 0 1rem 0 ${data.theme.colors.shadow} inset`,
 
         [`@media screen and (max-width: ${screenSizes.small}px)`]: {
             width: "100%",
@@ -70,21 +73,21 @@ const useStyles = createUseStyles<"heroHeader" | "background" | "foreground" | "
 
         [`@media screen and (max-width: ${screenSizes.small}px)`]: {
             grid: "1fr auto 6fr / auto",
-        }
+        },
     },
 
     photo: {
-        margin: "2em 2.5em",
+        margin: "2rem 2.5rem",
         width: "38vmin",
         minWidth: "12em",
         maxWidth: "22em",
         objectFit: "cover",
         borderRadius: "50%",
-        boxShadow: data => data.theme.shadows.shadow,
+        boxShadow: (data) => data.theme.shadows.shadow,
 
         [`@media screen and (max-width: ${screenSizes.small}px)`]: {
             margin: "0 auto",
-        }
+        },
     },
 
     content: {
@@ -92,15 +95,15 @@ const useStyles = createUseStyles<"heroHeader" | "background" | "foreground" | "
         textAlign: "left",
         display: "flex",
         flexDirection: "column",
-        gap: "1em",
+        gap: "1rem",
         alignItems: "flex-start",
 
         [`@media screen and (max-width: ${screenSizes.small}px)`]: {
-            margin: "1.5em auto 0",
+            margin: "1.5rem auto 0",
             textAlign: "center",
             alignItems: "center",
-        }
-    }
+        },
+    },
 });
 
 export default HeroHeader;

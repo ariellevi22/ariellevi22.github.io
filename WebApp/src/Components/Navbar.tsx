@@ -1,22 +1,22 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useState } from 'react';
-import { createUseStyles, useTheme } from 'react-jss';
-import { navbarHeight, screenSizes } from '../globals';
-import { AppTheme } from '../theme';
-import IconButton from './Button/IconButton';
-import Link from './Link';
-import Logo from './Logo/Logo';
-import { navbarTabs, socialTabs } from '../Data/navigationData';
-import { CSSTransition } from 'react-transition-group';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useState } from "react";
+import { createUseStyles, useTheme } from "react-jss";
+import { navbarHeight, screenSizes } from "../globals";
+import { AppTheme } from "../theme";
+import IconButton from "./Button/IconButton";
+import Link from "./Link";
+import Logo from "./Logo/Logo";
+import { navbarTabs, socialTabs } from "../Data/navigationData";
+import { CSSTransition } from "react-transition-group";
 
 type NavbarProps = {
-    toggleTheme?: () => void,
+    toggleTheme?: () => void;
 };
 
 /**
  * A React component representing a responsive navigation bar with a
  * left-aligned logo and title and right-aligned links
- * 
+ *
  * Props:
  * * `toggleTheme` a function to change the application theme from light to dark mode and vice versa
  */
@@ -33,30 +33,53 @@ const Navbar = (props: NavbarProps) => {
     // Create the display for the navigation bar tabs
     const tabs = (
         <>
-            {navbarTabs.map(tab => {
+            {navbarTabs.map((tab) => {
                 return (
-                    <Link href={tab.href} key={tab.label} openWithNewTab={tab.openWithNewTab}>
+                    <Link
+                        href={tab.href}
+                        key={tab.label}
+                        openWithNewTab={tab.openWithNewTab}
+                    >
                         {tab.label}
                     </Link>
                 );
             })}
 
-            {socialTabs.slice(0, -1).map(iconTab => {
+            {socialTabs.slice(0, -1).map((iconTab) => {
                 return (
-                    <Link href={iconTab.href} key={iconTab.label} openWithNewTab={iconTab.openWithNewTab} title={iconTab.label} aria-label={iconTab.label}>
-                        <FontAwesomeIcon icon={iconTab.iconPrefix ? [iconTab.iconPrefix, iconTab.iconName] : iconTab.iconName} fixedWidth />
+                    <Link
+                        href={iconTab.href}
+                        key={iconTab.label}
+                        openWithNewTab={iconTab.openWithNewTab}
+                        title={iconTab.label}
+                        aria-label={iconTab.label}
+                    >
+                        <FontAwesomeIcon
+                            icon={
+                                iconTab.iconPrefix
+                                    ? [iconTab.iconPrefix, iconTab.iconName]
+                                    : iconTab.iconName
+                            }
+                            fixedWidth
+                        />
                     </Link>
                 );
             })}
 
-            {props.toggleTheme &&
-                <IconButton isTransparent hoverTextColor={theme.colors.accentNavigation}
-                    iconName={(theme.type === "light") ? "moon" : "sun"}
+            {props.toggleTheme && (
+                <IconButton
+                    isTransparent
+                    hoverTextColor={theme.colors.accentNavigation}
+                    iconName={theme.type === "light" ? "moon" : "sun"}
                     onClick={props.toggleTheme}
-                    aria-label={`Change to ${theme.type === "light" ? "dark" : "light"} theme`}
-                    title={`Change to ${theme.type === "light" ? "dark" : "light"} theme`}
+                    aria-label={`Change to ${
+                        theme.type === "light" ? "dark" : "light"
+                    } theme`}
+                    title={`Change to ${
+                        theme.type === "light" ? "dark" : "light"
+                    } theme`}
                 />
-            }
+            )}
         </>
     );
 
@@ -64,9 +87,15 @@ const Navbar = (props: NavbarProps) => {
     return (
         <nav className={styles.nav}>
             <div className={styles.navbar}>
-                <Logo href="#top" onClick={() => setMenuOpen(false)} hoverColor={theme.colors.accentNavigation} />
+                <Logo
+                    href="#top"
+                    onClick={() => setMenuOpen(false)}
+                    hoverColor={theme.colors.accentNavigation}
+                />
 
-                <IconButton isTransparent hoverTextColor={theme.colors.accentNavigation}
+                <IconButton
+                    isTransparent
+                    hoverTextColor={theme.colors.accentNavigation}
                     iconName={isMenuOpen ? "times" : "bars"}
                     onClick={() => setMenuOpen(!isMenuOpen)}
                     className={styles.menuButton}
@@ -74,9 +103,7 @@ const Navbar = (props: NavbarProps) => {
                     title={`${isMenuOpen ? "Close" : "Open"} Menu`}
                 />
 
-                <div className={styles.tabs}>
-                    {tabs}
-                </div>
+                <div className={styles.tabs}>{tabs}</div>
             </div>
 
             <CSSTransition
@@ -96,25 +123,36 @@ const Navbar = (props: NavbarProps) => {
             </CSSTransition>
         </nav>
     );
-}
+};
 
 const menuWidth = "80vw";
 
-type NavbarClasses = "nav" | "navbar" | "tabs" | "menu" | "menuEnter" | "menuEnterActive" | "menuExit" | "menuExitActive" | "menuButton";
-const useStyles = createUseStyles<NavbarClasses, NavbarProps, AppTheme>({
+const useStyles = createUseStyles<
+    | "nav"
+    | "navbar"
+    | "tabs"
+    | "menu"
+    | "menuEnter"
+    | "menuEnterActive"
+    | "menuExit"
+    | "menuExitActive"
+    | "menuButton",
+    NavbarProps,
+    AppTheme
+>({
     nav: {
         // Style each link in the navbar
-        '& a': {
+        "& a": {
             textDecoration: "none",
 
-            '&:hover, &:focus-visible': {
-                color: data => data.theme.colors.accentNavigation,
-            }
+            "&:hover, &:focus-visible": {
+                color: (data) => data.theme.colors.accentNavigation,
+            },
         },
     },
 
-    navbar: data => ({
-        padding: "1em 2.5em",
+    navbar: (data) => ({
+        padding: "1rem 2.5rem",
         top: 0,
         width: "100%",
         height: `${navbarHeight}em`,
@@ -132,7 +170,7 @@ const useStyles = createUseStyles<NavbarClasses, NavbarProps, AppTheme>({
 
     tabs: {
         display: "flex",
-        gap: "1.5em",
+        gap: "1.5rem",
         flexWrap: "wrap",
         alignItems: "baseline",
         width: "auto",
@@ -142,7 +180,7 @@ const useStyles = createUseStyles<NavbarClasses, NavbarProps, AppTheme>({
         // On small screens, hide the tabs
         [`@media screen and (max-width: ${screenSizes.small}px)`]: {
             display: "none",
-        }
+        },
     },
 
     menu: {
@@ -152,16 +190,17 @@ const useStyles = createUseStyles<NavbarClasses, NavbarProps, AppTheme>({
             position: "fixed",
             right: 0,
             width: menuWidth,
-            height: `calc(100% - ${navbarHeight}em)`,
+            height: `calc(100% - ${navbarHeight}rem)`,
             zIndex: 9,
-            padding: "8em 2.5em",
-            backgroundColor: data => data.theme.colors.backgroundNavigationMenu,
-            color: data => data.theme.colors.textNavigation,
-            gap: "1em",
+            padding: "8rem 2.5rem",
+            backgroundColor: (data) =>
+                data.theme.colors.backgroundNavigationMenu,
+            color: (data) => data.theme.colors.textNavigation,
+            gap: "1rem",
             flexDirection: "column",
             alignItems: "flex-end", // right align
             justifyContent: "space-evenly",
-        }
+        },
     },
 
     menuEnter: {
@@ -172,7 +211,7 @@ const useStyles = createUseStyles<NavbarClasses, NavbarProps, AppTheme>({
     menuEnterActive: {
         opacity: 1,
         width: menuWidth,
-        transition: data => data.theme.transition,
+        transition: (data) => data.theme.transition,
     },
 
     menuExit: {
@@ -183,7 +222,7 @@ const useStyles = createUseStyles<NavbarClasses, NavbarProps, AppTheme>({
     menuExitActive: {
         opacity: 0,
         width: 0,
-        transition: data => data.theme.transition,
+        transition: (data) => data.theme.transition,
     },
 
     menuButton: {

@@ -1,4 +1,4 @@
-import { NavbarTab, IconTab } from '../models';
+import { NavbarTab, IconTab } from "../models";
 
 /**
  * Navigation bar tabs' information
@@ -21,7 +21,7 @@ export const socialTabs: IconTab[] = [
         iconName: "linkedin-in",
         iconPrefix: "fab",
         colorPrimary: "#0A66C2",
-        colorSecondary: "white"
+        colorSecondary: "white",
     },
     {
         label: "GitHub",
@@ -30,7 +30,7 @@ export const socialTabs: IconTab[] = [
         iconName: "github",
         iconPrefix: "fab",
         colorPrimary: "#9332AF",
-        colorSecondary: "white"
+        colorSecondary: "white",
     },
     {
         label: "Email",
@@ -39,6 +39,6 @@ export const socialTabs: IconTab[] = [
         iconName: "envelope",
         iconPrefix: "fas",
         colorPrimary: "gray",
-        colorSecondary: "white"
+        colorSecondary: "white",
     },
 ];

@@ -1,9 +1,9 @@
-import bvnLogo from '../Assets/BVN/BVN_Logo.png';
-import bvnPhoto from '../Assets/BVN/BVN_Photo.jpg';
-import unlLogo from '../Assets/UNL/UNL_Logo.png';
-import unlPhoto from '../Assets/UNL/UNL_Photo.jpg';
+import bvnLogo from "../Assets/BVN/BVN_Logo.png";
+import bvnPhoto from "../Assets/BVN/BVN_Photo.jpg";
+import unlLogo from "../Assets/UNL/UNL_Logo.png";
+import unlPhoto from "../Assets/UNL/UNL_Photo.jpg";
 
-import { EducationData } from '../models';
+import { EducationData } from "../models";
 
 const educationData: EducationData[] = [
     // UNL
@@ -25,18 +25,19 @@ const educationData: EducationData[] = [
             "Innovation Processes (Design Thinking)",
             "Computer Systems Engineering (C)",
             "Operating Systems Kernels (C)",
-            "Unix Programming"
+            "Unix Programming",
         ],
         additionalInfo: [
             {
-                heading: "Jeffrey S. Raikes School of Computer Science and Management",
+                heading:
+                    "Jeffrey S. Raikes School of Computer Science and Management",
                 text: `
                     The Raikes School at the University of Nebraska-Lincoln is a selective,
                     interdisciplinary honors program integrating innovative business concepts
                     into a traditional computer science curriculum, with an emphasis on practical
                     and real-world experience taught through collaborative projects.
                 `,
-            }
+            },
         ],
         photo: unlPhoto,
         logo: unlLogo,
@@ -55,7 +56,7 @@ const educationData: EducationData[] = [
             "Beginning Programming (Java)",
             "Web Design (HTML and CSS)",
             "Graphic Design",
-            "Computer Graphics/Desktop Publishing"
+            "Computer Graphics/Desktop Publishing",
         ],
         photo: bvnPhoto,
         logo: bvnLogo,

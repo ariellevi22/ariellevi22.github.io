@@ -1,13 +1,13 @@
-import Navbar from '../Components/Navbar';
-import HeroHeader from '../Components/HeroHeader';
-import About from './About';
-import Education from './Education';
-import Experience from './Experience';
-import Footer from '../Components/Footer';
-import { navbarHeight } from '../globals';
-import { createUseStyles, ThemeProvider } from 'react-jss';
-import { AppTheme, useAppTheme } from '../theme';
-import Portfolio from './Portfolio';
+import Navbar from "../Components/Navbar";
+import HeroHeader from "../Components/HeroHeader";
+import About from "./About";
+import Education from "./Education";
+import Experience from "./Experience";
+import Footer from "../Components/Footer";
+import { navbarHeight } from "../globals";
+import { createUseStyles, ThemeProvider } from "react-jss";
+import { AppTheme, useAppTheme } from "../theme";
+import Portfolio from "./Portfolio";
 
 /**
  * A React web app for Ariel Levi's personal website
@@ -35,18 +35,18 @@ const App = () => {
             </div>
         </ThemeProvider>
     );
-}
+};
 
 /**
  * Creates styles for the App component
  */
 const useStyles = createUseStyles<"root", {}, AppTheme>({
     root: {
-        backgroundColor: data => data.theme.colors.backgroundPrimary,
-        color: data => data.theme.colors.textPrimary,
-        transition: data => data.theme.transition,
-        minHeight: `calc(100vh - ${navbarHeight}em)`,
-    }
-})
+        backgroundColor: (data) => data.theme.colors.backgroundPrimary,
+        color: (data) => data.theme.colors.textPrimary,
+        transition: (data) => data.theme.transition,
+        minHeight: `calc(100vh - ${navbarHeight}rem)`,
+    },
+});
 
 export default App;

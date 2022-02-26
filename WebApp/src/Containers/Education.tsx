@@ -1,10 +1,10 @@
-import Card from '../Components/Card';
-import { pluralize } from '../utils';
-import SimpleGrid from './SimpleGrid';
-import Section from './Section';
-import { useTheme } from 'react-jss';
-import { AppTheme } from '../theme';
-import educationData from '../Data/educationData';
+import Card from "../Components/Card";
+import { pluralize } from "../utils";
+import SimpleGrid from "./SimpleGrid";
+import Section from "./Section";
+import { useTheme } from "react-jss";
+import { AppTheme } from "../theme";
+import educationData from "../Data/educationData";
 
 /**
  * A React container for "Education" section elements and data
@@ -17,13 +17,18 @@ const Education = () => {
             <h1>Education</h1>
 
             <SimpleGrid numColumns={{ large: 2, medium: 2, small: 1 }}>
-                {educationData.map(education => {
+                {educationData.map((education) => {
                     // Create a component for the education's major
                     let majorInfo: JSX.Element | undefined;
                     if (education.majors) {
                         majorInfo = (
                             <div>
-                                <h3>{pluralize("Major", education.majors.length)}</h3>
+                                <h3>
+                                    {pluralize(
+                                        "Major",
+                                        education.majors.length
+                                    )}
+                                </h3>
                                 <p>{education.majors.join(", ")}</p>
                             </div>
                         );
@@ -34,7 +39,12 @@ const Education = () => {
                     if (education.minors) {
                         minorInfo = (
                             <div>
-                                <h3>{pluralize("Minor", education.minors.length)}</h3>
+                                <h3>
+                                    {pluralize(
+                                        "Minor",
+                                        education.minors.length
+                                    )}
+                                </h3>
                                 <p>{education.minors.join(", ")}</p>
                             </div>
                         );
@@ -45,7 +55,10 @@ const Education = () => {
                     if (majorInfo && minorInfo) {
                         // If both major info and minor info are given, create a two-column display for the major and minor
                         educationInfo = (
-                            <SimpleGrid numColumns={{ large: 2, medium: 2, small: 1 }} rowGap={0}>
+                            <SimpleGrid
+                                numColumns={{ large: 2, medium: 2, small: 1 }}
+                                rowGap={0}
+                            >
                                 {majorInfo}
                                 {minorInfo}
                             </SimpleGrid>
@@ -60,7 +73,11 @@ const Education = () => {
 
                     return (
                         <Card
-                            logoSrc={(education.logoAlt && theme.type === "dark") ? education.logoAlt : education.logo}
+                            logoSrc={
+                                education.logoAlt && theme.type === "dark"
+                                    ? education.logoAlt
+                                    : education.logo
+                            }
                             logoAlt={`${education.school} Logo`}
                             imgSrc={education.photo}
                             key={education.id}
@@ -73,7 +90,11 @@ const Education = () => {
                                     {[
                                         education.location,
                                         education.degree,
-                                        `${education.startDate} to ${education.endDate ? education.endDate : "Present"}`
+                                        `${education.startDate} to ${
+                                            education.endDate
+                                                ? education.endDate
+                                                : "Present"
+                                        }`,
                                     ].join(" \u2022 ")}
                                 </em>
                             </p>
@@ -97,6 +118,6 @@ const Education = () => {
             </SimpleGrid>
         </Section>
     );
-}
+};
 
 export default Education;

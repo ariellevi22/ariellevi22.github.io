@@ -26,22 +26,22 @@ const shadowStrong = "rgba(0, 0, 0, 0.35)";
 /**
  * An interface defining a color palette for the application theme
  */
-interface Palette {  
-    accentPrimary: string,
-    accentSecondary: string,
-    accentNavigation: string,
+interface Palette {
+    accentPrimary: string;
+    accentSecondary: string;
+    accentNavigation: string;
 
-    textPrimary: string,
-    textSecondary: string,
-    textNavigation: string,
+    textPrimary: string;
+    textSecondary: string;
+    textNavigation: string;
 
-    backgroundPrimary: string,
-    backgroundSecondary: string,
-    backgroundTertiary: string,
-    backgroundNavigation: string,
-    backgroundNavigationMenu: string,
+    backgroundPrimary: string;
+    backgroundSecondary: string;
+    backgroundTertiary: string;
+    backgroundNavigation: string;
+    backgroundNavigationMenu: string;
 
-    shadow: string,
+    shadow: string;
 }
 
 /**
@@ -63,7 +63,7 @@ const lightPalette: Palette = {
     backgroundNavigationMenu: darkTeal,
 
     shadow: shadow,
-}
+};
 
 /**
  * The application's color palette (dark theme)
@@ -84,7 +84,7 @@ const darkPalette: Palette = {
     backgroundNavigationMenu: darkTeal,
 
     shadow: shadowStrong,
-}
+};
 
 /**
  * The default CSS transition time for elements of the application
@@ -98,7 +98,7 @@ const transition = `all ${transitionTime}ms ease 0ms`;
 
 /**
  * Returns the CSS value for box shadows based on a given color
- * 
+ *
  * @param color the color of the shadow
  * @param hover whether to return the value for the shadow of an element when
  *              being hovered over or an element in its normal state
@@ -106,20 +106,20 @@ const transition = `all ${transitionTime}ms ease 0ms`;
  */
 const getShadow = (color: string, hover?: boolean) => {
     return hover ? `0 0.25em 0.7em 0 ${color}` : `0 0.1em 0.7em 0 ${color}`;
-}
+};
 
 /**
  * An interface defining theme variables for the application theme
  */
 export interface AppTheme extends Jss.Theme {
-    type: "light" | "dark",
-    colors: Palette,
+    type: "light" | "dark";
+    colors: Palette;
     shadows: {
-        shadow: string,
-        hoverShadow: string,
-    },
-    transitionTime: number,
-    transition: string,
+        shadow: string;
+        hoverShadow: string;
+    };
+    transitionTime: number;
+    transition: string;
 }
 
 /**
@@ -153,7 +153,7 @@ const darkTheme: AppTheme = {
 /**
  * Provides a theme (light or dark) for the application and a function to toggle the theme,
  * based on the user's OS settings for preferred theme and local storage in the browser
- * 
+ *
  * @returns a theme for the application and a function to toggle the theme
  */
 export const useAppTheme = () => {
@@ -165,7 +165,7 @@ export const useAppTheme = () => {
      */
     const toggleTheme = () => {
         // Based on the current theme, get the opposite theme
-        const newThemeType = (themeType === "light") ? "dark" : "light";
+        const newThemeType = themeType === "light" ? "dark" : "light";
 
         // Store the theme in local storage
         window.localStorage.setItem(themeTokenName, newThemeType);
@@ -176,7 +176,9 @@ export const useAppTheme = () => {
 
     useEffect(() => {
         // Get the preferred theme from the user's OS settings
-        const prefersDarkMode = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const prefersDarkMode =
+            window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches;
         setThemeType(prefersDarkMode ? "dark" : "light");
 
         // Get the theme stored in the user's local storage (if there)
@@ -185,9 +187,9 @@ export const useAppTheme = () => {
             // If the user has a previously specified theme stored, set it as their current theme
             setThemeType(localTheme);
         }
-    });
+    }, []);
 
-    const theme = (themeType === "dark") ? darkTheme : lightTheme;
+    const theme = themeType === "dark" ? darkTheme : lightTheme;
 
-    return {theme, toggleTheme};
-}
+    return { theme, toggleTheme };
+};

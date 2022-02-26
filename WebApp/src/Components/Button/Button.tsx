@@ -1,5 +1,5 @@
-import { createUseStyles } from 'react-jss';
-import ButtonBase, { ButtonBaseProps } from './ButtonBase';
+import { createUseStyles } from "react-jss";
+import ButtonBase, { ButtonBaseProps } from "./ButtonBase";
 
 /**
  * A React component representing a button
@@ -8,16 +8,22 @@ const Button = (props: ButtonBaseProps) => {
     const styles = useStyles();
 
     return (
-        <ButtonBase {...props} className={[styles.button, props.className].join(" ")}>{props.children}</ButtonBase>
+        <ButtonBase
+            {...props}
+            className={[styles.button, props.className].join(" ")}
+        >
+            {props.children}
+        </ButtonBase>
     );
-}
+};
 
 /**
  * Creates the button's styles
  */
 const useStyles = createUseStyles({
     button: {
-        padding: "0.3em 0.5em",
+        padding: "0.25rem 0.5rem",
+        borderRadius: "0.5rem",
     },
 });
 

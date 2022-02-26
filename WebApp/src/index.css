@@ -1,6 +1,6 @@
 * {
     box-sizing: border-box;
-    margin: 0px;
+    margin: 0;
     font-family: inherit;
     z-index: inherit;
 }
@@ -8,28 +8,37 @@
 html {
     scroll-behavior: smooth;
     font-size: 16px;
-    font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+    font-family: "Montserrat", Helvetica, Arial, sans-serif;
 }
 
 /* Style heading 1 elements */
 h1 {
-    font-size: 2em;
-    margin-bottom: 0.5em;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
 }
 
 /* Style heading 2 elements */
 h2 {
-    font-size: 1.7em;
-    margin-bottom: 0.3em;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
 }
 
 /* Style heading 3 elements */
 h3 {
-    font-size: 1.2em;
-    margin-bottom: 0.25em;
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
 }
 
 /* Style paragraph elements */
-p, ul {
-    margin-bottom: 0.9em;
+p, ul, ol {
+    margin-bottom: 1rem;
+    line-height: 125%;
+}
+
+/* Style list elements */
+li {
+    margin-bottom: 0.25rem;
 }

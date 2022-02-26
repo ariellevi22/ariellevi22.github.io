@@ -1,9 +1,9 @@
-import Logo from './Logo/Logo';
-import { getCurrentYear } from '../utils';
-import { createUseStyles, useTheme } from 'react-jss';
-import { AppTheme } from '../theme';
-import { name } from '../globals';
-import SocialButtons from './Button/SocialButtons';
+import Logo from "./Logo/Logo";
+import { getCurrentYear } from "../utils";
+import { createUseStyles, useTheme } from "react-jss";
+import { AppTheme } from "../theme";
+import { title } from "../globals";
+import SocialButtons from "./Button/SocialButtons";
 
 /**
  * React component representing the footer of the website, which contains
@@ -15,7 +15,11 @@ const Footer = () => {
 
     return (
         <footer className={styles.footer}>
-            <Logo stacked href="#top" hoverColor={theme.colors.accentNavigation} />
+            <Logo
+                stacked
+                href="#top"
+                hoverColor={theme.colors.accentNavigation}
+            />
 
             <SocialButtons
                 backgroundColor={theme.colors.textNavigation}
@@ -24,27 +28,29 @@ const Footer = () => {
                 hoverTextColor={theme.colors.textSecondary}
             />
 
-            <p className={styles.copyrightText}>&copy; {getCurrentYear()} {name}</p>
+            <p className={styles.copyrightText}>
+                &copy; {getCurrentYear()} {title}
+            </p>
         </footer>
     );
-}
+};
 
 /**
  * Creates the footer's styles
  */
 const useStyles = createUseStyles<"footer" | "copyrightText", {}, AppTheme>({
     footer: {
-        padding: "2.5em",
+        padding: "2.5rem",
         width: "100%",
-        backgroundColor: data => data.theme.colors.backgroundNavigation,
-        color: data => data.theme.colors.textNavigation,
+        backgroundColor: (data) => data.theme.colors.backgroundNavigation,
+        color: (data) => data.theme.colors.textNavigation,
         display: "flex",
         flexDirection: "column",
-        gap: "1.5em",
+        gap: "1.5rem",
         alignItems: "center",
     },
     copyrightText: {
-        fontSize: "0.75em",
+        fontSize: "0.75rem",
         margin: 0,
     },
 });

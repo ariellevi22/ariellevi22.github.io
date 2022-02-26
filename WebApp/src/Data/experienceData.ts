@@ -1,12 +1,12 @@
-import zoomLogo from '../Assets/Zoom/Zoom_Logo.png';
-import zoomPhoto from '../Assets/Zoom/Zoom_Photo.jpg';
-import evergyLogo from '../Assets/Evergy/Evergy_Logo.png';
-import evergyLogoAlt from '../Assets/Evergy/Evergy_Logo_Alt.png';
-import evergyPhoto from '../Assets/Evergy/Evergy_Photo.jpg';
-import nelnetLogo from '../Assets/Nelnet/Nelnet_Logo.png';
-import nelnetPhoto from '../Assets/Nelnet/Nelnet_Photo.jpg';
+import zoomLogo from "../Assets/Zoom/Zoom_Logo.png";
+import zoomPhoto from "../Assets/Zoom/Zoom_Photo.jpg";
+import evergyLogo from "../Assets/Evergy/Evergy_Logo.png";
+import evergyLogoAlt from "../Assets/Evergy/Evergy_Logo_Alt.png";
+import evergyPhoto from "../Assets/Evergy/Evergy_Photo.jpg";
+import nelnetLogo from "../Assets/Nelnet/Nelnet_Logo.png";
+import nelnetPhoto from "../Assets/Nelnet/Nelnet_Photo.jpg";
 
-import { ExperienceData } from '../models';
+import { ExperienceData } from "../models";
 
 const experienceData: ExperienceData[] = [
     // Nelnet (Design Studio)
@@ -29,10 +29,11 @@ const experienceData: ExperienceData[] = [
             `   
                 Collaborate with project sponsors, product managers, coaches, and software developers
                 in an agile team environment to fulfill the project vision
-            `
+            `,
         ],
         technologies: ["React.js", "TypeScript", "HTML", "CSS"],
-        companyWebsite: "https://nelnetinc.com/businesses/nelnet-campus-commerce/",
+        companyWebsite:
+            "https://nelnetinc.com/businesses/nelnet-campus-commerce/",
         photo: nelnetPhoto,
         logo: nelnetLogo,
         color: "#8DC319",
@@ -60,7 +61,7 @@ const experienceData: ExperienceData[] = [
             `
                 Assisted with automating a data validation process of 1,600 SharePoint sites
                 as part of an on-premise to cloud migration project
-            `
+            `,
         ],
         technologies: [
             "Power Virtual Agents",
@@ -69,7 +70,7 @@ const experienceData: ExperienceData[] = [
             "Groovy",
             "Jira API",
             "Power Apps",
-            "SharePoint"
+            "SharePoint",
         ],
         companyWebsite: "https://www.evergy.com/about-evergy/company-overview",
         photo: evergyPhoto,

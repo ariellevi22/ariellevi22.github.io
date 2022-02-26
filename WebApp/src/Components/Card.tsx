@@ -1,19 +1,19 @@
-import { createUseStyles, useTheme } from 'react-jss';
-import { ReactChildren } from '../models';
-import { AppTheme } from '../theme';
+import { createUseStyles, useTheme } from "react-jss";
+import { ReactChildren } from "../models";
+import { AppTheme } from "../theme";
 
 type CardProps = {
-    color?: string,
-    logoSrc?: string,
-    logoAlt?: string,
-    imgSrc?: string,
-    imgAlt?: string,
-    children: ReactChildren,
-}
+    color?: string;
+    logoSrc?: string;
+    logoAlt?: string;
+    imgSrc?: string;
+    imgAlt?: string;
+    children: ReactChildren;
+};
 
 /**
  * A React component representing a card
- * 
+ *
  * Props:
  * * `color` the card's border accent color
  * * `logoSrc` the path to a logo to display on the top left corner of the card
@@ -26,59 +26,68 @@ const Card = (props: CardProps) => {
 
     return (
         <div className={styles.card}>
-            {props.imgSrc &&
+            {props.imgSrc && (
                 <img
                     src={props.imgSrc}
                     alt={props.imgAlt ? props.imgAlt : ""}
                     className={styles.coverPhoto}
                 />
-            }
+            )}
 
             <div className={styles.innerContainer}>
-                {props.logoSrc &&
+                {props.logoSrc && (
                     <img
                         src={props.logoSrc}
                         alt={props.logoAlt ? props.logoAlt : ""}
                         className={styles.logo}
                     />
-                }
+                )}
                 {props.children}
             </div>
         </div>
     );
-}
+};
+
+const borderRadius = "0.5rem";
 
 /**
  * Creates the card's styles
  */
-const useStyles = createUseStyles<"card" | "innerContainer" | "logo" | "coverPhoto", CardProps, AppTheme>({
+const useStyles = createUseStyles<
+    "card" | "innerContainer" | "logo" | "coverPhoto",
+    CardProps,
+    AppTheme
+>({
     card: {
         width: "100%",
-        backgroundColor: data => data.theme.colors.backgroundSecondary,
-        borderRadius: "0.6em",
-        borderLeft: data => `0.6em solid ${data.color ? data.color : data.theme.colors.accentPrimary}`,
-        boxShadow: data => data.theme.shadows.shadow,
+        backgroundColor: (data) => data.theme.colors.backgroundSecondary,
+        borderRadius: borderRadius,
+        borderLeft: (data) =>
+            `${borderRadius} solid ${
+                data.color ? data.color : data.theme.colors.accentPrimary
+            }`,
+        boxShadow: (data) => data.theme.shadows.shadow,
     },
 
     innerContainer: {
         width: "100%",
-        padding: "2em",
-        '& > :last-child': {
+        padding: "2rem",
+        "& > :last-child": {
             marginBottom: 0,
-        }
+        },
     },
 
     logo: {
-        height: "2em",
-        marginBottom: "0.4em",
+        height: "2rem",
+        marginBottom: borderRadius,
     },
 
     coverPhoto: {
         width: "100%",
-        height: "12em",
+        height: "12.5em",
         objectFit: "cover",
         filter: "contrast(80%) brightness(80%)",
-        borderRadius: "0 0.6em 0 0",
+        borderRadius: `0 ${borderRadius} 0 0`,
     },
 });
 
