@@ -1,3 +1,5 @@
+import { faGithub, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { NavbarTab, IconTab } from "../models";
 
 /**
@@ -18,8 +20,7 @@ export const socialTabs: IconTab[] = [
         label: "LinkedIn",
         href: "https://www.linkedin.com/in/ariel-levi/",
         openWithNewTab: true,
-        iconName: "linkedin-in",
-        iconPrefix: "fab",
+        icon: faLinkedinIn,
         colorPrimary: "#0A66C2",
         colorSecondary: "white",
     },
@@ -27,8 +28,7 @@ export const socialTabs: IconTab[] = [
         label: "GitHub",
         href: "https://github.com/alevi22",
         openWithNewTab: true,
-        iconName: "github",
-        iconPrefix: "fab",
+        icon: faGithub,
         colorPrimary: "#9332AF",
         colorSecondary: "white",
     },
@@ -36,8 +36,7 @@ export const socialTabs: IconTab[] = [
         label: "Email",
         href: "mailto:alevi2@huskers.unl.edu",
         openWithNewTab: true,
-        iconName: "envelope",
-        iconPrefix: "fas",
+        icon: faEnvelope,
         colorPrimary: "gray",
         colorSecondary: "white",
     },

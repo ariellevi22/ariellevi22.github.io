@@ -5,9 +5,9 @@ import toGatherLogo from "../Assets/ToGather/ToGather_Logo.png";
 import toGatherLogoAlt from "../Assets/ToGather/ToGather_Logo_Alt.png";
 import toGatherPhoto from "../Assets/ToGather/ToGather_Photo.png";
 
-import { PortfolioData } from "../models";
+import { PortfolioItem } from "../models";
 
-const portfolioData: PortfolioData[] = [
+const portfolioData: PortfolioItem[] = [
     // Personal website
     {
         id: 0,
@@ -18,7 +18,7 @@ const portfolioData: PortfolioData[] = [
             accomplishments, and interests.
         `,
         responsibilities: [],
-        technologies: ["TypeScript", "React.js", "HTML", "CSS"],
+        technologies: ["TypeScript", "React.js", "HTML", "CSS", "Figma"],
         website: "https://alevi22.github.io",
         codeWebsite: "https://github.com/alevi22/alevi22.github.io",
         logo: personalWebsiteLogo,
@@ -38,7 +38,7 @@ const portfolioData: PortfolioData[] = [
             "Designed and developed a web application aimed to simplify safe event planning for friends and families during the COVID-19 pandemic",
             "Collaborated with front-end, back-end, and database developers in an agile team environment",
         ],
-        technologies: ["TypeScript", "React.js", "HTML", "CSS"],
+        technologies: ["TypeScript", "React.js", "HTML", "CSS", "Figma"],
         logo: toGatherLogo,
         logoAlt: toGatherLogoAlt,
         photo: toGatherPhoto,

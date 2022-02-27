@@ -1,11 +1,10 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { IconName, IconPrefix } from "@fortawesome/fontawesome-common-types";
 import { createUseStyles } from "react-jss";
 import ButtonBase, { ButtonBaseProps } from "./ButtonBase";
+import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 
 type IconButtonProps = ButtonBaseProps & {
-    iconName: IconName;
-    iconPrefix?: IconPrefix;
+    icon: IconDefinition;
 };
 
 /**
@@ -19,7 +18,7 @@ const IconButton = (props: IconButtonProps) => {
     const styles = useStyles(props);
 
     // Separate out icon button props and general button props
-    const { iconName, iconPrefix, ...buttonBaseProps } = props;
+    const { icon, ...buttonBaseProps } = props;
 
     const buttonBaseClasses = [styles.iconButton];
     if (buttonBaseProps.className) {
@@ -31,10 +30,7 @@ const IconButton = (props: IconButtonProps) => {
             {...buttonBaseProps}
             className={buttonBaseClasses.join(" ")}
         >
-            <FontAwesomeIcon
-                icon={iconPrefix ? [iconPrefix, iconName] : iconName}
-                fixedWidth
-            />
+            <FontAwesomeIcon icon={icon} fixedWidth />
         </ButtonBase>
     );
 };

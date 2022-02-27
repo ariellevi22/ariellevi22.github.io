@@ -6,9 +6,9 @@ import evergyPhoto from "../Assets/Evergy/Evergy_Photo.jpg";
 import nelnetLogo from "../Assets/Nelnet/Nelnet_Logo.png";
 import nelnetPhoto from "../Assets/Nelnet/Nelnet_Photo.jpg";
 
-import { ExperienceData } from "../models";
+import { ExperienceItem } from "../models";
 
-const experienceData: ExperienceData[] = [
+const experienceData: ExperienceItem[] = [
     // Nelnet (Design Studio)
     {
         id: 2,
@@ -31,7 +31,7 @@ const experienceData: ExperienceData[] = [
                 in an agile team environment to fulfill the project vision
             `,
         ],
-        technologies: ["React.js", "TypeScript", "HTML", "CSS"],
+        technologies: ["React.js", "TypeScript", "HTML", "CSS", "Figma"],
         companyWebsite:
             "https://nelnetinc.com/businesses/nelnet-campus-commerce/",
         photo: nelnetPhoto,
@@ -69,7 +69,6 @@ const experienceData: ExperienceData[] = [
             "SQL",
             "Groovy",
             "Jira API",
-            "Power Apps",
             "SharePoint",
         ],
         companyWebsite: "https://www.evergy.com/about-evergy/company-overview",

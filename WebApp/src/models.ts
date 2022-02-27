@@ -1,5 +1,5 @@
 import React from "react";
-import { IconName, IconPrefix } from "@fortawesome/fontawesome-common-types";
+import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 
 /**
  * Types of all possible React `children` props
@@ -25,16 +25,23 @@ export type NavbarTab = {
  * Template for the data of an icon tab or button
  */
 export type IconTab = NavbarTab & {
-    iconName: IconName;
-    iconPrefix?: IconPrefix;
+    icon: IconDefinition;
     colorPrimary?: string;
     colorSecondary?: string;
 };
 
 /**
- * Template for card data
+ * Template for written content (consisting of a heading and body text)
  */
-type CardData = {
+type Content = {
+    heading: string;
+    text: string;
+};
+
+/**
+ * Base template for experience, education, and portfolio data types
+ */
+type Item = {
     id: number;
     color?: string;
     logo: string;
@@ -45,7 +52,7 @@ type CardData = {
 /**
  * Template for education data
  */
-export type EducationData = CardData & {
+export type EducationItem = Item & {
     school: string;
     location: string;
     degree: string;
@@ -54,13 +61,13 @@ export type EducationData = CardData & {
     startDate: string;
     endDate?: string;
     classes: string[];
-    additionalInfo?: { heading: string; text: string }[];
+    additionalInfo?: Content[];
 };
 
 /**
  * Template for experience data
  */
-export type ExperienceData = CardData & {
+export type ExperienceItem = Item & {
     jobTitle: string;
     companyName: string;
     startDate: string;
@@ -74,7 +81,7 @@ export type ExperienceData = CardData & {
 /**
  * Template for portfolio data
  */
-export type PortfolioData = CardData & {
+export type PortfolioItem = Item & {
     title: string;
     description: string;
     responsibilities: string[];

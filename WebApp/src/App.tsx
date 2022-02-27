@@ -1,13 +1,13 @@
-import Navbar from "../Components/Navbar";
-import HeroHeader from "../Components/HeroHeader";
-import About from "./About";
-import Education from "./Education";
-import Experience from "./Experience";
-import Footer from "../Components/Footer";
-import { navbarHeight } from "../globals";
+import Navbar from "./Components/Navbar";
+import HeroHeader from "./Components/HeroHeader";
+import About from "./Containers/About";
+import Education from "./Containers/Education";
+import Experience from "./Containers/Experience";
+import Footer from "./Components/Footer";
+import { navbarHeight } from "./globals";
 import { createUseStyles, ThemeProvider } from "react-jss";
-import { AppTheme, useAppTheme } from "../theme";
-import Portfolio from "./Portfolio";
+import { AppTheme, useAppTheme } from "./theme";
+import Portfolio from "./Containers/Portfolio";
 
 /**
  * A React web app for Ariel Levi's personal website

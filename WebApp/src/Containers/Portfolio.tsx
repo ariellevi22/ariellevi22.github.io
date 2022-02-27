@@ -8,6 +8,10 @@ import { AppTheme } from "../theme";
 import Chip from "../Components/Chip/Chip";
 import ChipGroup from "../Components/Chip/ChipGroup";
 import portfolioData from "../Data/portfolioData";
+import {
+    faArrowUpRightFromSquare,
+    faCode,
+} from "@fortawesome/free-solid-svg-icons";
 
 /**
  * A React container for "Portfolio" section elements and data
@@ -69,7 +73,7 @@ const Portfolio = () => {
                                     <h3>View the Project</h3>
                                     <IconButtonGroup>
                                         <IconButton
-                                            iconName="external-link-alt"
+                                            icon={faArrowUpRightFromSquare}
                                             href={portfolioItem.website}
                                             title={`Open ${portfolioItem.title}`}
                                             aria-label={`Open ${portfolioItem.title}`}
@@ -80,7 +84,7 @@ const Portfolio = () => {
                                         />
                                         {portfolioItem.codeWebsite && (
                                             <IconButton
-                                                iconName="code"
+                                                icon={faCode}
                                                 href={portfolioItem.codeWebsite}
                                                 title={`View Project Code for ${portfolioItem.title}`}
                                                 aria-label={`View Project Code for ${portfolioItem.title}`}

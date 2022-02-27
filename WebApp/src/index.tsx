@@ -1,14 +1,7 @@
 import ReactDOM from "react-dom";
 import "./index.css";
-import App from "./Containers/App";
+import App from "./App";
 import * as registerServiceWorker from "./registerServiceWorker";
-
-// Import icons and make available to all files of the app
-// Reference: https://fontawesome.com/how-to-use/on-the-web/using-with/react
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { fas } from "@fortawesome/free-solid-svg-icons";
-import { fab } from "@fortawesome/free-brands-svg-icons";
-library.add(fas, fab);
 
 ReactDOM.render(<App />, document.getElementById("root"));
 

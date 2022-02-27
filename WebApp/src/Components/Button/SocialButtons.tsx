@@ -19,8 +19,7 @@ const SocialButtons = (props: SocialButtonProps) => {
             {socialTabs.map((socialTab) => {
                 return (
                     <IconButton
-                        iconName={socialTab.iconName}
-                        iconPrefix={socialTab.iconPrefix}
+                        icon={socialTab.icon}
                         backgroundColor={props.backgroundColor}
                         textColor={props.textColor}
                         hoverBackgroundColor={
@@ -30,9 +29,7 @@ const SocialButtons = (props: SocialButtonProps) => {
                             socialTab.colorSecondary || props.hoverTextColor
                         }
                         href={socialTab.href}
-                        key={[socialTab.iconPrefix, socialTab.iconName].join(
-                            " "
-                        )}
+                        key={socialTab.label}
                         title={socialTab.label}
                         aria-label={socialTab.label}
                     />

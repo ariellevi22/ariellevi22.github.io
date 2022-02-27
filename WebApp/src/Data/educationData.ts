@@ -3,9 +3,9 @@ import bvnPhoto from "../Assets/BVN/BVN_Photo.jpg";
 import unlLogo from "../Assets/UNL/UNL_Logo.png";
 import unlPhoto from "../Assets/UNL/UNL_Photo.jpg";
 
-import { EducationData } from "../models";
+import { EducationItem } from "../models";
 
-const educationData: EducationData[] = [
+const educationData: EducationItem[] = [
     // UNL
     {
         id: 1,
@@ -20,6 +20,7 @@ const educationData: EducationData[] = [
             "Software Engineering",
             "Data Structures (Java)",
             "Algorithms (JavaScript)",
+            "User Interface Design",
             "Programming Language Concepts",
             "Machine Learning (R)",
             "Innovation Processes (Design Thinking)",

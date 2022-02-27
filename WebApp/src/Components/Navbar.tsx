@@ -8,6 +8,12 @@ import Link from "./Link";
 import Logo from "./Logo/Logo";
 import { navbarTabs, socialTabs } from "../Data/navigationData";
 import { CSSTransition } from "react-transition-group";
+import {
+    faBars,
+    faClose,
+    faMoon,
+    faSun,
+} from "@fortawesome/free-solid-svg-icons";
 
 type NavbarProps = {
     toggleTheme?: () => void;
@@ -45,32 +51,27 @@ const Navbar = (props: NavbarProps) => {
                 );
             })}
 
-            {socialTabs.slice(0, -1).map((iconTab) => {
-                return (
-                    <Link
-                        href={iconTab.href}
-                        key={iconTab.label}
-                        openWithNewTab={iconTab.openWithNewTab}
-                        title={iconTab.label}
-                        aria-label={iconTab.label}
-                    >
-                        <FontAwesomeIcon
-                            icon={
-                                iconTab.iconPrefix
-                                    ? [iconTab.iconPrefix, iconTab.iconName]
-                                    : iconTab.iconName
-                            }
-                            fixedWidth
-                        />
-                    </Link>
-                );
-            })}
+            {socialTabs
+                .filter((socialTab) => socialTab.label !== "Email")
+                .map((iconTab) => {
+                    return (
+                        <Link
+                            href={iconTab.href}
+                            key={iconTab.label}
+                            openWithNewTab={iconTab.openWithNewTab}
+                            title={iconTab.label}
+                            aria-label={iconTab.label}
+                        >
+                            <FontAwesomeIcon icon={iconTab.icon} fixedWidth />
+                        </Link>
+                    );
+                })}
 
             {props.toggleTheme && (
                 <IconButton
                     isTransparent
                     hoverTextColor={theme.colors.accentNavigation}
-                    iconName={theme.type === "light" ? "moon" : "sun"}
+                    icon={theme.type === "light" ? faMoon : faSun}
                     onClick={props.toggleTheme}
                     aria-label={`Change to ${
                         theme.type === "light" ? "dark" : "light"
@@ -96,7 +97,7 @@ const Navbar = (props: NavbarProps) => {
                 <IconButton
                     isTransparent
                     hoverTextColor={theme.colors.accentNavigation}
-                    iconName={isMenuOpen ? "times" : "bars"}
+                    icon={isMenuOpen ? faClose : faBars}
                     onClick={() => setMenuOpen(!isMenuOpen)}
                     className={styles.menuButton}
                     aria-label={`${isMenuOpen ? "Close" : "Open"} Menu`}
