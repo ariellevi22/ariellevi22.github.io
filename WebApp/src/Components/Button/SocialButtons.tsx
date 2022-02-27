@@ -15,7 +15,7 @@ type SocialButtonProps = {
  */
 const SocialButtons = (props: SocialButtonProps) => {
     return (
-        <IconButtonGroup style={props.style}>
+        <IconButtonGroup style={{ fontSize: "1.125rem", ...props.style }}>
             {socialTabs.map((socialTab) => {
                 return (
                     <IconButton

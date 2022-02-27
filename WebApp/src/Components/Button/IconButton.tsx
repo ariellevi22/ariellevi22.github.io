@@ -40,10 +40,14 @@ const IconButton = (props: IconButtonProps) => {
  */
 const useStyles = createUseStyles<"iconButton", IconButtonProps>({
     iconButton: {
-        borderRadius: "50%",
-        padding: (data) => (data.isTransparent ? 0 : "0.5rem"),
-        fontSize: "1.125rem",
-        textAlign: "center",
+        borderRadius: (data) => (data.isTransparent ? undefined : "50%"),
+        padding: (data) => (data.isTransparent ? 0 : undefined),
+        width: (data) => (data.isTransparent ? undefined : "2.25em"),
+        height: (data) => (data.isTransparent ? undefined : "2.25em"),
+        display: "inline-flex",
+        alignItems: "center",
+        justifyContent: "center",
+        fontSize: "inherit",
     },
 });
 

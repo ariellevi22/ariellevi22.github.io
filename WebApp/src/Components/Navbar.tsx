@@ -55,15 +55,15 @@ const Navbar = (props: NavbarProps) => {
                 .filter((socialTab) => socialTab.label !== "Email")
                 .map((iconTab) => {
                     return (
-                        <Link
+                        <IconButton
+                            isTransparent
+                            hoverTextColor={theme.colors.accentNavigation}
+                            icon={iconTab.icon}
                             href={iconTab.href}
-                            key={iconTab.label}
-                            openWithNewTab={iconTab.openWithNewTab}
-                            title={iconTab.label}
                             aria-label={iconTab.label}
-                        >
-                            <FontAwesomeIcon icon={iconTab.icon} fixedWidth />
-                        </Link>
+                            title={iconTab.label}
+                            key={iconTab.label}
+                        />
                     );
                 })}
 
@@ -173,7 +173,7 @@ const useStyles = createUseStyles<
         display: "flex",
         gap: "1.5rem",
         flexWrap: "wrap",
-        alignItems: "baseline",
+        alignItems: "center",
         width: "auto",
         height: "auto",
         overflow: "hidden",
