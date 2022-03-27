@@ -16,7 +16,7 @@ const Experience = () => {
 
     return (
         <Section id="Experience">
-            <h1>Experience</h1>
+            <h2>Experience</h2>
 
             <SimpleGrid
                 numColumns={{ large: 2, medium: 2, small: 1 }}
@@ -35,7 +35,7 @@ const Experience = () => {
                             color={experience.color}
                             key={experience.id}
                         >
-                            <h2>{experience.jobTitle}</h2>
+                            <h3>{experience.jobTitle}</h3>
 
                             <p>
                                 <em>
@@ -45,14 +45,13 @@ const Experience = () => {
                                     >
                                         {experience.companyName}
                                     </Link>
-                                    {`
-                                            \u2022 ${experience.location} \u2022
-                                            ${experience.startDate} to ${
+                                    {` \u2022 ${experience.location} \u2022 ${
+                                        experience.startDate
+                                    } to ${
                                         experience.endDate
                                             ? experience.endDate
                                             : "Present"
-                                    }
-                                        `}
+                                    }`}
                                 </em>
                             </p>
 
@@ -68,7 +67,7 @@ const Experience = () => {
 
                             {experience.technologies && (
                                 <>
-                                    <h3>Technologies Used</h3>
+                                    <h4>Technologies Used</h4>
 
                                     <ChipGroup>
                                         {experience.technologies.map(

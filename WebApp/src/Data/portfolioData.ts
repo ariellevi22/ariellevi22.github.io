@@ -29,7 +29,7 @@ const portfolioData: PortfolioItem[] = [
     // ToGather
     {
         id: 1,
-        title: "ToGather Web Application",
+        title: "ToGather",
         description: `
             ToGather is an application for safely supporting connections
             between friends and family members during the COVID-19 pandemic.

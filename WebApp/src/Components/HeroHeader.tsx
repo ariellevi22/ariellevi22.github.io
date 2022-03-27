@@ -20,14 +20,20 @@ const HeroHeader = () => {
             <Container className={styles.foreground}>
                 <div />
 
-                <img src={profilePicture} alt={title} className={styles.photo} />
+                <img
+                    src={profilePicture}
+                    alt={title}
+                    className={styles.photo}
+                />
 
                 <div className={styles.content}>
-                    <h1 style={{ marginBottom: 0 }}>{title}</h1>
-                    <p style={{ marginBottom: 0 }}>
-                        Computer Science Student at the University of
-                        Nebraska-Lincoln's Raikes School
-                    </p>
+                    <div>
+                        <h1>{title}</h1>
+                        <p style={{ marginBottom: 0 }}>
+                            Computer Science Student at the University of
+                            Nebraska-Lincoln's Raikes School
+                        </p>
+                    </div>
 
                     <SocialButtons />
                 </div>
@@ -78,9 +84,9 @@ const useStyles = createUseStyles<
 
     photo: {
         margin: "2rem 2.5rem",
-        width: "38vmin",
-        minWidth: "12em",
-        maxWidth: "22em",
+        width: "40vmin",
+        minWidth: "12rem",
+        maxWidth: "22rem",
         objectFit: "cover",
         borderRadius: "50%",
         boxShadow: (data) => data.theme.shadows.shadow,

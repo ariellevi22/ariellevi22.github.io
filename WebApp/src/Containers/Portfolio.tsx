@@ -21,7 +21,7 @@ const Portfolio = () => {
 
     return (
         <Section id="Portfolio">
-            <h1>Portfolio</h1>
+            <h2>Portfolio</h2>
 
             <SimpleGrid numColumns={{ large: 2, medium: 2, small: 1 }}>
                 {portfolioData.map((portfolioItem) => {
@@ -37,7 +37,7 @@ const Portfolio = () => {
                             color={portfolioItem.color}
                             key={portfolioItem.id}
                         >
-                            <h2>{portfolioItem.title}</h2>
+                            <h3>{portfolioItem.title}</h3>
 
                             <p>{portfolioItem.description}</p>
 
@@ -52,9 +52,14 @@ const Portfolio = () => {
                             {portfolioItem.technologies &&
                                 portfolioItem.technologies.length > 0 && (
                                     <>
-                                        <h3>Technologies Used</h3>
+                                        <h4>Technologies Used</h4>
                                         <ChipGroup
-                                            style={{ marginBottom: "1em" }}
+                                            style={{
+                                                marginBottom:
+                                                    (portfolioItem.website ||
+                                                        portfolioItem.codeWebsite) &&
+                                                    "1em",
+                                            }}
                                         >
                                             {portfolioItem.technologies.map(
                                                 (skill) => (
@@ -70,7 +75,7 @@ const Portfolio = () => {
                             {(portfolioItem.website ||
                                 portfolioItem.codeWebsite) && (
                                 <>
-                                    <h3>View the Project</h3>
+                                    <h4>View the Project</h4>
                                     <IconButtonGroup>
                                         <IconButton
                                             icon={faArrowUpRightFromSquare}

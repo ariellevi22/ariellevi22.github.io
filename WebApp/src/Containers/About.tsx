@@ -7,7 +7,7 @@ import Section from "./Section";
 const About = () => {
     return (
         <Section id="About">
-            <h1>About</h1>
+            <h2>About</h2>
 
             <p>
                 Hi there, I'm Ariel! I am an undergraduate computer science

@@ -14,7 +14,7 @@ const Education = () => {
 
     return (
         <Section id="Education">
-            <h1>Education</h1>
+            <h2>Education</h2>
 
             <SimpleGrid numColumns={{ large: 2, medium: 2, small: 1 }}>
                 {educationData.map((education) => {
@@ -23,12 +23,12 @@ const Education = () => {
                     if (education.majors) {
                         majorInfo = (
                             <div>
-                                <h3>
+                                <h4>
                                     {pluralize(
                                         "Major",
                                         education.majors.length
                                     )}
-                                </h3>
+                                </h4>
                                 <p>{education.majors.join(", ")}</p>
                             </div>
                         );
@@ -39,12 +39,12 @@ const Education = () => {
                     if (education.minors) {
                         minorInfo = (
                             <div>
-                                <h3>
+                                <h4>
                                     {pluralize(
                                         "Minor",
                                         education.minors.length
                                     )}
-                                </h3>
+                                </h4>
                                 <p>{education.minors.join(", ")}</p>
                             </div>
                         );
@@ -83,7 +83,7 @@ const Education = () => {
                             key={education.id}
                             color={education.color}
                         >
-                            <h2>{education.school}</h2>
+                            <h3>{education.school}</h3>
 
                             <p>
                                 <em>
@@ -104,13 +104,13 @@ const Education = () => {
                             {education.additionalInfo?.map((info, index) => {
                                 return (
                                     <div key={index}>
-                                        <h3>{info.heading}</h3>
+                                        <h4>{info.heading}</h4>
                                         <p>{info.text}</p>
                                     </div>
                                 );
                             })}
 
-                            <h3>What I Learned</h3>
+                            <h4>What I Learned</h4>
                             <p>{education.classes.join(", ")}</p>
                         </Card>
                     );
