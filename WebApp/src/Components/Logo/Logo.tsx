@@ -30,13 +30,13 @@ const Logo = (props: LogoProps) => {
     const styles = useStyles({ ...props, theme });
 
     // Style the container that holds the logo icon and text
-    let logoContainerClasses = [styles.logoContainer];
+    const logoContainerClasses = [styles.logoContainer];
     if (props.stacked) {
         // If the logo icon and text should be stacked instead of side by side, add additional stacked styles
         logoContainerClasses.push(styles.stacked);
     }
 
-    let logo = (
+    const logo = (
         <div className={logoContainerClasses.join(" ")} onClick={props.onClick}>
             <LogoIcon color={props.color} />
             <p className={styles.logoText}>{title}</p>

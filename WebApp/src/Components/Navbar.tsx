@@ -60,6 +60,7 @@ const Navbar = (props: NavbarProps) => {
                             hoverTextColor={theme.colors.accentNavigation}
                             icon={iconTab.icon}
                             href={iconTab.href}
+                            openWithNewTab
                             aria-label={iconTab.label}
                             title={iconTab.label}
                             key={iconTab.label}

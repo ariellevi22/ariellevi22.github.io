@@ -19,7 +19,7 @@ const portfolioData: PortfolioItem[] = [
         `,
         responsibilities: [],
         technologies: ["TypeScript", "React.js", "HTML", "CSS", "Figma"],
-        website: "https://alevi22.github.io",
+        website: "#top",
         codeWebsite: "https://github.com/alevi22/alevi22.github.io",
         logo: personalWebsiteLogo,
         logoAlt: personalWebsiteLogoAlt,

@@ -77,16 +77,26 @@ const Portfolio = () => {
                                 <>
                                     <h4>View the Project</h4>
                                     <IconButtonGroup>
-                                        <IconButton
-                                            icon={faArrowUpRightFromSquare}
-                                            href={portfolioItem.website}
-                                            title={`Open ${portfolioItem.title}`}
-                                            aria-label={`Open ${portfolioItem.title}`}
-                                            backgroundColor={
-                                                theme.colors.backgroundSecondary
-                                            }
-                                            textColor={theme.colors.textPrimary}
-                                        />
+                                        {portfolioItem.website && (
+                                            <IconButton
+                                                icon={faArrowUpRightFromSquare}
+                                                href={portfolioItem.website}
+                                                openWithNewTab={
+                                                    !portfolioItem.website.startsWith(
+                                                        "#"
+                                                    )
+                                                }
+                                                title={`Open ${portfolioItem.title}`}
+                                                aria-label={`Open ${portfolioItem.title}`}
+                                                backgroundColor={
+                                                    theme.colors
+                                                        .backgroundSecondary
+                                                }
+                                                textColor={
+                                                    theme.colors.textPrimary
+                                                }
+                                            />
+                                        )}
                                         {portfolioItem.codeWebsite && (
                                             <IconButton
                                                 icon={faCode}

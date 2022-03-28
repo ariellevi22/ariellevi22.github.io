@@ -29,6 +29,7 @@ const SocialButtons = (props: SocialButtonProps) => {
                             socialTab.colorSecondary || props.hoverTextColor
                         }
                         href={socialTab.href}
+                        openWithNewTab
                         key={socialTab.label}
                         title={socialTab.label}
                         aria-label={socialTab.label}

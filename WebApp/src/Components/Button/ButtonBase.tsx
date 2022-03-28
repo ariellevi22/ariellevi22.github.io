@@ -10,6 +10,7 @@ type ButtonBaseHTMLProps = React.HTMLAttributes<HTMLButtonElement> &
 export type ButtonBaseProps = ButtonBaseHTMLProps & {
     isTransparent?: boolean;
     href?: string;
+    openWithNewTab?: boolean;
     backgroundColor?: string;
     textColor?: string;
     hoverBackgroundColor?: string;
@@ -33,6 +34,7 @@ const ButtonBase = (props: ButtonBaseProps) => {
     const {
         isTransparent,
         href,
+        openWithNewTab,
         backgroundColor,
         textColor,
         hoverBackgroundColor,
@@ -49,7 +51,7 @@ const ButtonBase = (props: ButtonBaseProps) => {
                 href={props.href}
                 className={buttonClasses.join(" ")}
                 role="button"
-                openWithNewTab
+                openWithNewTab={openWithNewTab}
             >
                 {props.children}
             </Link>
