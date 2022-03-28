@@ -8,17 +8,12 @@ type CardProps = {
     logoAlt?: string;
     imgSrc?: string;
     imgAlt?: string;
+    isBackgroundImage?: boolean;
     children: ReactChildren;
 };
 
 /**
  * A React component representing a card
- *
- * Props:
- * * `color` the card's border accent color
- * * `logoSrc` the path to a logo to display on the top left corner of the card
- * * `imgSrc` the path to the image to use as the card's cover photo
- * * `children` the card's contents
  */
 const Card = (props: CardProps) => {
     const theme = useTheme<AppTheme>();
@@ -84,9 +79,10 @@ const useStyles = createUseStyles<
 
     coverPhoto: {
         width: "100%",
-        height: "12.5em",
+        height: "12.5rem",
         objectFit: "cover",
-        filter: "contrast(80%) brightness(80%)",
+        filter: (data) =>
+            data.isBackgroundImage && "contrast(80%) brightness(80%)",
         borderRadius: `0 ${borderRadius} 0 0`,
     },
 });

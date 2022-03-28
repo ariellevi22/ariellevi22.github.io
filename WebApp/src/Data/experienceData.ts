@@ -4,7 +4,7 @@ import evergyLogo from "../Assets/Evergy/Evergy_Logo.png";
 import evergyLogoAlt from "../Assets/Evergy/Evergy_Logo_Alt.png";
 import evergyPhoto from "../Assets/Evergy/Evergy_Photo.jpg";
 import nelnetLogo from "../Assets/Nelnet/Nelnet_Logo.png";
-import nelnetPhoto from "../Assets/Nelnet/Nelnet_Photo.jpg";
+import nelnetPhoto from "../Assets/Nelnet/Nelnet_Photo.png";
 
 import { ExperienceItem } from "../models";
 
@@ -35,6 +35,7 @@ const experienceData: ExperienceItem[] = [
         companyWebsite:
             "https://nelnetinc.com/businesses/nelnet-campus-commerce/",
         photo: nelnetPhoto,
+        isForegroundPhoto: true,
         logo: nelnetLogo,
         color: "#8DC319",
     },

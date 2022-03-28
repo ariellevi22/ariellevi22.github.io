@@ -76,6 +76,7 @@ export type ExperienceItem = Item & {
     responsibilities: string[];
     technologies?: string[];
     companyWebsite: string;
+    isForegroundPhoto?: boolean;
 };
 
 /**
