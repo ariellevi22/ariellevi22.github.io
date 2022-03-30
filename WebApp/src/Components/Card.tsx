@@ -8,12 +8,22 @@ type CardProps = {
     logoAlt?: string;
     imgSrc?: string;
     imgAlt?: string;
-    isBackgroundImage?: boolean;
+    isDecorativeImg?: boolean;
     children: ReactChildren;
 };
 
 /**
  * A React component representing a card
+ *
+ * Props:
+ * * `color` the card's accent color
+ * * `logoSrc` a logo to display on the card
+ * * `logoAlt` alt text for the card logo
+ * * `imgSrc` a cover image to display on the card
+ * * `imgAlt` alt text for the card image
+ * * `isDecorativeImg` whether the card image is purely for decorative purposes
+ *   or has another purpose
+ * * `children` any additional content to place in the card
  */
 const Card = (props: CardProps) => {
     const theme = useTheme<AppTheme>();
@@ -82,7 +92,7 @@ const useStyles = createUseStyles<
         height: "12.5rem",
         objectFit: "cover",
         filter: (data) =>
-            data.isBackgroundImage && "contrast(80%) brightness(80%)",
+            data.isDecorativeImg && "contrast(80%) brightness(80%)",
         borderRadius: `0 ${borderRadius} 0 0`,
     },
 });

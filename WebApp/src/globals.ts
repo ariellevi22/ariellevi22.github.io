@@ -12,6 +12,7 @@ export const navbarHeight = 5;
  * Upper limits for various screen sizes (measured in pixels)
  */
 export const screenSizes = {
+    tiny: 300,
     small: 840,
     medium: 1280,
     large: 1920,

@@ -80,7 +80,7 @@ const Education = () => {
                             }
                             logoAlt={`${education.school} Logo`}
                             imgSrc={education.photo}
-                            isBackgroundImage
+                            isDecorativeImg
                             key={education.id}
                             color={education.color}
                         >

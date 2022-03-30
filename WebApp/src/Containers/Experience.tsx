@@ -35,7 +35,7 @@ const Experience = () => {
                             }
                             logoAlt={`${experience.companyName} Logo`}
                             imgSrc={experience.photo}
-                            isBackgroundImage={!experience.isForegroundPhoto}
+                            isDecorativeImg={!experience.isForegroundPhoto}
                             color={experience.color}
                             key={experience.id}
                         >

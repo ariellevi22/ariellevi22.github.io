@@ -1,4 +1,3 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import { createUseStyles, useTheme } from "react-jss";
 import { navbarHeight, screenSizes } from "../globals";
@@ -20,11 +19,10 @@ type NavbarProps = {
 };
 
 /**
- * A React component representing a responsive navigation bar with a
- * left-aligned logo and title and right-aligned links
+ * A React component for the website's navigation bar
  *
  * Props:
- * * `toggleTheme` a function to change the application theme from light to dark mode and vice versa
+ * * `toggleTheme` a function to change the application theme between light and dark modes
  */
 const Navbar = (props: NavbarProps) => {
     const theme = useTheme<AppTheme>();
@@ -167,6 +165,7 @@ const useStyles = createUseStyles<
         flexWrap: "wrap",
         alignContent: "center",
         alignItems: "center",
+        gap: "1rem",
         overflow: "hidden",
     }),
 
