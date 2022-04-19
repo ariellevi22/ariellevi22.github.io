@@ -5,7 +5,6 @@ import evergyLogoAlt from "../Assets/Evergy/Evergy_Logo_Alt.png";
 import evergyPhoto from "../Assets/Evergy/Evergy_Photo.jpg";
 import nelnetLogo from "../Assets/Nelnet/Nelnet_Logo.png";
 import nelnetPhoto from "../Assets/Nelnet/Nelnet_Photo.png";
-
 import { ExperienceItem } from "../models";
 
 const experienceData: ExperienceItem[] = [
@@ -60,8 +59,8 @@ const experienceData: ExperienceItem[] = [
                 significantly reducing the amount of time needed to record project data
             `,
             `
-                Assisted with automating a data validation process of 1,600 SharePoint sites
-                as part of an on-premise to cloud migration project
+                Helped automate a data validation process of 1,600 SharePoint sites
+                as part of a cloud migration project
             `,
         ],
         technologies: [
@@ -94,13 +93,9 @@ const experienceData: ExperienceItem[] = [
                 and consider feature requests
             `,
             `
-                Collaborated with the support, engineering, and social media teams
-                to resolve issues and help customers achieve success using Zoom's platform
-            `,
-            `
-                Performed an analysis of Zoom support tickets, documentation, and procedures
-                during the COVID-19 pandemic to present support management with recommendations
-                for future support
+                Analyzed technical support procedures during the COVID-19 pandemic,
+                including help center documentation and 60,000 support tickets,
+                to present support management with recommendations for the future
             `,
         ],
         companyWebsite: "https://explore.zoom.us/en/about/",
