@@ -1,9 +1,8 @@
+import { EducationItem } from "../models";
 import bvnLogo from "../Assets/BVN/BVN_Logo.png";
 import bvnPhoto from "../Assets/BVN/BVN_Photo.jpg";
 import unlLogo from "../Assets/UNL/UNL_Logo.png";
 import unlPhoto from "../Assets/UNL/UNL_Photo.jpg";
-
-import { EducationItem } from "../models";
 
 const educationData: EducationItem[] = [
     // UNL

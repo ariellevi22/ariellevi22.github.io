@@ -1,11 +1,10 @@
+import { PortfolioItem } from "../models";
 import personalWebsitePhoto from "../Assets/PersonalWebsite/Personal_Website_Photo.png";
 import personalWebsiteLogo from "../Assets/PersonalWebsite/Personal_Website_Logo.png";
 import personalWebsiteLogoAlt from "../Assets/PersonalWebsite/Personal_Website_Logo_Alt.png";
 import toGatherLogo from "../Assets/ToGather/ToGather_Logo.png";
 import toGatherLogoAlt from "../Assets/ToGather/ToGather_Logo_Alt.png";
 import toGatherPhoto from "../Assets/ToGather/ToGather_Photo.png";
-
-import { PortfolioItem } from "../models";
 
 const portfolioData: PortfolioItem[] = [
     // Personal website

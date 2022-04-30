@@ -1,3 +1,4 @@
+import { ExperienceItem } from "../models";
 import zoomLogo from "../Assets/Zoom/Zoom_Logo.png";
 import zoomPhoto from "../Assets/Zoom/Zoom_Photo.jpg";
 import evergyLogo from "../Assets/Evergy/Evergy_Logo.png";
@@ -5,7 +6,6 @@ import evergyLogoAlt from "../Assets/Evergy/Evergy_Logo_Alt.png";
 import evergyPhoto from "../Assets/Evergy/Evergy_Photo.jpg";
 import nelnetLogo from "../Assets/Nelnet/Nelnet_Logo.png";
 import nelnetPhoto from "../Assets/Nelnet/Nelnet_Photo.png";
-import { ExperienceItem } from "../models";
 
 const experienceData: ExperienceItem[] = [
     // Nelnet (Design Studio)
