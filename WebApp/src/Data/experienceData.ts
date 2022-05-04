@@ -1,32 +1,32 @@
 import { ExperienceItem } from "../models";
-import zoomLogo from "../Assets/Zoom/Zoom_Logo.png";
-import zoomPhoto from "../Assets/Zoom/Zoom_Photo.jpg";
-import evergyLogo from "../Assets/Evergy/Evergy_Logo.png";
-import evergyLogoAlt from "../Assets/Evergy/Evergy_Logo_Alt.png";
-import evergyPhoto from "../Assets/Evergy/Evergy_Photo.jpg";
-import nelnetLogo from "../Assets/Nelnet/Nelnet_Logo.png";
-import nelnetPhoto from "../Assets/Nelnet/Nelnet_Photo.png";
+import zoomLogo from "../Assets/Zoom/Logo.png";
+import zoomPhoto from "../Assets/Zoom/Photo.jpg";
+import evergyLogo from "../Assets/Evergy/Logo.png";
+import evergyLogoAlt from "../Assets/Evergy/Logo_Alt.png";
+import evergyPhoto from "../Assets/Evergy/Photo.jpg";
+import nelnetLogo from "../Assets/Nelnet/Logo.png";
+import nelnetPhoto from "../Assets/Nelnet/Photo.png";
 
 const experienceData: ExperienceItem[] = [
     // Nelnet (Design Studio)
     {
-        id: 2,
+        id: "nelnet-design-studio",
         jobTitle: "Student Software Developer (via UNL Design Studio)",
         companyName: "Nelnet",
         startDate: "September 2021",
-        endDate: undefined,
+        endDate: "May 2022",
         location: "Lincoln, NE",
         responsibilities: [
             `
-                Develop a web application for higher-education institutions
+                Developed a web application for higher-education institutions
                 and communities to streamline event management, event discovery, and ticket sales
             `,
             `
-                Create interactive wireframes and define full-stack architecture
+                Created interactive wireframes and defined full-stack architecture
                 to guide product development
             `,
             `   
-                Collaborate with project sponsors, product managers, coaches, and software developers
+                Collaborated with project sponsors, product managers, coaches, and software developers
                 in an agile team environment to fulfill the project vision
             `,
         ],
@@ -41,7 +41,7 @@ const experienceData: ExperienceItem[] = [
 
     // Evergy
     {
-        id: 1,
+        id: "evergy",
         jobTitle: "Application Developer Intern",
         companyName: "Evergy",
         startDate: "June 2021",
@@ -80,7 +80,7 @@ const experienceData: ExperienceItem[] = [
 
     // Zoom
     {
-        id: 0,
+        id: "zoom",
         jobTitle: "Technical Support Engineer Intern",
         companyName: "Zoom",
         startDate: "May 2020",

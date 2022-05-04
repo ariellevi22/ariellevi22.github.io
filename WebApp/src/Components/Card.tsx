@@ -92,7 +92,7 @@ const useStyles = createUseStyles<
         height: "12.5rem",
         objectFit: "cover",
         filter: (data) =>
-            data.isDecorativeImg && "contrast(80%) brightness(80%)",
+            data.isDecorativeImg && "contrast(80%)",
         borderRadius: `0 ${borderRadius} 0 0`,
     },
 });

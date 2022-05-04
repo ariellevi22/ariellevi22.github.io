@@ -1,15 +1,18 @@
 import { PortfolioItem } from "../models";
-import personalWebsitePhoto from "../Assets/PersonalWebsite/Personal_Website_Photo.png";
-import personalWebsiteLogo from "../Assets/PersonalWebsite/Personal_Website_Logo.png";
-import personalWebsiteLogoAlt from "../Assets/PersonalWebsite/Personal_Website_Logo_Alt.png";
-import toGatherLogo from "../Assets/ToGather/ToGather_Logo.png";
-import toGatherLogoAlt from "../Assets/ToGather/ToGather_Logo_Alt.png";
-import toGatherPhoto from "../Assets/ToGather/ToGather_Photo.png";
+import personalWebsitePhoto from "../Assets/PersonalWebsite/Photo.png";
+import personalWebsiteLogo from "../Assets/PersonalWebsite/Logo.png";
+import personalWebsiteLogoAlt from "../Assets/PersonalWebsite/Logo_Alt.png";
+import toGatherLogo from "../Assets/ToGather/Logo.png";
+import toGatherLogoAlt from "../Assets/ToGather/Logo_Alt.png";
+import toGatherPhoto from "../Assets/ToGather/Photo.png";
+import cookBookLogo from "../Assets/CookBook/Logo.png";
+import cookBookLogoAlt from "../Assets/CookBook/Logo_Alt.png";
+import cookBookPhoto from "../Assets/CookBook/Photo.png";
 
 const portfolioData: PortfolioItem[] = [
     // Personal website
     {
-        id: 0,
+        id: "personal-website",
         title: "Personal Website",
         description: `
             To combine my passions for code, writing, and design, I created this
@@ -27,7 +30,7 @@ const portfolioData: PortfolioItem[] = [
 
     // ToGather
     {
-        id: 1,
+        id: "togather",
         title: "ToGather",
         description: `
             ToGather is an application for safely supporting connections
@@ -42,6 +45,25 @@ const portfolioData: PortfolioItem[] = [
         logoAlt: toGatherLogoAlt,
         photo: toGatherPhoto,
         color: "#439A9C",
+    },
+
+    // CookBook
+    {
+        id: "cookbook",
+        title: "CookBook",
+        description:
+            "CookBook is a recipe-sharing application that inspires connection through food.",
+        responsibilities: [
+            "Collaborated with another UI/UX designer to create a design system, wireframes, and prototypes",
+            "Iterated and evolved the product design based on feedback from user research and usability tests",
+        ],
+        technologies: ["Figma"],
+        website:
+            "https://www.figma.com/proto/JRMVmUiVrQukBG2sXGKbLY/Prototype-Final?node-id=2%3A3&starting-point-node-id=2%3A3&scaling=contain",
+        logo: cookBookLogo,
+        logoAlt: cookBookLogoAlt,
+        photo: cookBookPhoto,
+        color: "#6176A9",
     },
 ];
 

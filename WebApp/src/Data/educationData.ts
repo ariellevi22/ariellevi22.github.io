@@ -1,13 +1,13 @@
 import { EducationItem } from "../models";
-import bvnLogo from "../Assets/BVN/BVN_Logo.png";
-import bvnPhoto from "../Assets/BVN/BVN_Photo.jpg";
-import unlLogo from "../Assets/UNL/UNL_Logo.png";
-import unlPhoto from "../Assets/UNL/UNL_Photo.jpg";
+import bvnLogo from "../Assets/BVN/Logo.png";
+import bvnPhoto from "../Assets/BVN/Photo.jpg";
+import unlLogo from "../Assets/UNL/Logo.png";
+import unlPhoto from "../Assets/UNL/Photo.jpg";
 
 const educationData: EducationItem[] = [
     // UNL
     {
-        id: 1,
+        id: "unl",
         school: "University of Nebraska-Lincoln",
         location: "Lincoln, NE",
         degree: "Bachelor of Science, Computer Science",
@@ -46,7 +46,7 @@ const educationData: EducationItem[] = [
 
     // BVN
     {
-        id: 0,
+        id: "bvn",
         school: "Blue Valley North High School",
         location: "Overland Park, KS",
         degree: "High School Diploma",

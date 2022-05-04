@@ -42,7 +42,7 @@ type Content = {
  * Base template for experience, education, and portfolio data types
  */
 type Item = {
-    id: number;
+    id: string;
     color?: string;
     logo: string;
     logoAlt?: string;

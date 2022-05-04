@@ -51,11 +51,7 @@ const Experience = () => {
                                     </Link>
                                     {` \u2022 ${experience.location} \u2022 ${
                                         experience.startDate
-                                    } to ${
-                                        experience.endDate
-                                            ? experience.endDate
-                                            : "Present"
-                                    }`}
+                                    } to ${experience.endDate || "Present"}`}
                                 </em>
                             </p>
 

@@ -89,22 +89,20 @@ const Education = () => {
                             <p>
                                 <em>
                                     {[
-                                        education.location,
                                         education.degree,
                                         `${education.startDate} to ${
-                                            education.endDate
-                                                ? education.endDate
-                                                : "Present"
+                                            education.endDate || "Present"
                                         }`,
+                                        education.location,
                                     ].join(" \u2022 ")}
                                 </em>
                             </p>
 
                             {educationInfo}
 
-                            {education.additionalInfo?.map((info, index) => {
+                            {education.additionalInfo?.map((info) => {
                                 return (
-                                    <div key={index}>
+                                    <div key={`${info.heading} ${info.text}`}>
                                         <h4>{info.heading}</h4>
                                         <p>{info.text}</p>
                                     </div>
