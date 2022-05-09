@@ -14,7 +14,7 @@ const HeroHeader = () => {
     const styles = useStyles({ theme });
 
     return (
-        <div className={styles.heroHeader}>
+        <header className={styles.heroHeader}>
             <div className={styles.background} />
 
             <Container className={styles.foreground}>
@@ -38,7 +38,7 @@ const HeroHeader = () => {
                     <SocialButtons />
                 </div>
             </Container>
-        </div>
+        </header>
     );
 };
 

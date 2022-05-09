@@ -54,7 +54,7 @@ const educationData: EducationItem[] = [
         endDate: "May 2019",
         classes: [
             "Beginning Programming (Java)",
-            "Web Design (HTML and CSS)",
+            "Web Design (HTML/CSS)",
             "Graphic Design",
             "Computer Graphics/Desktop Publishing",
         ],

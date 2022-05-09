@@ -11,7 +11,7 @@ const experienceData: ExperienceItem[] = [
     // Nelnet (Design Studio)
     {
         id: "nelnet-design-studio",
-        jobTitle: "Student Software Developer (via UNL Design Studio)",
+        title: "Student Software Developer (via UNL Design Studio)",
         companyName: "Nelnet",
         startDate: "September 2021",
         endDate: "May 2022",
@@ -42,7 +42,7 @@ const experienceData: ExperienceItem[] = [
     // Evergy
     {
         id: "evergy",
-        jobTitle: "Application Developer Intern",
+        title: "Application Developer Intern",
         companyName: "Evergy",
         startDate: "June 2021",
         endDate: "August 2021",
@@ -81,7 +81,7 @@ const experienceData: ExperienceItem[] = [
     // Zoom
     {
         id: "zoom",
-        jobTitle: "Technical Support Engineer Intern",
+        title: "Technical Support Engineer Intern",
         companyName: "Zoom",
         startDate: "May 2020",
         endDate: "August 2020",

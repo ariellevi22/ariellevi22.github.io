@@ -68,7 +68,7 @@ export type EducationItem = Item & {
  * Template for experience data
  */
 export type ExperienceItem = Item & {
-    jobTitle: string;
+    title: string;
     companyName: string;
     startDate: string;
     endDate?: string;

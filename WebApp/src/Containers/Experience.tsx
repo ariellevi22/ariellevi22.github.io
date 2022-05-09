@@ -39,7 +39,7 @@ const Experience = () => {
                             color={experience.color}
                             key={experience.id}
                         >
-                            <h3>{experience.jobTitle}</h3>
+                            <h3>{experience.title}</h3>
 
                             <p>
                                 <em>

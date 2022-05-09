@@ -19,10 +19,8 @@ const App = () => {
     return (
         <ThemeProvider theme={theme}>
             <div className={styles.root}>
-                <header style={{ marginTop: `${navbarHeight}em` }}>
-                    <Navbar toggleTheme={toggleTheme} />
-                    <HeroHeader />
-                </header>
+                <Navbar toggleTheme={toggleTheme} />
+                <HeroHeader />
 
                 <main>
                     <About />
@@ -46,6 +44,7 @@ const useStyles = createUseStyles<"root", {}, AppTheme>({
         color: (data) => data.theme.colors.textPrimary,
         transition: (data) => data.theme.transition,
         minHeight: `calc(100vh - ${navbarHeight}rem)`,
+        paddingTop: `${navbarHeight}rem`,
     },
 });
 
