@@ -49,7 +49,13 @@ const useStyles = createUseStyles<"link", LinkProps, AppTheme>({
         cursor: "pointer",
         transition: (data) => data.theme.transition,
 
-        "&:hover, &:focus-visible": {
+        "@media (hover: hover) and (pointer: fine)": {
+            "&:hover": {
+                color: (data) => data.theme.colors.accentPrimary,
+            },
+        },
+
+        "&:focus-visible, &:active": {
             color: (data) => data.theme.colors.accentPrimary,
         },
     },

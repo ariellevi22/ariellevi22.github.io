@@ -70,50 +70,102 @@ const ButtonBase = (props: ButtonBaseProps) => {
  * Creates the button base's styles
  */
 const useStyles = createUseStyles<"buttonBase", ButtonBaseProps, AppTheme>({
-    buttonBase: (data) => ({
+    buttonBase: {
         fontSize: "1em",
         display: "inline-block",
         textDecoration: "none",
-        backgroundColor: data.isTransparent
-            ? "transparent"
-            : data.backgroundColor
-            ? data.backgroundColor
-            : data.theme.colors.accentPrimary,
-        color: data.isTransparent
-            ? "inherit"
-            : data.textColor
-            ? data.textColor
-            : data.theme.colors.textSecondary,
-        border: "none",
-        boxShadow: data.isTransparent ? "none" : data.theme.shadows.shadow,
-        transition: data.theme.transition,
-
-        "&:hover, &:focus-visible": {
-            backgroundColor: data.isTransparent
+        backgroundColor: (data) =>
+            data.isTransparent
                 ? "transparent"
-                : data.hoverBackgroundColor
-                ? data.hoverBackgroundColor
-                : data.theme.colors.textPrimary,
-            color: data.hoverTextColor
-                ? data.hoverTextColor
-                : data.isTransparent
-                ? data.theme.colors.accentPrimary
+                : data.backgroundColor
+                ? data.backgroundColor
+                : data.theme.colors.accentPrimary,
+        color: (data) =>
+            data.isTransparent
+                ? "inherit"
+                : data.textColor
+                ? data.textColor
                 : data.theme.colors.textSecondary,
+        border: "none",
+        boxShadow: (data) =>
+            data.isTransparent ? "none" : data.theme.shadows.shadow,
+        transition: (data) => data.theme.transition,
+
+        "@media (hover: hover) and (pointer: fine)": {
+            "&:hover": {
+                backgroundColor: (data) => getInteractionBackgroundColor(data),
+                color: (data) => getInteractionTextColor(data),
+                cursor: "pointer",
+                boxShadow: (data) =>
+                    data.isTransparent
+                        ? "none"
+                        : data.theme.shadows.hoverShadow,
+                transform: (data) =>
+                    data.isTransparent
+                        ? "none"
+                        : `scale(${1 + scaleFactors.small})`,
+            },
+        },
+
+        "&:focus-visible": {
+            backgroundColor: (data) => getInteractionBackgroundColor(data),
+            color: (data) => getInteractionTextColor(data),
             cursor: "pointer",
-            boxShadow: data.isTransparent
-                ? "none"
-                : data.theme.shadows.hoverShadow,
-            transform: data.isTransparent
-                ? "none"
-                : `scale(${1 + scaleFactors.small})`,
+            boxShadow: (data) =>
+                data.isTransparent ? "none" : data.theme.shadows.hoverShadow,
+            transform: (data) =>
+                data.isTransparent
+                    ? "none"
+                    : `scale(${1 + scaleFactors.small})`,
         },
 
         "&:active": {
-            transform: data.isTransparent
-                ? "none"
-                : `scale(${1 - scaleFactors.small})`,
+            backgroundColor: (data) => getInteractionBackgroundColor(data),
+            color: (data) => getInteractionTextColor(data),
+            transform: (data) =>
+                data.isTransparent
+                    ? "none"
+                    : `scale(${1 - scaleFactors.small})`,
         },
-    }),
+    },
 });
+
+/**
+ * Gets the background color for the button base when the button is being
+ * interacted with (hover, focus, or active states)
+ *
+ * @param data props and theme data
+ * @returns the background color
+ */
+const getInteractionBackgroundColor = (
+    data: ButtonBaseProps & { theme: AppTheme }
+) => {
+    if (data.isTransparent) {
+        return "transparent";
+    } else if (data.hoverBackgroundColor) {
+        return data.hoverBackgroundColor;
+    } else {
+        return data.theme.colors.textPrimary;
+    }
+};
+
+/**
+ * Gets the text color for the button base when the button is being
+ * interacted with (hover, focus, or active states)
+ *
+ * @param data props and theme data
+ * @returns the text color
+ */
+const getInteractionTextColor = (
+    data: ButtonBaseProps & { theme: AppTheme }
+) => {
+    if (data.hoverTextColor) {
+        return data.hoverTextColor;
+    } else if (data.isTransparent) {
+        return data.theme.colors.accentPrimary;
+    } else {
+        return data.theme.colors.textSecondary;
+    }
+};
 
 export default ButtonBase;

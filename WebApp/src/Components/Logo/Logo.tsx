@@ -35,23 +35,34 @@ const Logo = (props: LogoProps) => {
         // If the logo icon and text should be stacked instead of side by side, add additional stacked styles
         logoContainerClasses.push(styles.stacked);
     }
+    if (props.href) {
+        // If the logo should act as a link, add link styling
+        logoContainerClasses.push(styles.logoContainerLink);
+    }
 
     const logo = (
-        <div className={logoContainerClasses.join(" ")} onClick={props.onClick}>
+        <>
             <LogoIcon color={props.color} />
             <p className={styles.logoText}>{title}</p>
-        </div>
+        </>
     );
 
     if (props.href) {
         // If an address was provided for the logo to link to, add it
         return (
-            <Link href={props.href} className={styles.logoContainerLink}>
+            <Link href={props.href} className={logoContainerClasses.join(" ")}>
                 {logo}
             </Link>
         );
     } else {
-        return logo;
+        return (
+            <div
+                className={logoContainerClasses.join(" ")}
+                onClick={props.onClick}
+            >
+                {logo}
+            </div>
+        );
     }
 };
 
@@ -89,7 +100,22 @@ const useStyles = createUseStyles<
     },
     logoContainerLink: {
         textDecoration: "none",
-        "&:hover svg, &:focus-visible svg": {
+        "@media (hover: hover) and (pointer: fine)": {
+            "&:hover svg": {
+                color: (data) =>
+                    data.hoverColor
+                        ? data.hoverColor
+                        : data.theme.colors.accentPrimary,
+                transform: `scale(${1 + scaleFactors.tiny})`,
+            },
+            "&:hover p": {
+                color: (data) =>
+                    data.hoverColor
+                        ? data.hoverColor
+                        : data.theme.colors.accentPrimary,
+            },
+        },
+        "&:focus-visible svg": {
             color: (data) =>
                 data.hoverColor
                     ? data.hoverColor
@@ -99,7 +125,7 @@ const useStyles = createUseStyles<
         "&:active svg": {
             transform: `scale(${1 - scaleFactors.tiny})`,
         },
-        "&:hover p, &:focus-visible p": {
+        "&:focus-visible p": {
             color: (data) =>
                 data.hoverColor
                     ? data.hoverColor

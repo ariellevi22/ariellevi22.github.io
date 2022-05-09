@@ -145,7 +145,13 @@ const useStyles = createUseStyles<
         "& a": {
             textDecoration: "none",
 
-            "&:hover, &:focus-visible": {
+            "@media (hover: hover) and (pointer: fine)": {
+                "&:hover": {
+                    color: (data) => data.theme.colors.accentNavigation,
+                },
+            },
+
+            "&:focus-visible": {
                 color: (data) => data.theme.colors.accentNavigation,
             },
         },
