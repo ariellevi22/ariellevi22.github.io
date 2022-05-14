@@ -1,12 +1,12 @@
 import { PortfolioItem } from "../models";
 import personalWebsitePhoto from "../Assets/PersonalWebsite/Photo.png";
-import personalWebsiteLogo from "../Assets/PersonalWebsite/Logo.png";
-import personalWebsiteLogoAlt from "../Assets/PersonalWebsite/Logo_Alt.png";
-import toGatherLogo from "../Assets/ToGather/Logo.png";
-import toGatherLogoAlt from "../Assets/ToGather/Logo_Alt.png";
+import personalWebsiteLogo from "../Assets/PersonalWebsite/Logo.svg";
+import personalWebsiteLogoAlt from "../Assets/PersonalWebsite/Logo_Alt.svg";
+import toGatherLogo from "../Assets/ToGather/Logo.svg";
+import toGatherLogoAlt from "../Assets/ToGather/Logo_Alt.svg";
 import toGatherPhoto from "../Assets/ToGather/Photo.png";
-import cookBookLogo from "../Assets/CookBook/Logo.png";
-import cookBookLogoAlt from "../Assets/CookBook/Logo_Alt.png";
+import cookBookLogo from "../Assets/CookBook/Logo.svg";
+import cookBookLogoAlt from "../Assets/CookBook/Logo_Alt.svg";
 import cookBookPhoto from "../Assets/CookBook/Photo.png";
 
 const portfolioData: PortfolioItem[] = [

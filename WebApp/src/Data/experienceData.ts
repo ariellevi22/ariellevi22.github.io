@@ -1,10 +1,10 @@
 import { ExperienceItem } from "../models";
-import zoomLogo from "../Assets/Zoom/Logo.png";
+import zoomLogo from "../Assets/Zoom/Logo.svg";
 import zoomPhoto from "../Assets/Zoom/Photo.jpg";
-import evergyLogo from "../Assets/Evergy/Logo.png";
-import evergyLogoAlt from "../Assets/Evergy/Logo_Alt.png";
+import evergyLogo from "../Assets/Evergy/Logo.svg";
+import evergyLogoAlt from "../Assets/Evergy/Logo_Alt.svg";
 import evergyPhoto from "../Assets/Evergy/Photo.jpg";
-import nelnetLogo from "../Assets/Nelnet/Logo.png";
+import nelnetLogo from "../Assets/Nelnet/Logo.svg";
 import nelnetPhoto from "../Assets/Nelnet/Photo.png";
 
 const experienceData: ExperienceItem[] = [
