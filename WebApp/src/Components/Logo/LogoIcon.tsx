@@ -1,16 +1,8 @@
 import { createUseStyles, useTheme } from "react-jss";
 import { AppTheme } from "../../theme";
 
-type LogoIconProps = React.SVGAttributes<SVGElement> & {
-    color?: string;
-};
-
 /**
  * A React component representing the application logo's icon (the logo without the text).
- *
- * Props:
- * * `color` the color in which the logo should be displayed (default value is "inherit")
- * * all other SVG properties
  */
 const LogoIcon = (props: LogoIconProps) => {
     const theme = useTheme<AppTheme>();
@@ -53,5 +45,13 @@ const useStyles = createUseStyles<"logo", LogoIconProps, AppTheme>({
         transition: data.theme.transition,
     }),
 });
+
+/**
+ * Props for the logo icon component
+ */
+type LogoIconProps = React.SVGAttributes<SVGElement> & {
+    /** The color in which the logo should be displayed */
+    color?: string;
+};
 
 export default LogoIcon;

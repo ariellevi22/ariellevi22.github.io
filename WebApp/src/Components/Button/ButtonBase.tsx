@@ -4,22 +4,9 @@ import { scaleFactors } from "../../globals";
 import { AppTheme } from "../../theme";
 import Link from "../Link";
 
-type ButtonBaseHTMLProps = React.HTMLAttributes<HTMLButtonElement> &
-    React.HTMLAttributes<HTMLAnchorElement>;
-
-export type ButtonBaseProps = ButtonBaseHTMLProps & {
-    isTransparent?: boolean;
-    href?: string;
-    openWithNewTab?: boolean;
-    backgroundColor?: string;
-    textColor?: string;
-    hoverBackgroundColor?: string;
-    hoverTextColor?: string;
-};
-
 /**
- * A React component representing a simple wrapper for an HTML `<button>`. This component is extended
- * in components such as `Button` and `IconButton` for simplicity.
+ * A React component representing a simple wrapper for an HTML `<button>`, extended
+ * in components such as `Button` and `IconButton` for simplicity
  */
 const ButtonBase = (props: ButtonBaseProps) => {
     const theme = useTheme<AppTheme>();
@@ -37,8 +24,8 @@ const ButtonBase = (props: ButtonBaseProps) => {
         openWithNewTab,
         backgroundColor,
         textColor,
-        hoverBackgroundColor,
-        hoverTextColor,
+        interactionBackgroundColor,
+        interactionTextColor,
         children,
         ...otherProps
     } = props;
@@ -63,6 +50,44 @@ const ButtonBase = (props: ButtonBaseProps) => {
                 {props.children}
             </button>
         );
+    }
+};
+
+/**
+ * Gets the background color for the button base when the button is being
+ * interacted with (hover, focus, or active states)
+ *
+ * @param data props and theme data
+ * @returns the background color
+ */
+const getInteractionBackgroundColor = (
+    data: ButtonBaseProps & { theme: AppTheme }
+) => {
+    if (data.isTransparent) {
+        return "transparent";
+    } else if (data.interactionBackgroundColor) {
+        return data.interactionBackgroundColor;
+    } else {
+        return data.theme.colors.textPrimary;
+    }
+};
+
+/**
+ * Gets the text color for the button base when the button is being
+ * interacted with (hover, focus, or active states)
+ *
+ * @param data props and theme data
+ * @returns the text color
+ */
+const getInteractionTextColor = (
+    data: ButtonBaseProps & { theme: AppTheme }
+) => {
+    if (data.interactionTextColor) {
+        return data.interactionTextColor;
+    } else if (data.isTransparent) {
+        return data.theme.colors.accentPrimary;
+    } else {
+        return data.theme.colors.textSecondary;
     }
 };
 
@@ -131,41 +156,35 @@ const useStyles = createUseStyles<"buttonBase", ButtonBaseProps, AppTheme>({
 });
 
 /**
- * Gets the background color for the button base when the button is being
- * interacted with (hover, focus, or active states)
- *
- * @param data props and theme data
- * @returns the background color
+ * Props for the button base component that come from default HTML attributes
  */
-const getInteractionBackgroundColor = (
-    data: ButtonBaseProps & { theme: AppTheme }
-) => {
-    if (data.isTransparent) {
-        return "transparent";
-    } else if (data.hoverBackgroundColor) {
-        return data.hoverBackgroundColor;
-    } else {
-        return data.theme.colors.textPrimary;
-    }
-};
+type ButtonBaseHTMLProps = React.HTMLAttributes<HTMLButtonElement> &
+    React.HTMLAttributes<HTMLAnchorElement>;
 
 /**
- * Gets the text color for the button base when the button is being
- * interacted with (hover, focus, or active states)
- *
- * @param data props and theme data
- * @returns the text color
+ * Props for the button base component
  */
-const getInteractionTextColor = (
-    data: ButtonBaseProps & { theme: AppTheme }
-) => {
-    if (data.hoverTextColor) {
-        return data.hoverTextColor;
-    } else if (data.isTransparent) {
-        return data.theme.colors.accentPrimary;
-    } else {
-        return data.theme.colors.textSecondary;
-    }
+export type ButtonBaseProps = ButtonBaseHTMLProps & {
+    /** Whether the button should have a transparent background */
+    isTransparent?: boolean;
+
+    /** The link for the button to follow */
+    href?: string;
+
+    /** Whether the button should open its link in a new tab */
+    openWithNewTab?: boolean;
+
+    /** The button background color */
+    backgroundColor?: string;
+
+    /** The button text color */
+    textColor?: string;
+
+    /** The button background color when interacted with */
+    interactionBackgroundColor?: string;
+
+    /** The background text color when interacted with */
+    interactionTextColor?: string;
 };
 
 export default ButtonBase;

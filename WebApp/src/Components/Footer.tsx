@@ -18,14 +18,14 @@ const Footer = () => {
             <Logo
                 stacked
                 href="#top"
-                hoverColor={theme.colors.accentNavigation}
+                interactionColor={theme.colors.accentNavigation}
             />
 
             <SocialButtons
                 backgroundColor={theme.colors.textNavigation}
                 textColor={theme.colors.backgroundNavigation}
-                hoverBackgroundColor={theme.colors.accentPrimary}
-                hoverTextColor={theme.colors.textSecondary}
+                interactionBackgroundColor={theme.colors.accentPrimary}
+                interactionTextColor={theme.colors.textSecondary}
             />
 
             <p className={styles.copyrightText}>

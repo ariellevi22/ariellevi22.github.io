@@ -2,17 +2,8 @@ import { ReactChildren } from "../models";
 import { createUseStyles } from "react-jss";
 import { screenSizes } from "../globals";
 
-type ContainerProps = {
-    className?: string;
-    children: ReactChildren;
-};
-
 /**
  * A React component representing a container for app content
- *
- * Props:
- * * `className` any class name to style the container
- * * `children` any content to put inside the container
  */
 const Container = (props: ContainerProps) => {
     const styles = useStyles();
@@ -42,5 +33,16 @@ const useStyles = createUseStyles({
         },
     },
 });
+
+/**
+ * Props for the container component
+ */
+type ContainerProps = {
+    /** Any CSS class to style the container */
+    className?: string;
+
+    /** Any content to place inside the container */
+    children: ReactChildren;
+};
 
 export default Container;

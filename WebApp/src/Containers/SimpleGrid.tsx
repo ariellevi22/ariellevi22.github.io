@@ -3,23 +3,6 @@ import { createUseStyles } from "react-jss";
 import * as CSS from "csstype";
 import { screenSizes } from "../globals";
 
-type SimpleGridProps = {
-    numColumns?: ColumnSettings;
-    priority?: boolean;
-    width?: CSS.Property.Width;
-    gap?: CSS.Property.Gap;
-    rowGap?: CSS.Property.RowGap;
-    columnGap?: CSS.Property.ColumnGap;
-    justifyRows?: boolean;
-    children: ReactChildren;
-};
-
-type ColumnSettings = {
-    large?: number;
-    medium?: number;
-    small?: number;
-};
-
 /**
  * A React component representing a container for grid items
  */
@@ -38,7 +21,7 @@ const SimpleGrid = (props: SimpleGridProps) => {
  * @returns the number of columns to display in the grid for the given screen size
  */
 const getNumColumnsForSize = (
-    size: "small" | "medium" | "large",
+    size: keyof ColumnSettings,
     numColumns?: ColumnSettings
 ) => {
     let numColumnsSmall = 1;
@@ -85,7 +68,7 @@ const getNumColumnsForSize = (
  *          screen size and column counts
  */
 const getColumnTemplate = (
-    size: "small" | "medium" | "large",
+    size: keyof ColumnSettings,
     numColumns?: ColumnSettings
 ) => {
     let sizedNumColumns = getNumColumnsForSize(size, numColumns);
@@ -96,15 +79,13 @@ const getColumnTemplate = (
  * Constructs the string representing the CSS `grid-auto-rows` property for the specified screen size
  *
  * @param size the screen size for which to determine the auto rows string (small, medium, or large)
- * @param numColumnsLarge the number of columns for large screens
- * @param numColumnsMedium the number of columns for medium screens
- * @param numColumnsSmall the number of columns for small screens
+ * @param numColumns the number of columns for differently sized screens
  * @param justifyRows whether the rows of the grid should have equal heights
  * @returns the string representation of the CSS `grid-auto-rows` property based on the given
  *          screen size and column counts
  */
 const getAutoRows = (
-    size: "small" | "medium" | "large",
+    size: keyof ColumnSettings,
     numColumns?: ColumnSettings,
     justifyRows?: boolean
 ) => {
@@ -186,5 +167,43 @@ const useStyles = createUseStyles<"grid", SimpleGridProps>({
         },
     },
 });
+
+/**
+ * Props for the simple grid component
+ */
+type SimpleGridProps = {
+    /** The number of columns the grid should show for differently sized screens */
+    numColumns?: ColumnSettings;
+
+    /** Whether the grid should show the first item larger than all others */
+    priority?: boolean;
+
+    /** The width of the grid container */
+    width?: CSS.Property.Width;
+
+    /** The gap between rows and columns in the grid */
+    gap?: CSS.Property.Gap;
+
+    /** The gap between rows in the grid */
+    rowGap?: CSS.Property.RowGap;
+
+    /** The gap between columns in the grid */
+    columnGap?: CSS.Property.ColumnGap;
+
+    /** Whether to equalize the heights of all rows in the grid */
+    justifyRows?: boolean;
+
+    /** Contents to place within the grid */
+    children: ReactChildren;
+};
+
+/**
+ * Settings for the grid's columns' sizes
+ */
+type ColumnSettings = {
+    large?: number;
+    medium?: number;
+    small?: number;
+};
 
 export default SimpleGrid;

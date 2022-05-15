@@ -3,17 +3,8 @@ import { navbarHeight } from "../globals";
 import { createUseStyles } from "react-jss";
 import { ReactChildren } from "../models";
 
-type SectionProps = {
-    id?: string;
-    children: ReactChildren;
-};
-
 /**
  * A React component representing a container for a section of the app
- *
- * Props:
- * * `id` an optional ID for the container (for example, to set up links to certain parts of the webpage)
- * * `children` any content to put inside the container
  */
 const Section = (props: SectionProps) => {
     const styles = useStyles();
@@ -36,5 +27,16 @@ const useStyles = createUseStyles({
         },
     },
 });
+
+/**
+ * Props for the section component
+ */
+type SectionProps = {
+    /** An optional ID for the container (for example, to set up links to certain parts of the webpage) */
+    id?: string;
+
+    /** Any content to put inside the container */
+    children: ReactChildren;
+};
 
 export default Section;

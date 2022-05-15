@@ -2,28 +2,8 @@ import { createUseStyles, useTheme } from "react-jss";
 import { ReactChildren } from "../models";
 import { AppTheme } from "../theme";
 
-type CardProps = {
-    color?: string;
-    logoSrc?: string;
-    logoAlt?: string;
-    imgSrc?: string;
-    imgAlt?: string;
-    isDecorativeImg?: boolean;
-    children: ReactChildren;
-};
-
 /**
  * A React component representing a card
- *
- * Props:
- * * `color` the card's accent color
- * * `logoSrc` a logo to display on the card
- * * `logoAlt` alt text for the card logo
- * * `imgSrc` a cover image to display on the card
- * * `imgAlt` alt text for the card image
- * * `isDecorativeImg` whether the card image is purely for decorative purposes
- *   or has another purpose
- * * `children` any additional content to place in the card
  */
 const Card = (props: CardProps) => {
     const theme = useTheme<AppTheme>();
@@ -91,10 +71,35 @@ const useStyles = createUseStyles<
         width: "100%",
         height: "12.5rem",
         objectFit: "cover",
-        filter: (data) =>
-            data.isDecorativeImg && "contrast(80%)",
+        filter: (data) => data.isDecorativeImg && "contrast(80%)",
         borderRadius: `0 ${borderRadius} 0 0`,
     },
 });
+
+/**
+ * Props for the card component
+ */
+type CardProps = {
+    /** The card's accent color */
+    color?: string;
+
+    /** A logo to display on the card */
+    logoSrc?: string;
+
+    /** Alt text for the card logo */
+    logoAlt?: string;
+
+    /** A cover image to display on the card */
+    imgSrc?: string;
+
+    /** Alt text for the card image */
+    imgAlt?: string;
+
+    /** Whether the card image is purely decorative or has another purpose */
+    isDecorativeImg?: boolean;
+
+    /** Any additional content to place in the card */
+    children: ReactChildren;
+};
 
 export default Card;

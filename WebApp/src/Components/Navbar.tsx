@@ -14,15 +14,8 @@ import {
     faSun,
 } from "@fortawesome/free-solid-svg-icons";
 
-type NavbarProps = {
-    toggleTheme?: () => void;
-};
-
 /**
  * A React component for the website's navigation bar
- *
- * Props:
- * * `toggleTheme` a function to change the application theme between light and dark modes
  */
 const Navbar = (props: NavbarProps) => {
     const theme = useTheme<AppTheme>();
@@ -43,6 +36,8 @@ const Navbar = (props: NavbarProps) => {
                         href={tab.href}
                         key={tab.label}
                         openWithNewTab={tab.openWithNewTab}
+                        removeUnderline
+                        interactionColor={theme.colors.accentNavigation}
                     >
                         {tab.label}
                     </Link>
@@ -55,7 +50,7 @@ const Navbar = (props: NavbarProps) => {
                     return (
                         <IconButton
                             isTransparent
-                            hoverTextColor={theme.colors.accentNavigation}
+                            interactionTextColor={theme.colors.accentNavigation}
                             icon={iconTab.icon}
                             href={iconTab.href}
                             openWithNewTab
@@ -69,7 +64,7 @@ const Navbar = (props: NavbarProps) => {
             {props.toggleTheme && (
                 <IconButton
                     isTransparent
-                    hoverTextColor={theme.colors.accentNavigation}
+                    interactionTextColor={theme.colors.accentNavigation}
                     icon={theme.type === "light" ? faMoon : faSun}
                     onClick={props.toggleTheme}
                     aria-label={`Change to ${
@@ -85,17 +80,17 @@ const Navbar = (props: NavbarProps) => {
 
     // Display the navigation bar
     return (
-        <nav className={styles.nav}>
+        <nav>
             <div className={styles.navbar}>
                 <Logo
                     href="#top"
                     onClick={() => setMenuOpen(false)}
-                    hoverColor={theme.colors.accentNavigation}
+                    interactionColor={theme.colors.accentNavigation}
                 />
 
                 <IconButton
                     isTransparent
-                    hoverTextColor={theme.colors.accentNavigation}
+                    interactionTextColor={theme.colors.accentNavigation}
                     icon={isMenuOpen ? faClose : faBars}
                     onClick={() => setMenuOpen(!isMenuOpen)}
                     className={styles.menuButton}
@@ -127,8 +122,10 @@ const Navbar = (props: NavbarProps) => {
 
 const menuWidth = "80vw";
 
+/**
+ * Creates the navigation bar's styles
+ */
 const useStyles = createUseStyles<
-    | "nav"
     | "navbar"
     | "tabs"
     | "menu"
@@ -140,23 +137,6 @@ const useStyles = createUseStyles<
     NavbarProps,
     AppTheme
 >({
-    nav: {
-        // Style each link in the navbar
-        "& a": {
-            textDecoration: "none",
-
-            "@media (hover: hover) and (pointer: fine)": {
-                "&:hover": {
-                    color: (data) => data.theme.colors.accentNavigation,
-                },
-            },
-
-            "&:focus-visible": {
-                color: (data) => data.theme.colors.accentNavigation,
-            },
-        },
-    },
-
     navbar: (data) => ({
         padding: "1rem 2.5rem",
         top: 0,
@@ -239,5 +219,13 @@ const useStyles = createUseStyles<
         },
     },
 });
+
+/**
+ * Props for the navigation bar component
+ */
+type NavbarProps = {
+    /** A function to change the application theme between light and dark modes */
+    toggleTheme?: () => void;
+};
 
 export default Navbar;

@@ -1,17 +1,8 @@
 import { ReactChildren } from "../../models";
 import { createUseStyles } from "react-jss";
 
-type IconButtonGroupProps = {
-    style?: React.CSSProperties;
-    children: ReactChildren;
-};
-
 /**
  * A React component representing a container for a group of icon buttons
- *
- * Props:
- * * `style` optional styling for the container
- * * `children` the icon buttons to put inside the container
  */
 const IconButtonGroup = (props: IconButtonGroupProps) => {
     const styles = useStyles(props);
@@ -33,5 +24,16 @@ const useStyles = createUseStyles<"root", IconButtonGroupProps>({
         flexWrap: "wrap",
     },
 });
+
+/**
+ * Props for the icon button group
+ */
+type IconButtonGroupProps = {
+    /** Optional styling for the container */
+    style?: React.CSSProperties;
+
+    /** The icon buttons to place inside the container */
+    children: ReactChildren;
+};
 
 export default IconButtonGroup;

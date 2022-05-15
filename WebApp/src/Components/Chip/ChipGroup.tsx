@@ -1,17 +1,8 @@
 import { createUseStyles } from "react-jss";
 import { ReactChildren } from "../../models";
 
-type ChipGroupProps = {
-    style?: React.CSSProperties;
-    children: ReactChildren;
-};
-
 /**
  * A React component representing a container for a group of chips
- *
- * Props:
- * * `style` optional styling for the container
- * * `children` the chips to put inside the container
  */
 const ChipGroup = (props: ChipGroupProps) => {
     const styles = useStyles();
@@ -35,5 +26,16 @@ const useStyles = createUseStyles({
         flexWrap: "wrap",
     },
 });
+
+/**
+ * Props for the chip group component
+ */
+type ChipGroupProps = {
+    /** Optional styling for the container */
+    style?: React.CSSProperties;
+
+    /** The chips to put inside the container */
+    children: ReactChildren;
+};
 
 export default ChipGroup;

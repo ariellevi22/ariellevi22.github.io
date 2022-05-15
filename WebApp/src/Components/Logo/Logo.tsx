@@ -5,25 +5,9 @@ import { AppTheme } from "../../theme";
 import Link from "../Link";
 import LogoIcon from "./LogoIcon";
 
-type LogoProps = {
-    href?: string;
-    stacked?: boolean;
-    color?: string;
-    hoverColor?: string;
-    onClick?: React.MouseEventHandler<HTMLDivElement>;
-};
-
 /**
  * A React component representing the application's logo (including the icon and text),
  * which can optionally link to a website or part of the app when clicked.
- *
- * Props:
- * * `href` a link for the logo to go to when clicked on
- * * `stacked` whether the logo should show the logo text below the icon (stacked) or
- *   side by side with the icon (default)
- * * `color` the color in which the logo should be displayed (default value is "inherit")
- * * `hoverColor` the color in which the logo should be displayed when hovered over
- * * `onClick` a function to call when the logo is clicked
  */
 const Logo = (props: LogoProps) => {
     const theme = useTheme<AppTheme>();
@@ -103,22 +87,22 @@ const useStyles = createUseStyles<
         "@media (hover: hover) and (pointer: fine)": {
             "&:hover svg": {
                 color: (data) =>
-                    data.hoverColor
-                        ? data.hoverColor
+                    data.interactionColor
+                        ? data.interactionColor
                         : data.theme.colors.accentPrimary,
                 transform: `scale(${1 + scaleFactors.tiny})`,
             },
             "&:hover p": {
                 color: (data) =>
-                    data.hoverColor
-                        ? data.hoverColor
+                    data.interactionColor
+                        ? data.interactionColor
                         : data.theme.colors.accentPrimary,
             },
         },
         "&:focus-visible svg": {
             color: (data) =>
-                data.hoverColor
-                    ? data.hoverColor
+                data.interactionColor
+                    ? data.interactionColor
                     : data.theme.colors.accentPrimary,
             transform: `scale(${1 + scaleFactors.tiny})`,
         },
@@ -127,11 +111,34 @@ const useStyles = createUseStyles<
         },
         "&:focus-visible p": {
             color: (data) =>
-                data.hoverColor
-                    ? data.hoverColor
+                data.interactionColor
+                    ? data.interactionColor
                     : data.theme.colors.accentPrimary,
         },
     },
 });
+
+/**
+ * Props for the logo component
+ */
+type LogoProps = {
+    /** A link for the logo to go to when clicked on */
+    href?: string;
+
+    /**
+     * Whether the logo should show the logo text below the icon (stacked)
+     * or side by side with the icon (default)
+     */
+    stacked?: boolean;
+
+    /** The color in which the logo should be displayed */
+    color?: string;
+
+    /** The color in which the logo should be displayed when interacted with */
+    interactionColor?: string;
+
+    /** A function to call when the logo is clicked */
+    onClick?: React.MouseEventHandler<HTMLDivElement>;
+};
 
 export default Logo;

@@ -2,18 +2,10 @@ import { socialTabs } from "../../Data/navigationData";
 import IconButton from "./IconButton";
 import IconButtonGroup from "./IconButtonGroup";
 
-type SocialButtonProps = {
-    style?: React.CSSProperties;
-    backgroundColor?: string;
-    textColor?: string;
-    hoverBackgroundColor?: string;
-    hoverTextColor?: string;
-};
-
 /**
- * A group of social buttons
+ * A React component representing a group of social buttons
  */
-const SocialButtons = (props: SocialButtonProps) => {
+const SocialButtons = (props: SocialButtonsProps) => {
     return (
         <IconButtonGroup style={{ fontSize: "1.125rem", ...props.style }}>
             {socialTabs.map((socialTab) => {
@@ -22,11 +14,13 @@ const SocialButtons = (props: SocialButtonProps) => {
                         icon={socialTab.icon}
                         backgroundColor={props.backgroundColor}
                         textColor={props.textColor}
-                        hoverBackgroundColor={
-                            socialTab.colorPrimary || props.hoverBackgroundColor
+                        interactionBackgroundColor={
+                            socialTab.colorPrimary ||
+                            props.interactionBackgroundColor
                         }
-                        hoverTextColor={
-                            socialTab.colorSecondary || props.hoverTextColor
+                        interactionTextColor={
+                            socialTab.colorSecondary ||
+                            props.interactionTextColor
                         }
                         href={socialTab.href}
                         openWithNewTab
@@ -38,6 +32,26 @@ const SocialButtons = (props: SocialButtonProps) => {
             })}
         </IconButtonGroup>
     );
+};
+
+/**
+ * Props for the social buttons component
+ */
+type SocialButtonsProps = {
+    /** Optional styling for the social buttons */
+    style?: React.CSSProperties;
+
+    /** The social buttons' background color */
+    backgroundColor?: string;
+
+    /** The social buttons' text color */
+    textColor?: string;
+
+    /** The social buttons' background color when interacted with */
+    interactionBackgroundColor?: string;
+
+    /** The social buttons' text color when interacted with */
+    interactionTextColor?: string;
 };
 
 export default SocialButtons;
