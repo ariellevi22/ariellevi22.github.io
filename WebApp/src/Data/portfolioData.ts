@@ -20,7 +20,7 @@ const portfolioData: PortfolioItem[] = [
             accomplishments, and interests.
         `,
         responsibilities: [],
-        technologies: ["TypeScript", "React.js", "HTML", "CSS", "Figma"],
+        technologies: ["React", "TypeScript", "HTML/CSS", "Figma"],
         website: "#top",
         codeWebsite: "https://github.com/alevi22/alevi22.github.io",
         logo: personalWebsiteLogo,
@@ -40,7 +40,7 @@ const portfolioData: PortfolioItem[] = [
             "Designed and developed a web application aimed to simplify safe event planning for friends and families during the COVID-19 pandemic",
             "Collaborated with front-end, back-end, and database developers in an agile team environment",
         ],
-        technologies: ["TypeScript", "React.js", "HTML", "CSS", "Figma"],
+        technologies: ["React", "TypeScript", "HTML/CSS", "Figma"],
         logo: toGatherLogo,
         logoAlt: toGatherLogoAlt,
         photo: toGatherPhoto,

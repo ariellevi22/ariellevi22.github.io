@@ -20,16 +20,7 @@ const About = () => {
             </p>
 
             <p>
-                Last summer, I worked as an application developer intern at{" "}
-                <Link
-                    href="https://www.evergy.com/about-evergy/company-overview"
-                    openWithNewTab
-                >
-                    Evergy
-                </Link>
-                , where I created tools and integrations to help employees be
-                more productive at work. This upcoming summer, I will be working
-                as a software engineer intern at{" "}
+                This summer, I am working as a software engineer intern at{" "}
                 <Link
                     href="https://www.garmin.com/en-US/company/about-garmin/"
                     openWithNewTab

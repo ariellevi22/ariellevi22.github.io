@@ -20,10 +20,7 @@ const Experience = () => {
 
             <SimpleGrid
                 numColumns={{ large: 2, medium: 2, small: 1 }}
-                priority={
-                    experienceData.length % 2 !== 0 &&
-                    !experienceData[0].isForegroundPhoto
-                }
+                priority={experienceData.length % 2 !== 0}
             >
                 {experienceData.map((experience) => {
                     return (
@@ -35,8 +32,11 @@ const Experience = () => {
                             }
                             logoAlt={`${experience.companyName} Logo`}
                             imgSrc={experience.photo}
-                            isDecorativeImg={!experience.isForegroundPhoto}
-                            color={experience.color}
+                            color={
+                                experience.colorAlt && theme.type === "dark"
+                                    ? experience.colorAlt
+                                    : experience.color
+                            }
                             key={experience.id}
                         >
                             <h3>{experience.title}</h3>

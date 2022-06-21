@@ -80,9 +80,12 @@ const Education = () => {
                             }
                             logoAlt={`${education.school} Logo`}
                             imgSrc={education.photo}
-                            isDecorativeImg
                             key={education.id}
-                            color={education.color}
+                            color={
+                                education.colorAlt && theme.type === "dark"
+                                    ? education.colorAlt
+                                    : education.color
+                            }
                         >
                             <h3>{education.school}</h3>
 

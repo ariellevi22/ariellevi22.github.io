@@ -34,7 +34,11 @@ const Portfolio = () => {
                             }
                             logoAlt={`${portfolioItem.title} Logo`}
                             imgSrc={portfolioItem.photo}
-                            color={portfolioItem.color}
+                            color={
+                                portfolioItem.colorAlt && theme.type === "dark"
+                                    ? portfolioItem.colorAlt
+                                    : portfolioItem.color
+                            }
                             key={portfolioItem.id}
                         >
                             <h3>{portfolioItem.title}</h3>

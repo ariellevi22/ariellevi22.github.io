@@ -44,6 +44,7 @@ type Content = {
 type Item = {
     id: string;
     color?: string;
+    colorAlt?: string;
     logo: string;
     logoAlt?: string;
     photo: string;
@@ -76,7 +77,6 @@ export type ExperienceItem = Item & {
     responsibilities: string[];
     technologies?: string[];
     companyWebsite: string;
-    isForegroundPhoto?: boolean;
 };
 
 /**

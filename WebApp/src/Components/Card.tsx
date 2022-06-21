@@ -71,7 +71,6 @@ const useStyles = createUseStyles<
         width: "100%",
         height: "12.5rem",
         objectFit: "cover",
-        filter: (data) => data.isDecorativeImg && "contrast(80%)",
         borderRadius: `0 ${borderRadius} 0 0`,
     },
 });
@@ -94,9 +93,6 @@ type CardProps = {
 
     /** Alt text for the card image */
     imgAlt?: string;
-
-    /** Whether the card image is purely decorative or has another purpose */
-    isDecorativeImg?: boolean;
 
     /** Any additional content to place in the card */
     children: ReactChildren;

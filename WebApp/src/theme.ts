@@ -8,8 +8,8 @@ const darkestTeal = "#1A414D";
 const lightTeal = "#31AFC1";
 
 // Turquoise colors
-const turquoise = "#64E4E4";
-const lightTurquoise = "#C8E6E6";
+const turquoise = "#64DAE4";
+const lightTurquoise = "#D2E2E5";
 
 // Light colors
 const lightest = "#FFFFFF";
