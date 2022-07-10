@@ -43,7 +43,7 @@ const experienceData: ExperienceItem[] = [
     // Nelnet (Design Studio)
     {
         id: "nelnet-design-studio-2021",
-        title: "Student Software Developer (via UNL Design Studio)",
+        title: "Software Developer (via UNL Design Studio)",
         companyName: "Nelnet",
         startDate: "September 2021",
         endDate: "May 2022",
@@ -102,6 +102,7 @@ const experienceData: ExperienceItem[] = [
         logo: evergyLogo,
         logoAlt: evergyLogoAlt,
         color: "#004E9A",
+        colorAlt: "#317CC0",
     },
 
     // Zoom

@@ -59,8 +59,7 @@ export type EducationItem = Item & {
     degree: string;
     majors?: string[];
     minors?: string[];
-    startDate: string;
-    endDate?: string;
+    graduationDate: string;
     classes: string[];
     additionalInfo?: Content[];
 };
@@ -85,7 +84,6 @@ export type ExperienceItem = Item & {
 export type PortfolioItem = Item & {
     title: string;
     description: string;
-    responsibilities: string[];
     technologies?: string[];
     website?: string;
     codeWebsite?: string;

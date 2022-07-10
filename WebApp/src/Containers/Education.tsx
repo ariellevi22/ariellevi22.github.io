@@ -5,6 +5,7 @@ import Section from "./Section";
 import { useTheme } from "react-jss";
 import { AppTheme } from "../theme";
 import educationData from "../Data/educationData";
+import { separator } from "../globals";
 
 /**
  * A React container for "Education" section elements and data
@@ -87,18 +88,15 @@ const Education = () => {
                                     : education.color
                             }
                         >
-                            <h3>{education.school}</h3>
+                            <h3>{education.degree}</h3>
 
                             <p>
-                                <em>
-                                    {[
-                                        education.degree,
-                                        `${education.startDate} to ${
-                                            education.endDate || "Present"
-                                        }`,
-                                        education.location,
-                                    ].join(" \u2022 ")}
-                                </em>
+                                <b>{education.school}</b>
+                                {[
+                                    "",
+                                    education.location,
+                                    education.graduationDate,
+                                ].join(separator)}
                             </p>
 
                             {educationInfo}

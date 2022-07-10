@@ -4,6 +4,11 @@
 export const title = "Ariel Levi";
 
 /**
+ * Text separator symbol
+ */
+export const separator = " | ";
+
+/**
  * The height of the navigation bar, measured in rem
  */
 export const navbarHeight = 5;

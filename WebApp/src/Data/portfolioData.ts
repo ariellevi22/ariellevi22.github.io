@@ -19,7 +19,6 @@ const portfolioData: PortfolioItem[] = [
             personal portfolio website that showcases my experiences,
             accomplishments, and interests.
         `,
-        responsibilities: [],
         technologies: ["React", "TypeScript", "HTML/CSS", "Figma"],
         website: "#top",
         codeWebsite: "https://github.com/alevi22/alevi22.github.io",
@@ -31,15 +30,13 @@ const portfolioData: PortfolioItem[] = [
     // ToGather
     {
         id: "togather",
-        title: "ToGather",
+        title: "ToGather Web Application",
         description: `
             ToGather is an application for safely supporting connections
             between friends and family members during the COVID-19 pandemic.
+            Working within a team of five computer science students,
+            I designed and developed the front-end web application.
         `,
-        responsibilities: [
-            "Designed and developed a web application aimed to simplify safe event planning for friends and families during the COVID-19 pandemic",
-            "Collaborated with front-end, back-end, and database developers in an agile team environment",
-        ],
         technologies: ["React", "TypeScript", "HTML/CSS", "Figma"],
         logo: toGatherLogo,
         logoAlt: toGatherLogoAlt,
@@ -50,13 +47,13 @@ const portfolioData: PortfolioItem[] = [
     // CookBook
     {
         id: "cookbook",
-        title: "CookBook",
-        description:
-            "CookBook is a recipe-sharing application that inspires connection through food.",
-        responsibilities: [
-            "Collaborated with another UI/UX designer to create a design system, wireframes, and prototypes",
-            "Iterated and evolved the product design based on feedback from user research and usability tests",
-        ],
+        title: "CookBook Web Application Prototype",
+        description: `
+            CookBook is a recipe-sharing application that inspires connection through food.
+            Collaborating with another UI/UX designer, I created a design system,
+            wireframes, and prototypes for the application based on feedback from
+            user research and usability tests.
+        `,
         technologies: ["Figma"],
         website:
             "https://www.figma.com/proto/JRMVmUiVrQukBG2sXGKbLY/Prototype-Final?node-id=2%3A3&starting-point-node-id=2%3A3&scaling=contain",

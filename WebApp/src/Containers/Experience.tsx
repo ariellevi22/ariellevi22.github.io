@@ -7,6 +7,7 @@ import { AppTheme } from "../theme";
 import ChipGroup from "../Components/Chip/ChipGroup";
 import Chip from "../Components/Chip/Chip";
 import experienceData from "../Data/experienceData";
+import { separator } from "../globals";
 
 /**
  * A React container for "Experience" section elements and data
@@ -42,17 +43,21 @@ const Experience = () => {
                             <h3>{experience.title}</h3>
 
                             <p>
-                                <em>
+                                <b>
                                     <Link
                                         href={experience.companyWebsite}
                                         openWithNewTab
                                     >
                                         {experience.companyName}
                                     </Link>
-                                    {` \u2022 ${experience.location} \u2022 ${
-                                        experience.startDate
-                                    } to ${experience.endDate || "Present"}`}
-                                </em>
+                                </b>
+                                {[
+                                    "",
+                                    experience.location,
+                                    `${experience.startDate} to ${
+                                        experience.endDate || "Present"
+                                    }`,
+                                ].join(separator)}
                             </p>
 
                             {experience.responsibilities.length > 0 && (
@@ -67,7 +72,7 @@ const Experience = () => {
 
                             {experience.technologies && (
                                 <>
-                                    <h4>Technologies Used</h4>
+                                    <h4>Technologies</h4>
 
                                     <ChipGroup>
                                         {experience.technologies.map(

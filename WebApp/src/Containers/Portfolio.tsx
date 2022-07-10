@@ -45,18 +45,10 @@ const Portfolio = () => {
 
                             <p>{portfolioItem.description}</p>
 
-                            <ul>
-                                {portfolioItem.responsibilities.map(
-                                    (responsibility, index) => (
-                                        <li key={index}>{responsibility}</li>
-                                    )
-                                )}
-                            </ul>
-
                             {portfolioItem.technologies &&
                                 portfolioItem.technologies.length > 0 && (
                                     <>
-                                        <h4>Technologies Used</h4>
+                                        <h4>Technologies</h4>
                                         <ChipGroup
                                             style={{
                                                 marginBottom:
