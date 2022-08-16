@@ -24,5 +24,6 @@ jobs:
       with:
         node-version: 16.x
         cache: 'npm'
+        cache-dependency-path: "./WebApp/package-lock.json"
     - run: npm install
     - run: npm run deploy
