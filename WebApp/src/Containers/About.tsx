@@ -18,18 +18,6 @@ const About = () => {
                 of Computer Science and Management who is passionate about
                 technology and its ability to make the world a better place.
             </p>
-
-            <p>
-                This summer, I am working as a software engineer intern at{" "}
-                <Link
-                    href="https://www.garmin.com/en-US/company/about-garmin/"
-                    openWithNewTab
-                >
-                    Garmin
-                </Link>
-                , where I am excited to continue to grow my skillset and apply
-                my learning to a real-world environment.
-            </p>
         </Section>
     );
 };

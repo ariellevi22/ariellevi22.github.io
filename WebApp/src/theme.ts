@@ -13,7 +13,7 @@ const lightTurquoise = "#D2E2E5";
 
 // Light colors
 const lightest = "#FFFFFF";
-const light = "#E2E2E2";
+const light = "#E8E8E8";
 
 // Dark colors
 const dark = "#092229";

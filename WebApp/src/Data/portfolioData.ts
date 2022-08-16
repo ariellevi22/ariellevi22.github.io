@@ -23,7 +23,7 @@ const portfolioData: PortfolioItem[] = [
         website: "#top",
         codeWebsite: "https://github.com/alevi22/alevi22.github.io",
         logo: personalWebsiteLogo,
-        logoAlt: personalWebsiteLogoAlt,
+        logoAlternate: personalWebsiteLogoAlt,
         photo: personalWebsitePhoto,
     },
 
@@ -32,14 +32,14 @@ const portfolioData: PortfolioItem[] = [
         id: "togather",
         title: "ToGather Web Application",
         description: `
-            ToGather is an application for safely supporting connections
-            between friends and family members during the COVID-19 pandemic.
+            ToGather is an application aiming to simplify safe event planning
+            for friends and families during the COVID-19 pandemic.
             Working within a team of five computer science students,
             I designed and developed the front-end web application.
         `,
         technologies: ["React", "TypeScript", "HTML/CSS", "Figma"],
         logo: toGatherLogo,
-        logoAlt: toGatherLogoAlt,
+        logoAlternate: toGatherLogoAlt,
         photo: toGatherPhoto,
         color: "#439A9C",
     },
@@ -58,7 +58,7 @@ const portfolioData: PortfolioItem[] = [
         website:
             "https://www.figma.com/proto/JRMVmUiVrQukBG2sXGKbLY/Prototype-Final?node-id=2%3A3&starting-point-node-id=2%3A3&scaling=contain",
         logo: cookBookLogo,
-        logoAlt: cookBookLogoAlt,
+        logoAlternate: cookBookLogoAlt,
         photo: cookBookPhoto,
         color: "#6176A9",
     },

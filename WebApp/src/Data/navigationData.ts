@@ -8,8 +8,8 @@ import { NavbarTab, IconTab } from "../models";
 export const navbarTabs: NavbarTab[] = [
     { label: "About", href: "#About" },
     { label: "Experience", href: "#Experience" },
-    { label: "Education", href: "#Education" },
     { label: "Portfolio", href: "#Portfolio" },
+    { label: "Education", href: "#Education" },
 ];
 
 /**

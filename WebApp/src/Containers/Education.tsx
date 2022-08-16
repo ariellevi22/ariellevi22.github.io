@@ -75,28 +75,26 @@ const Education = () => {
                     return (
                         <Card
                             logoSrc={
-                                education.logoAlt && theme.type === "dark"
-                                    ? education.logoAlt
-                                    : education.logo
+                                education.school.logoAlternate &&
+                                theme.type === "dark"
+                                    ? education.school.logoAlternate
+                                    : education.school.logo
                             }
                             logoAlt={`${education.school} Logo`}
-                            imgSrc={education.photo}
+                            imgSrc={education.school.photo}
                             key={education.id}
                             color={
-                                education.colorAlt && theme.type === "dark"
-                                    ? education.colorAlt
-                                    : education.color
+                                education.school.colorAlternate &&
+                                theme.type === "dark"
+                                    ? education.school.colorAlternate
+                                    : education.school.color
                             }
                         >
                             <h3>{education.degree}</h3>
 
                             <p>
-                                <b>{education.school}</b>
-                                {[
-                                    "",
-                                    education.location,
-                                    education.graduationDate,
-                                ].join(separator)}
+                                <b>{education.school.name}</b>
+                                {["", education.graduationDate].join(separator)}
                             </p>
 
                             {educationInfo}

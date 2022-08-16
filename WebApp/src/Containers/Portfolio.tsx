@@ -28,15 +28,17 @@ const Portfolio = () => {
                     return (
                         <Card
                             logoSrc={
-                                portfolioItem.logoAlt && theme.type === "dark"
-                                    ? portfolioItem.logoAlt
+                                portfolioItem.logoAlternate &&
+                                theme.type === "dark"
+                                    ? portfolioItem.logoAlternate
                                     : portfolioItem.logo
                             }
                             logoAlt={`${portfolioItem.title} Logo`}
                             imgSrc={portfolioItem.photo}
                             color={
-                                portfolioItem.colorAlt && theme.type === "dark"
-                                    ? portfolioItem.colorAlt
+                                portfolioItem.colorAlternate &&
+                                theme.type === "dark"
+                                    ? portfolioItem.colorAlternate
                                     : portfolioItem.color
                             }
                             key={portfolioItem.id}

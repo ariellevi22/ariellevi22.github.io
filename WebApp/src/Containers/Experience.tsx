@@ -27,16 +27,18 @@ const Experience = () => {
                     return (
                         <Card
                             logoSrc={
-                                experience.logoAlt && theme.type === "dark"
-                                    ? experience.logoAlt
-                                    : experience.logo
+                                experience.organization.logoAlternate &&
+                                theme.type === "dark"
+                                    ? experience.organization.logoAlternate
+                                    : experience.organization.logo
                             }
-                            logoAlt={`${experience.companyName} Logo`}
-                            imgSrc={experience.photo}
+                            logoAlt={`${experience.organization.name} Logo`}
+                            imgSrc={experience.organization.photo}
                             color={
-                                experience.colorAlt && theme.type === "dark"
-                                    ? experience.colorAlt
-                                    : experience.color
+                                experience.organization.colorAlternate &&
+                                theme.type === "dark"
+                                    ? experience.organization.colorAlternate
+                                    : experience.organization.color
                             }
                             key={experience.id}
                         >
@@ -45,10 +47,10 @@ const Experience = () => {
                             <p>
                                 <b>
                                     <Link
-                                        href={experience.companyWebsite}
+                                        href={experience.organization.website}
                                         openWithNewTab
                                     >
-                                        {experience.companyName}
+                                        {experience.organization.name}
                                     </Link>
                                 </b>
                                 {[
