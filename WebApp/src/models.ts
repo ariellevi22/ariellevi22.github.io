@@ -39,29 +39,11 @@ type Content = {
 };
 
 /**
- * Template for branding information (colors, photos, and logos)
+ * Template for main and alternate formatting
  */
-type Brand = {
-    color?: string;
-    colorAlternate?: string;
-    logo: string;
-    logoAlternate?: string;
-    photo: string;
-};
-
-/**
- * Template for an organization (company or other group)
- */
-export type Organization = Brand & {
-    name: string;
-    website: string;
-};
-
-/**
- * Template for a school
- */
-export type School = Brand & {
-    name: string;
+export type Format = {
+    main: string;
+    alternate?: string;
 };
 
 /**
@@ -69,13 +51,16 @@ export type School = Brand & {
  */
 type Item = {
     id: string;
+    logo: Format;
+    color?: Format;
+    photo: string;
 };
 
 /**
  * Template for education data
  */
 export type EducationItem = Item & {
-    school: School;
+    school: string;
     degree: string;
     majors?: string[];
     minors?: string[];
@@ -89,7 +74,8 @@ export type EducationItem = Item & {
  */
 export type ExperienceItem = Item & {
     title: string;
-    organization: Organization;
+    organization: string;
+    href: string;
     startDate: string;
     endDate?: string;
     location: string;
@@ -100,11 +86,10 @@ export type ExperienceItem = Item & {
 /**
  * Template for portfolio data
  */
-export type PortfolioItem = Item &
-    Brand & {
-        title: string;
-        description: string;
-        technologies?: string[];
-        website?: string;
-        codeWebsite?: string;
-    };
+export type PortfolioItem = Item & {
+    title: string;
+    description: string;
+    technologies?: string[];
+    website?: string;
+    codeWebsite?: string;
+};

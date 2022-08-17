@@ -1,5 +1,5 @@
 import Card from "../Components/Card";
-import { pluralize } from "../utils";
+import { getPreferredFormatOption, pluralize } from "../utils";
 import SimpleGrid from "./SimpleGrid";
 import Section from "./Section";
 import { useTheme } from "react-jss";
@@ -74,26 +74,22 @@ const Education = () => {
 
                     return (
                         <Card
-                            logoSrc={
-                                education.school.logoAlternate &&
-                                theme.type === "dark"
-                                    ? education.school.logoAlternate
-                                    : education.school.logo
-                            }
+                            logoSrc={getPreferredFormatOption(
+                                education.logo,
+                                theme.type
+                            )}
                             logoAlt={`${education.school} Logo`}
-                            imgSrc={education.school.photo}
+                            imgSrc={education.photo}
                             key={education.id}
-                            color={
-                                education.school.colorAlternate &&
-                                theme.type === "dark"
-                                    ? education.school.colorAlternate
-                                    : education.school.color
-                            }
+                            color={getPreferredFormatOption(
+                                education.color,
+                                theme.type
+                            )}
                         >
                             <h3>{education.degree}</h3>
 
                             <p>
-                                <b>{education.school.name}</b>
+                                <b>{education.school}</b>
                                 {["", education.graduationDate].join(separator)}
                             </p>
 

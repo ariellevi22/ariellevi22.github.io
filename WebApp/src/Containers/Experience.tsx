@@ -8,6 +8,7 @@ import ChipGroup from "../Components/Chip/ChipGroup";
 import Chip from "../Components/Chip/Chip";
 import experienceData from "../Data/experienceData";
 import { separator } from "../globals";
+import { getPreferredFormatOption } from "../utils";
 
 /**
  * A React container for "Experience" section elements and data
@@ -26,31 +27,24 @@ const Experience = () => {
                 {experienceData.map((experience) => {
                     return (
                         <Card
-                            logoSrc={
-                                experience.organization.logoAlternate &&
-                                theme.type === "dark"
-                                    ? experience.organization.logoAlternate
-                                    : experience.organization.logo
-                            }
-                            logoAlt={`${experience.organization.name} Logo`}
-                            imgSrc={experience.organization.photo}
-                            color={
-                                experience.organization.colorAlternate &&
-                                theme.type === "dark"
-                                    ? experience.organization.colorAlternate
-                                    : experience.organization.color
-                            }
+                            logoSrc={getPreferredFormatOption(
+                                experience.logo,
+                                theme.type
+                            )}
+                            logoAlt={`${experience.organization} Logo`}
+                            imgSrc={experience.photo}
+                            color={getPreferredFormatOption(
+                                experience.color,
+                                theme.type
+                            )}
                             key={experience.id}
                         >
                             <h3>{experience.title}</h3>
 
                             <p>
                                 <b>
-                                    <Link
-                                        href={experience.organization.website}
-                                        openWithNewTab
-                                    >
-                                        {experience.organization.name}
+                                    <Link href={experience.href} openWithNewTab>
+                                        {experience.organization}
                                     </Link>
                                 </b>
                                 {[

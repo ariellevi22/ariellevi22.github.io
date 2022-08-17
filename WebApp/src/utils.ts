@@ -1,3 +1,5 @@
+import { Format } from "./models";
+
 /**
  * Gets the current year
  *
@@ -25,4 +27,24 @@ export const pluralize = (text: string, count: number) => {
     }
 
     return `${text}${count > 1 ? pluralizationEnding : ""}`;
+};
+
+/**
+ * Gets the preferred formatting option based on main and alternate choices
+ *
+ * @param format the main and alternate formatting options
+ * @param themeType the type of the theme (light or dark)
+ * @returns the preferred formatting option based on the theme type
+ */
+export const getPreferredFormatOption = (
+    format: Format | undefined,
+    themeType: string
+) => {
+    if (format) {
+        return format.alternate && themeType === "dark"
+            ? format.alternate
+            : format.main;
+    } else {
+        return undefined;
+    }
 };

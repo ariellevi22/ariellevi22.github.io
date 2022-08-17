@@ -12,6 +12,7 @@ import {
     faArrowUpRightFromSquare,
     faCode,
 } from "@fortawesome/free-solid-svg-icons";
+import { getPreferredFormatOption } from "../utils";
 
 /**
  * A React container for "Portfolio" section elements and data
@@ -27,20 +28,16 @@ const Portfolio = () => {
                 {portfolioData.map((portfolioItem) => {
                     return (
                         <Card
-                            logoSrc={
-                                portfolioItem.logoAlternate &&
-                                theme.type === "dark"
-                                    ? portfolioItem.logoAlternate
-                                    : portfolioItem.logo
-                            }
+                            logoSrc={getPreferredFormatOption(
+                                portfolioItem.logo,
+                                theme.type
+                            )}
                             logoAlt={`${portfolioItem.title} Logo`}
                             imgSrc={portfolioItem.photo}
-                            color={
-                                portfolioItem.colorAlternate &&
-                                theme.type === "dark"
-                                    ? portfolioItem.colorAlternate
-                                    : portfolioItem.color
-                            }
+                            color={getPreferredFormatOption(
+                                portfolioItem.color,
+                                theme.type
+                            )}
                             key={portfolioItem.id}
                         >
                             <h3>{portfolioItem.title}</h3>

@@ -10,7 +10,6 @@ import cookBookLogoAlt from "../Assets/CookBook/Logo_Alt.svg";
 import cookBookPhoto from "../Assets/CookBook/Photo.png";
 
 const portfolioData: PortfolioItem[] = [
-    // Personal website
     {
         id: "personal-website",
         title: "Personal Website",
@@ -22,12 +21,9 @@ const portfolioData: PortfolioItem[] = [
         technologies: ["React", "TypeScript", "HTML/CSS", "Figma"],
         website: "#top",
         codeWebsite: "https://github.com/alevi22/alevi22.github.io",
-        logo: personalWebsiteLogo,
-        logoAlternate: personalWebsiteLogoAlt,
+        logo: { main: personalWebsiteLogo, alternate: personalWebsiteLogoAlt },
         photo: personalWebsitePhoto,
     },
-
-    // ToGather
     {
         id: "togather",
         title: "ToGather Web Application",
@@ -38,13 +34,10 @@ const portfolioData: PortfolioItem[] = [
             I designed and developed the front-end web application.
         `,
         technologies: ["React", "TypeScript", "HTML/CSS", "Figma"],
-        logo: toGatherLogo,
-        logoAlternate: toGatherLogoAlt,
+        logo: { main: toGatherLogo, alternate: toGatherLogoAlt },
+        color: { main: "#439A9C" },
         photo: toGatherPhoto,
-        color: "#439A9C",
     },
-
-    // CookBook
     {
         id: "cookbook",
         title: "CookBook Web Application Prototype",
@@ -57,10 +50,9 @@ const portfolioData: PortfolioItem[] = [
         technologies: ["Figma"],
         website:
             "https://www.figma.com/proto/JRMVmUiVrQukBG2sXGKbLY/Prototype-Final?node-id=2%3A3&starting-point-node-id=2%3A3&scaling=contain",
-        logo: cookBookLogo,
-        logoAlternate: cookBookLogoAlt,
+        logo: { main: cookBookLogo, alternate: cookBookLogoAlt },
+        color: { main: "#6176A9" },
         photo: cookBookPhoto,
-        color: "#6176A9",
     },
 ];
 

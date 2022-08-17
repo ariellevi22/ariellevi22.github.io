@@ -1,27 +1,13 @@
-import { EducationItem, School } from "../models";
+import { EducationItem } from "../models";
 import bvnLogo from "../Assets/BVN/Logo.svg";
 import bvnPhoto from "../Assets/BVN/Photo.jpg";
 import unlLogo from "../Assets/UNL/Logo.svg";
 import unlPhoto from "../Assets/UNL/Photo.jpg";
 
-const unlData: School = {
-    name: "University of Nebraska-Lincoln",
-    photo: unlPhoto,
-    logo: unlLogo,
-    color: "#DD1A32",
-};
-
-const bvnData: School = {
-    name: "Blue Valley North High School",
-    photo: bvnPhoto,
-    logo: bvnLogo,
-    color: "#143C7D",
-};
-
 const educationData: EducationItem[] = [
     {
         id: "unl-2023",
-        school: unlData,
+        school: "University of Nebraska-Lincoln",
         degree: "B.S., Computer Science",
         majors: ["Computer Science"],
         minors: ["Business", "Mathematics"],
@@ -50,10 +36,13 @@ const educationData: EducationItem[] = [
                 `,
             },
         ],
+        logo: { main: unlLogo },
+        color: { main: "#DD1A32" },
+        photo: unlPhoto,
     },
     {
         id: "bvn-2019",
-        school: bvnData,
+        school: "Blue Valley North High School",
         degree: "High School Diploma",
         graduationDate: "May 2019",
         classes: [
@@ -62,6 +51,9 @@ const educationData: EducationItem[] = [
             "Graphic Design",
             "Computer Graphics/Desktop Publishing",
         ],
+        photo: bvnPhoto,
+        logo: { main: bvnLogo },
+        color: { main: "#143C7D" },
     },
 ];
 

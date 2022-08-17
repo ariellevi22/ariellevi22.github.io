@@ -1,4 +1,4 @@
-import { ExperienceItem, Organization } from "../models";
+import { ExperienceItem } from "../models";
 import zoomLogo from "../Assets/Zoom/Logo.svg";
 import zoomPhoto from "../Assets/Zoom/Photo.jpg";
 import evergyLogo from "../Assets/Evergy/Logo.svg";
@@ -11,48 +11,12 @@ import garminLogo from "../Assets/Garmin/Logo.svg";
 import garminLogoAlt from "../Assets/Garmin/Logo_Alt.svg";
 import garminPhoto from "../Assets/Garmin/Photo.jpg";
 
-const garminData: Organization = {
-    name: "Garmin",
-    website: "https://www.garmin.com/en-US/company/about-garmin/",
-    logo: garminLogo,
-    logoAlternate: garminLogoAlt,
-    photo: garminPhoto,
-    color: "#000000",
-    colorAlternate: "#FFFFFF",
-};
-
-const nelnetData: Organization = {
-    name: "Nelnet",
-    website: "https://nelnetinc.com/businesses/nelnet-campus-commerce/",
-    photo: nelnetPhoto,
-    logo: nelnetLogo,
-    logoAlternate: nelnetLogoAlt,
-    color: "#8DC319",
-};
-
-const evergyData: Organization = {
-    name: "Evergy",
-    website: "https://www.evergy.com/about-evergy/company-overview",
-    photo: evergyPhoto,
-    logo: evergyLogo,
-    logoAlternate: evergyLogoAlt,
-    color: "#004E9A",
-    colorAlternate: "#317CC0",
-};
-
-const zoomData: Organization = {
-    name: "Zoom",
-    website: "https://explore.zoom.us/en/about/",
-    photo: zoomPhoto,
-    logo: zoomLogo,
-    color: "#2D8CFF",
-};
-
 const experienceData: ExperienceItem[] = [
     {
         id: "garmin-2022",
         title: "Software Engineer Intern",
-        organization: garminData,
+        organization: "Garmin",
+        href: "https://www.garmin.com/en-US/company/about-garmin/",
         startDate: "May 2022",
         endDate: "August 2022",
         location: "Olathe, KS",
@@ -70,11 +34,15 @@ const experienceData: ExperienceItem[] = [
             "Elasticsearch",
             "SQL",
         ],
+        logo: { main: garminLogo, alternate: garminLogoAlt },
+        color: { main: "#000000", alternate: "#FFFFFF" },
+        photo: garminPhoto,
     },
     {
         id: "nelnet-design-studio-2021",
         title: "Software Developer (via UNL Design Studio)",
-        organization: nelnetData,
+        organization: "Nelnet",
+        href: "https://nelnetinc.com/businesses/nelnet-campus-commerce/",
         startDate: "September 2021",
         endDate: "May 2022",
         location: "Lincoln, NE",
@@ -84,11 +52,15 @@ const experienceData: ExperienceItem[] = [
             "Mentored an intern in React.js front-end development",
         ],
         technologies: ["React", "TypeScript", "HTML/CSS", "Figma"],
+        photo: nelnetPhoto,
+        logo: { main: nelnetLogo, alternate: nelnetLogoAlt },
+        color: { main: "#8DC319" },
     },
     {
         id: "evergy-2021",
         title: "Application Developer Intern",
-        organization: evergyData,
+        organization: "Evergy",
+        href: "https://www.evergy.com/about-evergy/company-overview",
         startDate: "June 2021",
         endDate: "August 2021",
         location: "Kansas City, MO",
@@ -104,11 +76,15 @@ const experienceData: ExperienceItem[] = [
             "Jira API",
             "SharePoint",
         ],
+        photo: evergyPhoto,
+        logo: { main: evergyLogo, alternate: evergyLogoAlt },
+        color: { main: "#004E9A", alternate: "#317CC0" },
     },
     {
         id: "zoom-2020",
         title: "Technical Support Engineer Intern",
-        organization: zoomData,
+        organization: "Zoom",
+        href: "https://explore.zoom.us/en/about/",
         startDate: "May 2020",
         endDate: "August 2020",
         location: "Overland Park, KS",
@@ -116,6 +92,9 @@ const experienceData: ExperienceItem[] = [
             "Assisted over 500 customers via tickets, calls, chats, and social media to address questions, troubleshoot issues, resolve bugs, and consider feature requests",
             "Analyzed technical support procedures during the COVID-19 pandemic, including help center documentation and 60,000 support tickets, to present support leaders with ideas for improvement",
         ],
+        photo: zoomPhoto,
+        logo: { main: zoomLogo },
+        color: { main: "#2D8CFF" },
     },
 ];
 
