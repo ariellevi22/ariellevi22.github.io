@@ -66,21 +66,22 @@ const Experience = () => {
                                 </ul>
                             )}
 
-                            {experience.technologies && (
-                                <>
-                                    <h4>Technologies</h4>
+                            {experience.technologies &&
+                                experience.technologies.length > 0 && (
+                                    <>
+                                        <h4>Technologies</h4>
 
-                                    <ChipGroup>
-                                        {experience.technologies.map(
-                                            (technology) => (
-                                                <Chip key={technology}>
-                                                    {technology}
-                                                </Chip>
-                                            )
-                                        )}
-                                    </ChipGroup>
-                                </>
-                            )}
+                                        <ChipGroup>
+                                            {experience.technologies.map(
+                                                (technology) => (
+                                                    <Chip key={technology}>
+                                                        {technology}
+                                                    </Chip>
+                                                )
+                                            )}
+                                        </ChipGroup>
+                                    </>
+                                )}
                         </Card>
                     );
                 })}
