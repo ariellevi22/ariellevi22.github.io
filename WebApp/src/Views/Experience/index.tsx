@@ -4,7 +4,7 @@ import SimpleGrid from "../../Containers/SimpleGrid";
 import Card from "../../Components/Card";
 import { useTheme } from "react-jss";
 import { AppTheme } from "../../theme";
-import ChipGroup from "../../Components/Chip/ChipGroup";
+import ChipGroup from "../../Components/ChipGroup";
 import Chip from "../../Components/Chip";
 import experienceData from "./data";
 import { separator } from "../../globals";
