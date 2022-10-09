@@ -1,8 +1,8 @@
 import React from "react";
 import { createUseStyles, useTheme } from "react-jss";
-import { scaleFactors } from "../../globals";
-import { AppTheme } from "../../theme";
-import Link from "../Link";
+import { scaleFactors } from "../globals";
+import { AppTheme } from "../theme";
+import Link from "./Link";
 
 /**
  * A React component representing a simple wrapper for an HTML `<button>`, extended

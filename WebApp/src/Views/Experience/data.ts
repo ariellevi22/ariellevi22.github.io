@@ -1,16 +1,19 @@
-import { ExperienceItem } from "../models";
-import zoomLogo from "../Assets/Zoom/Logo.svg";
-import zoomPhoto from "../Assets/Zoom/Photo.jpg";
-import evergyLogo from "../Assets/Evergy/Logo.svg";
-import evergyLogoAlt from "../Assets/Evergy/Logo_Alt.svg";
-import evergyPhoto from "../Assets/Evergy/Photo.jpg";
-import nelnetLogo from "../Assets/Nelnet/Logo.svg";
-import nelnetLogoAlt from "../Assets/Nelnet/Logo_Alt.svg";
-import nelnetPhoto from "../Assets/Nelnet/Photo.png";
-import garminLogo from "../Assets/Garmin/Logo.svg";
-import garminLogoAlt from "../Assets/Garmin/Logo_Alt.svg";
-import garminPhoto from "../Assets/Garmin/Photo.jpg";
+import { ExperienceItem } from "../../models";
+import zoomLogo from "./Assets/Zoom/Logo.svg";
+import zoomPhoto from "./Assets/Zoom/Photo.jpg";
+import evergyLogo from "./Assets/Evergy/Logo.svg";
+import evergyLogoAlt from "./Assets/Evergy/Logo_Alt.svg";
+import evergyPhoto from "./Assets/Evergy/Photo.jpg";
+import nelnetLogo from "./Assets/Nelnet/Logo.svg";
+import nelnetLogoAlt from "./Assets/Nelnet/Logo_Alt.svg";
+import nelnetPhoto from "./Assets/Nelnet/Photo.png";
+import garminLogo from "./Assets/Garmin/Logo.svg";
+import garminLogoAlt from "./Assets/Garmin/Logo_Alt.svg";
+import garminPhoto from "./Assets/Garmin/Photo.jpg";
 
+/**
+ * Data for the website's Experience section
+ */
 const experienceData: ExperienceItem[] = [
     {
         id: "garmin-2022",

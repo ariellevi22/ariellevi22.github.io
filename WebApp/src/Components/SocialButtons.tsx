@@ -1,4 +1,4 @@
-import { socialTabs } from "../../Data/navigationData";
+import { socialTabs } from "../globals";
 import IconButton from "./IconButton";
 import IconButtonGroup from "./IconButtonGroup";
 

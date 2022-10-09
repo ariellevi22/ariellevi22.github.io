@@ -1,9 +1,12 @@
-import { EducationItem } from "../models";
-import bvnLogo from "../Assets/BVN/Logo.svg";
-import bvnPhoto from "../Assets/BVN/Photo.jpg";
-import unlLogo from "../Assets/UNL/Logo.svg";
-import unlPhoto from "../Assets/UNL/Photo.jpg";
+import { EducationItem } from "../../models";
+import bvnLogo from "./Assets/BVN/Logo.svg";
+import bvnPhoto from "./Assets/BVN/Photo.jpg";
+import unlLogo from "./Assets/UNL/Logo.svg";
+import unlPhoto from "./Assets/UNL/Photo.jpg";
 
+/**
+ * Data for the website's Education section
+ */
 const educationData: EducationItem[] = [
     {
         id: "unl-2023",

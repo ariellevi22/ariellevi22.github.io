@@ -1,5 +1,5 @@
 import profilePicture from "../Assets/ProfilePicture.jpg";
-import SocialButtons from "./Button/SocialButtons";
+import SocialButtons from "./SocialButtons";
 import { createUseStyles, useTheme } from "react-jss";
 import { AppTheme } from "../theme";
 import { title, screenSizes } from "../globals";

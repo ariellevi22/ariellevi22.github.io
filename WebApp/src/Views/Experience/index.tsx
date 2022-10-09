@@ -1,14 +1,14 @@
-import Section from "./Section";
-import Link from "../Components/Link";
-import SimpleGrid from "./SimpleGrid";
-import Card from "../Components/Card";
+import Section from "../../Containers/Section";
+import Link from "../../Components/Link";
+import SimpleGrid from "../../Containers/SimpleGrid";
+import Card from "../../Components/Card";
 import { useTheme } from "react-jss";
-import { AppTheme } from "../theme";
-import ChipGroup from "../Components/Chip/ChipGroup";
-import Chip from "../Components/Chip/Chip";
-import experienceData from "../Data/experienceData";
-import { separator } from "../globals";
-import { getPreferredFormatOption } from "../utils";
+import { AppTheme } from "../../theme";
+import ChipGroup from "../../Components/Chip/ChipGroup";
+import Chip from "../../Components/Chip";
+import experienceData from "./data";
+import { separator } from "../../globals";
+import { getPreferredFormatOption } from "../../utils";
 
 /**
  * A React container for "Experience" section elements and data

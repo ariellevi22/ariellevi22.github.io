@@ -1,5 +1,4 @@
 import { createUseStyles } from "react-jss";
-import { ReactChildren } from "../../models";
 
 /**
  * A React component representing a container for a group of chips
@@ -35,7 +34,7 @@ type ChipGroupProps = {
     style?: React.CSSProperties;
 
     /** The chips to put inside the container */
-    children: ReactChildren;
+    children: React.ReactNode;
 };
 
 export default ChipGroup;

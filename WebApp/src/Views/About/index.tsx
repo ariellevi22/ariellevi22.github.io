@@ -1,5 +1,5 @@
-import Link from "../Components/Link";
-import Section from "./Section";
+import Link from "../../Components/Link";
+import Section from "../../Containers/Section";
 
 /**
  * A React container for "About" section elements and data

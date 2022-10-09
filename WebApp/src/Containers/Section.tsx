@@ -1,7 +1,6 @@
 import Container from "./Container";
 import { navbarHeight } from "../globals";
 import { createUseStyles } from "react-jss";
-import { ReactChildren } from "../models";
 
 /**
  * A React component representing a container for a section of the app
@@ -36,7 +35,7 @@ type SectionProps = {
     id?: string;
 
     /** Any content to put inside the container */
-    children: ReactChildren;
+    children: React.ReactNode;
 };
 
 export default Section;

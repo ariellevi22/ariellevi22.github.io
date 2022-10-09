@@ -1,18 +1,18 @@
-import Section from "./Section";
-import SimpleGrid from "./SimpleGrid";
-import Card from "../Components/Card";
-import IconButton from "../Components/Button/IconButton";
-import IconButtonGroup from "../Components/Button/IconButtonGroup";
+import Section from "../../Containers/Section";
+import SimpleGrid from "../../Containers/SimpleGrid";
+import Card from "../../Components/Card";
+import IconButton from "../../Components/IconButton";
+import IconButtonGroup from "../../Components/IconButtonGroup";
 import { useTheme } from "react-jss";
-import { AppTheme } from "../theme";
-import Chip from "../Components/Chip/Chip";
-import ChipGroup from "../Components/Chip/ChipGroup";
-import portfolioData from "../Data/portfolioData";
+import { AppTheme } from "../../theme";
+import Chip from "../../Components/Chip";
+import ChipGroup from "../../Components/ChipGroup";
+import portfolioData from "./data";
 import {
     faArrowUpRightFromSquare,
     faCode,
 } from "@fortawesome/free-solid-svg-icons";
-import { getPreferredFormatOption } from "../utils";
+import { getPreferredFormatOption } from "../../utils";
 
 /**
  * A React container for "Portfolio" section elements and data

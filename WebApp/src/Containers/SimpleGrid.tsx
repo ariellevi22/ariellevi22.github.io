@@ -1,6 +1,5 @@
-import { ReactChildren } from "../models";
 import { createUseStyles } from "react-jss";
-import * as CSS from "csstype";
+import { Property as CSSProperty } from "csstype";
 import { screenSizes } from "../globals";
 
 /**
@@ -108,9 +107,9 @@ const getAutoRows = (
  *          gap, row gap, and/or column gap values
  */
 const getGap = (
-    gap?: CSS.Property.Gap,
-    rowGap?: CSS.Property.RowGap,
-    columnGap?: CSS.Property.ColumnGap
+    gap?: CSSProperty.Gap,
+    rowGap?: CSSProperty.RowGap,
+    columnGap?: CSSProperty.ColumnGap
 ) => {
     const defaultGap = "2.25rem";
 
@@ -179,22 +178,22 @@ type SimpleGridProps = {
     priority?: boolean;
 
     /** The width of the grid container */
-    width?: CSS.Property.Width;
+    width?: CSSProperty.Width;
 
     /** The gap between rows and columns in the grid */
-    gap?: CSS.Property.Gap;
+    gap?: CSSProperty.Gap;
 
     /** The gap between rows in the grid */
-    rowGap?: CSS.Property.RowGap;
+    rowGap?: CSSProperty.RowGap;
 
     /** The gap between columns in the grid */
-    columnGap?: CSS.Property.ColumnGap;
+    columnGap?: CSSProperty.ColumnGap;
 
     /** Whether to equalize the heights of all rows in the grid */
     justifyRows?: boolean;
 
     /** Contents to place within the grid */
-    children: ReactChildren;
+    children: React.ReactNode;
 };
 
 /**

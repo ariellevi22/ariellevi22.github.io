@@ -1,4 +1,3 @@
-import { ReactChildren } from "../models";
 import { createUseStyles } from "react-jss";
 import { screenSizes } from "../globals";
 
@@ -42,7 +41,7 @@ type ContainerProps = {
     className?: string;
 
     /** Any content to place inside the container */
-    children: ReactChildren;
+    children: React.ReactNode;
 };
 
 export default Container;

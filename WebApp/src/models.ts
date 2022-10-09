@@ -1,16 +1,4 @@
-import React from "react";
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
-
-/**
- * Types of all possible React `children` props
- */
-export type ReactChildren =
-    | React.ReactElement
-    | React.ReactElement[]
-    | React.ReactNode
-    | React.ReactNode[]
-    | JSX.Element
-    | JSX.Element[];
 
 /**
  * Template for the data of a navigation bar tab

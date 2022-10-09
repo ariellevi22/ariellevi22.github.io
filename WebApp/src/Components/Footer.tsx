@@ -1,9 +1,9 @@
-import Logo from "./Logo/Logo";
+import Logo from "./Logo";
 import { getCurrentYear } from "../utils";
 import { createUseStyles, useTheme } from "react-jss";
 import { AppTheme } from "../theme";
 import { title } from "../globals";
-import SocialButtons from "./Button/SocialButtons";
+import SocialButtons from "./SocialButtons";
 
 /**
  * React component representing the footer of the website, which contains

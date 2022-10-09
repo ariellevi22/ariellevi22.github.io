@@ -1,5 +1,4 @@
 import { createUseStyles, useTheme } from "react-jss";
-import { ReactChildren } from "../models";
 import { AppTheme } from "../theme";
 
 /**
@@ -95,7 +94,7 @@ type CardProps = {
     imgAlt?: string;
 
     /** Any additional content to place in the card */
-    children: ReactChildren;
+    children: React.ReactNode;
 };
 
 export default Card;

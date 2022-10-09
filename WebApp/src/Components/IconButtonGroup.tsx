@@ -1,4 +1,3 @@
-import { ReactChildren } from "../../models";
 import { createUseStyles } from "react-jss";
 
 /**
@@ -33,7 +32,7 @@ type IconButtonGroupProps = {
     style?: React.CSSProperties;
 
     /** The icon buttons to place inside the container */
-    children: ReactChildren;
+    children: React.ReactNode;
 };
 
 export default IconButtonGroup;

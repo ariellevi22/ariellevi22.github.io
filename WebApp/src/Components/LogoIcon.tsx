@@ -1,5 +1,5 @@
 import { createUseStyles, useTheme } from "react-jss";
-import { AppTheme } from "../../theme";
+import { AppTheme } from "../theme";
 
 /**
  * A React component representing the application logo's icon (the logo without the text).

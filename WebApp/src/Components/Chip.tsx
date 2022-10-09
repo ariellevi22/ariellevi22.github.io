@@ -1,6 +1,5 @@
 import { createUseStyles, useTheme } from "react-jss";
-import { ReactChildren } from "../../models";
-import { AppTheme } from "../../theme";
+import { AppTheme } from "../theme";
 
 /**
  * A React component representing an informational chip
@@ -30,7 +29,7 @@ const useStyles = createUseStyles<"root", {}, AppTheme>({
  */
 type ChipProps = {
     /** Contents to place inside the chip */
-    children: ReactChildren;
+    children: React.ReactNode;
 };
 
 export default Chip;
