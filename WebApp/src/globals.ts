@@ -20,7 +20,7 @@ export const navbarHeight = 5;
 /**
  * Navigation bar tabs' information
  */
- export const navbarTabs: NavbarTab[] = [
+export const navbarTabs: NavbarTab[] = [
     { label: "About", href: "#About" },
     { label: "Experience", href: "#Experience" },
     { label: "Portfolio", href: "#Portfolio" },
@@ -62,7 +62,7 @@ export const socialTabs: IconTab[] = [
  */
 export const screenSizes = {
     tiny: 300,
-    small: 840,
+    small: 920,
     medium: 1280,
     large: 1920,
 };
