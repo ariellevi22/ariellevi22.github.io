@@ -1,5 +1,7 @@
 # Development Information
 
+[Deployment Status](https://github.com/alevi22/alevi22.github.io/workflows/Deploy/badge.svg)
+
 ## Accessing the Project
 
 View the finished product at [alevi22.github.io](https://alevi22.github.io).
