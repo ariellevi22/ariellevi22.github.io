@@ -14,7 +14,7 @@ const Footer = () => {
     const styles = useStyles({ theme });
 
     return (
-        <footer className={styles.footer}>
+        <footer className={styles.root}>
             <Logo
                 stacked
                 href="#top"
@@ -38,8 +38,8 @@ const Footer = () => {
 /**
  * Creates the footer's styles
  */
-const useStyles = createUseStyles<"footer" | "copyrightText", {}, AppTheme>({
-    footer: {
+const useStyles = createUseStyles<"root" | "copyrightText", {}, AppTheme>({
+    root: {
         padding: "2.5rem",
         width: "100%",
         backgroundColor: (data) => data.theme.colors.backgroundNavigation,

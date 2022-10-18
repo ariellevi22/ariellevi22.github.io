@@ -17,7 +17,7 @@ const Link = (props: LinkProps) => {
         ...anchorProps
     } = props;
 
-    const linkClasses = [styles.link];
+    const linkClasses = [styles.root];
     if (props.className) {
         linkClasses.push(props.className);
     }
@@ -37,8 +37,8 @@ const Link = (props: LinkProps) => {
 /**
  * Creates the link's styles
  */
-const useStyles = createUseStyles<"link", LinkProps, AppTheme>({
-    link: {
+const useStyles = createUseStyles<"root", LinkProps, AppTheme>({
+    root: {
         color: "inherit",
         cursor: "pointer",
         textDecoration: (data) => data.removeUnderline && "none",

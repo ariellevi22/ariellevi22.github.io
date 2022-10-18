@@ -12,9 +12,9 @@ const ButtonBase = (props: ButtonBaseProps) => {
     const theme = useTheme<AppTheme>();
     const styles = useStyles({ ...props, theme });
 
-    const buttonClasses = [styles.buttonBase];
+    const classes = [styles.root];
     if (props.className) {
-        buttonClasses.push(props.className);
+        classes.push(props.className);
     }
 
     // Separate out the props so that irrelevant props are not passed into the HTML element
@@ -36,7 +36,7 @@ const ButtonBase = (props: ButtonBaseProps) => {
             <Link
                 {...otherProps}
                 href={props.href}
-                className={buttonClasses.join(" ")}
+                className={classes.join(" ")}
                 role="button"
                 openWithNewTab={openWithNewTab}
             >
@@ -46,7 +46,7 @@ const ButtonBase = (props: ButtonBaseProps) => {
     } else {
         // If the button does not need to link anywhere, just return it
         return (
-            <button {...otherProps} className={buttonClasses.join(" ")}>
+            <button {...otherProps} className={classes.join(" ")}>
                 {props.children}
             </button>
         );
@@ -94,8 +94,8 @@ const getInteractionTextColor = (
 /**
  * Creates the button base's styles
  */
-const useStyles = createUseStyles<"buttonBase", ButtonBaseProps, AppTheme>({
-    buttonBase: {
+const useStyles = createUseStyles<"root", ButtonBaseProps, AppTheme>({
+    root: {
         fontSize: "1em",
         display: "inline-block",
         textDecoration: "none",

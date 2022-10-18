@@ -10,7 +10,7 @@ const Button = (props: ButtonBaseProps) => {
     return (
         <ButtonBase
             {...props}
-            className={[styles.button, props.className].join(" ")}
+            className={[styles.root, props.className].join(" ")}
         >
             {props.children}
         </ButtonBase>
@@ -21,7 +21,7 @@ const Button = (props: ButtonBaseProps) => {
  * Creates the button's styles
  */
 const useStyles = createUseStyles({
-    button: {
+    root: {
         padding: "0.25rem 0.5rem",
         borderRadius: "0.5rem",
     },

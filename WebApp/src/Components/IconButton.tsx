@@ -12,7 +12,7 @@ const IconButton = (props: IconButtonProps) => {
     // Separate out icon button props and general button props
     const { icon, ...buttonBaseProps } = props;
 
-    const buttonBaseClasses = [styles.iconButton];
+    const buttonBaseClasses = [styles.root];
     if (buttonBaseProps.className) {
         buttonBaseClasses.push(buttonBaseProps.className);
     }
@@ -30,8 +30,8 @@ const IconButton = (props: IconButtonProps) => {
 /**
  * Creates the icon button's styles
  */
-const useStyles = createUseStyles<"iconButton", IconButtonProps>({
-    iconButton: {
+const useStyles = createUseStyles<"root", IconButtonProps>({
+    root: {
         borderRadius: (data) => (data.isTransparent ? undefined : "50%"),
         padding: (data) => (data.isTransparent ? 0 : undefined),
         width: (data) => (data.isTransparent ? undefined : "2.25em"),
