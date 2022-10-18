@@ -1,13 +1,5 @@
 import { PortfolioItem } from "../../models";
-import personalWebsitePhoto from "./Assets/PersonalWebsite/Photo.png";
-import personalWebsiteLogo from "./Assets/PersonalWebsite/Logo.svg";
-import personalWebsiteLogoAlt from "./Assets/PersonalWebsite/Logo_Alt.svg";
-import toGatherLogo from "./Assets/ToGather/Logo.svg";
-import toGatherLogoAlt from "./Assets/ToGather/Logo_Alt.svg";
-import toGatherPhoto from "./Assets/ToGather/Photo.png";
-import cookBookLogo from "./Assets/CookBook/Logo.svg";
-import cookBookLogoAlt from "./Assets/CookBook/Logo_Alt.svg";
-import cookBookPhoto from "./Assets/CookBook/Photo.png";
+import { cookBook, personalWebsite, toGather } from "./Assets";
 
 /**
  * Data for the website's portfolio section
@@ -24,8 +16,8 @@ const portfolioData: PortfolioItem[] = [
         technologies: ["React", "TypeScript", "HTML/CSS", "Figma"],
         website: "#top",
         codeWebsite: "https://github.com/alevi22/alevi22.github.io",
-        logo: { main: personalWebsiteLogo, alternate: personalWebsiteLogoAlt },
-        photo: personalWebsitePhoto,
+        logo: personalWebsite.logo,
+        photo: personalWebsite.photo,
     },
     {
         id: "togather",
@@ -37,9 +29,9 @@ const portfolioData: PortfolioItem[] = [
             I designed and developed the front-end web application.
         `,
         technologies: ["React", "TypeScript", "HTML/CSS", "Figma"],
-        logo: { main: toGatherLogo, alternate: toGatherLogoAlt },
+        logo: toGather.logo,
         color: { main: "#439A9C" },
-        photo: toGatherPhoto,
+        photo: toGather.photo,
     },
     {
         id: "cookbook",
@@ -53,9 +45,9 @@ const portfolioData: PortfolioItem[] = [
         technologies: ["Figma"],
         website:
             "https://www.figma.com/proto/JRMVmUiVrQukBG2sXGKbLY/Prototype-Final?node-id=2%3A3&starting-point-node-id=2%3A3&scaling=contain",
-        logo: { main: cookBookLogo, alternate: cookBookLogoAlt },
+        logo: cookBook.logo,
         color: { main: "#6176A9" },
-        photo: cookBookPhoto,
+        photo: cookBook.photo,
     },
 ];
 

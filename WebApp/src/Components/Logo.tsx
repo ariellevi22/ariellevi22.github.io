@@ -14,17 +14,17 @@ const Logo = (props: LogoProps) => {
     const styles = useStyles({ ...props, theme });
 
     // Style the container that holds the logo icon and text
-    const logoContainerClasses = [styles.logoContainer];
+    const classes = [styles.logoContainer];
     if (props.stacked) {
         // If the logo icon and text should be stacked instead of side by side, add additional stacked styles
-        logoContainerClasses.push(styles.stacked);
+        classes.push(styles.stacked);
     }
     if (props.href) {
         // If the logo should act as a link, add link styling
-        logoContainerClasses.push(styles.logoContainerLink);
+        classes.push(styles.logoContainerLink);
     }
 
-    const logo = (
+    const logoBase = (
         <>
             <LogoIcon color={props.color} />
             <p className={styles.logoText}>{title}</p>
@@ -34,17 +34,14 @@ const Logo = (props: LogoProps) => {
     if (props.href) {
         // If an address was provided for the logo to link to, add it
         return (
-            <Link href={props.href} className={logoContainerClasses.join(" ")}>
-                {logo}
+            <Link href={props.href} className={classes.join(" ")}>
+                {logoBase}
             </Link>
         );
     } else {
         return (
-            <div
-                className={logoContainerClasses.join(" ")}
-                onClick={props.onClick}
-            >
-                {logo}
+            <div className={classes.join(" ")} onClick={props.onClick}>
+                {logoBase}
             </div>
         );
     }

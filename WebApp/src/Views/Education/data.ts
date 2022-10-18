@@ -1,8 +1,5 @@
 import { EducationItem } from "../../models";
-import bvnLogo from "./Assets/BVN/Logo.svg";
-import bvnPhoto from "./Assets/BVN/Photo.jpg";
-import unlLogo from "./Assets/UNL/Logo.svg";
-import unlPhoto from "./Assets/UNL/Photo.jpg";
+import { logos, photos } from "./Assets";
 
 /**
  * Data for the website's Education section
@@ -39,9 +36,9 @@ const educationData: EducationItem[] = [
                 `,
             },
         ],
-        logo: { main: unlLogo },
+        logo: logos.unl,
+        photo: photos.unl2023,
         color: { main: "#DD1A32" },
-        photo: unlPhoto,
     },
     {
         id: "bvn-2019",
@@ -54,8 +51,8 @@ const educationData: EducationItem[] = [
             "Graphic Design",
             "Computer Graphics/Desktop Publishing",
         ],
-        photo: bvnPhoto,
-        logo: { main: bvnLogo },
+        logo: logos.bvn,
+        photo: photos.bvn2019,
         color: { main: "#143C7D" },
     },
 ];

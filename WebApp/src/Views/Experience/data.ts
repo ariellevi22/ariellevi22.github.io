@@ -1,15 +1,5 @@
 import { ExperienceItem } from "../../models";
-import zoomLogo from "./Assets/Zoom/Logo.svg";
-import zoomPhoto from "./Assets/Zoom/Photo.jpg";
-import evergyLogo from "./Assets/Evergy/Logo.svg";
-import evergyLogoAlt from "./Assets/Evergy/Logo_Alt.svg";
-import evergyPhoto from "./Assets/Evergy/Photo.jpg";
-import nelnetLogo from "./Assets/Nelnet/Logo.svg";
-import nelnetLogoAlt from "./Assets/Nelnet/Logo_Alt.svg";
-import nelnetPhoto from "./Assets/Nelnet/Photo.png";
-import garminLogo from "./Assets/Garmin/Logo.svg";
-import garminLogoAlt from "./Assets/Garmin/Logo_Alt.svg";
-import garminPhoto from "./Assets/Garmin/Photo.jpg";
+import { logos, photos } from "./Assets";
 
 /**
  * Data for the website's Experience section
@@ -37,13 +27,13 @@ const experienceData: ExperienceItem[] = [
             "Elasticsearch",
             "SQL",
         ],
-        photo: garminPhoto,
-        logo: { main: garminLogo, alternate: garminLogoAlt },
+        photo: photos.garmin2022,
+        logo: logos.garmin,
         color: { main: "#000000", alternate: "#FFFFFF" },
     },
     {
         id: "nelnet-design-studio-2021",
-        title: "Software Developer (via UNL Design Studio)",
+        title: "Software Developer (via UNL Design Studio Capstone)",
         organization: "Nelnet",
         href: "https://nelnetinc.com/nelnet-business-services/",
         startDate: "September 2021",
@@ -55,8 +45,8 @@ const experienceData: ExperienceItem[] = [
             "Mentored an intern in React.js front-end development",
         ],
         technologies: ["React", "TypeScript", "HTML/CSS", "Figma"],
-        photo: nelnetPhoto,
-        logo: { main: nelnetLogo, alternate: nelnetLogoAlt },
+        photo: photos.nelnetDesignStudio2021,
+        logo: logos.nelnet,
         color: { main: "#8DC319" },
     },
     {
@@ -79,8 +69,8 @@ const experienceData: ExperienceItem[] = [
             "Jira API",
             "SharePoint",
         ],
-        photo: evergyPhoto,
-        logo: { main: evergyLogo, alternate: evergyLogoAlt },
+        photo: photos.evergy2021,
+        logo: logos.evergy,
         color: { main: "#004E9A", alternate: "#317CC0" },
     },
     {
@@ -95,8 +85,8 @@ const experienceData: ExperienceItem[] = [
             "Assisted over 500 customers via tickets, calls, chats, and social media to address questions, troubleshoot issues, resolve bugs, and consider feature requests",
             "Analyzed technical support procedures during the COVID-19 pandemic, including help center documentation and 60,000 support tickets, to present support leaders with ideas for improvement",
         ],
-        photo: zoomPhoto,
-        logo: { main: zoomLogo },
+        photo: photos.zoom2020,
+        logo: logos.zoom,
         color: { main: "#2D8CFF" },
     },
 ];
