@@ -17,7 +17,7 @@ The project was bootstrapped with [Create React App](https://github.com/facebook
 -   `public` contains the base HTML file and assets that React will use to run
 -   `src` contains all the project code
     -   `index.ts` is the main entry point for React
-    -   `App.ts` is the top-level React components for the app
+    -   `App.ts` is the top-level React component for the app
     -   `Assets` contains all common assets (like photos) used in the app
     -   `Components` contains all common React components used in the app, like the logo and cards
     -   `Containers` contains common React components that help structure the app, like grids and sections
