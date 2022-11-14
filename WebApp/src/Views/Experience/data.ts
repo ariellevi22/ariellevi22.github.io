@@ -6,6 +6,23 @@ import { logos, photos } from "./Assets";
  */
 const experienceData: ExperienceItem[] = [
     {
+        id: "nelnet-design-studio-2022",
+        title: "Software Development Manager (via UNL Design Studio Capstone)",
+        organization: "Nelnet",
+        href: "https://nelnetinc.com/nelnet-diversified-services/",
+        startDate: "August 2022",
+        endDate: undefined,
+        location: "Lincoln, NE",
+        responsibilities: [
+            "Developing a web application to consolidate loan program data into a central knowledgebase for call center agents",
+            "Leading a a team of software developers in UI/UX design, agile processes, software engineering, and software architecture",
+        ],
+        technologies: ["Node", "TypeScript", "React", "AWS"],
+        photo: photos.nelnetDesignStudio2022,
+        logo: logos.nelnet,
+        color: { main: "#8DC319" },
+    },
+    {
         id: "garmin-2022",
         title: "Software Engineer Intern",
         organization: "Garmin",
@@ -87,7 +104,7 @@ const experienceData: ExperienceItem[] = [
         ],
         photo: photos.zoom2020,
         logo: logos.zoom,
-        color: { main: "#2D8CFF" },
+        color: { main: "#0b5cff", alternate: "#2D8CFF" },
     },
 ];
 
