@@ -11,7 +11,7 @@ jobs:
     
     defaults:
       run:
-        working-directory: WebApp
+        working-directory: web-app
     
     steps:
     - name: Checkout code
