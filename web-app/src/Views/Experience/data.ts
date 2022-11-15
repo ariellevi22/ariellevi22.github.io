@@ -15,7 +15,7 @@ const experienceData: ExperienceItem[] = [
         location: "Lincoln, NE",
         responsibilities: [
             "Developing a web application to consolidate loan program data into a central knowledgebase for call center agents",
-            "Leading a a team of software developers in UI/UX design, agile processes, software engineering, and software architecture",
+            "Leading a team of developers in UI/UX design, agile processes, software engineering, and software architecture",
         ],
         technologies: ["Node", "TypeScript", "React", "AWS"],
         photo: photos.nelnetDesignStudio2022,
