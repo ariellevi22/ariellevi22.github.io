@@ -7,7 +7,7 @@ import { logos, photos } from "./Assets";
 const experienceData: ExperienceItem[] = [
     {
         id: "nelnet-design-studio-2022",
-        title: "Software Development Manager (via UNL Design Studio Capstone)",
+        title: "Development Manager Intern (via UNL Design Studio Capstone)",
         organization: "Nelnet",
         href: "https://nelnetinc.com/nelnet-diversified-services/",
         startDate: "August 2022",
@@ -20,7 +20,7 @@ const experienceData: ExperienceItem[] = [
         technologies: ["Node", "TypeScript", "React", "AWS"],
         photo: photos.nelnetDesignStudio2022,
         logo: logos.nelnet,
-        color: { main: "#8DC319" },
+        color: { lightTheme: "#8DC319" },
     },
     {
         id: "garmin-2022",
@@ -46,11 +46,11 @@ const experienceData: ExperienceItem[] = [
         ],
         photo: photos.garmin2022,
         logo: logos.garmin,
-        color: { main: "#000000", alternate: "#FFFFFF" },
+        color: { lightTheme: "#000000", darkTheme: "#FFFFFF" },
     },
     {
         id: "nelnet-design-studio-2021",
-        title: "Software Developer (via UNL Design Studio Capstone)",
+        title: "Software Developer Intern (via UNL Design Studio Capstone)",
         organization: "Nelnet",
         href: "https://nelnetinc.com/nelnet-business-services/",
         startDate: "September 2021",
@@ -64,7 +64,7 @@ const experienceData: ExperienceItem[] = [
         technologies: ["React", "TypeScript", "HTML/CSS", "Figma"],
         photo: photos.nelnetDesignStudio2021,
         logo: logos.nelnet,
-        color: { main: "#8DC319" },
+        color: { lightTheme: "#8DC319" },
     },
     {
         id: "evergy-2021",
@@ -88,7 +88,7 @@ const experienceData: ExperienceItem[] = [
         ],
         photo: photos.evergy2021,
         logo: logos.evergy,
-        color: { main: "#004E9A", alternate: "#317CC0" },
+        color: { lightTheme: "#004E9A", darkTheme: "#317CC0" },
     },
     {
         id: "zoom-2020",
@@ -104,7 +104,7 @@ const experienceData: ExperienceItem[] = [
         ],
         photo: photos.zoom2020,
         logo: logos.zoom,
-        color: { main: "#0b5cff", alternate: "#2D8CFF" },
+        color: { lightTheme: "#0b5cff" },
     },
 ];
 

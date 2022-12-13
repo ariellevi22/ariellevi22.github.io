@@ -30,7 +30,7 @@ const portfolioData: PortfolioItem[] = [
         `,
         technologies: ["React", "TypeScript", "HTML/CSS", "Figma"],
         logo: toGather.logo,
-        color: { main: "#439A9C" },
+        color: { lightTheme: "#439A9C" },
         photo: toGather.photo,
     },
     {
@@ -46,7 +46,7 @@ const portfolioData: PortfolioItem[] = [
         website:
             "https://www.figma.com/proto/JRMVmUiVrQukBG2sXGKbLY/Prototype-Final?node-id=2%3A3&starting-point-node-id=2%3A3&scaling=contain",
         logo: cookBook.logo,
-        color: { main: "#6176A9" },
+        color: { lightTheme: "#6176A9" },
         photo: cookBook.photo,
     },
 ];

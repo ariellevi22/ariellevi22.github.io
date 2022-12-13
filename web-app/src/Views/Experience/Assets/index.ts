@@ -19,10 +19,10 @@ import Zoom2020Photo from "./Photos/zoom-2020.jpg";
  * Experience logos
  */
 export const logos: { [index: string]: Format } = {
-    evergy: { main: EvergyLogo, alternate: EvergyLogoAlt },
-    garmin: { main: GarminLogo, alternate: GarminLogoAlt },
-    nelnet: { main: NelnetLogo, alternate: NelnetLogoAlt },
-    zoom: { main: ZoomLogo, alternate: ZoomLogoAlt },
+    evergy: { lightTheme: EvergyLogo, darkTheme: EvergyLogoAlt },
+    garmin: { lightTheme: GarminLogo, darkTheme: GarminLogoAlt },
+    nelnet: { lightTheme: NelnetLogo, darkTheme: NelnetLogoAlt },
+    zoom: { lightTheme: ZoomLogo, darkTheme: ZoomLogoAlt },
 };
 
 /**

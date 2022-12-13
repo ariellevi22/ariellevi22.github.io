@@ -38,7 +38,7 @@ const educationData: EducationItem[] = [
         ],
         logo: logos.unl,
         photo: photos.unl2023,
-        color: { main: "#DD1A32" },
+        color: { lightTheme: "#DD1A32" },
     },
     {
         id: "bvn-2019",
@@ -53,7 +53,7 @@ const educationData: EducationItem[] = [
         ],
         logo: logos.bvn,
         photo: photos.bvn2019,
-        color: { main: "#143C7D" },
+        color: { lightTheme: "#143C7D" },
     },
 ];
 

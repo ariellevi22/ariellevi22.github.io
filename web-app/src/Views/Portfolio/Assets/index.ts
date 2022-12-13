@@ -15,16 +15,16 @@ import toGatherPhoto from "./ToGather/Photo.png";
 type PortfolioAssetGroup = { logo: Format; photo: string };
 
 export const cookBook: PortfolioAssetGroup = {
-    logo: { main: cookBookLogo, alternate: cookBookLogoAlt },
+    logo: { lightTheme: cookBookLogo, darkTheme: cookBookLogoAlt },
     photo: cookBookPhoto,
 };
 
 export const personalWebsite: PortfolioAssetGroup = {
-    logo: { main: personalWebsiteLogo, alternate: personalWebsiteLogoAlt },
+    logo: { lightTheme: personalWebsiteLogo, darkTheme: personalWebsiteLogoAlt },
     photo: personalWebsitePhoto,
 };
 
 export const toGather: PortfolioAssetGroup = {
-    logo: { main: toGatherLogo, alternate: toGatherLogoAlt },
+    logo: { lightTheme: toGatherLogo, darkTheme: toGatherLogoAlt },
     photo: toGatherPhoto,
 };

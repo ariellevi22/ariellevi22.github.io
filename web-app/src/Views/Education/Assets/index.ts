@@ -10,8 +10,8 @@ import Unl2023Photo from "./Photos/unl-2023.jpg";
  * Education logos
  */
 export const logos: { [index: string]: Format } = {
-    unl: { main: UnlLogo },
-    bvn: { main: BvnLogo },
+    unl: { lightTheme: UnlLogo },
+    bvn: { lightTheme: BvnLogo },
 };
 
 /**

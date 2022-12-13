@@ -41,9 +41,9 @@ export const getPreferredFormatOption = (
     themeType: string
 ) => {
     if (format) {
-        return format.alternate && themeType === "dark"
-            ? format.alternate
-            : format.main;
+        return format.darkTheme && themeType === "dark"
+            ? format.darkTheme
+            : format.lightTheme;
     } else {
         return undefined;
     }

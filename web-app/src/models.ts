@@ -30,8 +30,8 @@ type Content = {
  * Template for main and alternate formatting
  */
 export type Format = {
-    main: string;
-    alternate?: string;
+    lightTheme: string;
+    darkTheme?: string;
 };
 
 /**
