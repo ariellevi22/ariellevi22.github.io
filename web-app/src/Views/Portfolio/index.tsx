@@ -4,7 +4,7 @@ import Card from "../../Components/Card";
 import IconButton from "../../Components/IconButton";
 import IconButtonGroup from "../../Components/IconButtonGroup";
 import { useTheme } from "react-jss";
-import { AppTheme } from "../../theme";
+import { AppTheme } from "../../Theme";
 import Chip from "../../Components/Chip";
 import ChipGroup from "../../Components/ChipGroup";
 import portfolioData from "./data";
@@ -12,7 +12,7 @@ import {
     faArrowUpRightFromSquare,
     faCode,
 } from "@fortawesome/free-solid-svg-icons";
-import { getPreferredFormatOption } from "../../utils";
+import { getPreferredFormatOption } from "../../Utils";
 
 /**
  * A React container for "Portfolio" section elements and data

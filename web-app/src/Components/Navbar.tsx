@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { createUseStyles, useTheme } from "react-jss";
-import { navbarHeight, screenSizes } from "../globals";
-import { AppTheme } from "../theme";
+import { navbarHeight, screenSizes } from "../Global";
+import { AppTheme } from "../Theme";
 import IconButton from "./IconButton";
 import Link from "./Link";
 import Logo from "./Logo";
-import { navbarTabs, socialTabs } from "../globals";
+import { navbarTabs, socialTabs } from "../Global";
 import { CSSTransition } from "react-transition-group";
 import {
     faBars,

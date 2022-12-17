@@ -1,6 +1,6 @@
 import { createUseStyles } from "react-jss";
 import { Property as CSSProperty } from "csstype";
-import { screenSizes } from "../globals";
+import { screenSizes } from "../Global";
 
 /**
  * A React component representing a container for grid items

@@ -1,5 +1,5 @@
 import { createUseStyles, useTheme } from "react-jss";
-import { AppTheme } from "../theme";
+import { AppTheme } from "../Theme";
 
 /**
  * A React component representing a card
@@ -50,7 +50,7 @@ const useStyles = createUseStyles<
             `${borderRadius} solid ${
                 data.color ? data.color : data.theme.colors.accentPrimary
             }`,
-        boxShadow: (data) => data.theme.shadows.shadow,
+        boxShadow: (data) => `0 0.2em 0.5em 0 ${data.theme.colors.shadow}`,
     },
 
     innerContainer: {

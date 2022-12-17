@@ -1,6 +1,6 @@
 import React from "react";
 import { createUseStyles, useTheme } from "react-jss";
-import { AppTheme } from "../theme";
+import { AppTheme } from "../Theme";
 
 /**
  * A React component that wraps the HTML `<a>` tag to include proper styling (based on the theme)

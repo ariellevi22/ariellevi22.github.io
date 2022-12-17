@@ -22,11 +22,11 @@ The project was bootstrapped with [Create React App](https://github.com/facebook
     -   `Components` contains all common React components used in the app, like the logo and cards
     -   `Containers` contains common React components that help structure the app, like grids and sections
     -   `Views` contains React components for the main views and content of the app, which are made up of components from `Components` and `Containers`
-    -   `models.ts` contains TypeScript types used across the app
-    -   `globals.ts` contains global variables used across the app
-    -   `utils.ts` contains utility functions used across the app
+    -   `Types` contains TypeScript types used across the app
+    -   `Global` contains global variables used across the app
+    -   `Utils` contains utility functions used across the app
     -   `index.css` contains common styling for the app
-    -   `theme.ts` contains additional theming and styling information for JSS
+    -   `Theme` contains additional theming and styling information for JSS
 -   `package.json` and `package-lock.json` contain information about project dependencies
 -   `tsconfig.json` contains TypeScript configuration information
 -   `prettierrc.json` contains configuration information for [Prettier](https://prettier.io/) code formatting

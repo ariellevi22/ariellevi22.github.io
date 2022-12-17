@@ -1,8 +1,8 @@
 import profilePicture from "../Assets/ProfilePicture.jpg";
 import SocialButtons from "./SocialButtons";
 import { createUseStyles, useTheme } from "react-jss";
-import { AppTheme } from "../theme";
-import { title, screenSizes } from "../globals";
+import { AppTheme } from "../Theme";
+import { title, screenSizes } from "../Global";
 import Container from "../Containers/Container";
 
 /**
@@ -64,7 +64,7 @@ const useStyles = createUseStyles<
         zIndex: 0,
         backgroundColor: data.theme.colors.accentPrimary, // fallback background color in case the gradient does not work
         backgroundImage: `linear-gradient(to right, ${data.theme.colors.accentPrimary}, ${data.theme.colors.accentSecondary})`,
-        boxShadow: `0 0 1rem 0 ${data.theme.colors.shadow} inset`,
+        boxShadow: `0 0 3rem 0 ${data.theme.colors.shadow} inset`,
 
         [`@media screen and (max-width: ${screenSizes.small}px)`]: {
             width: "100%",
@@ -89,7 +89,7 @@ const useStyles = createUseStyles<
         maxWidth: "22rem",
         objectFit: "cover",
         borderRadius: "50%",
-        boxShadow: (data) => data.theme.shadows.shadow,
+        boxShadow: (data) => `0 0.2em 1em 0 ${data.theme.colors.shadow}`,
 
         [`@media screen and (max-width: ${screenSizes.small}px)`]: {
             margin: "0 auto",

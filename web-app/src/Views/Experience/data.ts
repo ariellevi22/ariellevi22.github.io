@@ -1,4 +1,4 @@
-import { ExperienceItem } from "../../models";
+import { ExperienceItem } from "../../Types";
 import { logos, photos } from "./Assets";
 
 /**

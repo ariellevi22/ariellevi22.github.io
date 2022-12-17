@@ -3,12 +3,12 @@ import Link from "../../Components/Link";
 import SimpleGrid from "../../Containers/SimpleGrid";
 import Card from "../../Components/Card";
 import { useTheme } from "react-jss";
-import { AppTheme } from "../../theme";
+import { AppTheme } from "../../Theme";
 import ChipGroup from "../../Components/ChipGroup";
 import Chip from "../../Components/Chip";
 import experienceData from "./data";
-import { separator } from "../../globals";
-import { getPreferredFormatOption } from "../../utils";
+import { separator } from "../../Global";
+import { getPreferredFormatOption } from "../../Utils";
 
 /**
  * A React container for "Experience" section elements and data

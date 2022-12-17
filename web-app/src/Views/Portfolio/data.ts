@@ -1,4 +1,4 @@
-import { PortfolioItem } from "../../models";
+import { PortfolioItem } from "../../Types";
 import { cookBook, personalWebsite, toGather } from "./Assets";
 
 /**

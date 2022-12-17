@@ -1,5 +1,5 @@
 import { createUseStyles } from "react-jss";
-import { screenSizes } from "../globals";
+import { screenSizes } from "../Global";
 
 /**
  * A React component representing a container for app content

@@ -4,16 +4,16 @@ import About from "./Views/About";
 import Education from "./Views/Education";
 import Experience from "./Views/Experience";
 import Footer from "./Components/Footer";
-import { navbarHeight } from "./globals";
+import { navbarHeight } from "./Global";
 import { createUseStyles, ThemeProvider } from "react-jss";
-import { AppTheme, useAppTheme } from "./theme";
+import { AppTheme, useThemePreference } from "./Theme";
 import Portfolio from "./Views/Portfolio";
 
 /**
  * A React web app for Ariel Levi's personal website
  */
 const App = () => {
-    const { theme, toggleTheme } = useAppTheme();
+    const { theme, toggleTheme } = useThemePreference();
     const styles = useStyles({ theme });
 
     return (

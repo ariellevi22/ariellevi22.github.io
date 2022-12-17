@@ -1,4 +1,4 @@
-import { Format } from "./models";
+import { Format } from "../Types";
 
 /**
  * Gets the current year
@@ -18,15 +18,18 @@ export const getCurrentYear = () => {
  * @returns the pluralized string
  */
 export const pluralize = (text: string, count: number) => {
-    // Grammar reference: https://www.grammarly.com/blog/spelling-plurals-with-s-es
-    let pluralizationEnding = "s";
-    if (text.endsWith("sh") || text.endsWith("ch") || text.endsWith("x")) {
-        pluralizationEnding = "es";
-    } else if (text.endsWith("s") || text.endsWith("z")) {
-        pluralizationEnding = `${text.charAt(-1)}es`;
+    let pluralizationEnding = "";
+    if (count !== 1) {
+        // Grammar reference: https://www.grammarly.com/blog/spelling-plurals-with-s-es
+        pluralizationEnding = "s";
+        if (text.endsWith("sh") || text.endsWith("ch") || text.endsWith("x")) {
+            pluralizationEnding = "es";
+        } else if (text.endsWith("s") || text.endsWith("z")) {
+            pluralizationEnding = `${text.charAt(-1)}es`;
+        }
     }
 
-    return `${text}${count > 1 ? pluralizationEnding : ""}`;
+    return `${text}${pluralizationEnding}`;
 };
 
 /**

@@ -1,7 +1,7 @@
 import React from "react";
 import { createUseStyles, useTheme } from "react-jss";
-import { title, scaleFactors, screenSizes } from "../globals";
-import { AppTheme } from "../theme";
+import { title, scaleFactors, screenSizes } from "../Global";
+import { AppTheme } from "../Theme";
 import Link from "./Link";
 import LogoIcon from "./LogoIcon";
 

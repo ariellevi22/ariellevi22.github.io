@@ -1,11 +1,11 @@
 import Card from "../../Components/Card";
-import { getPreferredFormatOption, pluralize } from "../../utils";
+import { getPreferredFormatOption, pluralize } from "../../Utils";
 import SimpleGrid from "../../Containers/SimpleGrid";
 import Section from "../../Containers/Section";
 import { useTheme } from "react-jss";
-import { AppTheme } from "../../theme";
+import { AppTheme } from "../../Theme";
 import educationData from "./data";
-import { separator } from "../../globals";
+import { separator } from "../../Global";
 
 /**
  * A React container for "Education" section elements and data

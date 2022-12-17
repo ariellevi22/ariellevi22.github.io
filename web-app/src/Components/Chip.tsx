@@ -1,5 +1,5 @@
 import { createUseStyles, useTheme } from "react-jss";
-import { AppTheme } from "../theme";
+import { AppTheme } from "../Theme";
 
 /**
  * A React component representing an informational chip

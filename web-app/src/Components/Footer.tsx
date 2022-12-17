@@ -1,8 +1,8 @@
 import Logo from "./Logo";
-import { getCurrentYear } from "../utils";
+import { getCurrentYear } from "../Utils";
 import { createUseStyles, useTheme } from "react-jss";
-import { AppTheme } from "../theme";
-import { title } from "../globals";
+import { AppTheme } from "../Theme";
+import { title } from "../Global";
 import SocialButtons from "./SocialButtons";
 
 /**

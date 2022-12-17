@@ -1,5 +1,5 @@
 import { createUseStyles, useTheme } from "react-jss";
-import { AppTheme } from "../theme";
+import { AppTheme } from "../Theme";
 import { ReactComponent as LogoSvg } from "../Assets/Logo.svg";
 
 /**

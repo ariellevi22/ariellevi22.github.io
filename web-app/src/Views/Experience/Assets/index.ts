@@ -1,4 +1,4 @@
-import { Format } from "../../../models";
+import { Format } from "../../../Types";
 
 import EvergyLogo from "./Logos/Evergy.svg";
 import EvergyLogoAlt from "./Logos/EvergyAlt.svg";

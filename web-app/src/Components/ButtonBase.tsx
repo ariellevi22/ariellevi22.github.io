@@ -1,7 +1,7 @@
 import React from "react";
 import { createUseStyles, useTheme } from "react-jss";
-import { scaleFactors } from "../globals";
-import { AppTheme } from "../theme";
+import { scaleFactors } from "../Global";
+import { AppTheme } from "../Theme";
 import Link from "./Link";
 
 /**
@@ -92,6 +92,31 @@ const getInteractionTextColor = (
 };
 
 /**
+ * Gets the shadow styling string for the button
+ *
+ * @param color the shadow color
+ * @param isTransparent whether the button should be transparent
+ * @param isInteracting whether the button is being interacted with
+ *                      (hover, focus, or active states)
+ * @returns the shadow styling string for the button
+ */
+const getShadow = (
+    color: string,
+    isTransparent?: boolean,
+    isInteracting?: boolean
+) => {
+    if (isTransparent) {
+        return "none";
+    } else {
+        if (isInteracting) {
+            return `0 0.2em 0.75em 0 ${color}`;
+        } else {
+            return `0 0.1em 0.5em 0 ${color}`;
+        }
+    }
+};
+
+/**
  * Creates the button base's styles
  */
 const useStyles = createUseStyles<"root", ButtonBaseProps, AppTheme>({
@@ -113,7 +138,7 @@ const useStyles = createUseStyles<"root", ButtonBaseProps, AppTheme>({
                 : data.theme.colors.textSecondary,
         border: "none",
         boxShadow: (data) =>
-            data.isTransparent ? "none" : data.theme.shadows.shadow,
+            getShadow(data.theme.colors.shadow, data.isTransparent),
         transition: (data) => data.theme.transition,
 
         "@media (hover: hover) and (pointer: fine)": {
@@ -122,9 +147,11 @@ const useStyles = createUseStyles<"root", ButtonBaseProps, AppTheme>({
                 color: (data) => getInteractionTextColor(data),
                 cursor: "pointer",
                 boxShadow: (data) =>
-                    data.isTransparent
-                        ? "none"
-                        : data.theme.shadows.hoverShadow,
+                    getShadow(
+                        data.theme.colors.shadow,
+                        data.isTransparent,
+                        true
+                    ),
                 transform: (data) =>
                     data.isTransparent
                         ? "none"
@@ -137,7 +164,7 @@ const useStyles = createUseStyles<"root", ButtonBaseProps, AppTheme>({
             color: (data) => getInteractionTextColor(data),
             cursor: "pointer",
             boxShadow: (data) =>
-                data.isTransparent ? "none" : data.theme.shadows.hoverShadow,
+                getShadow(data.theme.colors.shadow, data.isTransparent, true),
             transform: (data) =>
                 data.isTransparent
                     ? "none"

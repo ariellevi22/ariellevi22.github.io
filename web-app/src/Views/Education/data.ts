@@ -1,4 +1,4 @@
-import { EducationItem } from "../../models";
+import { EducationItem } from "../../Types";
 import { logos, photos } from "./Assets";
 
 /**

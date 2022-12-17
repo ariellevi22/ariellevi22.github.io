@@ -1,5 +1,5 @@
 import Container from "./Container";
-import { navbarHeight } from "../globals";
+import { navbarHeight } from "../Global";
 import { createUseStyles } from "react-jss";
 
 /**
