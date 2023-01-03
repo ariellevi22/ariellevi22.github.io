@@ -13,7 +13,7 @@ const portfolioData: PortfolioItem[] = [
             personal portfolio website that showcases my experiences,
             accomplishments, and interests.
         `,
-        technologies: ["React", "TypeScript", "HTML/CSS", "Figma"],
+        technologies: ["React.js", "TypeScript", "HTML/CSS", "Figma"],
         website: "#top",
         codeWebsite: "https://github.com/alevi22/alevi22.github.io",
         logo: personalWebsite.logo,
@@ -21,21 +21,21 @@ const portfolioData: PortfolioItem[] = [
     },
     {
         id: "togather",
-        title: "ToGather Web Application",
+        title: "ToGather Web App",
         description: `
             ToGather is an application aiming to simplify safe event planning
             for friends and families during the COVID-19 pandemic.
             Working within a team of five computer science students,
             I designed and developed the front-end web application.
         `,
-        technologies: ["React", "TypeScript", "HTML/CSS", "Figma"],
+        technologies: ["React.js", "TypeScript", "HTML/CSS", "Figma"],
         logo: toGather.logo,
         color: { lightTheme: "#439A9C" },
         photo: toGather.photo,
     },
     {
         id: "cookbook",
-        title: "CookBook Web Application Prototype",
+        title: "CookBook Web App Prototype",
         description: `
             CookBook is a recipe-sharing application that inspires connection through food.
             Collaborating with another UI/UX designer, I created a design system,

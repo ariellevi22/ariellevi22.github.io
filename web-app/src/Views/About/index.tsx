@@ -10,13 +10,28 @@ const About = () => {
             <h2>About</h2>
 
             <p>
-                Hi there, I'm Ariel! I am an undergraduate computer science
-                student at the University of Nebraska-Lincoln's{" "}
+                Hi there, I'm Ariel! I am a software engineer, UI/UX designer,
+                and computer science student passionate about technology and its
+                ability to make the world a better place. I strive to craft
+                intuitive, memorable experiences for people&mdash;to realize the
+                full potential of technology to improve our world.
+            </p>
+
+            <p>
+                Currently, I am studying computer science and business at the
+                University of Nebraska-Lincoln's{" "}
                 <Link href="https://raikes.unl.edu/" openWithNewTab>
                     Raikes School
+                </Link>
+                . After graduation in May, I will join{" "}
+                <Link
+                    href="https://www.garmin.com/en-US/company/about-garmin/"
+                    openWithNewTab
+                >
+                    Garmin
                 </Link>{" "}
-                of Computer Science and Management who is passionate about
-                technology and its ability to make the world a better place.
+                as a frontend software engineer, where I am excited to keep
+                learning and growing my skills!
             </p>
         </Section>
     );
