@@ -29,10 +29,10 @@ const educationData: EducationItem[] = [
                 heading:
                     "Jeffrey S. Raikes School of Computer Science and Management",
                 text: `
-                    The Raikes School at the University of Nebraska-Lincoln is a selective,
-                    interdisciplinary honors program integrating innovative business concepts
-                    into a traditional computer science curriculum, with an emphasis on practical
-                    and real-world experience taught through collaborative projects.
+                    The Raikes School at the University of Nebraska-Lincoln is a selective
+                    honors program integrating innovative business concepts into a computer
+                    science curriculum with an emphasis on real-world experience taught
+                    through collaborative projects.
                 `,
             },
         ],
@@ -49,7 +49,6 @@ const educationData: EducationItem[] = [
             "Beginning Programming (Java)",
             "Web Design (HTML/CSS)",
             "Graphic Design",
-            "Computer Graphics/Desktop Publishing",
         ],
         logo: logos.bvn,
         photo: photos.bvn2019,
