@@ -20,7 +20,10 @@ export const cookBook: PortfolioAssetGroup = {
 };
 
 export const personalWebsite: PortfolioAssetGroup = {
-    logo: { lightTheme: personalWebsiteLogo, darkTheme: personalWebsiteLogoAlt },
+    logo: {
+        lightTheme: personalWebsiteLogo,
+        darkTheme: personalWebsiteLogoAlt,
+    },
     photo: personalWebsitePhoto,
 };
 

@@ -7,25 +7,25 @@ import { ReactComponent as LogoSvg } from "../Assets/Logo.svg";
  * The color of the logo icon can be changed using the `color` property.
  */
 const LogoIcon = (props: LogoIconProps) => {
-    const theme = useTheme<AppTheme>();
-    const styles = useStyles({ ...props, theme });
+  const theme = useTheme<AppTheme>();
+  const styles = useStyles({ ...props, theme });
 
-    const classes = [styles.root];
-    if (props.className) {
-        classes.push(props.className);
-    }
+  const classes = [styles.root];
+  if (props.className) {
+    classes.push(props.className);
+  }
 
-    return <LogoSvg {...props} className={classes.join(" ")} />;
+  return <LogoSvg {...props} className={classes.join(" ")} />;
 };
 
 /**
  * Creates the logo icon's styles
  */
 const useStyles = createUseStyles<"root", LogoIconProps, AppTheme>({
-    root: (data) => ({
-        height: "2.25rem",
-        transition: data.theme.transition,
-    }),
+  root: (data) => ({
+    height: "2.25rem",
+    transition: data.theme.transition,
+  }),
 });
 
 /**

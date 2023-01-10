@@ -13,39 +13,39 @@ import Portfolio from "./Views/Portfolio";
  * A React web app for Ariel Levi's personal website
  */
 const App = () => {
-    const { theme, toggleTheme } = useThemePreference();
-    const styles = useStyles({ theme });
+  const { theme, toggleTheme } = useThemePreference();
+  const styles = useStyles({ theme });
 
-    return (
-        <ThemeProvider theme={theme}>
-            <div className={styles.root}>
-                <Navbar toggleTheme={toggleTheme} />
-                <HeroHeader />
+  return (
+    <ThemeProvider theme={theme}>
+      <div className={styles.root}>
+        <Navbar toggleTheme={toggleTheme} />
+        <HeroHeader />
 
-                <main>
-                    <About />
-                    <Experience />
-                    <Portfolio />
-                    <Education />
-                </main>
+        <main>
+          <About />
+          <Experience />
+          <Portfolio />
+          <Education />
+        </main>
 
-                <Footer />
-            </div>
-        </ThemeProvider>
-    );
+        <Footer />
+      </div>
+    </ThemeProvider>
+  );
 };
 
 /**
  * Creates styles for the App component
  */
 const useStyles = createUseStyles<"root", {}, AppTheme>({
-    root: {
-        backgroundColor: (data) => data.theme.colors.backgroundPrimary,
-        color: (data) => data.theme.colors.textPrimary,
-        transition: (data) => data.theme.transition,
-        minHeight: `calc(100vh - ${navbarHeight}rem)`,
-        paddingTop: `${navbarHeight}rem`,
-    },
+  root: {
+    backgroundColor: (data) => data.theme.colors.backgroundPrimary,
+    color: (data) => data.theme.colors.textPrimary,
+    transition: (data) => data.theme.transition,
+    minHeight: `calc(100vh - ${navbarHeight}rem)`,
+    paddingTop: `${navbarHeight}rem`,
+  },
 });
 
 export default App;

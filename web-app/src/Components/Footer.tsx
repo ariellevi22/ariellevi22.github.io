@@ -10,49 +10,49 @@ import SocialButtons from "./SocialButtons";
  * copyright information. The copyright year automatically updates to the current year.
  */
 const Footer = () => {
-    const theme = useTheme<AppTheme>();
-    const styles = useStyles({ theme });
+  const theme = useTheme<AppTheme>();
+  const styles = useStyles({ theme });
 
-    return (
-        <footer className={styles.root}>
-            <Logo
-                stacked
-                href="#top"
-                interactionColor={theme.colors.accentNavigation}
-            />
+  return (
+    <footer className={styles.root}>
+      <Logo
+        stacked
+        href="#top"
+        interactionColor={theme.colors.accentNavigation}
+      />
 
-            <SocialButtons
-                backgroundColor={theme.colors.textNavigation}
-                textColor={theme.colors.backgroundNavigation}
-                interactionBackgroundColor={theme.colors.accentPrimary}
-                interactionTextColor={theme.colors.textSecondary}
-            />
+      <SocialButtons
+        backgroundColor={theme.colors.textNavigation}
+        textColor={theme.colors.backgroundNavigation}
+        interactionBackgroundColor={theme.colors.accentPrimary}
+        interactionTextColor={theme.colors.textSecondary}
+      />
 
-            <p className={styles.copyrightText}>
-                &copy; {getCurrentYear()} {title}
-            </p>
-        </footer>
-    );
+      <p className={styles.copyrightText}>
+        &copy; {getCurrentYear()} {title}
+      </p>
+    </footer>
+  );
 };
 
 /**
  * Creates the footer's styles
  */
 const useStyles = createUseStyles<"root" | "copyrightText", {}, AppTheme>({
-    root: {
-        padding: "2.5rem",
-        width: "100%",
-        backgroundColor: (data) => data.theme.colors.backgroundNavigation,
-        color: (data) => data.theme.colors.textNavigation,
-        display: "flex",
-        flexDirection: "column",
-        gap: "1.5rem",
-        alignItems: "center",
-    },
-    copyrightText: {
-        fontSize: "0.75rem",
-        margin: 0,
-    },
+  root: {
+    padding: "2.5rem",
+    width: "100%",
+    backgroundColor: (data) => data.theme.colors.backgroundNavigation,
+    color: (data) => data.theme.colors.textNavigation,
+    display: "flex",
+    flexDirection: "column",
+    gap: "1.5rem",
+    alignItems: "center",
+  },
+  copyrightText: {
+    fontSize: "0.75rem",
+    margin: 0,
+  },
 });
 
 export default Footer;
