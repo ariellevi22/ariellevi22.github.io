@@ -1,16 +1,16 @@
 import { Format } from "../../../Types";
 
-import personalWebsiteLogo from "./PersonalWebsite/Logo.svg";
-import personalWebsiteLogoAlt from "./PersonalWebsite/LogoAlt.svg";
-import personalWebsitePhoto from "./PersonalWebsite/Photo.png";
+import personalWebsiteLogo from "./Logos/PersonalWebsite.svg";
+import personalWebsiteLogoAlt from "./Logos/PersonalWebsiteAlt.svg";
+import personalWebsitePhoto from "./Photos/PersonalWebsite.png";
 
-import cookBookLogo from "./CookBook/Logo.svg";
-import cookBookLogoAlt from "./CookBook/LogoAlt.svg";
-import cookBookPhoto from "./CookBook/Photo.png";
+import cookBookLogo from "./Logos/CookBook.svg";
+import cookBookLogoAlt from "./Logos/CookBookAlt.svg";
+import cookBookPhoto from "./Photos/CookBook.png";
 
-import toGatherLogo from "./ToGather/Logo.svg";
-import toGatherLogoAlt from "./ToGather/LogoAlt.svg";
-import toGatherPhoto from "./ToGather/Photo.png";
+import toGatherLogo from "./Logos/ToGather.svg";
+import toGatherLogoAlt from "./Logos/ToGatherAlt.svg";
+import toGatherPhoto from "./Photos/ToGather.png";
 
 type PortfolioAssetGroup = { logo: Format; photo: string };
 
