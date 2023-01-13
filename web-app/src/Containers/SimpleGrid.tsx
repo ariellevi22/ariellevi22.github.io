@@ -1,6 +1,6 @@
-import { createUseStyles } from "react-jss";
 import { Property as CSSProperty } from "csstype";
 import { screenSizes } from "../Global";
+import { createUseAppStyles } from "../Theme";
 
 /**
  * A React component representing a container for grid items
@@ -127,7 +127,7 @@ const getGap = (
 /**
  * Creates the grid's styles
  */
-const useStyles = createUseStyles<"grid", SimpleGridProps>({
+const useStyles = createUseAppStyles<SimpleGridProps>({
   grid: {
     width: (data) => (data.width ? data.width : "100%"),
     display: "grid",

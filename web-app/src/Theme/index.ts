@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { createUseStyles, Styles, useTheme } from "react-jss";
 
 // Accent colors
 const accentDark = "#007DA0";
@@ -83,6 +84,29 @@ const darkTheme: AppTheme = {
     transitionTime: transitionTime,
     transition: transition,
 };
+
+/**
+ * Gets the theme context for the application
+ */
+export const useAppTheme = useTheme<AppTheme>;
+
+/**
+ * Creates a `useStyles` function that can be used in a React functional
+ * component to get styles with CSS classes
+ *
+ * @template Props the React component's Props, which can be used for styling
+ * @template ClassNames the CSS classes that will be used for these styles
+ * @param styles CSS classes and styling
+ * @returns a `useStyles` function
+ */
+export const createUseAppStyles = <
+    Props = unknown,
+    ClassNames extends string = string
+>(
+    styles:
+        | Styles<ClassNames, Props, AppTheme>
+        | ((theme: AppTheme) => Styles<ClassNames, Props>)
+) => createUseStyles<ClassNames, Props, AppTheme>(styles);
 
 /**
  * Provides a theme (light or dark) for the application and a function to toggle the theme,

@@ -1,7 +1,6 @@
 import profilePicture from "../Assets/ProfilePicture.jpg";
 import SocialButtons from "./SocialButtons";
-import { createUseStyles, useTheme } from "react-jss";
-import { AppTheme } from "../Theme";
+import { createUseAppStyles, useAppTheme } from "../Theme";
 import { title, screenSizes } from "../Global";
 import Container from "../Containers/Container";
 
@@ -10,7 +9,7 @@ import Container from "../Containers/Container";
  * a heading, a photo, and social button
  */
 const HeroHeader = () => {
-  const theme = useTheme<AppTheme>();
+  const theme = useAppTheme();
   const styles = useStyles({ theme });
 
   return (
@@ -41,11 +40,7 @@ const HeroHeader = () => {
 /**
  * Creates the hero header's styles
  */
-const useStyles = createUseStyles<
-  "heroHeader" | "background" | "foreground" | "photo" | "content",
-  {},
-  AppTheme
->({
+const useStyles = createUseAppStyles({
   heroHeader: {
     width: "100%",
     position: "relative",

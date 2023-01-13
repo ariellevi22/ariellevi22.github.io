@@ -1,4 +1,4 @@
-import { createUseStyles } from "react-jss";
+import { createUseAppStyles } from "../Theme";
 
 /**
  * A React component representing a container for a group of chips
@@ -16,7 +16,7 @@ const ChipGroup = (props: ChipGroupProps) => {
 /**
  * Creates the chip group's styles
  */
-const useStyles = createUseStyles({
+const useStyles = createUseAppStyles({
   root: {
     padding: 0,
     margin: 0,

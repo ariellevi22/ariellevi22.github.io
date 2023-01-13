@@ -1,13 +1,12 @@
 import React from "react";
-import { createUseStyles, useTheme } from "react-jss";
-import { AppTheme } from "../Theme";
+import { createUseAppStyles, useAppTheme } from "../Theme";
 
 /**
  * A React component that wraps the HTML `<a>` tag to include proper styling (based on the theme)
  * and the functionality to easily open the link in a new tab if desired
  */
 const Link = (props: LinkProps) => {
-  const theme = useTheme<AppTheme>();
+  const theme = useAppTheme();
   const styles = useStyles({ ...props, theme });
 
   const { openWithNewTab, removeUnderline, interactionColor, ...anchorProps } =
@@ -33,7 +32,7 @@ const Link = (props: LinkProps) => {
 /**
  * Creates the link's styles
  */
-const useStyles = createUseStyles<"root", LinkProps, AppTheme>({
+const useStyles = createUseAppStyles<LinkProps>({
   root: {
     color: "inherit",
     cursor: "pointer",

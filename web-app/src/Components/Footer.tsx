@@ -1,7 +1,6 @@
 import Logo from "./Logo";
 import { getCurrentYear } from "../Utils";
-import { createUseStyles, useTheme } from "react-jss";
-import { AppTheme } from "../Theme";
+import { createUseAppStyles, useAppTheme } from "../Theme";
 import { title } from "../Global";
 import SocialButtons from "./SocialButtons";
 
@@ -10,7 +9,7 @@ import SocialButtons from "./SocialButtons";
  * copyright information. The copyright year automatically updates to the current year.
  */
 const Footer = () => {
-  const theme = useTheme<AppTheme>();
+  const theme = useAppTheme();
   const styles = useStyles({ theme });
 
   return (
@@ -38,7 +37,7 @@ const Footer = () => {
 /**
  * Creates the footer's styles
  */
-const useStyles = createUseStyles<"root" | "copyrightText", {}, AppTheme>({
+const useStyles = createUseAppStyles({
   root: {
     padding: "2.5rem",
     width: "100%",

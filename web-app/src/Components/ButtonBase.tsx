@@ -1,7 +1,6 @@
 import React from "react";
-import { createUseStyles, useTheme } from "react-jss";
 import { scaleFactors } from "../Global";
-import { AppTheme } from "../Theme";
+import { AppTheme, createUseAppStyles, useAppTheme } from "../Theme";
 import Link from "./Link";
 
 /**
@@ -9,7 +8,7 @@ import Link from "./Link";
  * in components such as `Button` and `IconButton` for simplicity
  */
 const ButtonBase = (props: ButtonBaseProps) => {
-  const theme = useTheme<AppTheme>();
+  const theme = useAppTheme();
   const styles = useStyles({ ...props, theme });
 
   const classes = [styles.root];
@@ -119,7 +118,7 @@ const getShadow = (
 /**
  * Creates the button base's styles
  */
-const useStyles = createUseStyles<"root", ButtonBaseProps, AppTheme>({
+const useStyles = createUseAppStyles<ButtonBaseProps>({
   root: {
     fontSize: "1em",
     display: "inline-block",

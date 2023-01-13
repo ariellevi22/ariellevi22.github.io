@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { createUseStyles } from "react-jss";
 import ButtonBase, { ButtonBaseProps } from "./ButtonBase";
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
+import { createUseAppStyles } from "../Theme";
 
 /**
  * A React component representing a button with an icon, such as for social buttons
@@ -27,7 +27,7 @@ const IconButton = (props: IconButtonProps) => {
 /**
  * Creates the icon button's styles
  */
-const useStyles = createUseStyles<"root", IconButtonProps>({
+const useStyles = createUseAppStyles<IconButtonProps>({
   root: {
     borderRadius: (data) => (data.isTransparent ? undefined : "50%"),
     padding: (data) => (data.isTransparent ? 0 : undefined),

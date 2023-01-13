@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { createUseStyles, useTheme } from "react-jss";
 import { navbarHeight, screenSizes } from "../Global";
-import { AppTheme } from "../Theme";
+import { createUseAppStyles, useAppTheme } from "../Theme";
 import IconButton from "./IconButton";
 import Link from "./Link";
 import Logo from "./Logo";
@@ -18,7 +17,7 @@ import {
  * A React component for the website's navigation bar
  */
 const Navbar = (props: NavbarProps) => {
-  const theme = useTheme<AppTheme>();
+  const theme = useAppTheme();
   const styles = useStyles({ ...props, theme });
 
   /*
@@ -123,18 +122,7 @@ const menuWidth = "80vw";
 /**
  * Creates the navigation bar's styles
  */
-const useStyles = createUseStyles<
-  | "navbar"
-  | "tabs"
-  | "menu"
-  | "menuEnter"
-  | "menuEnterActive"
-  | "menuExit"
-  | "menuExitActive"
-  | "menuButton",
-  NavbarProps,
-  AppTheme
->({
+const useStyles = createUseAppStyles<NavbarProps>({
   navbar: (data) => ({
     padding: "1rem 2.5rem",
     top: 0,

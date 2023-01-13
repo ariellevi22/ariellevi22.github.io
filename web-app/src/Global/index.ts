@@ -21,10 +21,10 @@ export const navbarHeight = 5;
  * Navigation bar tabs' information
  */
 export const navbarTabs: NavbarTab[] = [
-    { label: "About", href: "#About" },
-    { label: "Experience", href: "#Experience" },
-    { label: "Portfolio", href: "#Portfolio" },
-    { label: "Education", href: "#Education" },
+    { label: "About", href: "#about" },
+    { label: "Experience", href: "#experience" },
+    { label: "Portfolio", href: "#portfolio" },
+    { label: "Education", href: "#education" },
 ];
 
 /**

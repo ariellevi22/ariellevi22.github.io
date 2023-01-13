@@ -1,4 +1,4 @@
-import { createUseStyles } from "react-jss";
+import { createUseAppStyles } from "../Theme";
 import ButtonBase, { ButtonBaseProps } from "./ButtonBase";
 
 /**
@@ -17,7 +17,7 @@ const Button = (props: ButtonBaseProps) => {
 /**
  * Creates the button's styles
  */
-const useStyles = createUseStyles({
+const useStyles = createUseAppStyles({
   root: {
     padding: "0.25rem 0.5rem",
     borderRadius: "0.5rem",

@@ -1,5 +1,5 @@
-import { createUseStyles } from "react-jss";
 import { screenSizes } from "../Global";
+import { createUseAppStyles } from "../Theme";
 
 /**
  * A React component representing a container for app content
@@ -22,7 +22,7 @@ const Container = (props: ContainerProps) => {
 /**
  * Creates the container's styles
  */
-const useStyles = createUseStyles({
+const useStyles = createUseAppStyles({
   root: {
     width: "85%",
     maxWidth: screenSizes.medium - 150,

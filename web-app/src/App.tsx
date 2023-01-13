@@ -5,8 +5,8 @@ import Education from "./Views/Education";
 import Experience from "./Views/Experience";
 import Footer from "./Components/Footer";
 import { navbarHeight } from "./Global";
-import { createUseStyles, ThemeProvider } from "react-jss";
-import { AppTheme, useThemePreference } from "./Theme";
+import { ThemeProvider } from "react-jss";
+import { createUseAppStyles, useThemePreference } from "./Theme";
 import Portfolio from "./Views/Portfolio";
 
 /**
@@ -38,7 +38,7 @@ const App = () => {
 /**
  * Creates styles for the App component
  */
-const useStyles = createUseStyles<"root", {}, AppTheme>({
+const useStyles = createUseAppStyles({
   root: {
     backgroundColor: (data) => data.theme.colors.backgroundPrimary,
     color: (data) => data.theme.colors.textPrimary,

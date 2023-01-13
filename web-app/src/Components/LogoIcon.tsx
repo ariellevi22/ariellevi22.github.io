@@ -1,5 +1,4 @@
-import { createUseStyles, useTheme } from "react-jss";
-import { AppTheme } from "../Theme";
+import { createUseAppStyles, useAppTheme } from "../Theme";
 import { ReactComponent as LogoSvg } from "../Assets/Logo.svg";
 
 /**
@@ -7,7 +6,7 @@ import { ReactComponent as LogoSvg } from "../Assets/Logo.svg";
  * The color of the logo icon can be changed using the `color` property.
  */
 const LogoIcon = (props: LogoIconProps) => {
-  const theme = useTheme<AppTheme>();
+  const theme = useAppTheme();
   const styles = useStyles({ ...props, theme });
 
   const classes = [styles.root];
@@ -21,7 +20,7 @@ const LogoIcon = (props: LogoIconProps) => {
 /**
  * Creates the logo icon's styles
  */
-const useStyles = createUseStyles<"root", LogoIconProps, AppTheme>({
+const useStyles = createUseAppStyles({
   root: (data) => ({
     height: "2.25rem",
     transition: data.theme.transition,

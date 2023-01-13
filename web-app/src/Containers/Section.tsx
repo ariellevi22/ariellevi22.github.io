@@ -1,6 +1,6 @@
 import Container from "./Container";
 import { navbarHeight } from "../Global";
-import { createUseStyles } from "react-jss";
+import { createUseAppStyles } from "../Theme";
 
 /**
  * A React component representing a container for a section of the app
@@ -18,7 +18,7 @@ const Section = (props: SectionProps) => {
 /**
  * Creates the section's styles
  */
-const useStyles = createUseStyles({
+const useStyles = createUseAppStyles({
   section: {
     paddingTop: `${navbarHeight + 0.5}rem`,
     "&:last-child": {

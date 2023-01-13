@@ -3,8 +3,7 @@ import SimpleGrid from "../../Containers/SimpleGrid";
 import Card from "../../Components/Card";
 import IconButton from "../../Components/IconButton";
 import IconButtonGroup from "../../Components/IconButtonGroup";
-import { useTheme } from "react-jss";
-import { AppTheme } from "../../Theme";
+import { useAppTheme } from "../../Theme";
 import Chip from "../../Components/Chip";
 import ChipGroup from "../../Components/ChipGroup";
 import portfolioData from "./data";
@@ -18,10 +17,10 @@ import { getPreferredFormatOption } from "../../Utils";
  * A React container for "Portfolio" section elements and data
  */
 const Portfolio = () => {
-  const theme = useTheme<AppTheme>();
+  const theme = useAppTheme();
 
   return (
-    <Section id="Portfolio">
+    <Section id="portfolio">
       <h2>Portfolio</h2>
 
       <SimpleGrid numColumns={{ large: 2, medium: 2, small: 1 }}>
@@ -76,6 +75,7 @@ const Portfolio = () => {
                       <IconButton
                         icon={faCode}
                         href={portfolioItem.codeWebsite}
+                        openWithNewTab
                         title={`View Project Code for ${portfolioItem.title}`}
                         aria-label={`View Project Code for ${portfolioItem.title}`}
                         backgroundColor={theme.colors.backgroundSecondary}

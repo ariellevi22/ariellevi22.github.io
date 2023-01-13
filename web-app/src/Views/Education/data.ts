@@ -1,5 +1,5 @@
 import { EducationItem } from "../../Types";
-import { logos, photos } from "./Assets";
+import { bvn2019Photo, bvnLogo, unl2023Photo, unlLogo } from "./Assets";
 
 /**
  * Data for the website's Education section
@@ -36,8 +36,8 @@ const educationData: EducationItem[] = [
                 `,
             },
         ],
-        logo: logos.unl,
-        photo: photos.unl2023,
+        logo: unlLogo,
+        photo: unl2023Photo,
         color: { lightTheme: "#DD1A32" },
     },
     {
@@ -50,8 +50,8 @@ const educationData: EducationItem[] = [
             "Web Design (HTML/CSS)",
             "Graphic Design",
         ],
-        logo: logos.bvn,
-        photo: photos.bvn2019,
+        logo: bvnLogo,
+        photo: bvn2019Photo,
         color: { lightTheme: "#143C7D" },
     },
 ];

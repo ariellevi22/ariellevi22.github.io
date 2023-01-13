@@ -1,7 +1,6 @@
 import React from "react";
-import { createUseStyles, useTheme } from "react-jss";
 import { title, scaleFactors, screenSizes } from "../Global";
-import { AppTheme } from "../Theme";
+import { createUseAppStyles, useAppTheme } from "../Theme";
 import Link from "./Link";
 import LogoIcon from "./LogoIcon";
 
@@ -10,7 +9,7 @@ import LogoIcon from "./LogoIcon";
  * which can optionally link to a website or part of the app when clicked.
  */
 const Logo = (props: LogoProps) => {
-  const theme = useTheme<AppTheme>();
+  const theme = useAppTheme();
   const styles = useStyles({ ...props, theme });
 
   // Style the container that holds the logo icon and text
@@ -26,7 +25,7 @@ const Logo = (props: LogoProps) => {
 
   const logoBase = (
     <>
-      <LogoIcon color={props.color} />
+      <LogoIcon color={props.color} aria-hidden />
       <p className={styles.logoText}>{title}</p>
     </>
   );
@@ -50,11 +49,7 @@ const Logo = (props: LogoProps) => {
 /**
  * Creates the logo's styles
  */
-const useStyles = createUseStyles<
-  "logoText" | "logoContainer" | "stacked" | "logoContainerLink",
-  LogoProps,
-  AppTheme
->({
+const useStyles = createUseAppStyles<LogoProps>({
   logoText: {
     color: (data) => (data.color ? data.color : "inherit"),
     fontSize: "1.5rem",
@@ -63,9 +58,9 @@ const useStyles = createUseStyles<
     transition: (data) => data.theme.transition,
     whiteSpace: "nowrap",
 
-    // Hide the text on tiny screens
+    // Hide the text on tiny screens (if not stacked)
     [`@media screen and (max-width: ${screenSizes.tiny}px)`]: {
-      display: "none",
+      display: (data) => (data.stacked ? undefined : "none"),
     },
   },
   logoContainer: {

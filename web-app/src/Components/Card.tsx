@@ -1,11 +1,10 @@
-import { createUseStyles, useTheme } from "react-jss";
-import { AppTheme } from "../Theme";
+import { createUseAppStyles, useAppTheme } from "../Theme";
 
 /**
  * A React component representing a card
  */
 const Card = (props: CardProps) => {
-  const theme = useTheme<AppTheme>();
+  const theme = useAppTheme();
   const styles = useStyles({ ...props, theme });
 
   return (
@@ -37,11 +36,7 @@ const borderRadius = "0.5rem";
 /**
  * Creates the card's styles
  */
-const useStyles = createUseStyles<
-  "card" | "innerContainer" | "logo" | "coverPhoto",
-  CardProps,
-  AppTheme
->({
+const useStyles = createUseAppStyles<CardProps>({
   card: {
     width: "100%",
     backgroundColor: (data) => data.theme.colors.backgroundSecondary,

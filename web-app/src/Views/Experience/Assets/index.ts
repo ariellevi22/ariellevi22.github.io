@@ -15,23 +15,25 @@ import NelnetDesignStudio2021Photo from "./Photos/nelnet-design-studio-2021.png"
 import Evergy2021Photo from "./Photos/evergy-2021.jpg";
 import Zoom2020Photo from "./Photos/zoom-2020.jpg";
 
-/**
- * Experience logos
- */
-export const logos: { [index: string]: Format } = {
-    evergy: { lightTheme: EvergyLogo, darkTheme: EvergyLogoAlt },
-    garmin: { lightTheme: GarminLogo, darkTheme: GarminLogoAlt },
-    nelnet: { lightTheme: NelnetLogo, darkTheme: NelnetLogoAlt },
-    zoom: { lightTheme: ZoomLogo, darkTheme: ZoomLogoAlt },
+export const evergyLogo: Format = {
+    lightTheme: EvergyLogo,
+    darkTheme: EvergyLogoAlt,
+};
+export const garminLogo: Format = {
+    lightTheme: GarminLogo,
+    darkTheme: GarminLogoAlt,
+};
+export const nelnetLogo: Format = {
+    lightTheme: NelnetLogo,
+    darkTheme: NelnetLogoAlt,
+};
+export const zoomLogo: Format = {
+    lightTheme: ZoomLogo,
+    darkTheme: ZoomLogoAlt,
 };
 
-/**
- * Experience showcase photos
- */
-export const photos: { [index: string]: string } = {
-    nelnetDesignStudio2022: NelnetDesignStudio2022Photo,
-    garmin2022: Garmin2022Photo,
-    nelnetDesignStudio2021: NelnetDesignStudio2021Photo,
-    evergy2021: Evergy2021Photo,
-    zoom2020: Zoom2020Photo,
-};
+export const nelnetDesignStudio2022Photo = NelnetDesignStudio2022Photo;
+export const garmin2022Photo = Garmin2022Photo;
+export const nelnetDesignStudio2021Photo = NelnetDesignStudio2021Photo;
+export const evergy2021Photo = Evergy2021Photo;
+export const zoom2020Photo = Zoom2020Photo;

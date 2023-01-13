@@ -2,8 +2,7 @@ import Section from "../../Containers/Section";
 import Link from "../../Components/Link";
 import SimpleGrid from "../../Containers/SimpleGrid";
 import Card from "../../Components/Card";
-import { useTheme } from "react-jss";
-import { AppTheme } from "../../Theme";
+import { useAppTheme } from "../../Theme";
 import ChipGroup from "../../Components/ChipGroup";
 import Chip from "../../Components/Chip";
 import experienceData from "./data";
@@ -14,10 +13,10 @@ import { getPreferredFormatOption } from "../../Utils";
  * A React container for "Experience" section elements and data
  */
 const Experience = () => {
-  const theme = useTheme<AppTheme>();
+  const theme = useAppTheme();
 
   return (
-    <Section id="Experience">
+    <Section id="experience">
       <h2>Experience</h2>
 
       <SimpleGrid

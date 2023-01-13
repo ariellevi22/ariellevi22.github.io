@@ -1,5 +1,12 @@
 import { PortfolioItem } from "../../Types";
-import { cookBook, personalWebsite, toGather } from "./Assets";
+import {
+    cookBookLogo,
+    cookBookPhoto,
+    personalWebsiteLogo,
+    personalWebsitePhoto,
+    toGatherLogo,
+    toGatherPhoto,
+} from "./Assets";
 
 /**
  * Data for the website's portfolio section
@@ -16,8 +23,8 @@ const portfolioData: PortfolioItem[] = [
         technologies: ["React.js", "TypeScript", "HTML/CSS", "Figma"],
         website: "#top",
         codeWebsite: "https://github.com/alevi22/alevi22.github.io",
-        logo: personalWebsite.logo,
-        photo: personalWebsite.photo,
+        logo: personalWebsiteLogo,
+        photo: personalWebsitePhoto,
     },
     {
         id: "togather",
@@ -29,9 +36,9 @@ const portfolioData: PortfolioItem[] = [
             I designed and developed the front-end web application.
         `,
         technologies: ["React.js", "TypeScript", "HTML/CSS", "Figma"],
-        logo: toGather.logo,
+        logo: toGatherLogo,
         color: { lightTheme: "#439A9C" },
-        photo: toGather.photo,
+        photo: toGatherPhoto,
     },
     {
         id: "cookbook",
@@ -45,9 +52,9 @@ const portfolioData: PortfolioItem[] = [
         technologies: ["Figma"],
         website:
             "https://www.figma.com/proto/JRMVmUiVrQukBG2sXGKbLY/Prototype-Final?node-id=2%3A3&starting-point-node-id=2%3A3&scaling=contain",
-        logo: cookBook.logo,
+        logo: cookBookLogo,
         color: { lightTheme: "#6176A9" },
-        photo: cookBook.photo,
+        photo: cookBookPhoto,
     },
 ];
 

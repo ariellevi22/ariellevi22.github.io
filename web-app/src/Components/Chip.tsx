@@ -1,11 +1,10 @@
-import { createUseStyles, useTheme } from "react-jss";
-import { AppTheme } from "../Theme";
+import { createUseAppStyles, useAppTheme } from "../Theme";
 
 /**
  * A React component representing an informational chip
  */
 const Chip = (props: ChipProps) => {
-  const theme = useTheme<AppTheme>();
+  const theme = useAppTheme();
   const styles = useStyles({ theme });
 
   return <li className={styles.root}>{props.children}</li>;
@@ -14,7 +13,7 @@ const Chip = (props: ChipProps) => {
 /**
  * Creates the chip's styles
  */
-const useStyles = createUseStyles<"root", {}, AppTheme>({
+const useStyles = createUseAppStyles({
   root: {
     backgroundColor: (data) => data.theme.colors.backgroundTertiary,
     borderRadius: "1rem",

@@ -6,18 +6,8 @@ import UnlLogo from "./Logos/UNL.svg";
 import Bvn2019Photo from "./Photos/bvn-2019.jpg";
 import Unl2023Photo from "./Photos/unl-2023.jpg";
 
-/**
- * Education logos
- */
-export const logos: { [index: string]: Format } = {
-    unl: { lightTheme: UnlLogo },
-    bvn: { lightTheme: BvnLogo },
-};
+export const unlLogo: Format = { lightTheme: UnlLogo };
+export const bvnLogo: Format = { lightTheme: BvnLogo };
 
-/**
- * Education showcase photos
- */
-export const photos: { [index: string]: string } = {
-    unl2023: Unl2023Photo,
-    bvn2019: Bvn2019Photo,
-};
+export const unl2023Photo = Unl2023Photo;
+export const bvn2019Photo = Bvn2019Photo;

@@ -1,5 +1,15 @@
 import { ExperienceItem } from "../../Types";
-import { logos, photos } from "./Assets";
+import {
+    evergy2021Photo,
+    evergyLogo,
+    garmin2022Photo,
+    garminLogo,
+    nelnetDesignStudio2021Photo,
+    nelnetDesignStudio2022Photo,
+    nelnetLogo,
+    zoom2020Photo,
+    zoomLogo,
+} from "./Assets";
 
 /**
  * Data for the website's Experience section
@@ -24,8 +34,8 @@ const experienceData: ExperienceItem[] = [
             "React.js",
             "AWS",
         ],
-        photo: photos.nelnetDesignStudio2022,
-        logo: logos.nelnet,
+        photo: nelnetDesignStudio2022Photo,
+        logo: nelnetLogo,
         color: { lightTheme: "#8DC319" },
     },
     {
@@ -50,8 +60,8 @@ const experienceData: ExperienceItem[] = [
             "Elasticsearch",
             "SQL",
         ],
-        photo: photos.garmin2022,
-        logo: logos.garmin,
+        photo: garmin2022Photo,
+        logo: garminLogo,
         color: { lightTheme: "#000000", darkTheme: "#FFFFFF" },
     },
     {
@@ -68,8 +78,8 @@ const experienceData: ExperienceItem[] = [
             "Mentored an intern in React.js front-end development",
         ],
         technologies: ["React.js", "TypeScript", "HTML/CSS", "Figma"],
-        photo: photos.nelnetDesignStudio2021,
-        logo: logos.nelnet,
+        photo: nelnetDesignStudio2021Photo,
+        logo: nelnetLogo,
         color: { lightTheme: "#8DC319" },
     },
     {
@@ -92,8 +102,8 @@ const experienceData: ExperienceItem[] = [
             "Jira API",
             "SharePoint",
         ],
-        photo: photos.evergy2021,
-        logo: logos.evergy,
+        photo: evergy2021Photo,
+        logo: evergyLogo,
         color: { lightTheme: "#004E9A", darkTheme: "#317CC0" },
     },
     {
@@ -108,8 +118,8 @@ const experienceData: ExperienceItem[] = [
             "Assisted over 500 customers via tickets, calls, chats, and social media to address questions, troubleshoot issues, resolve bugs, and consider feature requests",
             "Analyzed technical support procedures during the COVID-19 pandemic, including help center documentation and 60,000 support tickets, to present support leaders with ideas for improvement",
         ],
-        photo: photos.zoom2020,
-        logo: logos.zoom,
+        photo: zoom2020Photo,
+        logo: zoomLogo,
         color: { lightTheme: "#0b5cff" },
     },
 ];

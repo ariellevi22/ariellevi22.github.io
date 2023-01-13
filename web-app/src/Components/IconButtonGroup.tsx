@@ -1,4 +1,4 @@
-import { createUseStyles } from "react-jss";
+import { createUseAppStyles } from "../Theme";
 
 /**
  * A React component representing a container for a group of icon buttons
@@ -16,7 +16,7 @@ const IconButtonGroup = (props: IconButtonGroupProps) => {
 /**
  * Creates the icon button group's styles
  */
-const useStyles = createUseStyles<"root", IconButtonGroupProps>({
+const useStyles = createUseAppStyles<IconButtonGroupProps>({
   root: {
     display: "flex",
     gap: "1rem",
