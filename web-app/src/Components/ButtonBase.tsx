@@ -1,22 +1,17 @@
+/** @jsxImportSource @emotion/react */
+
 import React from "react";
 import { scaleFactors } from "../Global";
-import { AppTheme, createUseAppStyles, useAppTheme } from "../Theme";
 import Link from "./Link";
+import { CSSObject, Theme, useTheme } from "@emotion/react";
 
 /**
  * A React component representing a simple wrapper for an HTML `<button>`, extended
  * in components such as `Button` and `IconButton` for simplicity
  */
 const ButtonBase = (props: ButtonBaseProps) => {
-  const theme = useAppTheme();
-  const styles = useStyles({ ...props, theme });
+  const theme = useTheme();
 
-  const classes = [styles.root];
-  if (props.className) {
-    classes.push(props.className);
-  }
-
-  // Separate out the props so that irrelevant props are not passed into the HTML element
   const {
     isTransparent,
     href,
@@ -29,15 +24,52 @@ const ButtonBase = (props: ButtonBaseProps) => {
     ...otherProps
   } = props;
 
+  const styles: CSSObject = {
+    fontSize: "1em",
+    display: "inline-block",
+    textDecoration: "none",
+    backgroundColor: isTransparent
+      ? "transparent"
+      : backgroundColor || theme.colors.accentPrimary,
+    color: isTransparent ? "inherit" : textColor || theme.colors.textSecondary,
+    border: "none",
+    boxShadow: getShadow(theme.colors.shadow, isTransparent),
+    transition: theme.transition,
+
+    "@media (hover: hover) and (pointer: fine)": {
+      "&:hover": {
+        backgroundColor: getInteractionBackgroundColor(props, theme),
+        color: getInteractionTextColor(props, theme),
+        cursor: "pointer",
+        boxShadow: getShadow(theme.colors.shadow, isTransparent, true),
+        transform: isTransparent ? "none" : `scale(${1 + scaleFactors.small})`,
+      },
+    },
+
+    "&:focus-visible": {
+      backgroundColor: getInteractionBackgroundColor(props, theme),
+      color: getInteractionTextColor(props, theme),
+      cursor: "pointer",
+      boxShadow: getShadow(theme.colors.shadow, isTransparent, true),
+      transform: isTransparent ? "none" : `scale(${1 + scaleFactors.small})`,
+    },
+
+    "&:active": {
+      backgroundColor: getInteractionBackgroundColor(props, theme),
+      color: getInteractionTextColor(props, theme),
+      transform: isTransparent ? "none" : `scale(${1 - scaleFactors.small})`,
+    },
+  };
+
   if (href) {
     // If the button should link somewhere, return a link tag styled as a button
     return (
       <Link
         {...otherProps}
         href={props.href}
-        className={classes.join(" ")}
         role="button"
         openWithNewTab={openWithNewTab}
+        css={styles}
       >
         {props.children}
       </Link>
@@ -45,7 +77,7 @@ const ButtonBase = (props: ButtonBaseProps) => {
   } else {
     // If the button does not need to link anywhere, just return it
     return (
-      <button {...otherProps} className={classes.join(" ")}>
+      <button {...otherProps} css={styles}>
         {props.children}
       </button>
     );
@@ -56,18 +88,18 @@ const ButtonBase = (props: ButtonBaseProps) => {
  * Gets the background color for the button base when the button is being
  * interacted with (hover, focus, or active states)
  *
- * @param data props and theme data
+ * @param props component props
+ * @param theme the application theme
  * @returns the background color
  */
 const getInteractionBackgroundColor = (
-  data: ButtonBaseProps & { theme: AppTheme }
+  props: ButtonBaseProps,
+  theme: Theme
 ) => {
-  if (data.isTransparent) {
+  if (props.isTransparent) {
     return "transparent";
-  } else if (data.interactionBackgroundColor) {
-    return data.interactionBackgroundColor;
   } else {
-    return data.theme.colors.textPrimary;
+    return props.interactionBackgroundColor || theme.colors.textPrimary;
   }
 };
 
@@ -75,18 +107,17 @@ const getInteractionBackgroundColor = (
  * Gets the text color for the button base when the button is being
  * interacted with (hover, focus, or active states)
  *
- * @param data props and theme data
+ * @param props component props
+ * @param theme the application theme
  * @returns the text color
  */
-const getInteractionTextColor = (
-  data: ButtonBaseProps & { theme: AppTheme }
-) => {
-  if (data.interactionTextColor) {
-    return data.interactionTextColor;
-  } else if (data.isTransparent) {
-    return data.theme.colors.accentPrimary;
+const getInteractionTextColor = (props: ButtonBaseProps, theme: Theme) => {
+  if (props.interactionTextColor) {
+    return props.interactionTextColor;
+  } else if (props.isTransparent) {
+    return theme.colors.accentPrimary;
   } else {
-    return data.theme.colors.textSecondary;
+    return theme.colors.textSecondary;
   }
 };
 
@@ -114,62 +145,6 @@ const getShadow = (
     }
   }
 };
-
-/**
- * Creates the button base's styles
- */
-const useStyles = createUseAppStyles<ButtonBaseProps>({
-  root: {
-    fontSize: "1em",
-    display: "inline-block",
-    textDecoration: "none",
-    backgroundColor: (data) =>
-      data.isTransparent
-        ? "transparent"
-        : data.backgroundColor
-        ? data.backgroundColor
-        : data.theme.colors.accentPrimary,
-    color: (data) =>
-      data.isTransparent
-        ? "inherit"
-        : data.textColor
-        ? data.textColor
-        : data.theme.colors.textSecondary,
-    border: "none",
-    boxShadow: (data) =>
-      getShadow(data.theme.colors.shadow, data.isTransparent),
-    transition: (data) => data.theme.transition,
-
-    "@media (hover: hover) and (pointer: fine)": {
-      "&:hover": {
-        backgroundColor: (data) => getInteractionBackgroundColor(data),
-        color: (data) => getInteractionTextColor(data),
-        cursor: "pointer",
-        boxShadow: (data) =>
-          getShadow(data.theme.colors.shadow, data.isTransparent, true),
-        transform: (data) =>
-          data.isTransparent ? "none" : `scale(${1 + scaleFactors.small})`,
-      },
-    },
-
-    "&:focus-visible": {
-      backgroundColor: (data) => getInteractionBackgroundColor(data),
-      color: (data) => getInteractionTextColor(data),
-      cursor: "pointer",
-      boxShadow: (data) =>
-        getShadow(data.theme.colors.shadow, data.isTransparent, true),
-      transform: (data) =>
-        data.isTransparent ? "none" : `scale(${1 + scaleFactors.small})`,
-    },
-
-    "&:active": {
-      backgroundColor: (data) => getInteractionBackgroundColor(data),
-      color: (data) => getInteractionTextColor(data),
-      transform: (data) =>
-        data.isTransparent ? "none" : `scale(${1 - scaleFactors.small})`,
-    },
-  },
-});
 
 /**
  * Props for the button base component that come from default HTML attributes

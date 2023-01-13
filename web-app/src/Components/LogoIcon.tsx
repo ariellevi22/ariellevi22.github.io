@@ -1,4 +1,6 @@
-import { createUseAppStyles, useAppTheme } from "../Theme";
+/** @jsxImportSource @emotion/react */
+
+import { useTheme } from "@emotion/react";
 import { ReactComponent as LogoSvg } from "../Assets/Logo.svg";
 
 /**
@@ -6,26 +8,15 @@ import { ReactComponent as LogoSvg } from "../Assets/Logo.svg";
  * The color of the logo icon can be changed using the `color` property.
  */
 const LogoIcon = (props: LogoIconProps) => {
-  const theme = useAppTheme();
-  const styles = useStyles({ ...props, theme });
+  const theme = useTheme();
 
-  const classes = [styles.root];
-  if (props.className) {
-    classes.push(props.className);
-  }
-
-  return <LogoSvg {...props} className={classes.join(" ")} />;
+  return (
+    <LogoSvg
+      {...props}
+      css={{ height: "2.25rem", transition: theme.transition }}
+    />
+  );
 };
-
-/**
- * Creates the logo icon's styles
- */
-const useStyles = createUseAppStyles({
-  root: (data) => ({
-    height: "2.25rem",
-    transition: data.theme.transition,
-  }),
-});
 
 /**
  * Props for the logo icon component

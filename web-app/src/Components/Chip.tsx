@@ -1,34 +1,32 @@
-import { createUseAppStyles, useAppTheme } from "../Theme";
+/** @jsxImportSource @emotion/react */
+
+import { useTheme } from "@emotion/react";
+import { ChildrenProps } from "../Types";
 
 /**
  * A React component representing an informational chip
  */
 const Chip = (props: ChipProps) => {
-  const theme = useAppTheme();
-  const styles = useStyles({ theme });
+  const theme = useTheme();
 
-  return <li className={styles.root}>{props.children}</li>;
+  return (
+    <li
+      css={{
+        backgroundColor: theme.colors.backgroundTertiary,
+        borderRadius: "1rem",
+        padding: "0.25rem 0.5rem",
+        display: "inline-block",
+        margin: 0,
+      }}
+    >
+      {props.children}
+    </li>
+  );
 };
-
-/**
- * Creates the chip's styles
- */
-const useStyles = createUseAppStyles({
-  root: {
-    backgroundColor: (data) => data.theme.colors.backgroundTertiary,
-    borderRadius: "1rem",
-    padding: "0.25rem 0.5rem",
-    display: "inline-block",
-    margin: 0,
-  },
-});
 
 /**
  * Props for the chip component
  */
-type ChipProps = {
-  /** Contents to place inside the chip */
-  children: React.ReactNode;
-};
+type ChipProps = ChildrenProps;
 
 export default Chip;

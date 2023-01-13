@@ -1,3 +1,5 @@
+/** @jsxImportSource @emotion/react */
+
 import { socialTabs } from "../Global";
 import IconButton from "./IconButton";
 import IconButtonGroup from "./IconButtonGroup";
@@ -7,7 +9,7 @@ import IconButtonGroup from "./IconButtonGroup";
  */
 const SocialButtons = (props: SocialButtonsProps) => {
   return (
-    <IconButtonGroup style={{ fontSize: "1.125rem", ...props.style }}>
+    <IconButtonGroup>
       {socialTabs.map((socialTab) => {
         return (
           <IconButton
@@ -36,9 +38,6 @@ const SocialButtons = (props: SocialButtonsProps) => {
  * Props for the social buttons component
  */
 type SocialButtonsProps = {
-  /** Optional styling for the social buttons */
-  style?: React.CSSProperties;
-
   /** The social buttons' background color */
   backgroundColor?: string;
 

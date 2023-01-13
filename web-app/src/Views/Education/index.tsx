@@ -2,15 +2,15 @@ import Card from "../../Components/Card";
 import { getPreferredFormatOption, pluralize } from "../../Utils";
 import SimpleGrid from "../../Containers/SimpleGrid";
 import Section from "../../Containers/Section";
-import { AppTheme, useAppTheme } from "../../Theme";
 import educationData from "./data";
 import { separator } from "../../Global";
+import { useTheme } from "@emotion/react";
 
 /**
  * A React container for "Education" section elements and data
  */
 const Education = () => {
-  const theme = useAppTheme();
+  const theme = useTheme();
 
   return (
     <Section id="education">

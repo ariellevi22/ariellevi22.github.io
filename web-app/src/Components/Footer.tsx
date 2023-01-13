@@ -1,6 +1,8 @@
+/** @jsxImportSource @emotion/react */
+
+import { useTheme } from "@emotion/react";
 import Logo from "./Logo";
 import { getCurrentYear } from "../Utils";
-import { createUseAppStyles, useAppTheme } from "../Theme";
 import { title } from "../Global";
 import SocialButtons from "./SocialButtons";
 
@@ -9,11 +11,21 @@ import SocialButtons from "./SocialButtons";
  * copyright information. The copyright year automatically updates to the current year.
  */
 const Footer = () => {
-  const theme = useAppTheme();
-  const styles = useStyles({ theme });
+  const theme = useTheme();
 
   return (
-    <footer className={styles.root}>
+    <footer
+      css={{
+        padding: "2.5rem",
+        width: "100%",
+        backgroundColor: theme.colors.backgroundNavigation,
+        color: theme.colors.textNavigation,
+        display: "flex",
+        flexDirection: "column",
+        gap: "1.5rem",
+        alignItems: "center",
+      }}
+    >
       <Logo
         stacked
         href="#top"
@@ -27,31 +39,11 @@ const Footer = () => {
         interactionTextColor={theme.colors.textSecondary}
       />
 
-      <p className={styles.copyrightText}>
+      <p css={{ fontSize: "0.75rem", margin: 0 }}>
         &copy; {getCurrentYear()} {title}
       </p>
     </footer>
   );
 };
-
-/**
- * Creates the footer's styles
- */
-const useStyles = createUseAppStyles({
-  root: {
-    padding: "2.5rem",
-    width: "100%",
-    backgroundColor: (data) => data.theme.colors.backgroundNavigation,
-    color: (data) => data.theme.colors.textNavigation,
-    display: "flex",
-    flexDirection: "column",
-    gap: "1.5rem",
-    alignItems: "center",
-  },
-  copyrightText: {
-    fontSize: "0.75rem",
-    margin: 0,
-  },
-});
 
 export default Footer;

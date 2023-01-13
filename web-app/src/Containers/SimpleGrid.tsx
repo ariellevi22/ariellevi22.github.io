@@ -1,15 +1,53 @@
+/** @jsxImportSource @emotion/react */
+
 import { Property as CSSProperty } from "csstype";
 import { screenSizes } from "../Global";
-import { createUseAppStyles } from "../Theme";
+import { ChildrenProps } from "../Types";
 
 /**
  * A React component representing a container for grid items
  */
-const SimpleGrid = (props: SimpleGridProps) => {
-  const styles = useStyles(props);
+const SimpleGrid = (props: SimpleGridProps) => (
+  <div
+    css={{
+      width: props.width ? props.width : "100%",
+      display: "grid",
+      gap: getGap(props.gap, props.rowGap, props.columnGap),
 
-  return <div className={styles.grid}>{props.children}</div>;
-};
+      // If more than one column, ensure that all rows of the grid are the same height
+      gridAutoRows: getAutoRows("large", props.numColumns, props.justifyRows),
+
+      // Determine the columns for large screens
+      gridTemplateColumns: getColumnTemplate("large", props.numColumns),
+
+      // Determine the columns for medium screens
+      [`@media screen and (max-width: ${screenSizes.medium}px)`]: {
+        gridTemplateColumns: getColumnTemplate("medium", props.numColumns),
+
+        // If more than one column, ensure that all rows of the grid are the same height
+        gridAutoRows: getAutoRows(
+          "medium",
+          props.numColumns,
+          props.justifyRows
+        ),
+      },
+
+      // Determine the columns for small screens
+      [`@media screen and (max-width: ${screenSizes.small}px)`]: {
+        gridTemplateColumns: getColumnTemplate("small", props.numColumns),
+
+        // If more than one column, ensure that all rows of the grid are the same height
+        gridAutoRows: getAutoRows("small", props.numColumns, props.justifyRows),
+      },
+
+      "& :first-child": {
+        gridColumn: props.priority ? "1 / -1" : undefined,
+      },
+    }}
+  >
+    {props.children}
+  </div>
+);
 
 /**
  * Based on the properties for the number of columns, gets the correct number of columns
@@ -125,51 +163,9 @@ const getGap = (
 };
 
 /**
- * Creates the grid's styles
- */
-const useStyles = createUseAppStyles<SimpleGridProps>({
-  grid: {
-    width: (data) => (data.width ? data.width : "100%"),
-    display: "grid",
-    gap: (data) => getGap(data.gap, data.rowGap, data.columnGap),
-
-    // If more than one column, ensure that all rows of the grid are the same height
-    gridAutoRows: (data) =>
-      getAutoRows("large", data.numColumns, data.justifyRows),
-
-    // Determine the columns for large screens
-    gridTemplateColumns: (data) => getColumnTemplate("large", data.numColumns),
-
-    // Determine the columns for medium screens
-    [`@media screen and (max-width: ${screenSizes.medium}px)`]: {
-      gridTemplateColumns: (data) =>
-        getColumnTemplate("medium", data.numColumns),
-
-      // If more than one column, ensure that all rows of the grid are the same height
-      gridAutoRows: (data) =>
-        getAutoRows("medium", data.numColumns, data.justifyRows),
-    },
-
-    // Determine the columns for small screens
-    [`@media screen and (max-width: ${screenSizes.small}px)`]: {
-      gridTemplateColumns: (data) =>
-        getColumnTemplate("small", data.numColumns),
-
-      // If more than one column, ensure that all rows of the grid are the same height
-      gridAutoRows: (data) =>
-        getAutoRows("small", data.numColumns, data.justifyRows),
-    },
-
-    "& :first-child": {
-      gridColumn: (data) => (data.priority ? "1 / -1" : undefined),
-    },
-  },
-});
-
-/**
  * Props for the simple grid component
  */
-type SimpleGridProps = {
+type SimpleGridProps = Required<ChildrenProps> & {
   /** The number of columns the grid should show for differently sized screens */
   numColumns?: ColumnSettings;
 
@@ -190,9 +186,6 @@ type SimpleGridProps = {
 
   /** Whether to equalize the heights of all rows in the grid */
   justifyRows?: boolean;
-
-  /** Contents to place within the grid */
-  children: React.ReactNode;
 };
 
 /**

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { createUseStyles, Styles, useTheme } from "react-jss";
+import { Theme } from "@emotion/react";
 
 // Accent colors
 const accentDark = "#007DA0";
@@ -36,7 +36,7 @@ const transition = `all ${transitionTime}ms ease 0ms`;
 /**
  * The application's light theme
  */
-const lightTheme: AppTheme = {
+const lightTheme: Theme = {
     type: "light",
     colors: {
         accentPrimary: accentDark,
@@ -62,7 +62,7 @@ const lightTheme: AppTheme = {
 /**
  * The application's dark theme
  */
-const darkTheme: AppTheme = {
+const darkTheme: Theme = {
     type: "dark",
     colors: {
         accentPrimary: accentLight,
@@ -86,37 +86,15 @@ const darkTheme: AppTheme = {
 };
 
 /**
- * Gets the theme context for the application
- */
-export const useAppTheme = useTheme<AppTheme>;
-
-/**
- * Creates a `useStyles` function that can be used in a React functional
- * component to get styles with CSS classes
- *
- * @template Props the React component's Props, which can be used for styling
- * @template ClassNames the CSS classes that will be used for these styles
- * @param styles CSS classes and styling
- * @returns a `useStyles` function
- */
-export const createUseAppStyles = <
-    Props = unknown,
-    ClassNames extends string = string
->(
-    styles:
-        | Styles<ClassNames, Props, AppTheme>
-        | ((theme: AppTheme) => Styles<ClassNames, Props>)
-) => createUseStyles<ClassNames, Props, AppTheme>(styles);
-
-/**
  * Provides a theme (light or dark) for the application and a function to toggle the theme,
  * based on the user's OS settings for preferred theme and local storage in the browser
  *
  * @returns a theme for the application and a function to toggle the theme
  */
 export const useThemePreference = () => {
+    const themeStorageLabel = "theme";
+
     const [themeType, setThemeType] = useState("light");
-    const themeLabel = "theme";
 
     /**
      * Toggles the application's theme (changes a dark theme to light and vice versa)
@@ -126,7 +104,7 @@ export const useThemePreference = () => {
         const newThemeType = themeType === "light" ? "dark" : "light";
 
         // Store the theme in local storage
-        window.localStorage.setItem(themeLabel, newThemeType);
+        window.localStorage.setItem(themeStorageLabel, newThemeType);
 
         // Set the theme
         setThemeType(newThemeType);
@@ -140,7 +118,7 @@ export const useThemePreference = () => {
         setThemeType(prefersDarkTheme ? "dark" : "light");
 
         // Get the theme stored in the user's local storage (if there)
-        const localTheme = window.localStorage.getItem(themeLabel);
+        const localTheme = window.localStorage.getItem(themeStorageLabel);
         if (localTheme) {
             // If the user has a previously specified theme stored, set it as their current theme
             setThemeType(localTheme);
@@ -151,34 +129,3 @@ export const useThemePreference = () => {
 
     return { theme, toggleTheme };
 };
-
-/**
- * An interface defining a color palette for the application theme
- */
-interface Palette {
-    accentPrimary: string;
-    accentSecondary: string;
-    accentNavigation: string;
-
-    textPrimary: string;
-    textSecondary: string;
-    textNavigation: string;
-
-    backgroundPrimary: string;
-    backgroundSecondary: string;
-    backgroundTertiary: string;
-    backgroundNavigation: string;
-    backgroundNavigationMenu: string;
-
-    shadow: string;
-}
-
-/**
- * An interface defining theme variables for the application theme
- */
-export interface AppTheme extends Jss.Theme {
-    type: "light" | "dark";
-    colors: Palette;
-    transitionTime: number;
-    transition: string;
-}

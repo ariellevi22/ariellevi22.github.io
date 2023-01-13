@@ -1,42 +1,38 @@
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 
-/**
- * Template for the data of a navigation bar tab
- */
+/** The `children` prop for a React component */
+export type ChildrenProps = {
+    /** Content to place within the component */
+    children?: React.ReactNode;
+};
+
+/** Template for the data of a navigation bar tab */
 export type NavbarTab = {
     label: string;
     href: string;
     openWithNewTab?: boolean;
 };
 
-/**
- * Template for the data of an icon tab or button
- */
+/** Template for the data of an icon tab or button */
 export type IconTab = NavbarTab & {
     icon: IconDefinition;
     colorPrimary?: string;
     colorSecondary?: string;
 };
 
-/**
- * Template for written content (consisting of a heading and body text)
- */
+/** Template for written content (consisting of a heading and body text) */
 type Content = {
     heading: string;
     text: string;
 };
 
-/**
- * Template for main and alternate formatting
- */
+/** Template for main and alternate formatting */
 export type Format = {
     lightTheme: string;
     darkTheme?: string;
 };
 
-/**
- * Base template for experience, education, and portfolio data types
- */
+/** Base template for experience, education, and portfolio data types */
 type Item = {
     id: string;
     logo: Format;
@@ -44,9 +40,7 @@ type Item = {
     photo: string;
 };
 
-/**
- * Template for education data
- */
+/** Template for education data */
 export type EducationItem = Item & {
     school: string;
     degree: string;
@@ -57,9 +51,7 @@ export type EducationItem = Item & {
     additionalInfo?: Content[];
 };
 
-/**
- * Template for experience data
- */
+/** Template for experience data */
 export type ExperienceItem = Item & {
     title: string;
     organization: string;
@@ -71,9 +63,7 @@ export type ExperienceItem = Item & {
     technologies?: string[];
 };
 
-/**
- * Template for portfolio data
- */
+/** Template for portfolio data */
 export type PortfolioItem = Item & {
     title: string;
     description: string;
