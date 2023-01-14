@@ -6,19 +6,26 @@ import IconButtonGroup from "./IconButtonGroup";
 
 /** A component for a group of social buttons */
 const SocialButtons = (props: SocialButtonsProps) => {
+  const {
+    backgroundColor,
+    textColor,
+    interactionBackgroundColor,
+    interactionTextColor,
+  } = props;
+
   return (
     <IconButtonGroup>
       {socialTabs.map((socialTab) => {
         return (
           <IconButton
             icon={socialTab.icon}
-            backgroundColor={props.backgroundColor}
-            textColor={props.textColor}
+            backgroundColor={backgroundColor}
+            textColor={textColor}
             interactionBackgroundColor={
-              socialTab.colorPrimary ?? props.interactionBackgroundColor
+              socialTab.colorPrimary ?? interactionBackgroundColor
             }
             interactionTextColor={
-              socialTab.colorSecondary ?? props.interactionTextColor
+              socialTab.colorSecondary ?? interactionTextColor
             }
             href={socialTab.href}
             openWithNewTab

@@ -5,19 +5,23 @@ import { navbarHeight } from "../Global";
 import { ChildrenProps } from "../Types";
 
 /** A container for a section of the app */
-const Section = (props: SectionProps) => (
-  <section
-    id={props.id}
-    css={{
-      paddingTop: `${navbarHeight + 0.5}rem`,
-      "&:last-child": {
-        paddingBottom: `${navbarHeight + 0.5}rem`,
-      },
-    }}
-  >
-    <Container>{props.children}</Container>
-  </section>
-);
+const Section = (props: SectionProps) => {
+  const { id, children } = props;
+
+  return (
+    <section
+      id={id}
+      css={{
+        paddingTop: `${navbarHeight + 0.5}rem`,
+        "&:last-child": {
+          paddingBottom: `${navbarHeight + 0.5}rem`,
+        },
+      }}
+    >
+      <Container>{children}</Container>
+    </section>
+  );
+};
 
 /** Props for the section component */
 type SectionProps = ChildrenProps & {

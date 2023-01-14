@@ -11,22 +11,24 @@ import LogoIcon from "./LogoIcon";
  * which can optionally link to a website or part of the app when clicked
  */
 const Logo = (props: LogoProps) => {
+  const { href, stacked, color, interactionColor, onClick } = props;
+
   const theme = useTheme();
 
   const containerStyles: CSSObject = {
     display: "flex",
-    flexDirection: props.stacked ? "column" : "row",
+    flexDirection: stacked ? "column" : "row",
     flexWrap: "nowrap",
     alignItems: "center",
-    gap: props.stacked ? "0.5rem" : "1rem",
+    gap: stacked ? "0.5rem" : "1rem",
   };
 
   const logoBase = (
     <>
-      <LogoIcon color={props.color} aria-hidden />
+      <LogoIcon color={color} aria-hidden />
       <p
         css={{
-          color: props.color ? props.color : "inherit",
+          color: color ?? "inherit",
           fontSize: "1.5rem",
           padding: 0,
           margin: 0,
@@ -35,7 +37,7 @@ const Logo = (props: LogoProps) => {
 
           // Hide the text on tiny screens (if not stacked)
           [`@media screen and (max-width: ${screenSizes.tiny}px)`]: {
-            display: props.stacked ? undefined : "none",
+            display: stacked ? undefined : "none",
           },
         }}
       >
@@ -44,39 +46,39 @@ const Logo = (props: LogoProps) => {
     </>
   );
 
-  if (props.href) {
+  if (href) {
     const linkStyles: CSSObject = {
       textDecoration: "none",
       "@media (hover: hover) and (pointer: fine)": {
         "&:hover svg": {
-          color: props.interactionColor ?? theme.colors.accentPrimary,
+          color: interactionColor ?? theme.colors.accentPrimary,
           transform: `scale(${1 + scaleFactors.tiny})`,
         },
         "&:hover p": {
-          color: props.interactionColor ?? theme.colors.accentPrimary,
+          color: interactionColor ?? theme.colors.accentPrimary,
         },
       },
       "&:focus-visible svg": {
-        color: props.interactionColor ?? theme.colors.accentPrimary,
+        color: interactionColor ?? theme.colors.accentPrimary,
         transform: `scale(${1 + scaleFactors.tiny})`,
       },
       "&:active svg": {
         transform: `scale(${1 - scaleFactors.tiny})`,
       },
       "&:focus-visible p": {
-        color: props.interactionColor ?? theme.colors.accentPrimary,
+        color: interactionColor ?? theme.colors.accentPrimary,
       },
     };
 
     // If an address was provided for the logo to link to, add it
     return (
-      <Link href={props.href} css={{ ...containerStyles, ...linkStyles }}>
+      <Link href={href} css={{ ...containerStyles, ...linkStyles }}>
         {logoBase}
       </Link>
     );
   } else {
     return (
-      <div css={containerStyles} onClick={props.onClick}>
+      <div css={containerStyles} onClick={onClick}>
         {logoBase}
       </div>
     );

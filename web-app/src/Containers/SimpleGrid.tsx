@@ -6,37 +6,48 @@ import { ChildrenProps } from "../Types";
 
 /** A container for grid items */
 const SimpleGrid = (props: SimpleGridProps) => {
-  const numColumns = getNumColumns(props.numColumns);
+  const {
+    width,
+    gap,
+    rowGap,
+    columnGap,
+    numColumns,
+    justifyRows,
+    priority,
+    children,
+  } = props;
+
+  const adjustedNumColumns = getNumColumns(numColumns);
 
   return (
     <div
       css={{
-        width: props.width ? props.width : "100%",
+        width: width ?? "100%",
         display: "grid",
-        gap: getGap(props.gap, props.rowGap, props.columnGap),
+        gap: getGap(gap, rowGap, columnGap),
 
         // Determine the rows/columns for large screens
-        gridTemplateColumns: getColumnTemplate("large", numColumns),
-        gridAutoRows: getAutoRows("large", numColumns, props.justifyRows),
+        gridTemplateColumns: getColumnTemplate("large", adjustedNumColumns),
+        gridAutoRows: getAutoRows("large", adjustedNumColumns, justifyRows),
 
         // Determine the rows/columns for medium screens
         [`@media screen and (max-width: ${screenSizes.medium}px)`]: {
-          gridTemplateColumns: getColumnTemplate("medium", numColumns),
-          gridAutoRows: getAutoRows("medium", numColumns, props.justifyRows),
+          gridTemplateColumns: getColumnTemplate("medium", adjustedNumColumns),
+          gridAutoRows: getAutoRows("medium", adjustedNumColumns, justifyRows),
         },
 
         // Determine the rows/columns for small screens
         [`@media screen and (max-width: ${screenSizes.small}px)`]: {
-          gridTemplateColumns: getColumnTemplate("small", numColumns),
-          gridAutoRows: getAutoRows("small", numColumns, props.justifyRows),
+          gridTemplateColumns: getColumnTemplate("small", adjustedNumColumns),
+          gridAutoRows: getAutoRows("small", adjustedNumColumns, justifyRows),
         },
 
         "& div:first-of-type": {
-          gridColumn: props.priority ? "1 / -1" : undefined,
+          gridColumn: priority ? "1 / -1" : undefined,
         },
       }}
     >
-      {props.children}
+      {children}
     </div>
   );
 };

@@ -5,6 +5,8 @@ import { ChildrenProps } from "../Types";
 
 /** A component for a display card */
 const Card = (props: CardProps) => {
+  const { color, logoSrc, logoAlt, imgSrc, imgAlt, children } = props;
+
   const theme = useTheme();
 
   return (
@@ -14,15 +16,15 @@ const Card = (props: CardProps) => {
         backgroundColor: theme.colors.backgroundSecondary,
         borderRadius: borderRadius,
         borderLeft: `${borderRadius} solid ${
-          props.color ? props.color : theme.colors.accentPrimary
+          color ?? theme.colors.accentPrimary
         }`,
         boxShadow: `0 0.2em 0.5em 0 ${theme.colors.shadow}`,
       }}
     >
-      {props.imgSrc && (
+      {imgSrc && (
         <img
-          src={props.imgSrc}
-          alt={props.imgAlt ? props.imgAlt : ""}
+          src={imgSrc}
+          alt={imgAlt ?? ""}
           css={{
             width: "100%",
             height: "12.5rem",
@@ -41,14 +43,14 @@ const Card = (props: CardProps) => {
           },
         }}
       >
-        {props.logoSrc && (
+        {logoSrc && (
           <img
-            src={props.logoSrc}
-            alt={props.logoAlt ? props.logoAlt : ""}
+            src={logoSrc}
+            alt={logoAlt ?? ""}
             css={{ height: "2rem", marginBottom: borderRadius }}
           />
         )}
-        {props.children}
+        {children}
       </div>
     </div>
   );

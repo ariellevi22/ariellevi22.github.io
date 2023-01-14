@@ -8,16 +8,21 @@ import { useTheme } from "@emotion/react";
  * and the functionality to easily open the link in a new tab
  */
 const Link = (props: LinkProps) => {
-  const { openWithNewTab, removeUnderline, interactionColor, ...anchorProps } =
-    props;
+  const {
+    openWithNewTab,
+    removeUnderline,
+    interactionColor,
+    children,
+    ...anchorProps
+  } = props;
 
   const theme = useTheme();
 
   return (
     <a
       {...anchorProps}
-      target={props.openWithNewTab ? "_blank" : undefined}
-      rel={props.openWithNewTab ? "noopener noreferrer" : undefined}
+      target={openWithNewTab ? "_blank" : undefined}
+      rel={openWithNewTab ? "noopener noreferrer" : undefined}
       css={{
         color: "inherit",
         cursor: "pointer",
@@ -35,7 +40,7 @@ const Link = (props: LinkProps) => {
         },
       }}
     >
-      {props.children}
+      {children}
     </a>
   );
 };

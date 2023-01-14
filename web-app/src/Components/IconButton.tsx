@@ -6,16 +6,17 @@ import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 
 /** A component for a button with an icon, such as a social button */
 const IconButton = (props: IconButtonProps) => {
-  const { icon, ...buttonBaseProps } = props;
+  const { icon, isTransparent, ...buttonBaseProps } = props;
 
   return (
     <ButtonBase
       {...buttonBaseProps}
+      isTransparent={isTransparent}
       css={{
-        borderRadius: buttonBaseProps.isTransparent ? undefined : "50%",
-        padding: buttonBaseProps.isTransparent ? 0 : undefined,
-        width: buttonBaseProps.isTransparent ? undefined : "2.25em",
-        height: buttonBaseProps.isTransparent ? undefined : "2.25em",
+        borderRadius: isTransparent ? undefined : "50%",
+        padding: isTransparent ? 0 : undefined,
+        width: isTransparent ? undefined : "2.25em",
+        height: isTransparent ? undefined : "2.25em",
         display: "inline-flex",
         alignItems: "center",
         justifyContent: "center",

@@ -73,19 +73,19 @@ const ButtonBase = (props: ButtonBaseProps) => {
     return (
       <Link
         {...otherProps}
-        href={props.href}
+        href={href}
         role="button"
         openWithNewTab={openWithNewTab}
         css={styles}
       >
-        {props.children}
+        {children}
       </Link>
     );
   } else {
     // If the button does not need to link anywhere, return a styled button
     return (
       <button {...otherProps} css={styles}>
-        {props.children}
+        {children}
       </button>
     );
   }

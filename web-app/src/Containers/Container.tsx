@@ -5,6 +5,8 @@ import { ChildrenProps } from "../Types";
 
 /** A container for app content */
 const Container = (props: ContainerProps) => {
+  const { children } = props;
+
   return (
     <div
       css={{
@@ -16,7 +18,7 @@ const Container = (props: ContainerProps) => {
         },
       }}
     >
-      {props.children}
+      {children}
     </div>
   );
 };

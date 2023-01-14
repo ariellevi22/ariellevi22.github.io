@@ -17,6 +17,8 @@ import {
 
 /** A component for the website's navigation bar */
 const Navbar = (props: NavbarProps) => {
+  const { toggleTheme } = props;
+
   const theme = useTheme();
 
   // Keep track of whether the navigation bar menu (shown on small screens instead
@@ -60,12 +62,12 @@ const Navbar = (props: NavbarProps) => {
           );
         })}
 
-      {props.toggleTheme && (
+      {toggleTheme && (
         <IconButton
           isTransparent
           interactionTextColor={theme.colors.accentNavigation}
           icon={theme.type === "light" ? faMoon : faSun}
-          onClick={props.toggleTheme}
+          onClick={toggleTheme}
           aria-label={`Change to ${
             theme.type === "light" ? "dark" : "light"
           } theme`}
