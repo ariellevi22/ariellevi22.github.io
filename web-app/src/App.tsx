@@ -11,9 +11,7 @@ import { CssBaseline, useThemePreference } from "./Theme";
 import Portfolio from "./Views/Portfolio";
 import { ThemeProvider } from "@emotion/react";
 
-/**
- * A React web app for Ariel Levi's personal website
- */
+/** A web app for Ariel Levi's personal website */
 const App = () => {
   const { theme, toggleTheme } = useThemePreference();
 
