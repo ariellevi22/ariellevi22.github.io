@@ -4,6 +4,7 @@ import React from "react";
 import { scaleFactors } from "../Global";
 import Link from "./Link";
 import { CSSObject, useTheme } from "@emotion/react";
+import { transition } from "../Theme";
 
 /**
  * A simple wrapper component for an HTML `<button>`, extended
@@ -43,7 +44,7 @@ const ButtonBase = (props: ButtonBaseProps) => {
     color: isTransparent ? "inherit" : textColor ?? theme.colors.textSecondary,
     border: "none",
     boxShadow: getShadow(theme.colors.shadow, isTransparent),
-    transition: theme.transition(
+    transition: transition(
       "color",
       "backgroundColor",
       "transform",

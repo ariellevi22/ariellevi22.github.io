@@ -5,6 +5,7 @@ import { CSSObject, useTheme } from "@emotion/react";
 import { title, scaleFactors, screenSizes } from "../Global";
 import Link from "./Link";
 import LogoIcon from "./LogoIcon";
+import { transition } from "../Theme";
 
 /**
  * A component for the application's logo (including the icon and text),
@@ -32,7 +33,7 @@ const Logo = (props: LogoProps) => {
           fontSize: "1.5rem",
           padding: 0,
           margin: 0,
-          transition: theme.transition("color"),
+          transition: transition("color"),
           whiteSpace: "nowrap",
 
           // Hide the text on tiny screens (if not stacked)

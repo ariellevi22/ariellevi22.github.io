@@ -14,6 +14,7 @@ import {
   faMoon,
   faSun,
 } from "@fortawesome/free-solid-svg-icons";
+import { transition } from "../Theme";
 
 /** A component for the website's navigation bar */
 const Navbar = (props: NavbarProps) => {
@@ -143,18 +144,18 @@ const Navbar = (props: NavbarProps) => {
         {({ css }) => (
           <CSSTransition
             in={isMenuOpen}
-            timeout={theme.transitionTime}
+            timeout={theme.transitionDuration}
             classNames={{
               enter: css(menuHiddenStyle),
               enterActive: css({
                 ...menuVisibleStyle,
-                transition: theme.transition("opacity", "width"),
+                transition: transition("opacity", "width"),
               }),
               enterDone: css(menuVisibleStyle),
               exit: css(menuVisibleStyle),
               exitActive: css({
                 ...menuHiddenStyle,
-                transition: theme.transition("opacity", "width"),
+                transition: transition("opacity", "width"),
               }),
               exitDone: css(menuHiddenStyle),
             }}

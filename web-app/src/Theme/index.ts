@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Theme } from "@emotion/react";
+import { Theme, useTheme } from "@emotion/react";
 import CssBaseline from "./CssBaseline";
 import { CSSProperties } from "react";
 
@@ -29,31 +29,6 @@ const shadowDark = "rgba(0, 0, 0, 0.35)";
 const transitionTime = 250;
 
 /**
- * Constructs the default CSS transition for elements in the application
- *
- * @param properties CSS properties to apply the transition to (`all` by default)
- * @returns the CSS transition for the given properties
- */
-const transition = (...properties: (keyof CSSProperties)[]) => {
-    const cssProperties = [...properties];
-    if (cssProperties.length === 0) {
-        cssProperties.push("all");
-    }
-
-    return cssProperties
-        .map((property) => {
-            // Convert property to kebab case
-            const propertyCssCase = property
-                .replace(/([A-Z])/g, "-$1")
-                .replace(/[\s_]+/g, "-")
-                .toLowerCase();
-
-            return `${propertyCssCase} ${transitionTime}ms ease 0ms`;
-        })
-        .join(", ");
-};
-
-/**
  * The application's light theme
  */
 const lightTheme: Theme = {
@@ -75,8 +50,7 @@ const lightTheme: Theme = {
 
         shadow: shadowLight,
     },
-    transitionTime,
-    transition,
+    transitionDuration: transitionTime,
 };
 
 /**
@@ -101,8 +75,7 @@ const darkTheme: Theme = {
 
         shadow: shadowDark,
     },
-    transitionTime,
-    transition,
+    transitionDuration: transitionTime,
 };
 
 /**
@@ -148,6 +121,33 @@ export const useThemePreference = () => {
     const theme = themeType === "dark" ? darkTheme : lightTheme;
 
     return { theme, toggleTheme };
+};
+
+/**
+ * Constructs the default CSS transition for elements in the application
+ *
+ * @param properties CSS properties to apply the transition to (`all` by default)
+ * @returns the CSS transition for the given properties
+ */
+export const transition = (...properties: (keyof CSSProperties)[]) => {
+    const { transitionDuration } = useTheme();
+
+    const cssProperties = [...properties];
+    if (cssProperties.length === 0) {
+        cssProperties.push("all");
+    }
+
+    return cssProperties
+        .map((property) => {
+            // Convert property to kebab case
+            const propertyCssCase = property
+                .replace(/([A-Z])/g, "-$1")
+                .replace(/[\s_]+/g, "-")
+                .toLowerCase();
+
+            return `${propertyCssCase} ${transitionDuration ?? 0}ms ease 0ms`;
+        })
+        .join(", ");
 };
 
 export { CssBaseline };

@@ -1,21 +1,19 @@
 /** @jsxImportSource @emotion/react */
 
-import { useTheme } from "@emotion/react";
 import { ReactComponent as LogoSvg } from "../Assets/Logo.svg";
+import { transition } from "../Theme";
 
 /**
  * A component for the application logo's icon (the logo without the text),
  * which can have its color changed using the `color` property
  */
 const LogoIcon = (props: LogoIconProps) => {
-  const theme = useTheme();
-
   return (
     <LogoSvg
       {...props}
       css={{
         height: "2.25rem",
-        transition: theme.transition("color", "transform"),
+        transition: transition("color", "transform"),
       }}
     />
   );
