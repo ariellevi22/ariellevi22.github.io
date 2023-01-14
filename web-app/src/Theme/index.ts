@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
-import { createUseStyles, Styles, useTheme } from "react-jss";
+import { Theme, useTheme } from "@emotion/react";
+import CssBaseline from "./CssBaseline";
+import { CSSProperties } from "react";
 
 // Accent colors
 const accentDark = "#007DA0";
@@ -23,20 +25,13 @@ const navigationMenuBackground = "#004B69";
 const shadowLight = "rgba(0, 0, 0, 0.15)";
 const shadowDark = "rgba(0, 0, 0, 0.35)";
 
-/**
- * The default CSS transition time for elements of the application
- */
+/** The default CSS transition time for elements in the application (in milliseconds) */
 const transitionTime = 250;
-
-/**
- * The default CSS transition for elements of the application
- */
-const transition = `all ${transitionTime}ms ease 0ms`;
 
 /**
  * The application's light theme
  */
-const lightTheme: AppTheme = {
+const lightTheme: Theme = {
     type: "light",
     colors: {
         accentPrimary: accentDark,
@@ -55,14 +50,13 @@ const lightTheme: AppTheme = {
 
         shadow: shadowLight,
     },
-    transitionTime: transitionTime,
-    transition: transition,
+    transitionDuration: transitionTime,
 };
 
 /**
  * The application's dark theme
  */
-const darkTheme: AppTheme = {
+const darkTheme: Theme = {
     type: "dark",
     colors: {
         accentPrimary: accentLight,
@@ -81,32 +75,8 @@ const darkTheme: AppTheme = {
 
         shadow: shadowDark,
     },
-    transitionTime: transitionTime,
-    transition: transition,
+    transitionDuration: transitionTime,
 };
-
-/**
- * Gets the theme context for the application
- */
-export const useAppTheme = useTheme<AppTheme>;
-
-/**
- * Creates a `useStyles` function that can be used in a React functional
- * component to get styles with CSS classes
- *
- * @template Props the React component's Props, which can be used for styling
- * @template ClassNames the CSS classes that will be used for these styles
- * @param styles CSS classes and styling
- * @returns a `useStyles` function
- */
-export const createUseAppStyles = <
-    Props = unknown,
-    ClassNames extends string = string
->(
-    styles:
-        | Styles<ClassNames, Props, AppTheme>
-        | ((theme: AppTheme) => Styles<ClassNames, Props>)
-) => createUseStyles<ClassNames, Props, AppTheme>(styles);
 
 /**
  * Provides a theme (light or dark) for the application and a function to toggle the theme,
@@ -115,8 +85,9 @@ export const createUseAppStyles = <
  * @returns a theme for the application and a function to toggle the theme
  */
 export const useThemePreference = () => {
+    const themeStorageLabel = "theme";
+
     const [themeType, setThemeType] = useState("light");
-    const themeLabel = "theme";
 
     /**
      * Toggles the application's theme (changes a dark theme to light and vice versa)
@@ -126,7 +97,7 @@ export const useThemePreference = () => {
         const newThemeType = themeType === "light" ? "dark" : "light";
 
         // Store the theme in local storage
-        window.localStorage.setItem(themeLabel, newThemeType);
+        window.localStorage.setItem(themeStorageLabel, newThemeType);
 
         // Set the theme
         setThemeType(newThemeType);
@@ -140,7 +111,7 @@ export const useThemePreference = () => {
         setThemeType(prefersDarkTheme ? "dark" : "light");
 
         // Get the theme stored in the user's local storage (if there)
-        const localTheme = window.localStorage.getItem(themeLabel);
+        const localTheme = window.localStorage.getItem(themeStorageLabel);
         if (localTheme) {
             // If the user has a previously specified theme stored, set it as their current theme
             setThemeType(localTheme);
@@ -153,32 +124,30 @@ export const useThemePreference = () => {
 };
 
 /**
- * An interface defining a color palette for the application theme
+ * Constructs the default CSS transition for elements in the application
+ *
+ * @param properties CSS properties to apply the transition to (`all` by default)
+ * @returns the CSS transition for the given properties
  */
-interface Palette {
-    accentPrimary: string;
-    accentSecondary: string;
-    accentNavigation: string;
+export const transition = (...properties: (keyof CSSProperties)[]) => {
+    const { transitionDuration } = useTheme();
 
-    textPrimary: string;
-    textSecondary: string;
-    textNavigation: string;
+    const cssProperties = [...properties];
+    if (cssProperties.length === 0) {
+        cssProperties.push("all");
+    }
 
-    backgroundPrimary: string;
-    backgroundSecondary: string;
-    backgroundTertiary: string;
-    backgroundNavigation: string;
-    backgroundNavigationMenu: string;
+    return cssProperties
+        .map((property) => {
+            // Convert property to kebab case
+            const propertyCssCase = property
+                .replace(/([A-Z])/g, "-$1")
+                .replace(/[\s_]+/g, "-")
+                .toLowerCase();
 
-    shadow: string;
-}
+            return `${propertyCssCase} ${transitionDuration ?? 0}ms ease 0ms`;
+        })
+        .join(", ");
+};
 
-/**
- * An interface defining theme variables for the application theme
- */
-export interface AppTheme extends Jss.Theme {
-    type: "light" | "dark";
-    colors: Palette;
-    transitionTime: number;
-    transition: string;
-}
+export { CssBaseline };

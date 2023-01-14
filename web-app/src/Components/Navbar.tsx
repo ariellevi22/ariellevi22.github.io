@@ -1,6 +1,8 @@
+/** @jsxImportSource @emotion/react */
+
 import { useState } from "react";
+import { ClassNames, useTheme } from "@emotion/react";
 import { navbarHeight, screenSizes } from "../Global";
-import { createUseAppStyles, useAppTheme } from "../Theme";
 import IconButton from "./IconButton";
 import Link from "./Link";
 import Logo from "./Logo";
@@ -12,19 +14,20 @@ import {
   faMoon,
   faSun,
 } from "@fortawesome/free-solid-svg-icons";
+import { transition } from "../Theme";
 
-/**
- * A React component for the website's navigation bar
- */
+/** A component for the website's navigation bar */
 const Navbar = (props: NavbarProps) => {
-  const theme = useAppTheme();
-  const styles = useStyles({ ...props, theme });
+  const { toggleTheme } = props;
 
-  /*
-   * Keep track of whether the navigation bar menu (shown on small screens instead
-   * of the full navigation bar) is open (true) or closed (false). Initially, it is closed.
-   */
+  const theme = useTheme();
+
+  // Keep track of whether the navigation bar menu (shown on small screens instead
+  // of the full navigation bar) is open or closed (initially closed)
   const [isMenuOpen, setMenuOpen] = useState(false);
+
+  const menuHiddenStyle = { opacity: 0, width: 0 };
+  const menuVisibleStyle = { opacity: 1, width: menuWidth };
 
   // Create the display for the navigation bar tabs
   const tabs = (
@@ -44,7 +47,7 @@ const Navbar = (props: NavbarProps) => {
       })}
 
       {socialTabs
-        .filter((socialTab) => socialTab.label !== "Email")
+        .filter((socialTab) => socialTab.label.toLowerCase() !== "email")
         .map((iconTab) => {
           return (
             <IconButton
@@ -60,12 +63,12 @@ const Navbar = (props: NavbarProps) => {
           );
         })}
 
-      {props.toggleTheme && (
+      {toggleTheme && (
         <IconButton
           isTransparent
           interactionTextColor={theme.colors.accentNavigation}
           icon={theme.type === "light" ? faMoon : faSun}
-          onClick={props.toggleTheme}
+          onClick={toggleTheme}
           aria-label={`Change to ${
             theme.type === "light" ? "dark" : "light"
           } theme`}
@@ -75,10 +78,27 @@ const Navbar = (props: NavbarProps) => {
     </>
   );
 
-  // Display the navigation bar
   return (
     <nav>
-      <div className={styles.navbar}>
+      <div
+        css={{
+          padding: "1rem 2.5rem",
+          top: 0,
+          width: "100%",
+          height: `${navbarHeight}em`,
+          position: "fixed",
+          zIndex: 10,
+          backgroundColor: theme.colors.backgroundNavigation,
+          color: theme.colors.textNavigation,
+          display: "flex",
+          justifyContent: "space-between",
+          flexWrap: "wrap",
+          alignContent: "center",
+          alignItems: "center",
+          gap: "1rem",
+          overflow: "hidden",
+        }}
+      >
         <Logo
           href="#top"
           onClick={() => setMenuOpen(false)}
@@ -89,121 +109,89 @@ const Navbar = (props: NavbarProps) => {
           isTransparent
           interactionTextColor={theme.colors.accentNavigation}
           icon={isMenuOpen ? faClose : faBars}
-          onClick={() => setMenuOpen(!isMenuOpen)}
-          className={styles.menuButton}
+          onClick={() => setMenuOpen((isMenuOpen) => !isMenuOpen)}
+          css={{
+            display: "none",
+            [`@media screen and (max-width: ${screenSizes.small}px)`]: {
+              display: "block",
+            },
+          }}
           aria-label={`${isMenuOpen ? "Close" : "Open"} Menu`}
           title={`${isMenuOpen ? "Close" : "Open"} Menu`}
         />
 
-        <div className={styles.tabs}>{tabs}</div>
-      </div>
+        <div
+          css={{
+            display: "flex",
+            gap: "1.5rem",
+            flexWrap: "wrap",
+            alignItems: "center",
+            width: "auto",
+            height: "auto",
+            overflow: "hidden",
 
-      <CSSTransition
-        in={isMenuOpen}
-        timeout={theme.transitionTime}
-        classNames={{
-          enter: styles.menuEnter,
-          enterActive: styles.menuEnterActive,
-          exit: styles.menuExit,
-          exitActive: styles.menuExitActive,
-        }}
-        unmountOnExit
-      >
-        <div className={styles.menu} onClick={() => setMenuOpen(false)}>
+            // On small screens, hide the tabs
+            [`@media screen and (max-width: ${screenSizes.small}px)`]: {
+              display: "none",
+            },
+          }}
+        >
           {tabs}
         </div>
-      </CSSTransition>
+      </div>
+
+      <ClassNames>
+        {({ css }) => (
+          <CSSTransition
+            in={isMenuOpen}
+            timeout={theme.transitionDuration}
+            classNames={{
+              enter: css(menuHiddenStyle),
+              enterActive: css({
+                ...menuVisibleStyle,
+                transition: transition("opacity", "width"),
+              }),
+              enterDone: css(menuVisibleStyle),
+              exit: css(menuVisibleStyle),
+              exitActive: css({
+                ...menuHiddenStyle,
+                transition: transition("opacity", "width"),
+              }),
+              exitDone: css(menuHiddenStyle),
+            }}
+            unmountOnExit
+          >
+            <div
+              css={{
+                // Only show the menu on small screens
+                display: "none",
+                [`@media screen and (max-width: ${screenSizes.small}px)`]: {
+                  display: "flex",
+                  position: "fixed",
+                  right: 0,
+                  height: `calc(100% - ${navbarHeight}rem)`,
+                  zIndex: 9,
+                  padding: "8rem 2.5rem",
+                  backgroundColor: theme.colors.backgroundNavigationMenu,
+                  color: theme.colors.textNavigation,
+                  gap: "1rem",
+                  flexDirection: "column",
+                  alignItems: "flex-end", // right align
+                  justifyContent: "space-evenly",
+                },
+              }}
+              onClick={() => setMenuOpen(false)}
+            >
+              {tabs}
+            </div>
+          </CSSTransition>
+        )}
+      </ClassNames>
     </nav>
   );
 };
 
 const menuWidth = "80vw";
-
-/**
- * Creates the navigation bar's styles
- */
-const useStyles = createUseAppStyles<NavbarProps>({
-  navbar: (data) => ({
-    padding: "1rem 2.5rem",
-    top: 0,
-    width: "100%",
-    height: `${navbarHeight}em`,
-    position: "fixed",
-    zIndex: 10,
-    backgroundColor: data.theme.colors.backgroundNavigation,
-    color: data.theme.colors.textNavigation,
-    display: "flex",
-    justifyContent: "space-between",
-    flexWrap: "wrap",
-    alignContent: "center",
-    alignItems: "center",
-    gap: "1rem",
-    overflow: "hidden",
-  }),
-
-  tabs: {
-    display: "flex",
-    gap: "1.5rem",
-    flexWrap: "wrap",
-    alignItems: "center",
-    width: "auto",
-    height: "auto",
-    overflow: "hidden",
-
-    // On small screens, hide the tabs
-    [`@media screen and (max-width: ${screenSizes.small}px)`]: {
-      display: "none",
-    },
-  },
-
-  menu: {
-    // Only show the menu on small screens
-    [`@media screen and (max-width: ${screenSizes.small}px)`]: {
-      display: "flex",
-      position: "fixed",
-      right: 0,
-      width: menuWidth,
-      height: `calc(100% - ${navbarHeight}rem)`,
-      zIndex: 9,
-      padding: "8rem 2.5rem",
-      backgroundColor: (data) => data.theme.colors.backgroundNavigationMenu,
-      color: (data) => data.theme.colors.textNavigation,
-      gap: "1rem",
-      flexDirection: "column",
-      alignItems: "flex-end", // right align
-      justifyContent: "space-evenly",
-    },
-  },
-
-  menuEnter: {
-    opacity: 0,
-    width: 0,
-  },
-
-  menuEnterActive: {
-    opacity: 1,
-    width: menuWidth,
-    transition: (data) => data.theme.transition,
-  },
-
-  menuExit: {
-    opacity: 1,
-    width: menuWidth,
-  },
-
-  menuExitActive: {
-    opacity: 0,
-    width: 0,
-    transition: (data) => data.theme.transition,
-  },
-
-  menuButton: {
-    display: ["none", "!important"],
-    [`@media screen and (max-width: ${screenSizes.small}px)`]: {
-      display: ["block", "!important"],
-    },
-  },
-});
 
 /**
  * Props for the navigation bar component

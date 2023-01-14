@@ -1,31 +1,56 @@
-import { createUseAppStyles, useAppTheme } from "../Theme";
+/** @jsxImportSource @emotion/react */
 
-/**
- * A React component representing a card
- */
+import { useTheme } from "@emotion/react";
+import { ChildrenProps } from "../Types";
+
+/** A component for a display card */
 const Card = (props: CardProps) => {
-  const theme = useAppTheme();
-  const styles = useStyles({ ...props, theme });
+  const { color, logoSrc, logoAlt, imgSrc, imgAlt, children } = props;
+
+  const theme = useTheme();
 
   return (
-    <div className={styles.card}>
-      {props.imgSrc && (
+    <div
+      css={{
+        width: "100%",
+        backgroundColor: theme.colors.backgroundSecondary,
+        borderRadius: borderRadius,
+        borderLeft: `${borderRadius} solid ${
+          color ?? theme.colors.accentPrimary
+        }`,
+        boxShadow: `0 0.2em 0.5em 0 ${theme.colors.shadow}`,
+      }}
+    >
+      {imgSrc && (
         <img
-          src={props.imgSrc}
-          alt={props.imgAlt ? props.imgAlt : ""}
-          className={styles.coverPhoto}
+          src={imgSrc}
+          alt={imgAlt ?? ""}
+          css={{
+            width: "100%",
+            height: "12.5rem",
+            objectFit: "cover",
+            borderRadius: `0 ${borderRadius} 0 0`,
+          }}
         />
       )}
 
-      <div className={styles.innerContainer}>
-        {props.logoSrc && (
+      <div
+        css={{
+          width: "100%",
+          padding: "2rem",
+          "& > :last-child": {
+            marginBottom: 0,
+          },
+        }}
+      >
+        {logoSrc && (
           <img
-            src={props.logoSrc}
-            alt={props.logoAlt ? props.logoAlt : ""}
-            className={styles.logo}
+            src={logoSrc}
+            alt={logoAlt ?? ""}
+            css={{ height: "2rem", marginBottom: borderRadius }}
           />
         )}
-        {props.children}
+        {children}
       </div>
     </div>
   );
@@ -33,46 +58,8 @@ const Card = (props: CardProps) => {
 
 const borderRadius = "0.5rem";
 
-/**
- * Creates the card's styles
- */
-const useStyles = createUseAppStyles<CardProps>({
-  card: {
-    width: "100%",
-    backgroundColor: (data) => data.theme.colors.backgroundSecondary,
-    borderRadius: borderRadius,
-    borderLeft: (data) =>
-      `${borderRadius} solid ${
-        data.color ? data.color : data.theme.colors.accentPrimary
-      }`,
-    boxShadow: (data) => `0 0.2em 0.5em 0 ${data.theme.colors.shadow}`,
-  },
-
-  innerContainer: {
-    width: "100%",
-    padding: "2rem",
-    "& > :last-child": {
-      marginBottom: 0,
-    },
-  },
-
-  logo: {
-    height: "2rem",
-    marginBottom: borderRadius,
-  },
-
-  coverPhoto: {
-    width: "100%",
-    height: "12.5rem",
-    objectFit: "cover",
-    borderRadius: `0 ${borderRadius} 0 0`,
-  },
-});
-
-/**
- * Props for the card component
- */
-type CardProps = {
+/** Props for the card component */
+type CardProps = ChildrenProps & {
   /** The card's accent color */
   color?: string;
 
@@ -87,9 +74,6 @@ type CardProps = {
 
   /** Alt text for the card image */
   imgAlt?: string;
-
-  /** Any additional content to place in the card */
-  children: React.ReactNode;
 };
 
 export default Card;

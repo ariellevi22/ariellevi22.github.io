@@ -1,64 +1,59 @@
+/** @jsxImportSource @emotion/react */
+
 import React from "react";
-import { createUseAppStyles, useAppTheme } from "../Theme";
+import { useTheme } from "@emotion/react";
+import { transition } from "../Theme";
 
 /**
- * A React component that wraps the HTML `<a>` tag to include proper styling (based on the theme)
- * and the functionality to easily open the link in a new tab if desired
+ * A wrapper component for the HTML anchor `<a>` that includes proper styling
+ * and the functionality to easily open the link in a new tab
  */
 const Link = (props: LinkProps) => {
-  const theme = useAppTheme();
-  const styles = useStyles({ ...props, theme });
+  const {
+    openWithNewTab,
+    removeUnderline,
+    interactionColor,
+    children,
+    ...anchorProps
+  } = props;
 
-  const { openWithNewTab, removeUnderline, interactionColor, ...anchorProps } =
-    props;
-
-  const linkClasses = [styles.root];
-  if (props.className) {
-    linkClasses.push(props.className);
-  }
+  const theme = useTheme();
 
   return (
     <a
       {...anchorProps}
-      target={props.openWithNewTab ? "_blank" : undefined}
-      rel={props.openWithNewTab ? "noopener noreferrer" : undefined}
-      className={linkClasses.join(" ")}
+      target={openWithNewTab ? "_blank" : undefined}
+      rel={openWithNewTab ? "noopener noreferrer" : undefined}
+      css={{
+        color: "inherit",
+        cursor: "pointer",
+        textDecoration: removeUnderline ? "none" : undefined,
+        transition: transition("color", "textDecoration"),
+
+        "@media (hover: hover) and (pointer: fine)": {
+          "&:hover": {
+            color: interactionColor ?? theme.colors.accentPrimary,
+          },
+        },
+
+        "&:focus-visible, &:active": {
+          color: interactionColor ?? theme.colors.accentPrimary,
+        },
+      }}
     >
-      {props.children}
+      {children}
     </a>
   );
 };
 
-/**
- * Creates the link's styles
- */
-const useStyles = createUseAppStyles<LinkProps>({
-  root: {
-    color: "inherit",
-    cursor: "pointer",
-    textDecoration: (data) => data.removeUnderline && "none",
-    transition: (data) => data.theme.transition,
-
-    "@media (hover: hover) and (pointer: fine)": {
-      "&:hover": {
-        color: (data) =>
-          data.interactionColor || data.theme.colors.accentPrimary,
-      },
-    },
-
-    "&:focus-visible, &:active": {
-      color: (data) => data.interactionColor || data.theme.colors.accentPrimary,
-    },
-  },
-});
-
-/**
- * Props for the link component
- */
-type LinkProps = React.DetailedHTMLProps<
+/** Props for an HTML anchor `<a>` component, used by the link component */
+type HtmlAnchorProps = React.DetailedHTMLProps<
   React.AnchorHTMLAttributes<HTMLAnchorElement>,
   HTMLAnchorElement
-> & {
+>;
+
+/** Props for the link component */
+type LinkProps = HtmlAnchorProps & {
   /** Whether the link should open in a new tab */
   openWithNewTab?: boolean;
 

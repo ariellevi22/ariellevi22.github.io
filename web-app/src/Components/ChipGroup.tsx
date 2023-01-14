@@ -1,40 +1,27 @@
-import { createUseAppStyles } from "../Theme";
+/** @jsxImportSource @emotion/react */
 
-/**
- * A React component representing a container for a group of chips
- */
+import { ChildrenProps } from "../Types";
+
+/** A container for a group of chips */
 const ChipGroup = (props: ChipGroupProps) => {
-  const styles = useStyles();
+  const { children } = props;
 
   return (
-    <ul className={styles.root} style={props.style}>
-      {props.children}
+    <ul
+      css={{
+        padding: 0,
+        margin: 0,
+        display: "flex",
+        gap: "0.5rem",
+        flexWrap: "wrap",
+      }}
+    >
+      {children}
     </ul>
   );
 };
 
-/**
- * Creates the chip group's styles
- */
-const useStyles = createUseAppStyles({
-  root: {
-    padding: 0,
-    margin: 0,
-    display: "flex",
-    gap: "0.5rem",
-    flexWrap: "wrap",
-  },
-});
-
-/**
- * Props for the chip group component
- */
-type ChipGroupProps = {
-  /** Optional styling for the container */
-  style?: React.CSSProperties;
-
-  /** The chips to put inside the container */
-  children: React.ReactNode;
-};
+/** Props for the chip group component */
+type ChipGroupProps = ChildrenProps;
 
 export default ChipGroup;

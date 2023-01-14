@@ -1,118 +1,92 @@
+/** @jsxImportSource @emotion/react */
+
 import React from "react";
+import { CSSObject, useTheme } from "@emotion/react";
 import { title, scaleFactors, screenSizes } from "../Global";
-import { createUseAppStyles, useAppTheme } from "../Theme";
 import Link from "./Link";
 import LogoIcon from "./LogoIcon";
+import { transition } from "../Theme";
 
 /**
- * A React component representing the application's logo (including the icon and text),
- * which can optionally link to a website or part of the app when clicked.
+ * A component for the application's logo (including the icon and text),
+ * which can optionally link to a website or part of the app when clicked
  */
 const Logo = (props: LogoProps) => {
-  const theme = useAppTheme();
-  const styles = useStyles({ ...props, theme });
+  const { href, stacked, color, interactionColor, onClick } = props;
 
-  // Style the container that holds the logo icon and text
-  const classes = [styles.logoContainer];
-  if (props.stacked) {
-    // If the logo icon and text should be stacked instead of side by side, add additional stacked styles
-    classes.push(styles.stacked);
-  }
-  if (props.href) {
-    // If the logo should act as a link, add link styling
-    classes.push(styles.logoContainerLink);
-  }
+  const theme = useTheme();
+
+  const containerStyles: CSSObject = {
+    display: "flex",
+    flexDirection: stacked ? "column" : "row",
+    flexWrap: "nowrap",
+    alignItems: "center",
+    gap: stacked ? "0.5rem" : "1rem",
+  };
 
   const logoBase = (
     <>
-      <LogoIcon color={props.color} aria-hidden />
-      <p className={styles.logoText}>{title}</p>
+      <LogoIcon color={color} aria-hidden />
+      <p
+        css={{
+          color: color ?? "inherit",
+          fontSize: "1.5rem",
+          padding: 0,
+          margin: 0,
+          transition: transition("color"),
+          whiteSpace: "nowrap",
+
+          // Hide the text on tiny screens (if not stacked)
+          [`@media screen and (max-width: ${screenSizes.tiny}px)`]: {
+            display: stacked ? undefined : "none",
+          },
+        }}
+      >
+        {title}
+      </p>
     </>
   );
 
-  if (props.href) {
+  if (href) {
+    const linkStyles: CSSObject = {
+      textDecoration: "none",
+      "@media (hover: hover) and (pointer: fine)": {
+        "&:hover svg": {
+          color: interactionColor ?? theme.colors.accentPrimary,
+          transform: `scale(${1 + scaleFactors.tiny})`,
+        },
+        "&:hover p": {
+          color: interactionColor ?? theme.colors.accentPrimary,
+        },
+      },
+      "&:focus-visible svg": {
+        color: interactionColor ?? theme.colors.accentPrimary,
+        transform: `scale(${1 + scaleFactors.tiny})`,
+      },
+      "&:active svg": {
+        transform: `scale(${1 - scaleFactors.tiny})`,
+      },
+      "&:focus-visible p": {
+        color: interactionColor ?? theme.colors.accentPrimary,
+      },
+    };
+
     // If an address was provided for the logo to link to, add it
     return (
-      <Link href={props.href} className={classes.join(" ")}>
+      <Link href={href} css={{ ...containerStyles, ...linkStyles }}>
         {logoBase}
       </Link>
     );
   } else {
     return (
-      <div className={classes.join(" ")} onClick={props.onClick}>
+      <div css={containerStyles} onClick={onClick}>
         {logoBase}
       </div>
     );
   }
 };
 
-/**
- * Creates the logo's styles
- */
-const useStyles = createUseAppStyles<LogoProps>({
-  logoText: {
-    color: (data) => (data.color ? data.color : "inherit"),
-    fontSize: "1.5rem",
-    padding: 0,
-    margin: 0,
-    transition: (data) => data.theme.transition,
-    whiteSpace: "nowrap",
-
-    // Hide the text on tiny screens (if not stacked)
-    [`@media screen and (max-width: ${screenSizes.tiny}px)`]: {
-      display: (data) => (data.stacked ? undefined : "none"),
-    },
-  },
-  logoContainer: {
-    display: "flex",
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    alignItems: "center",
-    gap: "1rem",
-  },
-  stacked: {
-    flexDirection: "column",
-    gap: "0.5rem",
-  },
-  logoContainerLink: {
-    textDecoration: "none",
-    "@media (hover: hover) and (pointer: fine)": {
-      "&:hover svg": {
-        color: (data) =>
-          data.interactionColor
-            ? data.interactionColor
-            : data.theme.colors.accentPrimary,
-        transform: `scale(${1 + scaleFactors.tiny})`,
-      },
-      "&:hover p": {
-        color: (data) =>
-          data.interactionColor
-            ? data.interactionColor
-            : data.theme.colors.accentPrimary,
-      },
-    },
-    "&:focus-visible svg": {
-      color: (data) =>
-        data.interactionColor
-          ? data.interactionColor
-          : data.theme.colors.accentPrimary,
-      transform: `scale(${1 + scaleFactors.tiny})`,
-    },
-    "&:active svg": {
-      transform: `scale(${1 - scaleFactors.tiny})`,
-    },
-    "&:focus-visible p": {
-      color: (data) =>
-        data.interactionColor
-          ? data.interactionColor
-          : data.theme.colors.accentPrimary,
-    },
-  },
-});
-
-/**
- * Props for the logo component
- */
+/** Props for the logo component */
 type LogoProps = {
   /** A link for the logo to go to when clicked on */
   href?: string;

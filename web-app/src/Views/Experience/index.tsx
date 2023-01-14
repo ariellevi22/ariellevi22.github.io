@@ -2,18 +2,18 @@ import Section from "../../Containers/Section";
 import Link from "../../Components/Link";
 import SimpleGrid from "../../Containers/SimpleGrid";
 import Card from "../../Components/Card";
-import { useAppTheme } from "../../Theme";
 import ChipGroup from "../../Components/ChipGroup";
 import Chip from "../../Components/Chip";
 import experienceData from "./data";
 import { separator } from "../../Global";
 import { getPreferredFormatOption } from "../../Utils";
+import { useTheme } from "@emotion/react";
 
 /**
  * A React container for "Experience" section elements and data
  */
 const Experience = () => {
-  const theme = useAppTheme();
+  const theme = useTheme();
 
   return (
     <Section id="experience">
@@ -44,7 +44,7 @@ const Experience = () => {
                   "",
                   experience.location,
                   `${experience.startDate} to ${
-                    experience.endDate || "Present"
+                    experience.endDate ?? "Present"
                   }`,
                 ].join(separator)}
               </p>

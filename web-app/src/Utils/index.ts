@@ -36,7 +36,7 @@ export const pluralize = (text: string, count: number) => {
  * Gets the preferred formatting option based on main and alternate choices
  *
  * @param format the main and alternate formatting options
- * @param themeType the type of the theme (light or dark)
+ * @param themeType the theme's color scheme (light or dark)
  * @returns the preferred formatting option based on the theme type
  */
 export const getPreferredFormatOption = (

@@ -1,96 +1,114 @@
+/** @jsxImportSource @emotion/react */
+
 import { Property as CSSProperty } from "csstype";
 import { screenSizes } from "../Global";
-import { createUseAppStyles } from "../Theme";
+import { ChildrenProps } from "../Types";
 
-/**
- * A React component representing a container for grid items
- */
+/** A container for grid items */
 const SimpleGrid = (props: SimpleGridProps) => {
-  const styles = useStyles(props);
+  const {
+    width,
+    gap,
+    rowGap,
+    columnGap,
+    numColumns,
+    justifyRows,
+    priority,
+    children,
+  } = props;
 
-  return <div className={styles.grid}>{props.children}</div>;
+  const adjustedNumColumns = getNumColumns(numColumns);
+
+  return (
+    <div
+      css={{
+        width: width ?? "100%",
+        display: "grid",
+        gap: getGap(gap, rowGap, columnGap),
+
+        // Determine the rows/columns for large screens
+        gridTemplateColumns: getColumnTemplate("large", adjustedNumColumns),
+        gridAutoRows: getAutoRows("large", adjustedNumColumns, justifyRows),
+
+        // Determine the rows/columns for medium screens
+        [`@media screen and (max-width: ${screenSizes.medium}px)`]: {
+          gridTemplateColumns: getColumnTemplate("medium", adjustedNumColumns),
+          gridAutoRows: getAutoRows("medium", adjustedNumColumns, justifyRows),
+        },
+
+        // Determine the rows/columns for small screens
+        [`@media screen and (max-width: ${screenSizes.small}px)`]: {
+          gridTemplateColumns: getColumnTemplate("small", adjustedNumColumns),
+          gridAutoRows: getAutoRows("small", adjustedNumColumns, justifyRows),
+        },
+
+        "& div:first-of-type": {
+          gridColumn: priority ? "1 / -1" : undefined,
+        },
+      }}
+    >
+      {children}
+    </div>
+  );
 };
 
 /**
- * Based on the properties for the number of columns, gets the correct number of columns
- * to display in the grid for the given screen size
+ * Fills in a partial list of numbers of columns for different screen sizes
  *
- * @param size the size for which to determine the number of columns
- * @param numColumns the number of columns for differently sized screens
- * @returns the number of columns to display in the grid for the given screen size
+ * @param numColumns the number of columns for some different screen sizes
+ * @returns the number of columns for all different screen sizes
  */
-const getNumColumnsForSize = (
-  size: keyof ColumnSettings,
-  numColumns?: ColumnSettings
-) => {
-  let numColumnsSmall = 1;
-  let numColumnsMedium = 1;
-  let numColumnsLarge = 1;
+const getNumColumns = (numColumns?: Partial<ColumnSettings>) => {
+  const numColumnsCalculated: ColumnSettings = {
+    small: numColumns?.small ?? 1,
+    medium: 0,
+    large: 0,
+  };
 
-  // If the number of columns for small screens is specified, set it
-  if (numColumns && numColumns.small) {
-    numColumnsSmall = numColumns.small;
-  }
+  // If the number of columns for medium screens is specified, set it;
+  // otherwise, assume it to be the same as for small screens
+  numColumnsCalculated.medium =
+    numColumns?.medium ?? numColumnsCalculated.small;
 
-  if (numColumns && numColumns.medium) {
-    // If the number of columns for medium screens is specified, set it
-    numColumnsMedium = numColumns.medium;
-  } else {
-    // Otherwise, assume it to be the same as for small screens
-    numColumnsMedium = numColumnsSmall;
-  }
+  // If the number of columns for large screens is specified, set it;
+  // otherwise, assume it to be the same as for medium screens
+  numColumnsCalculated.large = numColumns?.large ?? numColumnsCalculated.medium;
 
-  if (numColumns && numColumns.large) {
-    // If the number of columns for large screens is specified, set it
-    numColumnsLarge = numColumns.large;
-  } else {
-    // Otherwise, assume it to be the same as for medium screens
-    numColumnsLarge = numColumnsMedium;
-  }
-
-  // Based on the input to this function, determine which size's template needs to be returned
-  if (size === "large") {
-    return numColumnsLarge;
-  } else if (size === "medium") {
-    return numColumnsMedium;
-  } else {
-    return numColumnsSmall;
-  }
+  return numColumnsCalculated;
 };
 
 /**
- * Constructs the string representing the CSS `grid-template-columns` property for the specified screen size
+ * Constructs the string representing the CSS `grid-template-columns`
+ * property for the specified screen size
  *
  * @param size the screen size for which to determine the column template string
  * @param numColumns the number of columns for differently sized screens
- * @returns the string representation of the CSS `grid-template-columns` property based on the given
- *          screen size and column counts
+ * @returns the string representation of the CSS `grid-template-columns`
+ *          property based on the given screen size and column counts
  */
 const getColumnTemplate = (
   size: keyof ColumnSettings,
-  numColumns?: ColumnSettings
+  numColumns: ColumnSettings
 ) => {
-  let sizedNumColumns = getNumColumnsForSize(size, numColumns);
-  return Array(sizedNumColumns).fill("1fr").join(" ");
+  return Array<string>(numColumns[size]).fill("1fr").join(" ");
 };
 
 /**
- * Constructs the string representing the CSS `grid-auto-rows` property for the specified screen size
+ * Constructs the string representing the CSS `grid-auto-rows` property
+ * for the specified screen size
  *
- * @param size the screen size for which to determine the auto rows string (small, medium, or large)
+ * @param size the screen size for which to determine the auto rows string
  * @param numColumns the number of columns for differently sized screens
  * @param justifyRows whether the rows of the grid should have equal heights
- * @returns the string representation of the CSS `grid-auto-rows` property based on the given
- *          screen size and column counts
+ * @returns the string representation of the CSS `grid-auto-rows` property
+ *          based on the given screen size and column counts
  */
 const getAutoRows = (
   size: keyof ColumnSettings,
-  numColumns?: ColumnSettings,
+  numColumns: ColumnSettings,
   justifyRows?: boolean
 ) => {
-  let sizedNumColumns = getNumColumnsForSize(size, numColumns);
-
-  if (justifyRows && sizedNumColumns > 1) {
+  if (justifyRows && numColumns[size] > 1) {
     return "1fr";
   } else {
     return "auto";
@@ -117,61 +135,16 @@ const getGap = (
     // If a gap value is given, use it
     return gap;
   } else {
-    // If a gap value is not given, use the given row and column gap values or their default values if they are not given
-    return `${rowGap !== undefined ? rowGap : defaultGap} ${
-      columnGap !== undefined ? columnGap : defaultGap
-    }`;
+    // If a gap value is not given, use the given row and column gap values
+    // or their default values if they are not given
+    return `${rowGap ?? defaultGap} ${columnGap ?? defaultGap}`;
   }
 };
 
-/**
- * Creates the grid's styles
- */
-const useStyles = createUseAppStyles<SimpleGridProps>({
-  grid: {
-    width: (data) => (data.width ? data.width : "100%"),
-    display: "grid",
-    gap: (data) => getGap(data.gap, data.rowGap, data.columnGap),
-
-    // If more than one column, ensure that all rows of the grid are the same height
-    gridAutoRows: (data) =>
-      getAutoRows("large", data.numColumns, data.justifyRows),
-
-    // Determine the columns for large screens
-    gridTemplateColumns: (data) => getColumnTemplate("large", data.numColumns),
-
-    // Determine the columns for medium screens
-    [`@media screen and (max-width: ${screenSizes.medium}px)`]: {
-      gridTemplateColumns: (data) =>
-        getColumnTemplate("medium", data.numColumns),
-
-      // If more than one column, ensure that all rows of the grid are the same height
-      gridAutoRows: (data) =>
-        getAutoRows("medium", data.numColumns, data.justifyRows),
-    },
-
-    // Determine the columns for small screens
-    [`@media screen and (max-width: ${screenSizes.small}px)`]: {
-      gridTemplateColumns: (data) =>
-        getColumnTemplate("small", data.numColumns),
-
-      // If more than one column, ensure that all rows of the grid are the same height
-      gridAutoRows: (data) =>
-        getAutoRows("small", data.numColumns, data.justifyRows),
-    },
-
-    "& :first-child": {
-      gridColumn: (data) => (data.priority ? "1 / -1" : undefined),
-    },
-  },
-});
-
-/**
- * Props for the simple grid component
- */
-type SimpleGridProps = {
+/** Props for the simple grid component */
+type SimpleGridProps = Required<ChildrenProps> & {
   /** The number of columns the grid should show for differently sized screens */
-  numColumns?: ColumnSettings;
+  numColumns?: Partial<ColumnSettings>;
 
   /** Whether the grid should show the first item larger than all others */
   priority?: boolean;
@@ -190,18 +163,13 @@ type SimpleGridProps = {
 
   /** Whether to equalize the heights of all rows in the grid */
   justifyRows?: boolean;
-
-  /** Contents to place within the grid */
-  children: React.ReactNode;
 };
 
-/**
- * Settings for the grid's columns' sizes
- */
+/** Settings for the grid's columns' sizes */
 type ColumnSettings = {
-  large?: number;
-  medium?: number;
-  small?: number;
+  large: number;
+  medium: number;
+  small: number;
 };
 
 export default SimpleGrid;

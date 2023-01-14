@@ -1,47 +1,29 @@
+/** @jsxImportSource @emotion/react */
+
 import { screenSizes } from "../Global";
-import { createUseAppStyles } from "../Theme";
+import { ChildrenProps } from "../Types";
 
-/**
- * A React component representing a container for app content
- */
+/** A container for app content */
 const Container = (props: ContainerProps) => {
-  const styles = useStyles();
-
-  const containerClasses = [styles.root];
-  if (props.className) {
-    containerClasses.push(props.className);
-  }
+  const { children } = props;
 
   return (
-    <div className={[styles.root, props.className].join(" ")}>
-      {props.children}
+    <div
+      css={{
+        width: "85%",
+        maxWidth: screenSizes.medium - 150,
+        margin: "auto",
+        "& > :not(div):last-child": {
+          marginBottom: 0,
+        },
+      }}
+    >
+      {children}
     </div>
   );
 };
 
-/**
- * Creates the container's styles
- */
-const useStyles = createUseAppStyles({
-  root: {
-    width: "85%",
-    maxWidth: screenSizes.medium - 150,
-    margin: "auto",
-    "& > :not(div):last-child": {
-      marginBottom: 0,
-    },
-  },
-});
-
-/**
- * Props for the container component
- */
-type ContainerProps = {
-  /** Any CSS class to style the container */
-  className?: string;
-
-  /** Any content to place inside the container */
-  children: React.ReactNode;
-};
+/** Props for the container component */
+type ContainerProps = ChildrenProps;
 
 export default Container;

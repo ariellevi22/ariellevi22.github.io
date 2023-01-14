@@ -1,9 +1,10 @@
+/** @jsxImportSource @emotion/react */
+
 import Section from "../../Containers/Section";
 import SimpleGrid from "../../Containers/SimpleGrid";
 import Card from "../../Components/Card";
 import IconButton from "../../Components/IconButton";
 import IconButtonGroup from "../../Components/IconButtonGroup";
-import { useAppTheme } from "../../Theme";
 import Chip from "../../Components/Chip";
 import ChipGroup from "../../Components/ChipGroup";
 import portfolioData from "./data";
@@ -12,12 +13,13 @@ import {
   faCode,
 } from "@fortawesome/free-solid-svg-icons";
 import { getPreferredFormatOption } from "../../Utils";
+import { useTheme } from "@emotion/react";
 
 /**
  * A React container for "Portfolio" section elements and data
  */
 const Portfolio = () => {
-  const theme = useAppTheme();
+  const theme = useTheme();
 
   return (
     <Section id="portfolio">
@@ -41,14 +43,7 @@ const Portfolio = () => {
                 portfolioItem.technologies.length > 0 && (
                   <>
                     <h4>Technologies</h4>
-                    <ChipGroup
-                      style={{
-                        marginBottom:
-                          (portfolioItem.website ||
-                            portfolioItem.codeWebsite) &&
-                          "1em",
-                      }}
-                    >
+                    <ChipGroup>
                       {portfolioItem.technologies.map((skill) => (
                         <Chip key={skill}>{skill}</Chip>
                       ))}
@@ -58,7 +53,7 @@ const Portfolio = () => {
 
               {(portfolioItem.website || portfolioItem.codeWebsite) && (
                 <>
-                  <h4>View the Project</h4>
+                  <h4 css={{ marginTop: "1em" }}>View the Project</h4>
                   <IconButtonGroup>
                     {portfolioItem.website && (
                       <IconButton

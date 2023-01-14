@@ -1,38 +1,26 @@
-import { createUseAppStyles } from "../Theme";
+/** @jsxImportSource @emotion/react */
 
-/**
- * A React component representing a container for a group of icon buttons
- */
+import { ChildrenProps } from "../Types";
+
+/** A container for a group of icon buttons */
 const IconButtonGroup = (props: IconButtonGroupProps) => {
-  const styles = useStyles(props);
+  const { children } = props;
 
   return (
-    <div className={styles.root} style={props.style}>
-      {props.children}
+    <div
+      css={{
+        display: "flex",
+        gap: "1rem",
+        flexWrap: "wrap",
+        fontSize: "1.125rem",
+      }}
+    >
+      {children}
     </div>
   );
 };
 
-/**
- * Creates the icon button group's styles
- */
-const useStyles = createUseAppStyles<IconButtonGroupProps>({
-  root: {
-    display: "flex",
-    gap: "1rem",
-    flexWrap: "wrap",
-  },
-});
-
-/**
- * Props for the icon button group
- */
-type IconButtonGroupProps = {
-  /** Optional styling for the container */
-  style?: React.CSSProperties;
-
-  /** The icon buttons to place inside the container */
-  children: React.ReactNode;
-};
+/** Props for the icon button group */
+type IconButtonGroupProps = ChildrenProps;
 
 export default IconButtonGroup;
