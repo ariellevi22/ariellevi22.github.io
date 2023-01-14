@@ -24,12 +24,12 @@ const shadowLight = "rgba(0, 0, 0, 0.15)";
 const shadowDark = "rgba(0, 0, 0, 0.35)";
 
 /**
- * The default CSS transition time for elements of the application
+ * The default CSS transition time for elements in the application
  */
 const transitionTime = 250;
 
 /**
- * The default CSS transition for elements of the application
+ * The default CSS transition for elements in the application
  */
 const transition = `all ${transitionTime}ms ease 0ms`;
 

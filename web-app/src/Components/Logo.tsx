@@ -7,8 +7,8 @@ import Link from "./Link";
 import LogoIcon from "./LogoIcon";
 
 /**
- * A React component representing the application's logo (including the icon and text),
- * which can optionally link to a website or part of the app when clicked.
+ * A component for the application's logo (including the icon and text),
+ * which can optionally link to a website or part of the app when clicked
  */
 const Logo = (props: LogoProps) => {
   const theme = useTheme();
@@ -49,22 +49,22 @@ const Logo = (props: LogoProps) => {
       textDecoration: "none",
       "@media (hover: hover) and (pointer: fine)": {
         "&:hover svg": {
-          color: props.interactionColor || theme.colors.accentPrimary,
+          color: props.interactionColor ?? theme.colors.accentPrimary,
           transform: `scale(${1 + scaleFactors.tiny})`,
         },
         "&:hover p": {
-          color: props.interactionColor || theme.colors.accentPrimary,
+          color: props.interactionColor ?? theme.colors.accentPrimary,
         },
       },
       "&:focus-visible svg": {
-        color: props.interactionColor || theme.colors.accentPrimary,
+        color: props.interactionColor ?? theme.colors.accentPrimary,
         transform: `scale(${1 + scaleFactors.tiny})`,
       },
       "&:active svg": {
         transform: `scale(${1 - scaleFactors.tiny})`,
       },
       "&:focus-visible p": {
-        color: props.interactionColor || theme.colors.accentPrimary,
+        color: props.interactionColor ?? theme.colors.accentPrimary,
       },
     };
 
@@ -83,9 +83,7 @@ const Logo = (props: LogoProps) => {
   }
 };
 
-/**
- * Props for the logo component
- */
+/** Props for the logo component */
 type LogoProps = {
   /** A link for the logo to go to when clicked on */
   href?: string;

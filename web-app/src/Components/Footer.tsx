@@ -6,10 +6,7 @@ import { getCurrentYear } from "../Utils";
 import { title } from "../Global";
 import SocialButtons from "./SocialButtons";
 
-/**
- * React component representing the footer of the website, which contains
- * copyright information. The copyright year automatically updates to the current year.
- */
+/** A component for the website's footer */
 const Footer = () => {
   const theme = useTheme();
 

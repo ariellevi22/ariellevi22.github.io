@@ -4,9 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ButtonBase, { ButtonBaseProps } from "./ButtonBase";
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 
-/**
- * A React component representing a button with an icon, such as for social buttons
- */
+/** A component for a button with an icon, such as a social button */
 const IconButton = (props: IconButtonProps) => {
   const { icon, ...buttonBaseProps } = props;
 
@@ -29,9 +27,7 @@ const IconButton = (props: IconButtonProps) => {
   );
 };
 
-/**
- * Props for the icon button component
- */
+/** Props for the icon button component */
 type IconButtonProps = ButtonBaseProps & {
   /** The icon to place in the button */
   icon: IconDefinition;

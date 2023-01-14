@@ -2,9 +2,7 @@
 
 import { ChildrenProps } from "../Types";
 
-/**
- * A React component representing a container for a group of chips
- */
+/** A container for a group of chips */
 const ChipGroup = (props: ChipGroupProps) => (
   <ul
     css={{
@@ -19,9 +17,7 @@ const ChipGroup = (props: ChipGroupProps) => (
   </ul>
 );
 
-/**
- * Props for the chip group component
- */
+/** Props for the chip group component */
 type ChipGroupProps = ChildrenProps;
 
 export default ChipGroup;

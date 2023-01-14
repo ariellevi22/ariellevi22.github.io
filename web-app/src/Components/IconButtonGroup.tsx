@@ -2,9 +2,7 @@
 
 import { ChildrenProps } from "../Types";
 
-/**
- * A React component representing a container for a group of icon buttons
- */
+/** A container for a group of icon buttons */
 const IconButtonGroup = (props: IconButtonGroupProps) => (
   <div
     css={{
@@ -18,9 +16,7 @@ const IconButtonGroup = (props: IconButtonGroupProps) => (
   </div>
 );
 
-/**
- * Props for the icon button group
- */
+/** Props for the icon button group */
 type IconButtonGroupProps = ChildrenProps;
 
 export default IconButtonGroup;

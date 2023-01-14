@@ -4,9 +4,7 @@ import Container from "./Container";
 import { navbarHeight } from "../Global";
 import { ChildrenProps } from "../Types";
 
-/**
- * A React component representing a container for a section of the app
- */
+/** A container for a section of the app */
 const Section = (props: SectionProps) => (
   <section
     id={props.id}
@@ -21,11 +19,9 @@ const Section = (props: SectionProps) => (
   </section>
 );
 
-/**
- * Props for the section component
- */
-type SectionProps = Required<ChildrenProps> & {
-  /** An optional ID for the container (for example, to set up links to certain parts of the webpage) */
+/** Props for the section component */
+type SectionProps = ChildrenProps & {
+  /** An ID for the container */
   id?: string;
 };
 

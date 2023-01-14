@@ -3,9 +3,7 @@
 import { screenSizes } from "../Global";
 import { ChildrenProps } from "../Types";
 
-/**
- * A React component representing a container for app content
- */
+/** A container for app content */
 const Container = (props: ContainerProps) => {
   return (
     <div
@@ -23,9 +21,7 @@ const Container = (props: ContainerProps) => {
   );
 };
 
-/**
- * Props for the container component
- */
+/** Props for the container component */
 type ContainerProps = ChildrenProps;
 
 export default Container;

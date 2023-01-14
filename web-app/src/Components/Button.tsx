@@ -2,9 +2,7 @@
 
 import ButtonBase, { ButtonBaseProps } from "./ButtonBase";
 
-/**
- * A React component representing a button
- */
+/** A component for a button */
 const Button = (props: ButtonBaseProps) => (
   <ButtonBase
     {...props}

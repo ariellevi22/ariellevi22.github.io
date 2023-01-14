@@ -4,9 +4,7 @@ import { socialTabs } from "../Global";
 import IconButton from "./IconButton";
 import IconButtonGroup from "./IconButtonGroup";
 
-/**
- * A React component representing a group of social buttons
- */
+/** A component for a group of social buttons */
 const SocialButtons = (props: SocialButtonsProps) => {
   return (
     <IconButtonGroup>
@@ -17,10 +15,10 @@ const SocialButtons = (props: SocialButtonsProps) => {
             backgroundColor={props.backgroundColor}
             textColor={props.textColor}
             interactionBackgroundColor={
-              socialTab.colorPrimary || props.interactionBackgroundColor
+              socialTab.colorPrimary ?? props.interactionBackgroundColor
             }
             interactionTextColor={
-              socialTab.colorSecondary || props.interactionTextColor
+              socialTab.colorSecondary ?? props.interactionTextColor
             }
             href={socialTab.href}
             openWithNewTab
@@ -34,9 +32,7 @@ const SocialButtons = (props: SocialButtonsProps) => {
   );
 };
 
-/**
- * Props for the social buttons component
- */
+/** Props for the social buttons component */
 type SocialButtonsProps = {
   /** The social buttons' background color */
   backgroundColor?: string;

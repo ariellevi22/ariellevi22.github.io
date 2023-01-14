@@ -15,17 +15,16 @@ import {
   faSun,
 } from "@fortawesome/free-solid-svg-icons";
 
-/**
- * A React component for the website's navigation bar
- */
+/** A component for the website's navigation bar */
 const Navbar = (props: NavbarProps) => {
   const theme = useTheme();
 
-  /*
-   * Keep track of whether the navigation bar menu (shown on small screens instead
-   * of the full navigation bar) is open (true) or closed (false). Initially, it is closed.
-   */
+  // Keep track of whether the navigation bar menu (shown on small screens instead
+  // of the full navigation bar) is open or closed (initially closed)
   const [isMenuOpen, setMenuOpen] = useState(false);
+
+  const menuHiddenStyle = { opacity: 0, width: 0 };
+  const menuVisibleStyle = { opacity: 1, width: menuWidth };
 
   // Create the display for the navigation bar tabs
   const tabs = (
@@ -45,7 +44,7 @@ const Navbar = (props: NavbarProps) => {
       })}
 
       {socialTabs
-        .filter((socialTab) => socialTab.label !== "Email")
+        .filter((socialTab) => socialTab.label.toLowerCase() !== "email")
         .map((iconTab) => {
           return (
             <IconButton
@@ -76,7 +75,6 @@ const Navbar = (props: NavbarProps) => {
     </>
   );
 
-  // Display the navigation bar
   return (
     <nav>
       <div
@@ -108,11 +106,11 @@ const Navbar = (props: NavbarProps) => {
           isTransparent
           interactionTextColor={theme.colors.accentNavigation}
           icon={isMenuOpen ? faClose : faBars}
-          onClick={() => setMenuOpen(!isMenuOpen)}
+          onClick={() => setMenuOpen((isMenuOpen) => !isMenuOpen)}
           css={{
-            display: ["none", "!important"],
+            display: "none",
             [`@media screen and (max-width: ${screenSizes.small}px)`]: {
-              display: ["block", "!important"],
+              display: "block",
             },
           }}
           aria-label={`${isMenuOpen ? "Close" : "Open"} Menu`}
@@ -145,18 +143,18 @@ const Navbar = (props: NavbarProps) => {
             in={isMenuOpen}
             timeout={theme.transitionTime}
             classNames={{
-              enter: css({ opacity: 0, width: 0 }),
+              enter: css(menuHiddenStyle),
               enterActive: css({
-                opacity: 1,
-                width: menuWidth,
+                ...menuVisibleStyle,
                 transition: theme.transition,
               }),
-              exit: css({ width: menuWidth, opacity: 1 }),
+              enterDone: css(menuVisibleStyle),
+              exit: css(menuVisibleStyle),
               exitActive: css({
-                width: 0,
-                opacity: 0,
+                ...menuHiddenStyle,
                 transition: theme.transition,
               }),
+              exitDone: css(menuHiddenStyle),
             }}
             unmountOnExit
           >
@@ -167,7 +165,6 @@ const Navbar = (props: NavbarProps) => {
                   display: "flex",
                   position: "fixed",
                   right: 0,
-                  width: menuWidth,
                   height: `calc(100% - ${navbarHeight}rem)`,
                   zIndex: 9,
                   padding: "8rem 2.5rem",

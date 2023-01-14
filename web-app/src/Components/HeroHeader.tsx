@@ -7,8 +7,8 @@ import { title, screenSizes } from "../Global";
 import Container from "../Containers/Container";
 
 /**
- * React component representing the hero header of the website, which contains
- * a heading, a photo, and social button
+ * A component for the website's hero header, which contains a heading,
+ * a photo, and social buttons
  */
 const HeroHeader = () => {
   const theme = useTheme();

@@ -4,8 +4,8 @@ import React from "react";
 import { useTheme } from "@emotion/react";
 
 /**
- * A React component that wraps the HTML `<a>` tag to include proper styling (based on the theme)
- * and the functionality to easily open the link in a new tab if desired
+ * A wrapper component for the HTML anchor `<a>` that includes proper styling
+ * and the functionality to easily open the link in a new tab
  */
 const Link = (props: LinkProps) => {
   const { openWithNewTab, removeUnderline, interactionColor, ...anchorProps } =
@@ -26,12 +26,12 @@ const Link = (props: LinkProps) => {
 
         "@media (hover: hover) and (pointer: fine)": {
           "&:hover": {
-            color: interactionColor || theme.colors.accentPrimary,
+            color: interactionColor ?? theme.colors.accentPrimary,
           },
         },
 
         "&:focus-visible, &:active": {
-          color: interactionColor || theme.colors.accentPrimary,
+          color: interactionColor ?? theme.colors.accentPrimary,
         },
       }}
     >
@@ -40,13 +40,14 @@ const Link = (props: LinkProps) => {
   );
 };
 
-/**
- * Props for the link component
- */
-type LinkProps = React.DetailedHTMLProps<
+/** Props for an HTML anchor `<a>` component, used by the link component */
+type HtmlAnchorProps = React.DetailedHTMLProps<
   React.AnchorHTMLAttributes<HTMLAnchorElement>,
   HTMLAnchorElement
-> & {
+>;
+
+/** Props for the link component */
+type LinkProps = HtmlAnchorProps & {
   /** Whether the link should open in a new tab */
   openWithNewTab?: boolean;
 

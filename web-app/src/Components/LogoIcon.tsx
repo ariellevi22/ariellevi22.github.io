@@ -4,8 +4,8 @@ import { useTheme } from "@emotion/react";
 import { ReactComponent as LogoSvg } from "../Assets/Logo.svg";
 
 /**
- * A React component representing the application logo's icon (the logo without the text).
- * The color of the logo icon can be changed using the `color` property.
+ * A component for the application logo's icon (the logo without the text),
+ * which can have its color changed using the `color` property
  */
 const LogoIcon = (props: LogoIconProps) => {
   const theme = useTheme();
@@ -18,9 +18,7 @@ const LogoIcon = (props: LogoIconProps) => {
   );
 };
 
-/**
- * Props for the logo icon component
- */
+/** Props for the logo icon component */
 type LogoIconProps = React.SVGAttributes<SVGElement>;
 
 export default LogoIcon;

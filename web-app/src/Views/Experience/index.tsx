@@ -44,7 +44,7 @@ const Experience = () => {
                   "",
                   experience.location,
                   `${experience.startDate} to ${
-                    experience.endDate || "Present"
+                    experience.endDate ?? "Present"
                   }`,
                 ].join(separator)}
               </p>

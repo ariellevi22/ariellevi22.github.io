@@ -3,15 +3,13 @@
 import React from "react";
 import { scaleFactors } from "../Global";
 import Link from "./Link";
-import { CSSObject, Theme, useTheme } from "@emotion/react";
+import { CSSObject, useTheme } from "@emotion/react";
 
 /**
- * A React component representing a simple wrapper for an HTML `<button>`, extended
+ * A simple wrapper component for an HTML `<button>`, extended
  * in components such as `Button` and `IconButton` for simplicity
  */
 const ButtonBase = (props: ButtonBaseProps) => {
-  const theme = useTheme();
-
   const {
     isTransparent,
     href,
@@ -24,39 +22,48 @@ const ButtonBase = (props: ButtonBaseProps) => {
     ...otherProps
   } = props;
 
+  const theme = useTheme();
+
+  const adjustedInteractionBackgroundColor = isTransparent
+    ? "transparent"
+    : interactionBackgroundColor ?? theme.colors.textPrimary;
+
+  const adjustedInteractionTextColor =
+    interactionTextColor ??
+    (isTransparent ? theme.colors.accentPrimary : theme.colors.textSecondary);
+
   const styles: CSSObject = {
+    cursor: "pointer",
     fontSize: "1em",
     display: "inline-block",
     textDecoration: "none",
     backgroundColor: isTransparent
       ? "transparent"
-      : backgroundColor || theme.colors.accentPrimary,
-    color: isTransparent ? "inherit" : textColor || theme.colors.textSecondary,
+      : backgroundColor ?? theme.colors.accentPrimary,
+    color: isTransparent ? "inherit" : textColor ?? theme.colors.textSecondary,
     border: "none",
     boxShadow: getShadow(theme.colors.shadow, isTransparent),
     transition: theme.transition,
 
     "@media (hover: hover) and (pointer: fine)": {
       "&:hover": {
-        backgroundColor: getInteractionBackgroundColor(props, theme),
-        color: getInteractionTextColor(props, theme),
-        cursor: "pointer",
+        backgroundColor: adjustedInteractionBackgroundColor,
+        color: adjustedInteractionTextColor,
         boxShadow: getShadow(theme.colors.shadow, isTransparent, true),
         transform: isTransparent ? "none" : `scale(${1 + scaleFactors.small})`,
       },
     },
 
     "&:focus-visible": {
-      backgroundColor: getInteractionBackgroundColor(props, theme),
-      color: getInteractionTextColor(props, theme),
-      cursor: "pointer",
+      backgroundColor: adjustedInteractionBackgroundColor,
+      color: adjustedInteractionTextColor,
       boxShadow: getShadow(theme.colors.shadow, isTransparent, true),
       transform: isTransparent ? "none" : `scale(${1 + scaleFactors.small})`,
     },
 
     "&:active": {
-      backgroundColor: getInteractionBackgroundColor(props, theme),
-      color: getInteractionTextColor(props, theme),
+      backgroundColor: adjustedInteractionBackgroundColor,
+      color: adjustedInteractionTextColor,
       transform: isTransparent ? "none" : `scale(${1 - scaleFactors.small})`,
     },
   };
@@ -75,49 +82,12 @@ const ButtonBase = (props: ButtonBaseProps) => {
       </Link>
     );
   } else {
-    // If the button does not need to link anywhere, just return it
+    // If the button does not need to link anywhere, return a styled button
     return (
       <button {...otherProps} css={styles}>
         {props.children}
       </button>
     );
-  }
-};
-
-/**
- * Gets the background color for the button base when the button is being
- * interacted with (hover, focus, or active states)
- *
- * @param props component props
- * @param theme the application theme
- * @returns the background color
- */
-const getInteractionBackgroundColor = (
-  props: ButtonBaseProps,
-  theme: Theme
-) => {
-  if (props.isTransparent) {
-    return "transparent";
-  } else {
-    return props.interactionBackgroundColor || theme.colors.textPrimary;
-  }
-};
-
-/**
- * Gets the text color for the button base when the button is being
- * interacted with (hover, focus, or active states)
- *
- * @param props component props
- * @param theme the application theme
- * @returns the text color
- */
-const getInteractionTextColor = (props: ButtonBaseProps, theme: Theme) => {
-  if (props.interactionTextColor) {
-    return props.interactionTextColor;
-  } else if (props.isTransparent) {
-    return theme.colors.accentPrimary;
-  } else {
-    return theme.colors.textSecondary;
   }
 };
 
@@ -146,16 +116,12 @@ const getShadow = (
   }
 };
 
-/**
- * Props for the button base component that come from default HTML attributes
- */
-type ButtonBaseHTMLProps = React.HTMLAttributes<HTMLButtonElement> &
+/** Props for the button base component that come from default HTML attributes */
+type HtmlButtonBaseProps = React.HTMLAttributes<HTMLButtonElement> &
   React.HTMLAttributes<HTMLAnchorElement>;
 
-/**
- * Props for the button base component
- */
-export type ButtonBaseProps = ButtonBaseHTMLProps & {
+/** Props for the button base component */
+export type ButtonBaseProps = HtmlButtonBaseProps & {
   /** Whether the button should have a transparent background */
   isTransparent?: boolean;
 

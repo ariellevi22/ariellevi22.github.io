@@ -3,9 +3,7 @@
 import { useTheme } from "@emotion/react";
 import { ChildrenProps } from "../Types";
 
-/**
- * A React component representing a card
- */
+/** A component for a display card */
 const Card = (props: CardProps) => {
   const theme = useTheme();
 
@@ -58,9 +56,7 @@ const Card = (props: CardProps) => {
 
 const borderRadius = "0.5rem";
 
-/**
- * Props for the card component
- */
+/** Props for the card component */
 type CardProps = ChildrenProps & {
   /** The card's accent color */
   color?: string;

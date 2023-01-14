@@ -3,9 +3,7 @@
 import { useTheme } from "@emotion/react";
 import { ChildrenProps } from "../Types";
 
-/**
- * A React component representing an informational chip
- */
+/** A component for an informational chip */
 const Chip = (props: ChipProps) => {
   const theme = useTheme();
 
@@ -24,9 +22,7 @@ const Chip = (props: ChipProps) => {
   );
 };
 
-/**
- * Props for the chip component
- */
+/** Props for the chip component */
 type ChipProps = ChildrenProps;
 
 export default Chip;
