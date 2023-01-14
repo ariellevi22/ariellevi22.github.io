@@ -27,7 +27,7 @@ const Link = (props: LinkProps) => {
         color: "inherit",
         cursor: "pointer",
         textDecoration: removeUnderline ? "none" : undefined,
-        transition: theme.transition,
+        transition: theme.transition("color", "textDecoration"),
 
         "@media (hover: hover) and (pointer: fine)": {
           "&:hover": {

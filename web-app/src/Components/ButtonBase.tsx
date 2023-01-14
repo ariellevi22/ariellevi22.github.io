@@ -43,7 +43,12 @@ const ButtonBase = (props: ButtonBaseProps) => {
     color: isTransparent ? "inherit" : textColor ?? theme.colors.textSecondary,
     border: "none",
     boxShadow: getShadow(theme.colors.shadow, isTransparent),
-    transition: theme.transition,
+    transition: theme.transition(
+      "color",
+      "backgroundColor",
+      "transform",
+      "boxShadow"
+    ),
 
     "@media (hover: hover) and (pointer: fine)": {
       "&:hover": {

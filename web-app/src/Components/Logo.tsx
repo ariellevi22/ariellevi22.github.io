@@ -32,7 +32,7 @@ const Logo = (props: LogoProps) => {
           fontSize: "1.5rem",
           padding: 0,
           margin: 0,
-          transition: theme.transition,
+          transition: theme.transition("color"),
           whiteSpace: "nowrap",
 
           // Hide the text on tiny screens (if not stacked)

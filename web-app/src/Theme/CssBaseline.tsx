@@ -21,7 +21,7 @@ const CssBaseline = () => {
           fontFamily: fonts.join(", "),
           backgroundColor: theme.colors.backgroundPrimary,
           color: theme.colors.textPrimary,
-          transition: theme.transition,
+          transition: theme.transition("backgroundColor", "color"),
         },
 
         h1: {

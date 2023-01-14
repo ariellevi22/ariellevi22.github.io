@@ -1,4 +1,5 @@
 import "@emotion/react";
+import { CSSProperties } from "react";
 
 declare module "@emotion/react" {
     export interface Theme {
@@ -21,6 +22,6 @@ declare module "@emotion/react" {
             shadow: string;
         };
         transitionTime: number;
-        transition: string;
+        transition: (...properties: (keyof CSSProperties)[]) => string;
     }
 }

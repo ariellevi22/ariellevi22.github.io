@@ -148,13 +148,13 @@ const Navbar = (props: NavbarProps) => {
               enter: css(menuHiddenStyle),
               enterActive: css({
                 ...menuVisibleStyle,
-                transition: theme.transition,
+                transition: theme.transition("opacity", "width"),
               }),
               enterDone: css(menuVisibleStyle),
               exit: css(menuVisibleStyle),
               exitActive: css({
                 ...menuHiddenStyle,
-                transition: theme.transition,
+                transition: theme.transition("opacity", "width"),
               }),
               exitDone: css(menuHiddenStyle),
             }}
@@ -163,6 +163,7 @@ const Navbar = (props: NavbarProps) => {
             <div
               css={{
                 // Only show the menu on small screens
+                display: "none",
                 [`@media screen and (max-width: ${screenSizes.small}px)`]: {
                   display: "flex",
                   position: "fixed",
