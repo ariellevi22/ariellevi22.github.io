@@ -10,7 +10,7 @@ const About = () => {
       <h2>About</h2>
 
       <p>
-        Hi there, I'm Ariel! I am a software engineer, UI/UX designer, and
+        Hi there, I&rsquo;m Ariel! I am a software engineer, UI/UX designer, and
         computer science student passionate about technology and its ability to
         make the world a better place. I strive to craft intuitive, memorable
         experiences for people&mdash;to realize the full potential of technology
@@ -19,7 +19,7 @@ const About = () => {
 
       <p>
         Currently, I am studying computer science and business at the University
-        of Nebraska-Lincoln's{" "}
+        of Nebraska-Lincoln&rsquo;s{" "}
         <Link href="https://raikes.unl.edu/" openWithNewTab>
           Raikes School
         </Link>
