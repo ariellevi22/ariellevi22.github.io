@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Theme } from "@emotion/react";
+import CssBaseline from "./CssBaseline";
 
 // Accent colors
 const accentDark = "#007DA0";
@@ -23,14 +24,10 @@ const navigationMenuBackground = "#004B69";
 const shadowLight = "rgba(0, 0, 0, 0.15)";
 const shadowDark = "rgba(0, 0, 0, 0.35)";
 
-/**
- * The default CSS transition time for elements in the application
- */
+/** The default CSS transition time for elements in the application (in milliseconds) */
 const transitionTime = 250;
 
-/**
- * The default CSS transition for elements in the application
- */
+/** The default CSS transition for elements in the application */
 const transition = `all ${transitionTime}ms ease 0ms`;
 
 /**
@@ -55,8 +52,8 @@ const lightTheme: Theme = {
 
         shadow: shadowLight,
     },
-    transitionTime: transitionTime,
-    transition: transition,
+    transitionTime,
+    transition,
 };
 
 /**
@@ -81,8 +78,8 @@ const darkTheme: Theme = {
 
         shadow: shadowDark,
     },
-    transitionTime: transitionTime,
-    transition: transition,
+    transitionTime,
+    transition,
 };
 
 /**
@@ -129,3 +126,5 @@ export const useThemePreference = () => {
 
     return { theme, toggleTheme };
 };
+
+export { CssBaseline };

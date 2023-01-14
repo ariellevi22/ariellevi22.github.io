@@ -7,7 +7,7 @@ import Education from "./Views/Education";
 import Experience from "./Views/Experience";
 import Footer from "./Components/Footer";
 import { navbarHeight } from "./Global";
-import { useThemePreference } from "./Theme";
+import { CssBaseline, useThemePreference } from "./Theme";
 import Portfolio from "./Views/Portfolio";
 import { ThemeProvider } from "@emotion/react";
 
@@ -19,15 +19,9 @@ const App = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <div
-        css={{
-          backgroundColor: theme.colors.backgroundPrimary,
-          color: theme.colors.textPrimary,
-          transition: theme.transition,
-          minHeight: `calc(100vh - ${navbarHeight}rem)`,
-          paddingTop: `${navbarHeight}rem`,
-        }}
-      >
+      <CssBaseline />
+
+      <div css={{ paddingTop: `${navbarHeight}rem` }}>
         <Navbar toggleTheme={toggleTheme} />
         <HeroHeader />
 
