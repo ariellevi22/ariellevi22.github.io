@@ -53,9 +53,8 @@ const HeroHeader = () => {
             alt={title}
             css={{
               margin: "2rem 2.5rem",
-              width: "40vmin",
-              minWidth: "12rem",
-              maxWidth: "22rem",
+              width: "22rem",
+              maxWidth: "75vw",
               objectFit: "cover",
               borderRadius: "50%",
               boxShadow: `0 0.2em 1em 0 ${theme.colors.shadow}`,
