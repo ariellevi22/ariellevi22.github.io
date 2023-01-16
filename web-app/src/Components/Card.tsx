@@ -15,10 +15,12 @@ const Card = (props: CardProps) => {
         width: "100%",
         backgroundColor: theme.colors.backgroundSecondary,
         borderRadius: borderRadius,
+        boxShadow: `0 0.2em 0.5em 0 ${theme.colors.shadow}`,
+      }}
+      style={{
         borderLeft: `${borderRadius} solid ${
           color ?? theme.colors.accentPrimary
         }`,
-        boxShadow: `0 0.2em 0.5em 0 ${theme.colors.shadow}`,
       }}
     >
       {imgSrc && (
