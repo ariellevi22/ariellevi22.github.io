@@ -1,6 +1,6 @@
 # Development Information
 
-![Deployment Status](https://github.com/alevi22/alevi22.github.io/workflows/Deploy/badge.svg)
+![Continuous Deployment](https://github.com/alevi22/alevi22.github.io/workflows/Deploy/badge.svg)
 
 ## Accessing the Project
 
@@ -8,7 +8,7 @@ View the finished product at [alevi22.github.io](https://alevi22.github.io).
 
 ## Technologies
 
-This project is made with [React.js](https://reactjs.org/) using [TypeScript](https://www.typescriptlang.org/). For styling, it uses [JSS](https://cssinjs.org/react-jss) (CSS in JavaScript).
+This project is made with [React.js](https://reactjs.org/) using [TypeScript](https://www.typescriptlang.org/).
 
 The project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). Find the [Create React App guide](https://github.com/facebook/create-react-app/blob/main/packages/cra-template/template/README.md) here.
 
@@ -25,8 +25,7 @@ The project was bootstrapped with [Create React App](https://github.com/facebook
     -   `Types` contains TypeScript types used across the app
     -   `Global` contains global variables used across the app
     -   `Utils` contains utility functions used across the app
-    -   `index.css` contains common styling for the app
-    -   `Theme` contains additional theming and styling information for JSS
+    -   `Theme` contains theming and styling information for the app
 -   `package.json` and `package-lock.json` contain information about project dependencies
 -   `tsconfig.json` contains TypeScript configuration information
 -   `prettierrc.json` contains configuration information for [Prettier](https://prettier.io/) code formatting
@@ -44,11 +43,11 @@ Then, open [localhost:3000](http://localhost:3000) to view it in the browser. Th
 
 ## Deployment
 
-The project is deployed using [GitHub Pages](https://pages.github.com/).
+The project is deployed to [alevi22.github.io](https://alevi22.github.io) using [GitHub Pages](https://pages.github.com/).
 
 ### Manual Deployment
 
-To manually deploy changes to [alevi22.github.io](https://alevi22.github.io), run:
+To manually deploy changes, run:
 
 ```sh
 npm run deploy
@@ -56,6 +55,6 @@ npm run deploy
 
 ### Continuous Deployment
 
-Whenever new code is pushed to the repository's `main` branch, GitHub Actions will automatically deploy the updates to [alevi22.github.io](https://alevi22.github.io).
+Whenever new code is pushed to the repository's `main` branch, GitHub Actions will automatically deploy the updates.
 
 To enable automatic deployment through GitHub Actions, the repository has an access token stored as a secret in GitHub. When the token expires, [generate a new token](https://github.com/settings/tokens/new) on GitHub and then [update the value of the secret](https://github.com/alevi22/alevi22.github.io/settings/secrets/actions) in the GitHub repository settings.
