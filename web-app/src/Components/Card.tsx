@@ -29,7 +29,7 @@ const Card = (props: CardProps) => {
           alt={imgAlt ?? ""}
           css={{
             width: "100%",
-            height: "12.5rem",
+            height: "15.5rem",
             objectFit: "cover",
             borderRadius: `0 ${borderRadius} 0 0`,
           }}

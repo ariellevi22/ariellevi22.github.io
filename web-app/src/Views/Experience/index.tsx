@@ -21,7 +21,7 @@ const Experience = () => {
 
       <SimpleGrid
         numColumns={{ large: 2, medium: 2, small: 1 }}
-        priority={experienceData.length % 2 !== 0}
+        // priority={experienceData.length % 2 !== 0}
       >
         {experienceData.map((experience) => {
           return (

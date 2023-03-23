@@ -9,7 +9,7 @@ import NelnetLogoAlt from "./Logos/NelnetAlt.svg";
 import ZoomLogo from "./Logos/Zoom.svg";
 import ZoomLogoAlt from "./Logos/ZoomAlt.svg";
 
-import NelnetDesignStudio2022Photo from "./Photos/nelnet-design-studio-2022.jpg";
+import NelnetDesignStudio2022Photo from "./Photos/nelnet-design-studio-2022.png";
 import Garmin2022Photo from "./Photos/garmin-2022.jpg";
 import NelnetDesignStudio2021Photo from "./Photos/nelnet-design-studio-2021.png";
 import Evergy2021Photo from "./Photos/evergy-2021.jpg";
