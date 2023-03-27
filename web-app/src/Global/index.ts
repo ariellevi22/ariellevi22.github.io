@@ -1,6 +1,6 @@
 import { faGithub, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
-import { NavbarTab, IconTab } from "../Types";
+import { IconTab } from "../Types";
 
 /**
  * Personal website title
@@ -16,16 +16,6 @@ export const separator = " | ";
  * The height of the navigation bar, measured in rem
  */
 export const navbarHeight = 5;
-
-/**
- * Navigation bar tabs' information
- */
-export const navbarTabs: NavbarTab[] = [
-    { label: "About", href: "#about" },
-    { label: "Experience", href: "#experience" },
-    { label: "Portfolio", href: "#portfolio" },
-    { label: "Education", href: "#education" },
-];
 
 /**
  * Social button icons and links

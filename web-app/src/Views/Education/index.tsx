@@ -1,13 +1,12 @@
-import Card from "../../Components/Card";
-import { getPreferredFormatOption, pluralize } from "../../Utils";
-import SimpleGrid from "../../Containers/SimpleGrid";
-import Section from "../../Containers/Section";
 import educationData from "./data";
+import { Card } from "../../Components";
+import { getPreferredFormatOption, pluralize } from "../../Utils";
+import { Section, SimpleGrid } from "../../Containers";
 import { separator } from "../../Global";
 import { useTheme } from "@emotion/react";
 
 /**
- * A React container for "Education" section elements and data
+ * "Education" section
  */
 const Education = () => {
   const theme = useTheme();

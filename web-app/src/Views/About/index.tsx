@@ -1,8 +1,8 @@
-import Link from "../../Components/Link";
-import Section from "../../Containers/Section";
+import { Link } from "../../Components";
+import { Section } from "../../Containers";
 
 /**
- * A React container for "About" section elements and data
+ * "About" section
  */
 const About = () => {
   return (

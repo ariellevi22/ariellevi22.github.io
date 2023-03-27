@@ -1,17 +1,12 @@
 /** @jsxImportSource @emotion/react */
 
-import Navbar from "./Components/Navbar";
-import HeroHeader from "./Components/HeroHeader";
-import About from "./Views/About";
-import Education from "./Views/Education";
-import Experience from "./Views/Experience";
-import Footer from "./Components/Footer";
 import { navbarHeight } from "./Global";
 import { CssBaseline, useThemePreference } from "./Theme";
-import Portfolio from "./Views/Portfolio";
 import { ThemeProvider } from "@emotion/react";
+import { Footer, HeroHeader, Navbar } from "./Components";
+import { About, Education, Experience, Portfolio } from "./Views";
 
-/** A web app for Ariel Levi's personal website */
+/** Web app for Ariel Levi's personal website */
 const App = () => {
   const { theme, toggleTheme } = useThemePreference();
 

@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 
-import { ReactComponent as LogoSvg } from "../Assets/Logo.svg";
-import { transition } from "../Theme";
+import { ReactComponent as LogoSvg } from "../../Assets/Logo.svg";
+import { transition } from "../../Theme";
 
 /**
  * A component for the application logo's icon (the logo without the text),

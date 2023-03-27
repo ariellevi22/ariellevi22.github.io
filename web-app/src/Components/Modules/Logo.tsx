@@ -1,11 +1,10 @@
 /** @jsxImportSource @emotion/react */
 
-import React from "react";
 import { CSSObject, useTheme } from "@emotion/react";
-import { title, scaleFactors, screenSizes } from "../Global";
 import Link from "./Link";
 import LogoIcon from "./LogoIcon";
-import { transition } from "../Theme";
+import { title, scaleFactors, screenSizes } from "../../Global";
+import { transition } from "../../Theme";
 
 /**
  * A component for the application's logo (including the icon and text),

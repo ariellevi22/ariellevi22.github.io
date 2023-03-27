@@ -1,36 +1,44 @@
 /** @jsxImportSource @emotion/react */
 
-import { useState } from "react";
-import { ClassNames, useTheme } from "@emotion/react";
-import { navbarHeight, screenSizes } from "../Global";
-import IconButton from "./IconButton";
-import Link from "./Link";
-import Logo from "./Logo";
-import { navbarTabs, socialTabs } from "../Global";
 import { CSSTransition } from "react-transition-group";
+import { ClassNames, CSSObject, useTheme } from "@emotion/react";
 import {
   faBars,
   faClose,
   faMoon,
   faSun,
 } from "@fortawesome/free-solid-svg-icons";
-import { transition } from "../Theme";
+import IconButton from "./IconButton";
+import Link from "./Link";
+import Logo from "./Logo";
+import { navbarHeight, screenSizes, socialTabs } from "../../Global";
+import { transition } from "../../Theme";
+import { useState } from "react";
+import { NavbarTab } from "../../Types";
 
 /** A component for the website's navigation bar */
 const Navbar = (props: NavbarProps) => {
   const { toggleTheme } = props;
-
   const theme = useTheme();
 
   // Keep track of whether the navigation bar menu (shown on small screens instead
   // of the full navigation bar) is open or closed (initially closed)
   const [isMenuOpen, setMenuOpen] = useState(false);
 
-  const menuHiddenStyle = { opacity: 0, width: 0 };
-  const menuVisibleStyle = { opacity: 1, width: menuWidth };
+  // Styles for the navigation menu on small screens
+  const menuHiddenStyle: CSSObject = { opacity: 0, width: 0 };
+  const menuVisibleStyle: CSSObject = { opacity: 1, width: menuWidth };
+
+  /** Navigation bar tabs' information */
+  const navbarTabs: NavbarTab[] = [
+    { label: "About", href: "#about" },
+    { label: "Experience", href: "#experience" },
+    { label: "Portfolio", href: "#portfolio" },
+    { label: "Education", href: "#education" },
+  ];
 
   // Create the display for the navigation bar tabs
-  const tabs = (
+  const Tabs = () => (
     <>
       {navbarTabs.map((tab) => {
         return (
@@ -136,7 +144,7 @@ const Navbar = (props: NavbarProps) => {
             },
           }}
         >
-          {tabs}
+          <Tabs />
         </div>
       </div>
 
@@ -182,7 +190,7 @@ const Navbar = (props: NavbarProps) => {
               }}
               onClick={() => setMenuOpen(false)}
             >
-              {tabs}
+              <Tabs />
             </div>
           </CSSTransition>
         )}
