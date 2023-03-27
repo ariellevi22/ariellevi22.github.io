@@ -7,7 +7,7 @@ import { useTheme } from "@emotion/react";
  * @param properties CSS properties to apply the transition to (`all` by default)
  * @returns the CSS transition for the given properties
  */
-export const transition = (...properties: (keyof CSSProperties)[]) => {
+export const transition = (...properties: CssPropertyName[]) => {
     const { transitionDuration } = useTheme();
 
     const cssProperties = [...properties];
@@ -27,3 +27,5 @@ export const transition = (...properties: (keyof CSSProperties)[]) => {
         })
         .join(", ");
 };
+
+type CssPropertyName = keyof CSSProperties;
