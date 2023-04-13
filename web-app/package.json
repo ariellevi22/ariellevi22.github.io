@@ -25,7 +25,8 @@
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -b deployed -d build",
-    "pretty": "prettier --write ./src"
+    "pretty": "prettier --check ./src",
+    "pretty-write": "prettier --write ./src"
   },
   "devDependencies": {
     "@emotion/eslint-plugin": "^11.10.0",
