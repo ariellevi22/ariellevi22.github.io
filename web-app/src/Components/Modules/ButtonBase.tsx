@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 
-import { scaleFactors } from "../../Global";
-import { transition } from "../../Theme";
+import { scaleFactors } from "Global";
+import { transition } from "Theme";
 import { CSSObject, useTheme } from "@emotion/react";
 import Link from "./Link";
 

@@ -1,4 +1,4 @@
-import { Format } from "../../../Types";
+import { Format } from "Types";
 
 import PersonalWebsiteLogo from "./Logos/PersonalWebsite.svg";
 import PersonalWebsiteLogoAlt from "./Logos/PersonalWebsiteAlt.svg";

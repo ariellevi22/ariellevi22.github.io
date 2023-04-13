@@ -1,19 +1,13 @@
 /** @jsxImportSource @emotion/react */
 
 import portfolioData from "./data";
-import {
-  Card,
-  Chip,
-  ChipGroup,
-  IconButton,
-  IconButtonGroup,
-} from "../../Components";
+import { Card, Chip, ChipGroup, IconButton, IconButtonGroup } from "Components";
 import {
   faArrowUpRightFromSquare,
   faCode,
 } from "@fortawesome/free-solid-svg-icons";
-import { getPreferredFormatOption } from "../../Utils";
-import { Section, SimpleGrid } from "../../Containers";
+import { getPreferredFormatOption } from "Utils";
+import { Section, SimpleGrid } from "Containers";
 import { useTheme } from "@emotion/react";
 
 /**

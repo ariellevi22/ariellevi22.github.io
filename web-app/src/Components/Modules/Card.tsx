@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 
 import { useTheme } from "@emotion/react";
-import { ChildrenProps } from "../../Types";
+import { ChildrenProps } from "Types";
 
 /** A component for a display card */
 const Card = (props: CardProps) => {

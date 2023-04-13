@@ -1,9 +1,9 @@
 /** @jsxImportSource @emotion/react */
 
-import { getCurrentYear } from "../../Utils";
+import { getCurrentYear } from "Utils";
 import Logo from "./Logo";
 import SocialButtons from "./SocialButtons";
-import { title } from "../../Global";
+import { title } from "Global";
 import { useTheme } from "@emotion/react";
 
 /** A component for the website's footer */

@@ -1,9 +1,9 @@
 /** @jsxImportSource @emotion/react */
 
-import { Container } from "../../Containers";
-import profilePicture from "../../Assets/ProfilePicture.jpg";
+import { Container } from "Containers";
+import profilePicture from "Assets/ProfilePicture.jpg";
 import SocialButtons from "./SocialButtons";
-import { title, screenSizes } from "../../Global";
+import { title, screenSizes } from "Global";
 import { useTheme } from "@emotion/react";
 
 /**

@@ -1,8 +1,8 @@
 import experienceData from "./data";
-import { Card, Chip, ChipGroup, Link } from "../../Components";
-import { getPreferredFormatOption } from "../../Utils";
-import { Section, SimpleGrid } from "../../Containers";
-import { separator } from "../../Global";
+import { Card, Chip, ChipGroup, Link } from "Components";
+import { getPreferredFormatOption } from "Utils";
+import { Section, SimpleGrid } from "Containers";
+import { separator } from "Global";
 import { useTheme } from "@emotion/react";
 
 /**

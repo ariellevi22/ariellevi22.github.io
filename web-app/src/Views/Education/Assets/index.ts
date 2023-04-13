@@ -1,4 +1,4 @@
-import { Format } from "../../../Types";
+import { Format } from "Types";
 
 import BvnLogo from "./Logos/BVN.svg";
 import UnlLogo from "./Logos/UNL.svg";

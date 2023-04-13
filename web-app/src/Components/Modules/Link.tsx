@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 
-import { transition } from "../../Theme";
+import { transition } from "Theme";
 import { useTheme } from "@emotion/react";
 
 /**

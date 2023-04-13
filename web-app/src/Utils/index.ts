@@ -1,4 +1,4 @@
-import { Format } from "../Types";
+import { Format } from "Types";
 
 /**
  * Gets the current year

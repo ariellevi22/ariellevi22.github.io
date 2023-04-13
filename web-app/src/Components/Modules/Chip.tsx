@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 
-import { ChildrenProps } from "../../Types";
+import { ChildrenProps } from "Types";
 import { useTheme } from "@emotion/react";
 
 /** A component for an informational chip */
