@@ -1,4 +1,4 @@
-import { ExperienceItem } from "../../Types";
+import { ExperienceItem } from "Types";
 import {
     evergy2021Photo,
     evergyLogo,

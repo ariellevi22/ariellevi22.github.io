@@ -1,10 +1,9 @@
 /** @jsxImportSource @emotion/react */
 
-import React from "react";
-import { scaleFactors } from "../Global";
-import Link from "./Link";
+import { scaleFactors } from "Global";
+import { transition } from "Theme";
 import { CSSObject, useTheme } from "@emotion/react";
-import { transition } from "../Theme";
+import Link from "./Link";
 
 /**
  * A simple wrapper component for an HTML `<button>`, extended

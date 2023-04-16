@@ -1,5 +1,5 @@
 import { Global, useTheme } from "@emotion/react";
-import { transition } from ".";
+import { transition } from "./Transition";
 
 /** Baseline styling based on the application's theme */
 const CssBaseline = () => {

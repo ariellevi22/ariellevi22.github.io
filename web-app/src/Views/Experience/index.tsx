@@ -1,16 +1,12 @@
-import Section from "../../Containers/Section";
-import Link from "../../Components/Link";
-import SimpleGrid from "../../Containers/SimpleGrid";
-import Card from "../../Components/Card";
-import ChipGroup from "../../Components/ChipGroup";
-import Chip from "../../Components/Chip";
 import experienceData from "./data";
-import { separator } from "../../Global";
-import { getPreferredFormatOption } from "../../Utils";
+import { Card, Chip, ChipGroup, Link } from "Components";
+import { getPreferredFormatOption } from "Utils";
+import { Section, SimpleGrid } from "Containers";
+import { separator } from "Global";
 import { useTheme } from "@emotion/react";
 
 /**
- * A React container for "Experience" section elements and data
+ * "Experience" section
  */
 const Experience = () => {
   const theme = useTheme();

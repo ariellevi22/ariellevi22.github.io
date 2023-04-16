@@ -1,16 +1,11 @@
-import { Format } from "../../../Types";
+import { Format } from "Types";
 
 import PersonalWebsiteLogo from "./Logos/PersonalWebsite.svg";
 import PersonalWebsiteLogoAlt from "./Logos/PersonalWebsiteAlt.svg";
-import PersonalWebsitePhoto from "./Photos/PersonalWebsite.png";
-
 import CookBookLogo from "./Logos/CookBook.svg";
 import CookBookLogoAlt from "./Logos/CookBookAlt.svg";
-import CookBookPhoto from "./Photos/CookBook.png";
-
 import ToGatherLogo from "./Logos/ToGather.svg";
 import ToGatherLogoAlt from "./Logos/ToGatherAlt.svg";
-import ToGatherPhoto from "./Photos/ToGather.png";
 
 export const personalWebsiteLogo: Format = {
     lightTheme: PersonalWebsiteLogo,
@@ -25,6 +20,6 @@ export const toGatherLogo: Format = {
     darkTheme: ToGatherLogoAlt,
 };
 
-export const personalWebsitePhoto = PersonalWebsitePhoto;
-export const cookBookPhoto = CookBookPhoto;
-export const toGatherPhoto = ToGatherPhoto;
+export { default as personalWebsitePhoto } from "./Photos/PersonalWebsite.png";
+export { default as cookBookPhoto } from "./Photos/CookBook.png";
+export { default as toGatherPhoto } from "./Photos/ToGather.png";

@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 
-import { screenSizes } from "../Global";
-import { ChildrenProps } from "../Types";
+import { screenSizes } from "Global";
+import { ChildrenProps } from "Types";
 
 /** A container for app content */
 const Container = (props: ContainerProps) => {

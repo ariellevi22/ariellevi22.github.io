@@ -1,4 +1,4 @@
-import { EducationItem } from "../../Types";
+import { EducationItem } from "Types";
 import { bvn2019Photo, bvnLogo, unl2023Photo, unlLogo } from "./Assets";
 
 /**

@@ -1,10 +1,10 @@
 /** @jsxImportSource @emotion/react */
 
-import { useTheme } from "@emotion/react";
-import profilePicture from "../Assets/ProfilePicture.jpg";
+import { Container } from "Containers";
+import profilePicture from "Assets/ProfilePicture.jpg";
 import SocialButtons from "./SocialButtons";
-import { title, screenSizes } from "../Global";
-import Container from "../Containers/Container";
+import { title, screenSizes } from "Global";
+import { useTheme } from "@emotion/react";
 
 /**
  * A component for the website's hero header, which contains a heading,

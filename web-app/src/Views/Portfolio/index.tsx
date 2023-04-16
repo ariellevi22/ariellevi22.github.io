@@ -1,22 +1,17 @@
 /** @jsxImportSource @emotion/react */
 
-import Section from "../../Containers/Section";
-import SimpleGrid from "../../Containers/SimpleGrid";
-import Card from "../../Components/Card";
-import IconButton from "../../Components/IconButton";
-import IconButtonGroup from "../../Components/IconButtonGroup";
-import Chip from "../../Components/Chip";
-import ChipGroup from "../../Components/ChipGroup";
 import portfolioData from "./data";
+import { Card, Chip, ChipGroup, IconButton, IconButtonGroup } from "Components";
 import {
   faArrowUpRightFromSquare,
   faCode,
 } from "@fortawesome/free-solid-svg-icons";
-import { getPreferredFormatOption } from "../../Utils";
+import { getPreferredFormatOption } from "Utils";
+import { Section, SimpleGrid } from "Containers";
 import { useTheme } from "@emotion/react";
 
 /**
- * A React container for "Portfolio" section elements and data
+ * "Portfolio" section
  */
 const Portfolio = () => {
   const theme = useTheme();

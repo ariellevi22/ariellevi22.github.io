@@ -1,4 +1,4 @@
-import { PortfolioItem } from "../../Types";
+import { PortfolioItem } from "Types";
 import {
     cookBookLogo,
     cookBookPhoto,
