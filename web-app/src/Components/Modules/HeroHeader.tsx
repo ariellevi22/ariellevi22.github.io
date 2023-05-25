@@ -84,8 +84,7 @@ const HeroHeader = () => {
             <div>
               <h1>{title}</h1>
               <p style={{ marginBottom: 0 }}>
-                Computer Science Student at the University of
-                Nebraska-Lincoln&rsquo;s Raikes School
+                Incoming Software Engineer at Garmin
               </p>
             </div>
 
