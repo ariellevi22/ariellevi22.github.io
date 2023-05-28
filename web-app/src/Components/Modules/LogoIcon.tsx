@@ -12,8 +12,8 @@ const LogoIcon = (props: LogoIconProps) => {
     <LogoSvg
       {...props}
       css={{
-        height: "2.25rem",
-        transition: transition("color", "transform"),
+        height: "2.75rem",
+        transition: transition("color"),
       }}
     />
   );

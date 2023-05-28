@@ -3,7 +3,7 @@
 import { CSSObject, useTheme } from "@emotion/react";
 import Link from "./Link";
 import LogoIcon from "./LogoIcon";
-import { title, scaleFactors, screenSizes } from "Global";
+import { title, screenSizes } from "Global";
 import { transition } from "Theme";
 
 /**
@@ -52,7 +52,6 @@ const Logo = (props: LogoProps) => {
       "@media (hover: hover) and (pointer: fine)": {
         "&:hover svg": {
           color: interactionColor ?? theme.colors.accentPrimary,
-          transform: `scale(${1 + scaleFactors.tiny})`,
         },
         "&:hover p": {
           color: interactionColor ?? theme.colors.accentPrimary,
@@ -60,10 +59,6 @@ const Logo = (props: LogoProps) => {
       },
       "&:focus-visible svg": {
         color: interactionColor ?? theme.colors.accentPrimary,
-        transform: `scale(${1 + scaleFactors.tiny})`,
-      },
-      "&:active svg": {
-        transform: `scale(${1 - scaleFactors.tiny})`,
       },
       "&:focus-visible p": {
         color: interactionColor ?? theme.colors.accentPrimary,
