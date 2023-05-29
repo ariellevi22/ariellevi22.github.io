@@ -1,5 +1,5 @@
-import { Link } from "Components";
-import { Section } from "Containers";
+import { Link } from "../../Components";
+import { Section } from "../../Containers";
 
 /**
  * "About" section

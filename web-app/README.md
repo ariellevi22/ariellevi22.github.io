@@ -8,27 +8,27 @@ View the finished product at [alevi22.github.io](https://alevi22.github.io).
 
 ## Technologies
 
-This project is made with [React.js](https://reactjs.org/) using [TypeScript](https://www.typescriptlang.org/).
-
-The project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). Find the [Create React App guide](https://github.com/facebook/create-react-app/blob/main/packages/cra-template/template/README.md) here.
+This project is made with [React.js](https://reactjs.org/) using [TypeScript](https://www.typescriptlang.org/) and [Vite](https://vitejs.dev/).
 
 ## Project Structure
 
--   `public` contains the base HTML file and assets that React will use to run
+-   `index.html` is the main entry point to the app
+-   `public` contains the assets and metadata used in `index.html`
 -   `src` contains all the project code
-    -   `index.ts` is the main entry point for React
-    -   `App.ts` is the top-level React component for the app
-    -   `Assets` contains all common assets (like photos) used in the app
-    -   `Components` contains all common React components used in the app, like the logo and cards
+    -   `main.tsx` is the entry point for React
+    -   `App.tsx` is the top-level React component for the app
+    -   `Assets` contains common assets (like photos) used in the app
+    -   `Components` contains common React components used in the app, like the logo and cards
     -   `Containers` contains common React components that help structure the app, like grids and sections
     -   `Views` contains React components for the main views and content of the app, which are made up of components from `Components` and `Containers`
     -   `Types` contains TypeScript types used across the app
     -   `Global` contains global variables used across the app
     -   `Utils` contains utility functions used across the app
     -   `Theme` contains theming and styling information for the app
--   `package.json` and `package-lock.json` contain information about project dependencies
--   `tsconfig.json` contains TypeScript configuration information
--   `prettierrc.json` contains configuration information for [Prettier](https://prettier.io/) code formatting
+-   `package.json` and `package-lock.json` contain information about project scripts and dependencies
+-   `tsconfig.json` and `tsconfig.node.json` contain TypeScript configuration information
+-   `.eslintrc.json` contains configuration information for [ESLint](https://eslint.org/) code analysis
+-   `.prettierrc.json` contains configuration information for [Prettier](https://prettier.io/) code formatting
 
 ## Development
 
@@ -39,7 +39,7 @@ npm install
 npm start
 ```
 
-Then, open [localhost:3000](http://localhost:3000) to view it in the browser. The page will reload if you make edits, and you will also see any lint errors in the console.
+Then, follow the link provided in the terminal to the local web app.
 
 ## Deployment
 

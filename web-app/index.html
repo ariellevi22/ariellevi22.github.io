@@ -2,11 +2,10 @@
 
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Website data -->
     <meta name="author" content="Ariel Levi" />
     <meta name="application-name" content="Ariel Levi" />
     <meta
@@ -17,14 +16,11 @@
     <meta name="theme-color" content="black" />
 
     <!-- Icons -->
-    <link rel="shortcut icon" href="%PUBLIC_URL%/Assets/favicon.ico" />
-    <link
-      rel="apple-touch-icon"
-      href="%PUBLIC_URL%/Assets/apple-touch-icon.png"
-    />
+    <link rel="shortcut icon" href="/Assets/favicon.ico" />
+    <link rel="apple-touch-icon" href="/Assets/apple-touch-icon.png" />
 
     <!-- Manifest metadata for Android -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link rel="manifest" href="/manifest.json" />
 
     <!-- Social metadata -->
     <meta property="og:title" content="Ariel Levi" />
@@ -33,7 +29,7 @@
       property="og:description"
       content="Ariel Levi's personal portfolio website"
     />
-    <meta property="og:image" content="%PUBLIC_URL%/Assets/social-cover.png" />
+    <meta property="og:image" content="/Assets/social-cover.png" />
     <meta
       property="og:image:alt"
       content="Ariel Levi's personal portfolio website"
@@ -52,7 +48,7 @@
   </head>
 
   <body>
-    <noscript> You need to enable JavaScript to run this app. </noscript>
     <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

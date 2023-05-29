@@ -1,7 +1,5 @@
 /** @jsxImportSource @emotion/react */
 
-import { useState } from "react";
-import { CSSTransition } from "react-transition-group";
 import { ClassNames, CSSObject, useTheme } from "@emotion/react";
 import {
   faBars,
@@ -9,12 +7,14 @@ import {
   faMoon,
   faSun,
 } from "@fortawesome/free-solid-svg-icons";
+import { useState } from "react";
+import { CSSTransition } from "react-transition-group";
+import { navbarHeight, screenSizes, socialTabs } from "../../Global";
+import { transition } from "../../Theme";
+import { NavbarTab } from "../../Types";
 import IconButton from "./IconButton";
 import Link from "./Link";
 import Logo from "./Logo";
-import { navbarHeight, screenSizes, socialTabs } from "Global";
-import { transition } from "Theme";
-import { NavbarTab } from "Types";
 
 /** A component for the website's navigation bar */
 const Navbar = (props: NavbarProps) => {
