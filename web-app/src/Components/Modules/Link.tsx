@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 
 import { useTheme } from "@emotion/react";
-import { transition } from "../../Theme";
+import { useTransition } from "../../Theme";
 
 /**
  * A wrapper component for the HTML anchor `<a>` that includes proper styling
@@ -27,7 +27,7 @@ const Link = (props: LinkProps) => {
         color: "inherit",
         cursor: "pointer",
         textDecoration: removeUnderline ? "none" : undefined,
-        transition: transition("color", "textDecoration"),
+        transition: useTransition("color", "textDecoration"),
 
         "@media (hover: hover) and (pointer: fine)": {
           "&:hover": {

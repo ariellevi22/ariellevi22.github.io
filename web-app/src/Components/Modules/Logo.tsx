@@ -2,7 +2,7 @@
 
 import { CSSObject, useTheme } from "@emotion/react";
 import { scaleFactors, screenSizes, title } from "../../Global";
-import { transition } from "../../Theme";
+import { useTransition } from "../../Theme";
 import Link from "./Link";
 import LogoIcon from "./LogoIcon";
 
@@ -32,7 +32,7 @@ const Logo = (props: LogoProps) => {
           fontSize: "1.5rem",
           padding: 0,
           margin: 0,
-          transition: transition("color"),
+          transition: useTransition("color"),
           whiteSpace: "nowrap",
 
           // Hide the text on tiny screens (if not stacked)

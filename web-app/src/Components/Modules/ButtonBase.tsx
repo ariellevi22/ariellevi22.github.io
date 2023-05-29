@@ -2,7 +2,7 @@
 
 import { CSSObject, useTheme } from "@emotion/react";
 import { scaleFactors } from "../../Global";
-import { transition } from "../../Theme";
+import { useTransition } from "../../Theme";
 import Link from "./Link";
 
 /**
@@ -43,7 +43,7 @@ const ButtonBase = (props: ButtonBaseProps) => {
     color: isTransparent ? "inherit" : textColor ?? theme.colors.textSecondary,
     border: "none",
     boxShadow: getShadow(theme.colors.shadow, isTransparent),
-    transition: transition(
+    transition: useTransition(
       "color",
       "backgroundColor",
       "transform",

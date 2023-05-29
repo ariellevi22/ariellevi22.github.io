@@ -10,7 +10,7 @@ import {
 import { useState } from "react";
 import { CSSTransition } from "react-transition-group";
 import { navbarHeight, screenSizes, socialTabs } from "../../Global";
-import { transition } from "../../Theme";
+import { useTransition } from "../../Theme";
 import { NavbarTab } from "../../Types";
 import IconButton from "./IconButton";
 import Link from "./Link";
@@ -157,13 +157,13 @@ const Navbar = (props: NavbarProps) => {
               enter: css(menuHiddenStyle),
               enterActive: css({
                 ...menuVisibleStyle,
-                transition: transition("opacity", "width"),
+                transition: useTransition("opacity", "width"),
               }),
               enterDone: css(menuVisibleStyle),
               exit: css(menuVisibleStyle),
               exitActive: css({
                 ...menuHiddenStyle,
-                transition: transition("opacity", "width"),
+                transition: useTransition("opacity", "width"),
               }),
               exitDone: css(menuHiddenStyle),
             }}
