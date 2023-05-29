@@ -1,5 +1,5 @@
 import { Global, useTheme } from "@emotion/react";
-import { useTransition } from "./Transition";
+import { transition } from "./Transition";
 
 /** Baseline styling based on the application's theme */
 const CssBaseline = () => {
@@ -22,7 +22,7 @@ const CssBaseline = () => {
           fontFamily: fonts.join(", "),
           backgroundColor: theme.colors.backgroundPrimary,
           color: theme.colors.textPrimary,
-          transition: useTransition("backgroundColor", "color"),
+          transition: transition("backgroundColor", "color"),
         },
 
         h1: {

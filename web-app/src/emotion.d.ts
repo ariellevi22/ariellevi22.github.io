@@ -20,6 +20,5 @@ declare module "@emotion/react" {
 
             shadow: string;
         };
-        transitionDuration: number;
     }
 }

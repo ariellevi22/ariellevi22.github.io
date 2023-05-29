@@ -8,7 +8,7 @@ import {
 import { useState } from "react";
 import { CSSTransition } from "react-transition-group";
 import { navbarHeight, screenSizes, socialTabs } from "../../Global";
-import { useTransition } from "../../Theme";
+import { transition, transitionDuration } from "../../Theme";
 import { NavbarTab } from "../../Types";
 import IconButton from "./IconButton";
 import Link from "./Link";
@@ -150,18 +150,18 @@ const Navbar = (props: NavbarProps) => {
         {({ css }) => (
           <CSSTransition
             in={isMenuOpen}
-            timeout={theme.transitionDuration}
+            timeout={transitionDuration}
             classNames={{
               enter: css(menuHiddenStyle),
               enterActive: css({
                 ...menuVisibleStyle,
-                transition: useTransition("opacity", "width"),
+                transition: transition("opacity", "width"),
               }),
               enterDone: css(menuVisibleStyle),
               exit: css(menuVisibleStyle),
               exitActive: css({
                 ...menuHiddenStyle,
-                transition: useTransition("opacity", "width"),
+                transition: transition("opacity", "width"),
               }),
               exitDone: css(menuHiddenStyle),
             }}
