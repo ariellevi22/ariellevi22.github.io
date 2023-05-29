@@ -1,6 +1,6 @@
 import { faGithub, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
-import { IconTab } from "../../Types";
+import { IconTab } from "../Types";
 
 /**
  * Personal website title
