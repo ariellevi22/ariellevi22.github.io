@@ -11,7 +11,7 @@
     "pretty": "prettier --check ./src",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -b deployed -d build"
+    "deploy": "gh-pages -b deployed -d dist"
   },
   "dependencies": {
     "@emotion/react": "^11.11.0",
