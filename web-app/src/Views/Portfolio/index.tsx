@@ -1,5 +1,3 @@
-/** @jsxImportSource @emotion/react */
-
 import { useTheme } from "@emotion/react";
 import {
   faArrowUpRightFromSquare,

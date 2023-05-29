@@ -1,5 +1,3 @@
-/** @jsxImportSource @emotion/react */
-
 import { screenSizes } from "../../Global";
 import { ChildrenProps } from "../../Types";
 

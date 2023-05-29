@@ -1,5 +1,3 @@
-/** @jsxImportSource @emotion/react */
-
 import { navbarHeight } from "../../Global";
 import { ChildrenProps } from "../../Types";
 import Container from "./Container";

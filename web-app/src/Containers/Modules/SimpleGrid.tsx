@@ -1,5 +1,3 @@
-/** @jsxImportSource @emotion/react */
-
 import { Property as CSSProperty } from "csstype";
 import { screenSizes } from "../../Global";
 import { ChildrenProps } from "../../Types";

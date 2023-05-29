@@ -1,5 +1,3 @@
-/** @jsxImportSource @emotion/react */
-
 import { CSSObject, useTheme } from "@emotion/react";
 import { scaleFactors, screenSizes, title } from "../../Global";
 import { useTransition } from "../../Theme";

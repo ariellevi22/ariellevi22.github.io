@@ -1,5 +1,3 @@
-/** @jsxImportSource @emotion/react */
-
 import { useTheme } from "@emotion/react";
 import profilePicture from "../../Assets/ProfilePicture.jpg";
 import { Container } from "../../Containers";

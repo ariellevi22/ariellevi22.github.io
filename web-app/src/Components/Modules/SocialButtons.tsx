@@ -1,5 +1,3 @@
-/** @jsxImportSource @emotion/react */
-
 import { socialTabs } from "../../Global";
 import IconButton from "./IconButton";
 import IconButtonGroup from "./IconButtonGroup";

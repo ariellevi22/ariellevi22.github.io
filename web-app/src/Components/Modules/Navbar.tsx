@@ -1,5 +1,3 @@
-/** @jsxImportSource @emotion/react */
-
 import { ClassNames, CSSObject, useTheme } from "@emotion/react";
 import {
   faBars,
