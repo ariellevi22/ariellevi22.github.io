@@ -1,17 +1,16 @@
-/** @jsxImportSource @emotion/react */
-
 import { CSSObject, useTheme } from "@emotion/react";
+import { screenSizes, title } from "../../Global";
+import { transition } from "../../Theme";
 import Link from "./Link";
 import LogoIcon from "./LogoIcon";
-import { title, screenSizes } from "Global";
-import { transition } from "Theme";
 
 /**
  * A component for the application's logo (including the icon and text),
  * which can optionally link to a website or part of the app when clicked
  */
 const Logo = (props: LogoProps) => {
-  const { href, stacked, color, interactionColor, onClick } = props;
+  const { href, stacked, color, accentColor, interactionColor, onClick } =
+    props;
 
   const theme = useTheme();
 
@@ -25,7 +24,7 @@ const Logo = (props: LogoProps) => {
 
   const logoBase = (
     <>
-      <LogoIcon color={color} aria-hidden />
+      <LogoIcon color={color} fill={accentColor} aria-hidden />
       <p
         css={{
           color: color ?? "inherit",
@@ -93,6 +92,9 @@ type LogoProps = {
 
   /** The color in which the logo should be displayed */
   color?: string;
+
+  /** The color in which the logo's accents should be displayed */
+  accentColor?: string;
 
   /** The color in which the logo should be displayed when interacted with */
   interactionColor?: string;

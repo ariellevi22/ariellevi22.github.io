@@ -1,5 +1,7 @@
 import { CSSProperties } from "react";
-import { useTheme } from "@emotion/react";
+
+/** The default CSS transition time for elements in the application (in milliseconds) */
+export const transitionDuration = 250;
 
 /**
  * Constructs the default CSS transition for elements in the application
@@ -8,8 +10,6 @@ import { useTheme } from "@emotion/react";
  * @returns the CSS transition for the given properties
  */
 export const transition = (...properties: CssPropertyName[]) => {
-    const { transitionDuration } = useTheme();
-
     const cssProperties = [...properties];
     if (cssProperties.length === 0) {
         cssProperties.push("all");

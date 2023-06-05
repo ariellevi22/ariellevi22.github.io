@@ -1,9 +1,9 @@
 import { useTheme } from "@emotion/react";
-import { Section, SimpleGrid } from "Containers";
-import { Card } from "Components";
+import { Card } from "../../Components";
+import { Section, SimpleGrid } from "../../Containers";
+import { separator } from "../../Global";
+import { getPreferredFormatOption, pluralize } from "../../Utils";
 import educationData from "./data";
-import { getPreferredFormatOption, pluralize } from "Utils";
-import { separator } from "Global";
 
 /**
  * "Education" section
