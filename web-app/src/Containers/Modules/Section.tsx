@@ -1,8 +1,6 @@
-/** @jsxImportSource @emotion/react */
-
+import { navbarHeight } from "../../Global";
+import { ChildrenProps } from "../../Types";
 import Container from "./Container";
-import { navbarHeight } from "Global";
-import { ChildrenProps } from "Types";
 
 /** A container for a section of the app */
 const Section = (props: SectionProps) => {

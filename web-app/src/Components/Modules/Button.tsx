@@ -1,5 +1,3 @@
-/** @jsxImportSource @emotion/react */
-
 import ButtonBase, { ButtonBaseProps } from "./ButtonBase";
 
 /** A component for a button */

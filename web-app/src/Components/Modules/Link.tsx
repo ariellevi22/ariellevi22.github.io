@@ -1,7 +1,5 @@
-/** @jsxImportSource @emotion/react */
-
-import { transition } from "Theme";
 import { useTheme } from "@emotion/react";
+import { transition } from "../../Theme";
 
 /**
  * A wrapper component for the HTML anchor `<a>` that includes proper styling

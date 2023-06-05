@@ -1,4 +1,4 @@
-import { ExperienceItem } from "Types";
+import { ExperienceItem } from "../../Types";
 import {
     evergy2021Photo,
     evergyLogo,
@@ -25,7 +25,7 @@ const experienceData: ExperienceItem[] = [
         location: "Lincoln, NE",
         responsibilities: [
             "Developed a web application to consolidate loan program information into a central knowledgebase for call center and processing agents",
-            "Led and mentored a team of 3 developers in UI/UX design, agile processes, software engineering, and software architecture",
+            "Led and mentored a team of 5 developers in UI/UX design, agile processes, software engineering, and software architecture",
         ],
         technologies: [
             "Node.js",

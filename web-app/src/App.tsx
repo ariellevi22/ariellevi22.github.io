@@ -1,5 +1,3 @@
-/** @jsxImportSource @emotion/react */
-
 import { navbarHeight } from "./Global";
 import { CssBaseline, useThemePreference } from "./Theme";
 import { ThemeProvider } from "@emotion/react";

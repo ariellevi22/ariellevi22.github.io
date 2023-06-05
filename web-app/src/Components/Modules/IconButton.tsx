@@ -1,8 +1,6 @@
-/** @jsxImportSource @emotion/react */
-
-import ButtonBase, { ButtonBaseProps } from "./ButtonBase";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import ButtonBase, { ButtonBaseProps } from "./ButtonBase";
 
 /** A component for a button with an icon, such as a social button */
 const IconButton = (props: IconButtonProps) => {

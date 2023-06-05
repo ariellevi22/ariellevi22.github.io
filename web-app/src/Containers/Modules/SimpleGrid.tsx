@@ -1,8 +1,6 @@
-/** @jsxImportSource @emotion/react */
-
 import { Property as CSSProperty } from "csstype";
-import { screenSizes } from "Global";
-import { ChildrenProps } from "Types";
+import { screenSizes } from "../../Global";
+import { ChildrenProps } from "../../Types";
 
 /** A container for grid items */
 const SimpleGrid = (props: SimpleGridProps) => {

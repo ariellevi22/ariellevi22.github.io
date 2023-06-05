@@ -23,9 +23,6 @@ const navigationMenuBackground = "#004B69";
 const shadowLight = "rgba(0, 0, 0, 0.15)";
 const shadowDark = "rgba(0, 0, 0, 0.35)";
 
-/** The default CSS transition time for elements in the application (in milliseconds) */
-const transitionTime = 250;
-
 /**
  * The application's light theme
  */
@@ -48,7 +45,6 @@ const lightTheme: Theme = {
 
         shadow: shadowLight,
     },
-    transitionDuration: transitionTime,
 };
 
 /**
@@ -73,7 +69,6 @@ const darkTheme: Theme = {
 
         shadow: shadowDark,
     },
-    transitionDuration: transitionTime,
 };
 
 /**

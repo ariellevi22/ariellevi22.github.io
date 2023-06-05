@@ -1,6 +1,4 @@
-/** @jsxImportSource @emotion/react */
-
-import { ChildrenProps } from "Types";
+import { ChildrenProps } from "../../Types";
 
 /** A container for a group of icon buttons */
 const IconButtonGroup = (props: IconButtonGroupProps) => {
