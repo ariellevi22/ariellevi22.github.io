@@ -1,4 +1,4 @@
-<img src="./web-app/public/Assets/favicon-192x192.png" alt="Ariel Levi" height="48px" />
+<img src="./web-app/public/assets/favicon-192x192.png" alt="Ariel Levi" height="48px" />
 
 # Personal Website
 
