@@ -108,6 +108,7 @@ const Navbar = (props: NavbarProps) => {
         <Logo
           href="#top"
           onClick={() => setMenuOpen(false)}
+          accentColor={theme.colors.accentNavigation}
           interactionColor={theme.colors.accentNavigation}
         />
 
