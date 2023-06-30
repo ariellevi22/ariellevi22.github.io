@@ -1,6 +1,6 @@
 # Development Information
 
-![Continuous Deployment](https://github.com/alevi22/alevi22.github.io/workflows/Deploy/badge.svg)
+![CI/CD](https://github.com/alevi22/alevi22.github.io/workflows/ci-cd.yml/badge.svg)
 
 ## Accessing the Project
 
@@ -43,18 +43,4 @@ Then, follow the link provided in the terminal to the local web app.
 
 ## Deployment
 
-The project is deployed to [alevi22.github.io](https://alevi22.github.io) using [GitHub Pages](https://pages.github.com/).
-
-### Manual Deployment
-
-To manually deploy changes, run:
-
-```sh
-npm run deploy
-```
-
-### Continuous Deployment
-
-Whenever new code is pushed to the repository's `main` branch, GitHub Actions will automatically deploy the updates.
-
-To enable automatic deployment through GitHub Actions, the repository has an access token stored as a secret in GitHub. When the token expires, [generate a new token](https://github.com/settings/tokens/new) on GitHub and then [update the value of the secret](https://github.com/alevi22/alevi22.github.io/settings/secrets/actions) in the GitHub repository settings.
+The project is deployed to [alevi22.github.io](https://alevi22.github.io) using [GitHub Pages](https://pages.github.com/). Whenever new code is pushed to the repository's `main` branch, GitHub Actions will automatically deploy the updates.
