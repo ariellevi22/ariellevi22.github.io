@@ -1,6 +1,6 @@
 # Development Information
 
-![CI/CD](https://github.com/alevi22/alevi22.github.io/workflows/ci-cd.yml/badge.svg)
+[![CI/CD](https://github.com/alevi22/alevi22.github.io/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/alevi22/alevi22.github.io/actions/workflows/ci-cd.yml)
 
 ## Accessing the Project
 
