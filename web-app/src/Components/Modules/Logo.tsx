@@ -22,7 +22,7 @@ const Logo = (props: LogoProps) => {
     gap: stacked ? "0.5rem" : "1rem",
   };
 
-  const logoBase = (
+  const LogoBase = () => (
     <>
       <LogoIcon color={color} fill={accentColor} aria-hidden />
       <p
@@ -66,14 +66,18 @@ const Logo = (props: LogoProps) => {
 
     // If an address was provided for the logo to link to, add it
     return (
-      <Link href={href} css={{ ...containerStyles, ...linkStyles }}>
-        {logoBase}
+      <Link
+        href={href}
+        onClick={onClick}
+        css={{ ...containerStyles, ...linkStyles }}
+      >
+        <LogoBase />
       </Link>
     );
   } else {
     return (
       <div css={containerStyles} onClick={onClick}>
-        {logoBase}
+        <LogoBase />
       </div>
     );
   }
@@ -100,7 +104,7 @@ type LogoProps = {
   interactionColor?: string;
 
   /** A function to call when the logo is clicked */
-  onClick?: React.MouseEventHandler<HTMLDivElement>;
+  onClick?: React.MouseEventHandler<HTMLElement>;
 };
 
 export default Logo;

@@ -1,25 +1,17 @@
-<img src="./web-app/public/assets/favicon-192x192.png" alt="Ariel Levi" height="48px" />
+# Personal Portfolio Website
 
-# Personal Website
+**Ariel Levi**
 
-Ariel Levi
+Welcome to the code repository for my personal portfolio website! Continue through this repository to look through the code, or view my finished work at [alevi22.github.io](https://alevi22.github.io).
 
-> Welcome to my personal porfolio website repository! Continue through this repository to see the code, or view my finished work at [alevi22.github.io](https://alevi22.github.io).
+<img src="./web-app/public/assets/social-cover.png" alt="Ariel Levi's personal portfolio website" />
 
-## About the Project
+## 💻 About the Project
 
-In an effort to combine my passions for code, writing, and design, I created this personal portfolio website that showcases my experiences, accomplishments, and interests. Every aspect of the website was designed with several principles in mind:
+To combine my passions for code, writing, and design, I created this personal portfolio that showcases my experiences and accomplishments so far. I crafted every aspect of the portfolio with the goal of maintaining the flexibility, effectiveness, and simplicity of code and design.
 
--   **componentization** – to ensure consistency and effectiveness of code and design, as well as maintaining good design principles and software engineering practices
--   **flexibility** – so that the website can easily be updated with new experiences and accomplishments
--   **ease of use** – for website visitors to get to know me in the easiest way possible!
+For more technical details about the project, take a look at the [development documentation](/web-app/README.md).
 
-To meet these goals, each component—from the navigation bar to the showcase cards to the hero header—was built from scratch using [React.js](https://reactjs.org/), and all elements were styled using custom CSS.
+## 💭 Feedback
 
-## Project Timeline
-
-Late 2020 to early 2021, with updates added continuously as necessary
-
-## Feedback
-
-I would love to hear any thoughts, suggestions, or ideas for improvement! Please contact me through my website to share!
+I would love to hear any thoughts, suggestions, or ideas for improvement. Please get in touch with me through my portfolio to share!
