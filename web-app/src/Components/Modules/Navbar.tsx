@@ -5,7 +5,7 @@ import {
   faMoon,
   faSun,
 } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FocusOn } from "react-focus-on";
 import { CSSTransition } from "react-transition-group";
 import { navbarHeight, screenSizes, socialTabs } from "../../Global";
@@ -23,6 +23,12 @@ const Navbar = ({ toggleTheme }: NavbarProps) => {
   // of the full navigation bar) is open or closed (initially closed)
   const [isMenuOpen, setMenuOpen] = useState(false);
   const closeMenu = () => setMenuOpen(false);
+
+  // On window resize, close the menu
+  useEffect(() => {
+    window.addEventListener("resize", closeMenu);
+    return () => window.removeEventListener("resize", closeMenu);
+  });
 
   // Styles for the navigation menu on small screens
   const menuHiddenStyle: CSSObject = { opacity: 0, width: 0 };
