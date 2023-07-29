@@ -8,9 +8,13 @@ import LogoIcon from "./LogoIcon";
  * A component for the application's logo (including the icon and text),
  * which can optionally link to a website or part of the app when clicked
  */
-const Logo = (props: LogoProps) => {
-  const { href, stacked, color, interactionColor, onClick } = props;
-
+const Logo = ({
+  href,
+  stacked,
+  color,
+  interactionColor,
+  onClick,
+}: LogoProps) => {
   const theme = useTheme();
 
   const containerStyles: CSSObject = {

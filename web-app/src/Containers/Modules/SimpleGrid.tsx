@@ -3,18 +3,16 @@ import { screenSizes } from "../../Global";
 import { ChildrenProps } from "../../Types";
 
 /** A container for grid items */
-const SimpleGrid = (props: SimpleGridProps) => {
-  const {
-    width,
-    gap,
-    rowGap,
-    columnGap,
-    numColumns,
-    justifyRows,
-    priority,
-    children,
-  } = props;
-
+const SimpleGrid = ({
+  width,
+  gap,
+  rowGap,
+  columnGap,
+  numColumns,
+  justifyRows,
+  priority,
+  children,
+}: SimpleGridProps) => {
   const adjustedNumColumns = getNumColumns(numColumns);
 
   return (

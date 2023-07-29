@@ -7,19 +7,17 @@ import Link from "./Link";
  * A simple wrapper component for an HTML `<button>`, extended
  * in components such as `Button` and `IconButton` for simplicity
  */
-const ButtonBase = (props: ButtonBaseProps) => {
-  const {
-    isTransparent,
-    href,
-    openWithNewTab,
-    backgroundColor,
-    textColor,
-    interactionBackgroundColor,
-    interactionTextColor,
-    children,
-    ...otherProps
-  } = props;
-
+const ButtonBase = ({
+  isTransparent,
+  href,
+  openWithNewTab,
+  backgroundColor,
+  textColor,
+  interactionBackgroundColor,
+  interactionTextColor,
+  children,
+  ...otherProps
+}: ButtonBaseProps) => {
   const theme = useTheme();
 
   const adjustedInteractionBackgroundColor = isTransparent

@@ -2,9 +2,7 @@ import { useTheme } from "@emotion/react";
 import { ChildrenProps } from "../../Types";
 
 /** A component for an informational chip */
-const Chip = (props: ChipProps) => {
-  const { children } = props;
-
+const Chip = ({ children }: ChipProps) => {
   const theme = useTheme();
 
   return (

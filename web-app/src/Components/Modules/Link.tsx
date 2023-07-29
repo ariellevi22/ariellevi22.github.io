@@ -5,15 +5,13 @@ import { transition } from "../../Theme";
  * A wrapper component for the HTML anchor `<a>` that includes proper styling
  * and the functionality to easily open the link in a new tab
  */
-const Link = (props: LinkProps) => {
-  const {
-    openWithNewTab,
-    removeUnderline,
-    interactionColor,
-    children,
-    ...anchorProps
-  } = props;
-
+const Link = ({
+  openWithNewTab,
+  removeUnderline,
+  interactionColor,
+  children,
+  ...anchorProps
+}: LinkProps) => {
   const theme = useTheme();
 
   return (

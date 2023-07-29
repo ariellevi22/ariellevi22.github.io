@@ -16,8 +16,7 @@ import Link from "./Link";
 import Logo from "./Logo";
 
 /** A component for the website's navigation bar */
-const Navbar = (props: NavbarProps) => {
-  const { toggleTheme } = props;
+const Navbar = ({ toggleTheme }: NavbarProps) => {
   const theme = useTheme();
 
   // Keep track of whether the navigation bar menu (shown on small screens instead
