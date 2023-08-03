@@ -22,7 +22,7 @@ const portfolioData: PortfolioItem[] = [
         `,
         technologies: ["React.js", "TypeScript", "HTML/CSS", "Figma"],
         website: "#top",
-        codeWebsite: "https://github.com/alevi22/alevi22.github.io",
+        codeWebsite: "https://github.com/ariellevi22/ariellevi22.github.io",
         logo: personalWebsiteLogo,
         photo: personalWebsitePhoto,
     },

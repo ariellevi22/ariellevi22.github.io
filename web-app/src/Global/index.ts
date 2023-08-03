@@ -31,7 +31,7 @@ export const socialTabs: IconTab[] = [
     },
     {
         label: "GitHub",
-        href: "https://github.com/alevi22",
+        href: "https://github.com/ariellevi22",
         openWithNewTab: true,
         icon: faGithub,
         colorPrimary: "#9332AF",

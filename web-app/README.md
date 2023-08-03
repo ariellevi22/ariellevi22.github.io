@@ -1,10 +1,10 @@
 # Development Information
 
-[![CI/CD](https://github.com/alevi22/alevi22.github.io/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/alevi22/alevi22.github.io/actions/workflows/ci-cd.yml)
+[![CI/CD](https://github.com/ariellevi22/ariellevi22.github.io/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/ariellevi22/ariellevi22.github.io/actions/workflows/ci-cd.yml)
 
 ## Accessing the Project
 
-View the finished product at [alevi22.github.io](https://alevi22.github.io).
+View the finished product at [ariellevi22.github.io](https://ariellevi22.github.io).
 
 ## Technologies
 
@@ -43,4 +43,4 @@ Then, follow the link provided in the terminal to the local web app.
 
 ## Deployment
 
-The project is deployed to [alevi22.github.io](https://alevi22.github.io) using [GitHub Pages](https://pages.github.com/). Whenever new code is pushed to the repository's `main` branch, GitHub Actions will automatically deploy the updates.
+The project is deployed using [GitHub Pages](https://pages.github.com/). Whenever new code is pushed to the repository's `main` branch, GitHub Actions will automatically deploy the updates.
