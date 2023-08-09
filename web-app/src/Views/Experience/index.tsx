@@ -21,56 +21,54 @@ const Experience = () => {
         numColumns={{ large: 2, medium: 2, small: 1 }}
         priority={priority}
       >
-        {experienceData.map((experience, index) => {
-          return (
-            <Card
-              logoSrc={getPreferredFormatOption(experience.logo, theme.type)}
-              logoAlt={`${experience.organization} Logo`}
-              imgSrc={experience.photo}
-              color={getPreferredFormatOption(experience.color, theme.type)}
-              key={experience.id}
-              enableHorizontal={priority && index === 0}
-            >
-              <h3>{experience.title}</h3>
+        {experienceData.map((experience, index) => (
+          <Card
+            logoSrc={getPreferredFormatOption(experience.logo, theme.type)}
+            logoAlt={`${experience.organization} Logo`}
+            imgSrc={experience.photo}
+            color={getPreferredFormatOption(experience.color, theme.type)}
+            key={experience.id}
+            enableHorizontal={priority && index === 0}
+          >
+            <h3>{experience.title}</h3>
 
-              <p>
-                <b>
-                  <Link href={experience.href} openWithNewTab>
-                    {experience.organization}
-                  </Link>
-                </b>
-                {[
-                  "",
-                  experience.location,
-                  `${experience.startDate} to ${
-                    experience.endDate ?? "Present"
-                  }`,
-                ].join(separator)}
-              </p>
+            <p>
+              <b>
+                <Link href={experience.href} openWithNewTab>
+                  {experience.organization}
+                </Link>
+              </b>
+              {experience.organizationNote &&
+                ` (${experience.organizationNote})`}
 
-              {experience.responsibilities.length > 0 && (
-                <ul>
-                  {experience.responsibilities.map((item, index) => {
-                    return <li key={index}>{item}</li>;
-                  })}
-                </ul>
-              )}
+              {[
+                "",
+                experience.location,
+                `${experience.startDate} to ${experience.endDate ?? "Present"}`,
+              ].join(separator)}
+            </p>
 
-              {experience.technologies &&
-                experience.technologies.length > 0 && (
-                  <>
-                    <h4>Technologies</h4>
+            {experience.responsibilities.length > 0 && (
+              <ul>
+                {experience.responsibilities.map((item, index) => {
+                  return <li key={index}>{item}</li>;
+                })}
+              </ul>
+            )}
 
-                    <ChipGroup>
-                      {experience.technologies.map((technology) => (
-                        <Chip key={technology}>{technology}</Chip>
-                      ))}
-                    </ChipGroup>
-                  </>
-                )}
-            </Card>
-          );
-        })}
+            {experience.technologies && experience.technologies.length > 0 && (
+              <>
+                <h4>Technologies</h4>
+
+                <ChipGroup>
+                  {experience.technologies.map((technology) => (
+                    <Chip key={technology}>{technology}</Chip>
+                  ))}
+                </ChipGroup>
+              </>
+            )}
+          </Card>
+        ))}
       </SimpleGrid>
     </Section>
   );
