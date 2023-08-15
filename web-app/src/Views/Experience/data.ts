@@ -17,15 +17,16 @@ import {
 const experienceData: ExperienceItem[] = [
     {
         id: "nelnet-design-studio-2022",
-        title: "Development Manager Intern (via UNL Design Studio Capstone)",
+        title: "Development Manager Intern",
         organization: "Nelnet",
+        organizationNote: "via UNL Design Studio Capstone",
         href: "https://nelnetinc.com/nelnet-diversified-services/",
         startDate: "August 2022",
         endDate: "May 2023",
         location: "Lincoln, NE",
         responsibilities: [
-            "Developed a web application to consolidate loan program information into a central knowledgebase for call center and processing agents",
             "Led and mentored a team of 5 developers in UI/UX design, agile processes, software engineering, and software architecture",
+            "Developed a web application to consolidate loan program data from 10+ systems into 1 central knowledgebase, eliminating inconsistencies and enabling call center agents to quickly find answers to customer questions",
         ],
         technologies: [
             "Node.js",
@@ -67,16 +68,17 @@ const experienceData: ExperienceItem[] = [
     },
     {
         id: "nelnet-design-studio-2021",
-        title: "Software Developer Intern (via UNL Design Studio Capstone)",
+        title: "Software Developer Intern",
         organization: "Nelnet",
+        organizationNote: "via UNL Design Studio Capstone",
         href: "https://nelnetinc.com/nelnet-business-services/",
         startDate: "September 2021",
         endDate: "May 2022",
         location: "Lincoln, NE",
         responsibilities: [
-            "Developed a web application for event ticket management, including event administration, discovery, and sales, decreasing the event creation timeline from multiple days to under an hour",
+            "Developed a web application enabling universities to manage events, venues, and ticket sales, decreasing the event creation timeline from multiple days to under an hour",
             "Designed interactive wireframes and defined full-stack architecture to guide product development",
-            "Mentored an intern in React.js front-end development",
+            "Mentored a first-year computer science student teammate in React.js front-end development",
         ],
         technologies: ["React.js", "TypeScript", "HTML/CSS", "Figma"],
         photo: nelnetDesignStudio2021Photo,

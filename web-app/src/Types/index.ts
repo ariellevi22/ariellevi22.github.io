@@ -55,6 +55,7 @@ export type EducationItem = Item & {
 export type ExperienceItem = Item & {
     title: string;
     organization: string;
+    organizationNote?: string;
     href: string;
     startDate: string;
     endDate?: string;
