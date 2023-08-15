@@ -151,6 +151,7 @@ const Navbar = ({ toggleTheme }: NavbarProps) => {
           <Logo
             href="#top"
             onClick={closeMenu}
+            accentColor={theme.colors.accentNavigation}
             interactionColor={theme.colors.accentNavigation}
           />
 

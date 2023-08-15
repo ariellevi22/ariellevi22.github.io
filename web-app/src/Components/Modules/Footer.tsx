@@ -24,6 +24,7 @@ const Footer = () => {
       <Logo
         stacked
         href="#top"
+        accentColor={theme.colors.accentNavigation}
         interactionColor={theme.colors.accentNavigation}
       />
 

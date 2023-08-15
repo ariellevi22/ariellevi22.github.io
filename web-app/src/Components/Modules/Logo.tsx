@@ -1,5 +1,5 @@
 import { CSSObject, useTheme } from "@emotion/react";
-import { scaleFactors, screenSizes, title } from "../../Global";
+import { screenSizes, title } from "../../Global";
 import { transition } from "../../Theme";
 import Link from "./Link";
 import LogoIcon from "./LogoIcon";
@@ -12,6 +12,7 @@ const Logo = ({
   href,
   stacked,
   color,
+  accentColor,
   interactionColor,
   onClick,
 }: LogoProps) => {
@@ -27,7 +28,7 @@ const Logo = ({
 
   const LogoBase = () => (
     <>
-      <LogoIcon color={color} aria-hidden />
+      <LogoIcon color={color} fill={accentColor} aria-hidden />
       <p
         css={{
           color: color ?? "inherit",
@@ -54,7 +55,6 @@ const Logo = ({
       "@media (hover: hover) and (pointer: fine)": {
         "&:hover svg": {
           color: interactionColor ?? theme.colors.accentPrimary,
-          transform: `scale(${1 + scaleFactors.tiny})`,
         },
         "&:hover p": {
           color: interactionColor ?? theme.colors.accentPrimary,
@@ -62,10 +62,6 @@ const Logo = ({
       },
       "&:focus-visible svg": {
         color: interactionColor ?? theme.colors.accentPrimary,
-        transform: `scale(${1 + scaleFactors.tiny})`,
-      },
-      "&:active svg": {
-        transform: `scale(${1 - scaleFactors.tiny})`,
       },
       "&:focus-visible p": {
         color: interactionColor ?? theme.colors.accentPrimary,
@@ -104,6 +100,9 @@ type LogoProps = {
 
   /** The color in which the logo should be displayed */
   color?: string;
+
+  /** The color in which the logo's accents should be displayed */
+  accentColor?: string;
 
   /** The color in which the logo should be displayed when interacted with */
   interactionColor?: string;
