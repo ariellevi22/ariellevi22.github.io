@@ -56,7 +56,7 @@ const Card = ({
           alt={imgAlt ?? ""}
           css={{
             width: isSmallCard ? "100%" : "33%",
-            height: isSmallCard ? "15rem" : "100%",
+            height: isSmallCard ? "13.5rem" : "100%",
             objectFit: "cover",
             borderRadius: isSmallCard ? `0 ${borderRadius} 0 0` : 0,
           }}
