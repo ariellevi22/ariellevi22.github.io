@@ -10,26 +10,22 @@ const SocialButtons = ({
   interactionTextColor,
 }: SocialButtonsProps) => (
   <IconButtonGroup>
-    {socialTabs.map((socialTab) => {
-      return (
-        <IconButton
-          icon={socialTab.icon}
-          backgroundColor={backgroundColor}
-          textColor={textColor}
-          interactionBackgroundColor={
-            socialTab.colorPrimary ?? interactionBackgroundColor
-          }
-          interactionTextColor={
-            socialTab.colorSecondary ?? interactionTextColor
-          }
-          href={socialTab.href}
-          openWithNewTab
-          key={socialTab.label}
-          title={socialTab.label}
-          aria-label={socialTab.label}
-        />
-      );
-    })}
+    {socialTabs.map((socialTab) => (
+      <IconButton
+        icon={socialTab.icon}
+        backgroundColor={backgroundColor}
+        textColor={textColor}
+        interactionBackgroundColor={
+          socialTab.colorPrimary ?? interactionBackgroundColor
+        }
+        interactionTextColor={socialTab.colorSecondary ?? interactionTextColor}
+        href={socialTab.href}
+        openWithNewTab
+        key={socialTab.label}
+        title={socialTab.label}
+        aria-label={socialTab.label}
+      />
+    ))}
   </IconButtonGroup>
 );
 

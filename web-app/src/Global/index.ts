@@ -1,5 +1,6 @@
 import { faGithub, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faFileAlt } from "@fortawesome/free-solid-svg-icons";
+import resume from "../Assets/ArielLeviResume.pdf";
 import { IconTab } from "../Types";
 
 /**
@@ -38,10 +39,10 @@ export const socialTabs: IconTab[] = [
         colorSecondary: "white",
     },
     {
-        label: "Email",
-        href: "mailto:alevi2@huskers.unl.edu",
+        label: "Resume",
+        href: resume,
         openWithNewTab: true,
-        icon: faEnvelope,
+        icon: faFileAlt,
         colorPrimary: "gray",
         colorSecondary: "white",
     },

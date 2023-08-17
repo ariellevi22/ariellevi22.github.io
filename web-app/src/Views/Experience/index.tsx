@@ -50,9 +50,9 @@ const Experience = () => {
 
             {experience.responsibilities.length > 0 && (
               <ul>
-                {experience.responsibilities.map((item, index) => {
-                  return <li key={index}>{item}</li>;
-                })}
+                {experience.responsibilities.map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
               </ul>
             )}
 

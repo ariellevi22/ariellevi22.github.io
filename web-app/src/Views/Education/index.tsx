@@ -77,14 +77,12 @@ const Education = () => {
 
               {educationInfo}
 
-              {education.additionalInfo?.map((info) => {
-                return (
-                  <div key={`${info.heading} ${info.text}`}>
-                    <h4>{info.heading}</h4>
-                    <p>{info.text}</p>
-                  </div>
-                );
-              })}
+              {education.additionalInfo?.map((info) => (
+                <div key={`${info.heading} ${info.text}`}>
+                  <h4>{info.heading}</h4>
+                  <p>{info.text}</p>
+                </div>
+              ))}
 
               <h4>What I Learned</h4>
               <p>{education.classes.join(", ")}</p>

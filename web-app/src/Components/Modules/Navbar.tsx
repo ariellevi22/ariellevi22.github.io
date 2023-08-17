@@ -45,38 +45,32 @@ const Navbar = ({ toggleTheme }: NavbarProps) => {
   // Create the display for the navigation bar tabs
   const Tabs = () => (
     <>
-      {navbarTabs.map((tab) => {
-        return (
-          <Link
-            key={tab.label}
-            href={tab.href}
-            openWithNewTab={tab.openWithNewTab}
-            removeUnderline
-            interactionColor={theme.colors.accentNavigation}
-            onClick={closeMenu}
-          >
-            {tab.label}
-          </Link>
-        );
-      })}
+      {navbarTabs.map((tab) => (
+        <Link
+          key={tab.label}
+          href={tab.href}
+          openWithNewTab={tab.openWithNewTab}
+          removeUnderline
+          interactionColor={theme.colors.accentNavigation}
+          onClick={closeMenu}
+        >
+          {tab.label}
+        </Link>
+      ))}
 
-      {socialTabs
-        .filter((socialTab) => socialTab.label.toLowerCase() !== "email")
-        .map((iconTab) => {
-          return (
-            <IconButton
-              key={iconTab.label}
-              isTransparent
-              interactionTextColor={theme.colors.accentNavigation}
-              icon={iconTab.icon}
-              href={iconTab.href}
-              openWithNewTab
-              aria-label={iconTab.label}
-              title={iconTab.label}
-              onClick={closeMenu}
-            />
-          );
-        })}
+      {socialTabs.map((iconTab) => (
+        <IconButton
+          key={iconTab.label}
+          isTransparent
+          interactionTextColor={theme.colors.accentNavigation}
+          icon={iconTab.icon}
+          href={iconTab.href}
+          openWithNewTab={iconTab.openWithNewTab}
+          aria-label={iconTab.label}
+          title={iconTab.label}
+          onClick={closeMenu}
+        />
+      ))}
 
       {toggleTheme && (
         <IconButton
