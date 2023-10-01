@@ -6,7 +6,7 @@ const Container = ({ children }: ContainerProps) => (
   <div
     css={{
       width: "85%",
-      maxWidth: screenSizes.medium - 150,
+      maxWidth: screenSizes.lg - 150,
       margin: "auto",
       "& > :not(div):last-child": {
         marginBottom: 0,

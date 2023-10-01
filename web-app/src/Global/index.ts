@@ -52,10 +52,11 @@ export const socialTabs: IconTab[] = [
  * Upper limits for various screen sizes (measured in pixels)
  */
 export const screenSizes = {
-    tiny: 300,
-    small: 920,
-    medium: 1280,
-    large: 1920,
+    xs: 300,
+    sm: 720,
+    md: 920,
+    lg: 1280,
+    xl: 1920,
 };
 
 /**

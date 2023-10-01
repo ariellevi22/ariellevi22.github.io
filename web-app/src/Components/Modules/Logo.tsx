@@ -39,7 +39,7 @@ const Logo = ({
           whiteSpace: "nowrap",
 
           // Hide the text on tiny screens (if not stacked)
-          [`@media screen and (max-width: ${screenSizes.tiny}px)`]: {
+          [`@media screen and (max-width: ${screenSizes.xs}px)`]: {
             display: stacked ? undefined : "none",
           },
         }}

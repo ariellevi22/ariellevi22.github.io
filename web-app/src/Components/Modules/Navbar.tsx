@@ -96,7 +96,7 @@ const Navbar = ({ toggleTheme }: NavbarProps) => {
       css={{
         // Only show the menu on small screens
         display: "none",
-        [`@media screen and (max-width: ${screenSizes.small}px)`]: {
+        [`@media screen and (max-width: ${screenSizes.md}px)`]: {
           display: "flex",
           position: "fixed",
           right: 0,
@@ -160,7 +160,7 @@ const Navbar = ({ toggleTheme }: NavbarProps) => {
               overflow: "hidden",
 
               // On small screens, hide the tabs
-              [`@media screen and (max-width: ${screenSizes.small}px)`]: {
+              [`@media screen and (max-width: ${screenSizes.md}px)`]: {
                 display: "none",
               },
             }}
@@ -175,7 +175,7 @@ const Navbar = ({ toggleTheme }: NavbarProps) => {
             onClick={() => setMenuOpen((isMenuOpen) => !isMenuOpen)}
             css={{
               display: "none",
-              [`@media screen and (max-width: ${screenSizes.small}px)`]: {
+              [`@media screen and (max-width: ${screenSizes.md}px)`]: {
                 display: "block",
               },
             }}

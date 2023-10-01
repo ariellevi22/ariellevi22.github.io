@@ -27,13 +27,13 @@ const SimpleGrid = ({
         gridAutoRows: getAutoRows("large", adjustedNumColumns, justifyRows),
 
         // Determine the rows/columns for medium screens
-        [`@media screen and (max-width: ${screenSizes.medium}px)`]: {
+        [`@media screen and (max-width: ${screenSizes.lg}px)`]: {
           gridTemplateColumns: getColumnTemplate("medium", adjustedNumColumns),
           gridAutoRows: getAutoRows("medium", adjustedNumColumns, justifyRows),
         },
 
         // Determine the rows/columns for small screens
-        [`@media screen and (max-width: ${screenSizes.small}px)`]: {
+        [`@media screen and (max-width: ${screenSizes.md}px)`]: {
           gridTemplateColumns: getColumnTemplate("small", adjustedNumColumns),
           gridAutoRows: getAutoRows("small", adjustedNumColumns, justifyRows),
         },

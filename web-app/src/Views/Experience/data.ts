@@ -3,6 +3,7 @@ import {
     evergy2021Photo,
     evergyLogo,
     garmin2022Photo,
+    garmin2023Photo,
     garminLogo,
     nelnetDesignStudio2021Photo,
     nelnetDesignStudio2022Photo,
@@ -15,6 +16,28 @@ import {
  * Data for the website's Experience section
  */
 const experienceData: ExperienceItem[] = [
+    {
+        id: "garmin-2023",
+        title: "Software Engineer",
+        organization: "Garmin",
+        href: "https://www.garmin.com/en-US/company/about-garmin/",
+        startDate: "August 2023",
+        location: "Olathe, KS",
+        responsibilities: [
+            "Develop new features, improvements, and bug fixes for the Garmin Connect web application, enhancing the user experience for 25 million customers",
+        ],
+        technologies: [
+            "React.js",
+            "JavaScript",
+            "HTML/CSS",
+            "Node.js",
+            "GraphQL",
+        ],
+        photo: garmin2023Photo,
+        photoPosition: "50% 30%",
+        logo: garminLogo,
+        color: { lightTheme: "#000000", darkTheme: "#FFFFFF" },
+    },
     {
         id: "nelnet-design-studio-2022",
         title: "Development Manager Intern",
@@ -37,6 +60,7 @@ const experienceData: ExperienceItem[] = [
             "AWS",
         ],
         photo: nelnetDesignStudio2022Photo,
+        photoPosition: "33% 38%",
         logo: nelnetLogo,
         color: { lightTheme: "#8DC319" },
     },
@@ -122,6 +146,7 @@ const experienceData: ExperienceItem[] = [
             "Analyzed technical support procedures during the COVID-19 pandemic, including help center documentation and 60,000 support tickets, to present support leaders with ideas for improvement",
         ],
         photo: zoom2020Photo,
+        photoPosition: "60% 25%",
         logo: zoomLogo,
         color: { lightTheme: "#0b5cff" },
     },

@@ -30,6 +30,7 @@ const Portfolio = () => {
             logoSrc={getPreferredFormatOption(portfolioItem.logo, theme.type)}
             logoAlt={`${portfolioItem.title} Logo`}
             imgSrc={portfolioItem.photo}
+            imgPosition={portfolioItem.photoPosition}
             color={getPreferredFormatOption(portfolioItem.color, theme.type)}
             key={portfolioItem.id}
           >
@@ -39,14 +40,11 @@ const Portfolio = () => {
 
             {portfolioItem.technologies &&
               portfolioItem.technologies.length > 0 && (
-                <>
-                  <h4>Technologies</h4>
-                  <ChipGroup>
-                    {portfolioItem.technologies.map((skill) => (
-                      <Chip key={skill}>{skill}</Chip>
-                    ))}
-                  </ChipGroup>
-                </>
+                <ChipGroup>
+                  {portfolioItem.technologies.map((technology) => (
+                    <Chip key={technology}>{technology}</Chip>
+                  ))}
+                </ChipGroup>
               )}
 
             {(portfolioItem.website || portfolioItem.codeWebsite) && (

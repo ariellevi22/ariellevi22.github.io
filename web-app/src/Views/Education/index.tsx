@@ -65,6 +65,7 @@ const Education = () => {
               logoSrc={getPreferredFormatOption(education.logo, theme.type)}
               logoAlt={`${education.school} Logo`}
               imgSrc={education.photo}
+              imgPosition={education.photoPosition}
               key={education.id}
               color={getPreferredFormatOption(education.color, theme.type)}
             >

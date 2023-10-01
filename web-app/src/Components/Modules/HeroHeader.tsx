@@ -25,7 +25,7 @@ const HeroHeader = () => {
           backgroundImage: `linear-gradient(to right, ${theme.colors.accentPrimary}, ${theme.colors.accentSecondary})`,
           boxShadow: `0 0 3rem 0 ${theme.colors.shadow} inset`,
 
-          [`@media screen and (max-width: ${screenSizes.small}px)`]: {
+          [`@media screen and (max-width: ${screenSizes.md}px)`]: {
             width: "100%",
             height: "35%",
           },
@@ -39,7 +39,7 @@ const HeroHeader = () => {
             grid: "auto / 1fr auto 1fr",
             zIndex: 1,
 
-            [`@media screen and (max-width: ${screenSizes.small}px)`]: {
+            [`@media screen and (max-width: ${screenSizes.md}px)`]: {
               grid: "1fr auto 6fr / auto",
             },
           }}
@@ -57,7 +57,7 @@ const HeroHeader = () => {
               borderRadius: "50%",
               boxShadow: `0 0.2em 1em 0 ${theme.colors.shadow}`,
 
-              [`@media screen and (max-width: ${screenSizes.small}px)`]: {
+              [`@media screen and (max-width: ${screenSizes.md}px)`]: {
                 margin: "0 auto",
               },
             }}
@@ -72,7 +72,7 @@ const HeroHeader = () => {
               gap: "1rem",
               alignItems: "flex-start",
 
-              [`@media screen and (max-width: ${screenSizes.small}px)`]: {
+              [`@media screen and (max-width: ${screenSizes.md}px)`]: {
                 margin: "1.5rem auto 0",
                 textAlign: "center",
                 alignItems: "center",

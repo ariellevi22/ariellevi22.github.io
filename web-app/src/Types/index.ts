@@ -38,6 +38,7 @@ type Item = {
     logo: Format;
     color?: Format;
     photo: string;
+    photoPosition?: string;
 };
 
 /** Template for education data */

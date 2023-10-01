@@ -18,21 +18,15 @@ const About = () => {
       </p>
 
       <p>
-        I recently graduated with a Bachelor of Science in Computer Science and
-        minors in Business and Math from the University of
-        Nebraska-Lincoln&rsquo;s{" "}
-        <Link href="https://raikes.unl.edu/" openWithNewTab>
-          Raikes School
-        </Link>
-        . In August, I will join{" "}
+        I recently joined{" "}
         <Link
           href="https://www.garmin.com/en-US/company/about-garmin/"
           openWithNewTab
         >
           Garmin
         </Link>{" "}
-        as a frontend software engineer, where I am excited to keep learning and
-        growing my skills!
+        as a front-end software engineer, where I am excited to keep learning
+        and growing my skills!
       </p>
     </Section>
   );

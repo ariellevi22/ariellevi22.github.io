@@ -10,19 +10,20 @@ const Card = ({
   logoSrc,
   logoAlt,
   imgSrc,
-  imgAlt,
+  imgPosition,
   children,
 }: CardProps) => {
   const theme = useTheme();
 
   const cardContainerRef = useRef<HTMLDivElement>(null);
-  const [cardWidth, setCardWidth] = useState(0);
-  const isSmallCard = cardWidth < screenSizes.small;
+  const [isVerticalCard, setVerticalCard] = useState(true);
 
   useLayoutEffect(() => {
     if (enableHorizontal) {
-      const handleResize = () =>
-        setCardWidth(cardContainerRef.current?.offsetWidth ?? 0);
+      const handleResize = () => {
+        const cardWidth = cardContainerRef.current?.offsetWidth ?? 0;
+        setVerticalCard(cardWidth < screenSizes.sm + 55);
+      };
 
       // On first render
       handleResize();
@@ -42,7 +43,7 @@ const Card = ({
         borderRadius: borderRadius,
         boxShadow: `0 0.2em 0.5em 0 ${theme.colors.shadow}`,
         display: "flex",
-        flexDirection: isSmallCard ? "column" : "row",
+        flexDirection: isVerticalCard ? "column" : "row",
       }}
       style={{
         borderLeft: `${borderRadius} solid ${
@@ -51,15 +52,20 @@ const Card = ({
       }}
     >
       {imgSrc && (
-        <img
-          src={imgSrc}
-          alt={imgAlt ?? ""}
-          css={{
-            width: isSmallCard ? "100%" : "33%",
-            height: isSmallCard ? "13.5rem" : "100%",
-            objectFit: "cover",
-            borderRadius: isSmallCard ? `0 ${borderRadius} 0 0` : 0,
+        <div
+          style={{
+            backgroundImage: `url(${imgSrc})`,
+            backgroundPosition: imgPosition,
           }}
+          css={{
+            height: isVerticalCard ? "13.5rem" : "100%",
+            flex: isVerticalCard ? undefined : "0 0 30%",
+            objectFit: "cover",
+            borderRadius: isVerticalCard ? `0 ${borderRadius} 0 0` : 0,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+          role="img"
         />
       )}
 
@@ -76,7 +82,7 @@ const Card = ({
           <img
             src={logoSrc}
             alt={logoAlt ?? ""}
-            css={{ height: "2rem", marginBottom: borderRadius }}
+            css={{ height: "1.75rem", marginBottom: borderRadius }}
           />
         )}
         {children}
@@ -104,8 +110,8 @@ type CardProps = ChildrenProps & {
   /** A cover image to display on the card */
   imgSrc?: string;
 
-  /** Alt text for the card image */
-  imgAlt?: string;
+  /** The CSS background position string for the cover image */
+  imgPosition?: string;
 };
 
 export default Card;

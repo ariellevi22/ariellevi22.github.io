@@ -26,6 +26,7 @@ const Experience = () => {
             logoSrc={getPreferredFormatOption(experience.logo, theme.type)}
             logoAlt={`${experience.organization} Logo`}
             imgSrc={experience.photo}
+            imgPosition={experience.photoPosition}
             color={getPreferredFormatOption(experience.color, theme.type)}
             key={experience.id}
             enableHorizontal={priority && index === 0}
@@ -57,15 +58,11 @@ const Experience = () => {
             )}
 
             {experience.technologies && experience.technologies.length > 0 && (
-              <>
-                <h4>Technologies</h4>
-
-                <ChipGroup>
-                  {experience.technologies.map((technology) => (
-                    <Chip key={technology}>{technology}</Chip>
-                  ))}
-                </ChipGroup>
-              </>
+              <ChipGroup>
+                {experience.technologies.map((technology) => (
+                  <Chip key={technology}>{technology}</Chip>
+                ))}
+              </ChipGroup>
             )}
           </Card>
         ))}
