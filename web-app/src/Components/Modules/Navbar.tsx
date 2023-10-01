@@ -140,6 +140,10 @@ const Navbar = ({ toggleTheme }: NavbarProps) => {
             alignItems: "center",
             gap: "1rem",
             overflow: "hidden",
+
+            [`@media screen and (max-width: ${screenSizes.md}px)`]: {
+              padding: "1rem 7.5%",
+            },
           }}
         >
           <Logo
