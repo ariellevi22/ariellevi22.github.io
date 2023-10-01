@@ -59,7 +59,7 @@ const Card = ({
           }}
           css={{
             height: isVerticalCard ? "13.5rem" : "100%",
-            flex: isVerticalCard ? undefined : "0 0 30%",
+            flex: isVerticalCard ? undefined : "0 0 28%",
             objectFit: "cover",
             borderRadius: isVerticalCard ? `0 ${borderRadius} 0 0` : 0,
             backgroundSize: "cover",

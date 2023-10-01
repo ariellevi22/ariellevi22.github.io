@@ -32,7 +32,7 @@ const portfolioData: PortfolioItem[] = [
         description: `
             ToGather is an application aiming to simplify safe event planning
             for friends and families during the COVID-19 pandemic.
-            Working within a team of five computer science students,
+            Working within a team of 5 computer science students,
             I designed and developed the front-end web application.
         `,
         technologies: ["React.js", "TypeScript", "HTML/CSS", "Figma"],

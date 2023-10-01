@@ -146,7 +146,7 @@ const experienceData: ExperienceItem[] = [
             "Analyzed technical support procedures during the COVID-19 pandemic, including help center documentation and 60,000 support tickets, to present support leaders with ideas for improvement",
         ],
         photo: zoom2020Photo,
-        photoPosition: "60% 25%",
+        photoPosition: "80% 15%",
         logo: zoomLogo,
         color: { lightTheme: "#0b5cff" },
     },

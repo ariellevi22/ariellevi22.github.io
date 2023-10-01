@@ -82,7 +82,7 @@ const HeroHeader = () => {
             <div>
               <h1>{title}</h1>
               <p style={{ marginBottom: 0 }}>
-                Incoming Software Engineer at Garmin
+                Software Engineer at Garmin
               </p>
             </div>
 
