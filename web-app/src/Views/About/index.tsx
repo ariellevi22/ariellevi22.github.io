@@ -25,8 +25,8 @@ const About = () => {
         >
           Garmin
         </Link>{" "}
-        as a front-end software engineer, where I am excited to keep learning
-        and growing my skills!
+        as a software engineer, where I am excited to keep learning and growing
+        my skills!
       </p>
     </Section>
   );
