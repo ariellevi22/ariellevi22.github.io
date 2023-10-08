@@ -125,7 +125,7 @@ const getGap = (
   rowGap?: CSSProperty.RowGap,
   columnGap?: CSSProperty.ColumnGap
 ) => {
-  const defaultGap = "2.25rem";
+  const defaultGap = "2rem";
 
   if (gap) {
     // If a gap value is given, use it

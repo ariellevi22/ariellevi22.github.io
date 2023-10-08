@@ -11,17 +11,12 @@ import experienceData from "./data";
 const Experience = () => {
   const theme = useTheme();
 
-  const priority = experienceData.length % 2 !== 0;
-
   return (
     <Section id="experience">
       <h2>Experience</h2>
 
-      <SimpleGrid
-        numColumns={{ large: 2, medium: 2, small: 1 }}
-        priority={priority}
-      >
-        {experienceData.map((experience, index) => (
+      <SimpleGrid numColumns={{ small: 1 }}>
+        {experienceData.map((experience) => (
           <Card
             logoSrc={getPreferredFormatOption(experience.logo, theme.type)}
             logoAlt={`${experience.organization} Logo`}
@@ -29,7 +24,7 @@ const Experience = () => {
             imgPosition={experience.photoPosition}
             color={getPreferredFormatOption(experience.color, theme.type)}
             key={experience.id}
-            enableHorizontal={priority && index === 0}
+            enableHorizontal
           >
             <h3>{experience.title}</h3>
 
