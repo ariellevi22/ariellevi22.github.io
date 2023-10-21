@@ -1,6 +1,5 @@
 import { useTheme } from "@emotion/react";
 import { ChildrenProps } from "../../Types";
-import { useLayoutEffect, useRef, useState } from "react";
 import { screenSizes } from "../../Global";
 
 /** A component for a display card */
@@ -15,77 +14,77 @@ const Card = ({
 }: CardProps) => {
   const theme = useTheme();
 
-  const cardContainerRef = useRef<HTMLDivElement>(null);
-  const [isVerticalCard, setVerticalCard] = useState(true);
-
-  useLayoutEffect(() => {
-    if (enableHorizontal) {
-      const handleResize = () => {
-        const cardWidth = cardContainerRef.current?.offsetWidth ?? 0;
-        setVerticalCard(cardWidth < screenSizes.sm + 55);
-      };
-
-      // On first render
-      handleResize();
-
-      // When the screen is resized
-      window.addEventListener("resize", handleResize);
-      return () => window.removeEventListener("resize", handleResize);
-    }
-  }, [enableHorizontal]);
+  const containerName = "card";
+  const breakpoint = screenSizes.sm + 50;
+  const containerMinWidthMediaQuery = `@container ${containerName} (min-width: ${breakpoint}px)`;
 
   return (
-    <div
-      ref={cardContainerRef}
-      css={{
-        width: "100%",
-        backgroundColor: theme.colors.backgroundSecondary,
-        borderRadius: borderRadius,
-        boxShadow: `0 0.2em 0.5em 0 ${theme.colors.shadow}`,
-        display: "flex",
-        flexDirection: isVerticalCard ? "column" : "row",
-      }}
-      style={{
-        borderLeft: `${borderRadius} solid ${
-          color ?? theme.colors.accentPrimary
-        }`,
-      }}
-    >
-      {imgSrc && (
-        <div
-          style={{
-            backgroundImage: `url(${imgSrc})`,
-            backgroundPosition: imgPosition,
-          }}
-          css={{
-            height: isVerticalCard ? "13.5rem" : "100%",
-            flex: isVerticalCard ? undefined : "0 0 28%",
-            objectFit: "cover",
-            borderRadius: isVerticalCard ? `0 ${borderRadius} 0 0` : 0,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-          role="img"
-        />
-      )}
-
+    <div css={{ container: `${containerName} / inline-size` }}>
       <div
         css={{
           width: "100%",
-          padding: "2rem",
-          "& > :last-child": {
-            marginBottom: 0,
-          },
+          height: "100%",
+          backgroundColor: theme.colors.backgroundSecondary,
+          borderRadius: borderRadius,
+          boxShadow: `0 0.2em 0.5em 0 ${theme.colors.shadow}`,
+          display: "flex",
+          flexDirection: "column",
+
+          [containerMinWidthMediaQuery]: enableHorizontal
+            ? {
+                flexDirection: "row",
+              }
+            : undefined,
+        }}
+        style={{
+          borderLeft: `${borderRadius} solid ${
+            color ?? theme.colors.accentPrimary
+          }`,
         }}
       >
-        {logoSrc && (
-          <img
-            src={logoSrc}
-            alt={logoAlt ?? ""}
-            css={{ height: "1.75rem", marginBottom: borderRadius }}
+        {imgSrc && (
+          <div
+            style={{
+              backgroundImage: `url(${imgSrc})`,
+              backgroundPosition: imgPosition,
+            }}
+            css={{
+              height: "13.5rem",
+              objectFit: "cover",
+              borderRadius: `0 ${borderRadius} 0 0`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+
+              [containerMinWidthMediaQuery]: enableHorizontal
+                ? {
+                    height: "100%",
+                    flex: "0 0 28%",
+                    borderRadius: 0,
+                  }
+                : undefined,
+            }}
+            role="img"
           />
         )}
-        {children}
+
+        <div
+          css={{
+            width: "100%",
+            padding: "2rem",
+            "& > :last-child": {
+              marginBottom: 0,
+            },
+          }}
+        >
+          {logoSrc && (
+            <img
+              src={logoSrc}
+              alt={logoAlt ?? ""}
+              css={{ height: "1.75rem", marginBottom: borderRadius }}
+            />
+          )}
+          {children}
+        </div>
       </div>
     </div>
   );
