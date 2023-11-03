@@ -51,7 +51,7 @@ const portfolioData: PortfolioItem[] = [
         `,
         technologies: ["Figma"],
         website:
-            "https://www.figma.com/proto/JRMVmUiVrQukBG2sXGKbLY/Prototype-Final?node-id=2%3A3&starting-point-node-id=2%3A3&scaling=contain",
+            "https://www.figma.com/proto/VdFLUObQi7DC6YG2EooRcG/CookBook?type=design&node-id=2-3&t=cgjYHM2rZxra2p6S-1&scaling=scale-down&page-id=0%3A1&starting-point-node-id=2%3A3",
         logo: cookBookLogo,
         color: { lightTheme: "#6176A9" },
         photo: cookBookPhoto,
