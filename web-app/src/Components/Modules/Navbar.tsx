@@ -31,8 +31,8 @@ const Navbar = ({ toggleTheme }: NavbarProps) => {
   });
 
   // Styles for the navigation menu on small screens
-  const menuHiddenStyle: CSSObject = { opacity: 0, width: 0 };
-  const menuVisibleStyle: CSSObject = { opacity: 1, width: menuWidth };
+  const menuHiddenStyle: CSSObject = { transform: "translate(100%)" };
+  const menuVisibleStyle: CSSObject = { transform: "translate(0)" };
 
   /** Navigation bar tabs' information */
   const navbarTabs: NavbarTab[] = [
@@ -100,6 +100,7 @@ const Navbar = ({ toggleTheme }: NavbarProps) => {
           display: "flex",
           position: "fixed",
           right: 0,
+          width: menuWidth,
           height: `calc(100% - ${navbarHeight}rem)`,
           zIndex: 9,
           padding: "8rem 2.5rem",
@@ -197,13 +198,13 @@ const Navbar = ({ toggleTheme }: NavbarProps) => {
                 enter: css(menuHiddenStyle),
                 enterActive: css({
                   ...menuVisibleStyle,
-                  transition: transition(["opacity", "width"]),
+                  transition: transition("transform"),
                 }),
                 enterDone: css(menuVisibleStyle),
                 exit: css(menuVisibleStyle),
                 exitActive: css({
                   ...menuHiddenStyle,
-                  transition: transition(["opacity", "width"]),
+                  transition: transition("transform"),
                 }),
                 exitDone: css(menuHiddenStyle),
               }}
