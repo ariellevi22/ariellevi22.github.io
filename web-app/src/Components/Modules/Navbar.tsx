@@ -1,4 +1,4 @@
-import { ClassNames, CSSObject, useTheme } from "@emotion/react";
+import { CSSObject, ClassNames, useTheme } from "@emotion/react";
 import {
   faBars,
   faClose,
@@ -197,13 +197,13 @@ const Navbar = ({ toggleTheme }: NavbarProps) => {
                 enter: css(menuHiddenStyle),
                 enterActive: css({
                   ...menuVisibleStyle,
-                  transition: transition("opacity", "width"),
+                  transition: transition(["opacity", "width"]),
                 }),
                 enterDone: css(menuVisibleStyle),
                 exit: css(menuVisibleStyle),
                 exitActive: css({
                   ...menuHiddenStyle,
-                  transition: transition("opacity", "width"),
+                  transition: transition(["opacity", "width"]),
                 }),
                 exitDone: css(menuHiddenStyle),
               }}

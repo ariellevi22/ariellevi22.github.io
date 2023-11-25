@@ -1,4 +1,5 @@
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
+import { CSSProperties } from "react";
 
 /** The `children` prop for a React component */
 export type ChildrenProps = {
@@ -73,3 +74,6 @@ export type PortfolioItem = Item & {
     website?: string;
     codeWebsite?: string;
 };
+
+/** A CSS property name, like `width` or `opacity` */
+export type CssPropertyName = keyof CSSProperties;

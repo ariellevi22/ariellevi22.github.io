@@ -24,6 +24,7 @@ const Logo = ({
     flexWrap: "nowrap",
     alignItems: "center",
     gap: stacked ? "0.5rem" : "1rem",
+    transition: "none",
   };
 
   const LogoBase = () => (

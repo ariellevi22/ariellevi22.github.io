@@ -1,4 +1,4 @@
-import { CSSProperties } from "react";
+import { CssPropertyName } from "../../Types";
 
 /** The default CSS transition time for elements in the application (in milliseconds) */
 export const transitionDuration = 250;
@@ -7,13 +7,16 @@ export const transitionDuration = 250;
  * Constructs the default CSS transition for elements in the application
  *
  * @param properties CSS properties to apply the transition to (`all` by default)
+ * @param duration the duration of the transition in milliseconds
  * @returns the CSS transition for the given properties
  */
-export const transition = (...properties: CssPropertyName[]) => {
-    const cssProperties = [...properties];
-    if (cssProperties.length === 0) {
-        cssProperties.push("all");
-    }
+export const transition = (
+    properties: CssPropertyName | CssPropertyName[] = "all",
+    duration: number = transitionDuration
+) => {
+    const cssProperties = Array.isArray(properties)
+        ? [...properties]
+        : [properties];
 
     return cssProperties
         .map((property) => {
@@ -23,9 +26,7 @@ export const transition = (...properties: CssPropertyName[]) => {
                 .replace(/[\s_]+/g, "-")
                 .toLowerCase();
 
-            return `${propertyCssCase} ${transitionDuration ?? 0}ms ease 0ms`;
+            return `${propertyCssCase} ${duration}ms ease 0ms`;
         })
         .join(", ");
 };
-
-type CssPropertyName = keyof CSSProperties;
