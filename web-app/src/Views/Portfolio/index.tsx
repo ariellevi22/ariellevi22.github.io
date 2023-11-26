@@ -24,7 +24,7 @@ const Portfolio = () => {
     <Section id="portfolio">
       <h2>Portfolio</h2>
 
-      <SimpleGrid numColumns={{ large: 2, medium: 2, small: 1 }}>
+      <SimpleGrid numColumns={{ lg: 2, md: 2, sm: 1 }}>
         {portfolioData.map((portfolioItem) => (
           <Card
             logoSrc={getPreferredFormatOption(portfolioItem.logo, theme.type)}

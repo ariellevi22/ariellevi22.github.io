@@ -32,6 +32,9 @@ const Logo = ({
       <LogoIcon color={color} fill={accentColor} aria-hidden />
       <p
         css={{
+          // If not stacked, hide logo text on extra small screens
+          display: stacked ? "block" : "none",
+
           color: color ?? "inherit",
           fontSize: "1.5rem",
           padding: 0,
@@ -39,9 +42,8 @@ const Logo = ({
           transition: transition("color"),
           whiteSpace: "nowrap",
 
-          // Hide the text on tiny screens (if not stacked)
-          [`@media screen and (max-width: ${screenSizes.xs}px)`]: {
-            display: stacked ? undefined : "none",
+          [`@media (min-width: ${screenSizes.xs}px)`]: {
+            display: "block",
           },
         }}
       >

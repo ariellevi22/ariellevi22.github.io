@@ -15,7 +15,7 @@ const Experience = () => {
     <Section id="experience">
       <h2>Experience</h2>
 
-      <SimpleGrid numColumns={{ small: 1 }}>
+      <SimpleGrid numColumns={{ sm: 1 }}>
         {experienceData.map((experience) => (
           <Card
             logoSrc={getPreferredFormatOption(experience.logo, theme.type)}

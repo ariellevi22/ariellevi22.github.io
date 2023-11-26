@@ -94,22 +94,24 @@ const Navbar = ({ toggleTheme }: NavbarProps) => {
   const Menu = () => (
     <div
       css={{
-        // Only show the menu on small screens
-        display: "none",
-        [`@media screen and (max-width: ${screenSizes.md}px)`]: {
-          display: "flex",
-          position: "fixed",
-          right: 0,
-          width: menuWidth,
-          height: `calc(100% - ${navbarHeight}rem)`,
-          zIndex: 9,
-          padding: "8rem 2.5rem",
-          backgroundColor: theme.colors.backgroundNavigationMenu,
-          color: theme.colors.textNavigation,
-          gap: "1rem",
-          flexDirection: "column",
-          alignItems: "flex-end", // right align
-          justifyContent: "space-evenly",
+        willChange: "transform",
+        display: "flex",
+        position: "fixed",
+        right: 0,
+        width: menuWidth,
+        height: `calc(100% - ${navbarHeight}rem)`,
+        zIndex: 9,
+        padding: "8rem 2.5rem",
+        backgroundColor: theme.colors.backgroundNavigationMenu,
+        color: theme.colors.textNavigation,
+        gap: "1rem",
+        flexDirection: "column",
+        alignItems: "flex-end", // right align
+        justifyContent: "space-evenly",
+
+        // Hide the menu on larger screens
+        [`@media (min-width: ${screenSizes.md}px)`]: {
+          display: "none",
         },
       }}
     >
@@ -126,7 +128,8 @@ const Navbar = ({ toggleTheme }: NavbarProps) => {
       >
         <div
           css={{
-            padding: "1rem 2.5rem",
+            padding: "1rem 7.5%",
+
             top: 0,
             width: "100%",
             height: `${navbarHeight}em`,
@@ -142,8 +145,8 @@ const Navbar = ({ toggleTheme }: NavbarProps) => {
             gap: "1rem",
             overflow: "hidden",
 
-            [`@media screen and (max-width: ${screenSizes.md}px)`]: {
-              padding: "1rem 7.5%",
+            [`@media (min-width: ${screenSizes.md}px)`]: {
+              padding: "1rem 2.5rem",
             },
           }}
         >
@@ -156,7 +159,7 @@ const Navbar = ({ toggleTheme }: NavbarProps) => {
 
           <div
             css={{
-              display: "flex",
+              display: "none",
               gap: "1.5rem",
               flexWrap: "wrap",
               alignItems: "center",
@@ -164,9 +167,9 @@ const Navbar = ({ toggleTheme }: NavbarProps) => {
               height: "auto",
               overflow: "hidden",
 
-              // On small screens, hide the tabs
-              [`@media screen and (max-width: ${screenSizes.md}px)`]: {
-                display: "none",
+              // Only show the tabs on larger screens
+              [`@media (min-width: ${screenSizes.md}px)`]: {
+                display: "flex",
               },
             }}
           >
@@ -179,9 +182,9 @@ const Navbar = ({ toggleTheme }: NavbarProps) => {
             icon={isMenuOpen ? faClose : faBars}
             onClick={() => setMenuOpen((isMenuOpen) => !isMenuOpen)}
             css={{
-              display: "none",
-              [`@media screen and (max-width: ${screenSizes.md}px)`]: {
-                display: "block",
+              display: "block",
+              [`@media (min-width: ${screenSizes.md}px)`]: {
+                display: "none",
               },
             }}
             aria-label={`${isMenuOpen ? "Close" : "Open"} Menu`}

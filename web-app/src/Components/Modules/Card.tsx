@@ -31,9 +31,7 @@ const Card = ({
           flexDirection: "column",
 
           [containerMinWidthMediaQuery]: enableHorizontal
-            ? {
-                flexDirection: "row",
-              }
+            ? { flexDirection: "row" }
             : undefined,
         }}
         style={{

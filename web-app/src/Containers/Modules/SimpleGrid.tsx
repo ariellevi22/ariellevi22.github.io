@@ -22,20 +22,20 @@ const SimpleGrid = ({
         display: "grid",
         gap: getGap(gap, rowGap, columnGap),
 
-        // Determine the rows/columns for large screens
-        gridTemplateColumns: getColumnTemplate("large", adjustedNumColumns),
-        gridAutoRows: getAutoRows("large", adjustedNumColumns, justifyRows),
+        // Determine the rows/columns for small screens
+        gridTemplateColumns: getColumnTemplate("sm", adjustedNumColumns),
+        gridAutoRows: getAutoRows("sm", adjustedNumColumns, justifyRows),
 
         // Determine the rows/columns for medium screens
-        [`@media screen and (max-width: ${screenSizes.lg}px)`]: {
-          gridTemplateColumns: getColumnTemplate("medium", adjustedNumColumns),
-          gridAutoRows: getAutoRows("medium", adjustedNumColumns, justifyRows),
+        [`@media (min-width: ${screenSizes.md}px)`]: {
+          gridTemplateColumns: getColumnTemplate("md", adjustedNumColumns),
+          gridAutoRows: getAutoRows("md", adjustedNumColumns, justifyRows),
         },
 
-        // Determine the rows/columns for small screens
-        [`@media screen and (max-width: ${screenSizes.md}px)`]: {
-          gridTemplateColumns: getColumnTemplate("small", adjustedNumColumns),
-          gridAutoRows: getAutoRows("small", adjustedNumColumns, justifyRows),
+        // Determine the rows/columns for large screens
+        [`@media (min-width: ${screenSizes.lg}px)`]: {
+          gridTemplateColumns: getColumnTemplate("lg", adjustedNumColumns),
+          gridAutoRows: getAutoRows("lg", adjustedNumColumns, justifyRows),
         },
 
         "& div:first-of-type": {
@@ -56,19 +56,18 @@ const SimpleGrid = ({
  */
 const getNumColumns = (numColumns?: Partial<ColumnSettings>) => {
   const numColumnsCalculated: ColumnSettings = {
-    small: numColumns?.small ?? 1,
-    medium: 0,
-    large: 0,
+    sm: numColumns?.sm ?? 1,
+    md: 0,
+    lg: 0,
   };
 
   // If the number of columns for medium screens is specified, set it;
   // otherwise, assume it to be the same as for small screens
-  numColumnsCalculated.medium =
-    numColumns?.medium ?? numColumnsCalculated.small;
+  numColumnsCalculated.md = numColumns?.md ?? numColumnsCalculated.sm;
 
   // If the number of columns for large screens is specified, set it;
   // otherwise, assume it to be the same as for medium screens
-  numColumnsCalculated.large = numColumns?.large ?? numColumnsCalculated.medium;
+  numColumnsCalculated.lg = numColumns?.lg ?? numColumnsCalculated.md;
 
   return numColumnsCalculated;
 };
@@ -163,9 +162,9 @@ type SimpleGridProps = Required<ChildrenProps> & {
 
 /** Settings for the grid's columns' sizes */
 type ColumnSettings = {
-  large: number;
-  medium: number;
-  small: number;
+  lg: number;
+  md: number;
+  sm: number;
 };
 
 export default SimpleGrid;

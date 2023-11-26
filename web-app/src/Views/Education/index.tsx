@@ -15,7 +15,7 @@ const Education = () => {
     <Section id="education">
       <h2>Education</h2>
 
-      <SimpleGrid numColumns={{ large: 2, medium: 2, small: 1 }}>
+      <SimpleGrid numColumns={{ lg: 2, md: 2, sm: 1 }}>
         {educationData.map((education) => {
           // Create a component for the education's major
           let majorInfo: JSX.Element | undefined;
@@ -45,7 +45,7 @@ const Education = () => {
             // If both major info and minor info are given, create a two-column display for the major and minor
             educationInfo = (
               <SimpleGrid
-                numColumns={{ large: 2, medium: 2, small: 1 }}
+                numColumns={{ lg: 2, md: 2, sm: 1 }}
                 rowGap={0}
               >
                 {majorInfo}
