@@ -8,7 +8,7 @@ View the finished product at [ariellevi22.github.io](https://ariellevi22.github.
 
 ## Technologies
 
-This project is made with [React.js](https://reactjs.org/) using [TypeScript](https://www.typescriptlang.org/) and [Vite](https://vitejs.dev/).
+This project is made with [React.js](https://react.dev/) using [TypeScript](https://www.typescriptlang.org/) and [Vite](https://vitejs.dev/).
 
 ## Project Structure
 
