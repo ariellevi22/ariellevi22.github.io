@@ -1,4 +1,4 @@
-import { CSSObject, ClassNames, useTheme } from "@emotion/react";
+import { useTheme } from "@emotion/react";
 import {
   faBars,
   faClose,
@@ -7,10 +7,14 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
 import { FocusOn } from "react-focus-on";
-import { CSSTransition } from "react-transition-group";
-import { navbarHeight, screenSizes, socialTabs } from "../../Global";
+import {
+  navbarHeight,
+  navbarTabs,
+  screenSizes,
+  socialTabs,
+} from "../../Global";
 import { transition, transitionDuration } from "../../Theme";
-import { NavbarTab } from "../../Types";
+import { ChildrenProps } from "../../Types";
 import IconButton from "./IconButton";
 import Link from "./Link";
 import Logo from "./Logo";
@@ -28,19 +32,7 @@ const Navbar = ({ toggleTheme }: NavbarProps) => {
   useEffect(() => {
     window.addEventListener("resize", closeMenu);
     return () => window.removeEventListener("resize", closeMenu);
-  });
-
-  // Styles for the navigation menu on small screens
-  const menuHiddenStyle: CSSObject = { transform: "translate(100%)" };
-  const menuVisibleStyle: CSSObject = { transform: "translate(0)" };
-
-  /** Navigation bar tabs' information */
-  const navbarTabs: NavbarTab[] = [
-    { label: "About", href: "#about" },
-    { label: "Experience", href: "#experience" },
-    { label: "Portfolio", href: "#portfolio" },
-    { label: "Education", href: "#education" },
-  ];
+  }, []);
 
   // Create the display for the navigation bar tabs
   const Tabs = () => (
@@ -90,35 +82,6 @@ const Navbar = ({ toggleTheme }: NavbarProps) => {
     </>
   );
 
-  // Create the display for the navigation bar menu on small screens
-  const Menu = () => (
-    <div
-      css={{
-        willChange: "transform",
-        display: "flex",
-        position: "fixed",
-        right: 0,
-        width: menuWidth,
-        height: `calc(100% - ${navbarHeight}rem)`,
-        zIndex: 9,
-        padding: "8rem 2.5rem",
-        backgroundColor: theme.colors.backgroundNavigationMenu,
-        color: theme.colors.textNavigation,
-        gap: "1rem",
-        flexDirection: "column",
-        alignItems: "flex-end", // right align
-        justifyContent: "space-evenly",
-
-        // Hide the menu on larger screens
-        [`@media (min-width: ${screenSizes.md}px)`]: {
-          display: "none",
-        },
-      }}
-    >
-      <Tabs />
-    </div>
-  );
-
   return (
     <nav>
       <FocusOn
@@ -129,11 +92,10 @@ const Navbar = ({ toggleTheme }: NavbarProps) => {
         <div
           css={{
             padding: "1rem 7.5%",
-
+            position: "fixed",
             top: 0,
             width: "100%",
             height: `${navbarHeight}em`,
-            position: "fixed",
             zIndex: 10,
             backgroundColor: theme.colors.backgroundNavigation,
             color: theme.colors.textNavigation,
@@ -143,7 +105,6 @@ const Navbar = ({ toggleTheme }: NavbarProps) => {
             alignContent: "center",
             alignItems: "center",
             gap: "1rem",
-            overflow: "hidden",
 
             [`@media (min-width: ${screenSizes.md}px)`]: {
               padding: "1rem 2.5rem",
@@ -163,9 +124,6 @@ const Navbar = ({ toggleTheme }: NavbarProps) => {
               gap: "1.5rem",
               flexWrap: "wrap",
               alignItems: "center",
-              width: "auto",
-              height: "auto",
-              overflow: "hidden",
 
               // Only show the tabs on larger screens
               [`@media (min-width: ${screenSizes.md}px)`]: {
@@ -192,44 +150,81 @@ const Navbar = ({ toggleTheme }: NavbarProps) => {
           />
         </div>
 
-        <ClassNames>
-          {({ css }) => (
-            <CSSTransition
-              in={isMenuOpen}
-              timeout={transitionDuration}
-              classNames={{
-                enter: css(menuHiddenStyle),
-                enterActive: css({
-                  ...menuVisibleStyle,
-                  transition: transition("transform"),
-                }),
-                enterDone: css(menuVisibleStyle),
-                exit: css(menuVisibleStyle),
-                exitActive: css({
-                  ...menuHiddenStyle,
-                  transition: transition("transform"),
-                }),
-                exitDone: css(menuHiddenStyle),
-              }}
-              unmountOnExit
-            >
-              <Menu />
-            </CSSTransition>
-          )}
-        </ClassNames>
+        <NavMenu open={isMenuOpen}>
+          <Tabs />
+        </NavMenu>
       </FocusOn>
     </nav>
   );
 };
 
-const menuWidth = "80vw";
-
-/**
- * Props for the navigation bar component
- */
+/** Props for the navigation bar component */
 type NavbarProps = {
   /** A function to change the application theme between light and dark modes */
   toggleTheme?: () => void;
 };
 
 export default Navbar;
+
+/**
+ * A component for the navigation menu that pops out from the navigation
+ * bar on small screens
+ */
+const NavMenu = ({ children, open }: NavMenuProps) => {
+  const theme = useTheme();
+
+  // Keep track of whether the menu is on the screen (opening, open, or closing)
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    let timerId: number;
+
+    if (open) {
+      // When the menu is opened, make it visible immediately
+      setVisible(true);
+    } else {
+      // When the menu is closed, wait until it is finished animating off
+      // the screen before making it invisible
+      timerId = setTimeout(() => setVisible(false), transitionDuration);
+    }
+
+    return () => clearTimeout(timerId);
+  }, [open]);
+
+  return (
+    <div
+      css={{
+        willChange: "transform",
+        transition: transition("transform"),
+        position: "fixed",
+        right: 0,
+        width: "80vw",
+        height: `calc(100% - ${navbarHeight}rem)`,
+        zIndex: 9,
+        padding: "8rem 2.5rem",
+        backgroundColor: theme.colors.backgroundNavigationMenu,
+        color: theme.colors.textNavigation,
+        gap: "1rem",
+        flexDirection: "column",
+        alignItems: "flex-end", // right align
+        justifyContent: "space-evenly",
+      }}
+      style={{
+        // The menu is fully onscreen (not at all translated off) when it is
+        // both open and visible
+        transform: `translate(${open && visible ? "0" : "100%"})`,
+
+        // Display the menu while it is opening, open, and closing
+        display: open || visible ? "flex" : "none",
+      }}
+    >
+      {children}
+    </div>
+  );
+};
+
+/** Props for the navigation menu component */
+type NavMenuProps = ChildrenProps & {
+  /** Whether the menu is open */
+  open: boolean;
+};
