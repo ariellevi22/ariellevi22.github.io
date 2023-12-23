@@ -1,10 +1,6 @@
 import { useTheme } from "@emotion/react";
-import {
-  faBars,
-  faClose,
-  faMoon,
-  faSun,
-} from "@fortawesome/free-solid-svg-icons";
+import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import { FocusOn } from "react-focus-on";
 import {
@@ -18,6 +14,7 @@ import { ChildrenProps } from "../../Types";
 import IconButton from "./IconButton";
 import Link from "./Link";
 import Logo from "./Logo";
+import MenuIcon from "./MenuIcon";
 
 /** A component for the website's navigation bar */
 const Navbar = ({ toggleTheme }: NavbarProps) => {
@@ -55,20 +52,20 @@ const Navbar = ({ toggleTheme }: NavbarProps) => {
           key={iconTab.label}
           isTransparent
           interactionTextColor={theme.colors.accentNavigation}
-          icon={iconTab.icon}
           href={iconTab.href}
           openWithNewTab={iconTab.openWithNewTab}
           aria-label={iconTab.label}
           title={iconTab.label}
           onClick={closeMenu}
-        />
+        >
+          <FontAwesomeIcon icon={iconTab.icon} fixedWidth />
+        </IconButton>
       ))}
 
       {toggleTheme && (
         <IconButton
           isTransparent
           interactionTextColor={theme.colors.accentNavigation}
-          icon={theme.type === "light" ? faMoon : faSun}
           onClick={() => {
             toggleTheme();
             closeMenu();
@@ -77,7 +74,12 @@ const Navbar = ({ toggleTheme }: NavbarProps) => {
             theme.type === "light" ? "dark" : "light"
           } theme`}
           title={`Change to ${theme.type === "light" ? "dark" : "light"} theme`}
-        />
+        >
+          <FontAwesomeIcon
+            icon={theme.type === "light" ? faMoon : faSun}
+            fixedWidth
+          />
+        </IconButton>
       )}
     </>
   );
@@ -137,7 +139,6 @@ const Navbar = ({ toggleTheme }: NavbarProps) => {
           <IconButton
             isTransparent
             interactionTextColor={theme.colors.accentNavigation}
-            icon={isMenuOpen ? faClose : faBars}
             onClick={() => setMenuOpen((isMenuOpen) => !isMenuOpen)}
             css={{
               display: "block",
@@ -147,7 +148,9 @@ const Navbar = ({ toggleTheme }: NavbarProps) => {
             }}
             aria-label={`${isMenuOpen ? "Close" : "Open"} Menu`}
             title={`${isMenuOpen ? "Close" : "Open"} Menu`}
-          />
+          >
+            <MenuIcon close={isMenuOpen} />
+          </IconButton>
         </div>
 
         <NavMenu open={isMenuOpen}>

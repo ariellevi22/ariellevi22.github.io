@@ -8,11 +8,13 @@ export const transitionDuration = 250;
  *
  * @param properties CSS properties to apply the transition to (`all` by default)
  * @param duration the duration of the transition in milliseconds
+ * @param delay the delay of the transition in milliseconds
  * @returns the CSS transition for the given properties
  */
 export const transition = (
     properties: CssPropertyName | CssPropertyName[] = "all",
-    duration: number = transitionDuration
+    duration: number = transitionDuration,
+    delay: number = 0
 ) => {
     const cssProperties = Array.isArray(properties)
         ? [...properties]
@@ -26,7 +28,7 @@ export const transition = (
                 .replace(/[\s_]+/g, "-")
                 .toLowerCase();
 
-            return `${propertyCssCase} ${duration}ms ease 0ms`;
+            return `${propertyCssCase} ${duration}ms ease ${delay}ms`;
         })
         .join(", ");
 };

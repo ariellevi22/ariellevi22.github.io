@@ -1,3 +1,4 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { socialTabs } from "../../Global";
 import IconButton from "./IconButton";
 import IconButtonGroup from "./IconButtonGroup";
@@ -12,7 +13,6 @@ const SocialButtons = ({
   <IconButtonGroup>
     {socialTabs.map((socialTab) => (
       <IconButton
-        icon={socialTab.icon}
         backgroundColor={backgroundColor}
         textColor={textColor}
         interactionBackgroundColor={
@@ -24,7 +24,9 @@ const SocialButtons = ({
         key={socialTab.label}
         title={socialTab.label}
         aria-label={socialTab.label}
-      />
+      >
+        <FontAwesomeIcon icon={socialTab.icon} fixedWidth />
+      </IconButton>
     ))}
   </IconButtonGroup>
 );

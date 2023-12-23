@@ -3,6 +3,7 @@ import {
   faArrowUpRightFromSquare,
   faCode,
 } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   Card,
   Chip,
@@ -53,25 +54,30 @@ const Portfolio = () => {
                 <IconButtonGroup>
                   {portfolioItem.website && (
                     <IconButton
-                      icon={faArrowUpRightFromSquare}
                       href={portfolioItem.website}
                       openWithNewTab={!portfolioItem.website.startsWith("#")}
                       title={`Open ${portfolioItem.title}`}
                       aria-label={`Open ${portfolioItem.title}`}
                       backgroundColor={theme.colors.backgroundSecondary}
                       textColor={theme.colors.textPrimary}
-                    />
+                    >
+                      <FontAwesomeIcon
+                        icon={faArrowUpRightFromSquare}
+                        fixedWidth
+                      />
+                    </IconButton>
                   )}
                   {portfolioItem.codeWebsite && (
                     <IconButton
-                      icon={faCode}
                       href={portfolioItem.codeWebsite}
                       openWithNewTab
                       title={`View Project Code for ${portfolioItem.title}`}
                       aria-label={`View Project Code for ${portfolioItem.title}`}
                       backgroundColor={theme.colors.backgroundSecondary}
                       textColor={theme.colors.textPrimary}
-                    />
+                    >
+                      <FontAwesomeIcon icon={faCode} fixedWidth />
+                    </IconButton>
                   )}
                 </IconButtonGroup>
               </>

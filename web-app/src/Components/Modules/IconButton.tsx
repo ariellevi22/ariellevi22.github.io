@@ -1,15 +1,9 @@
-import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ButtonBase, { ButtonBaseProps } from "./ButtonBase";
 
 /** A component for a button with an icon, such as a social button */
-const IconButton = ({
-  icon,
-  isTransparent,
-  ...buttonBaseProps
-}: IconButtonProps) => (
+const IconButton = ({ isTransparent, ...otherProps }: ButtonBaseProps) => (
   <ButtonBase
-    {...buttonBaseProps}
+    {...otherProps}
     isTransparent={isTransparent}
     css={{
       borderRadius: isTransparent ? undefined : "50%",
@@ -21,15 +15,7 @@ const IconButton = ({
       justifyContent: "center",
       fontSize: "inherit",
     }}
-  >
-    <FontAwesomeIcon icon={icon} fixedWidth />
-  </ButtonBase>
+  />
 );
-
-/** Props for the icon button component */
-type IconButtonProps = ButtonBaseProps & {
-  /** The icon to place in the button */
-  icon: IconDefinition;
-};
 
 export default IconButton;
