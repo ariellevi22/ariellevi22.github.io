@@ -5,7 +5,7 @@ import { ChildrenProps } from "../../Types";
 const Container = ({ children }: ContainerProps) => (
   <div
     css={{
-      width: "85%",
+      width: "85vw",
       maxWidth: screenSizes.lg - 150,
       margin: "auto",
       "& > :not(div):last-child": {

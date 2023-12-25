@@ -199,18 +199,17 @@ const NavMenu = ({ children, open }: NavMenuProps) => {
       css={{
         willChange: "transform",
         transition: transition("transform"),
+
         position: "fixed",
         right: 0,
+        zIndex: 9,
+        overflowY: "auto",
+
         width: "80vw",
         height: `calc(100% - ${navbarHeight}rem)`,
-        zIndex: 9,
-        padding: "8rem 2.5rem",
+
         backgroundColor: theme.colors.backgroundNavigationMenu,
         color: theme.colors.textNavigation,
-        gap: "1rem",
-        flexDirection: "column",
-        alignItems: "flex-end", // right align
-        justifyContent: "space-evenly",
       }}
       style={{
         // The menu is fully onscreen (not at all translated off) when it is
@@ -218,10 +217,26 @@ const NavMenu = ({ children, open }: NavMenuProps) => {
         transform: `translate(${open && visible ? "0" : "100%"})`,
 
         // Display the menu while it is opening, open, and closing
-        display: open || visible ? "flex" : "none",
+        display: open || visible ? "block" : "none",
       }}
     >
-      {children}
+      <div
+        css={{
+          padding: "2.5rem",
+          minHeight: "100%",
+
+          display: "flex",
+          gap: "1.5rem",
+          flexDirection: "column",
+          alignItems: "flex-end",
+          alignContent: "center",
+          justifyContent: "center",
+
+          "& > *": { flexShrink: 0 },
+        }}
+      >
+        {children}
+      </div>
     </div>
   );
 };

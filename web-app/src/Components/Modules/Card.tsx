@@ -1,6 +1,6 @@
 import { useTheme } from "@emotion/react";
-import { ChildrenProps } from "../../Types";
 import { screenSizes } from "../../Global";
+import { ChildrenProps } from "../../Types";
 
 /** A component for a display card */
 const Card = ({
@@ -61,7 +61,6 @@ const Card = ({
                   }
                 : undefined,
             }}
-            role="img"
           />
         )}
 

@@ -24,7 +24,7 @@ const experienceData: ExperienceItem[] = [
         startDate: "August 2023",
         location: "Olathe, KS",
         responsibilities: [
-            "Develop new features, improvements, and bug fixes for the Garmin Connect web application, enhancing the user experience for 25 million customers",
+            "Develop new features, improvements, and bug fixes for the Garmin Connect web application, enhancing the user experience for 25 million users",
         ],
         technologies: [
             "React.js",
@@ -34,7 +34,7 @@ const experienceData: ExperienceItem[] = [
             "GraphQL",
         ],
         photo: garmin2023Photo,
-        photoPosition: "50% 30%",
+        photoPosition: "50% 27%",
         logo: garminLogo,
         color: { lightTheme: "#000000", darkTheme: "#FFFFFF" },
     },

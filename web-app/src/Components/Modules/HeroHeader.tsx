@@ -16,7 +16,8 @@ const HeroHeader = () => {
       <div
         css={{
           width: "100%",
-          height: "35%",
+          height: `${photoSize / 2 + spacing}rem`,
+          maxHeight: `calc(${photoMaxSize / 2}vw + ${spacing}rem)`,
 
           position: "absolute",
           top: 0,
@@ -29,6 +30,7 @@ const HeroHeader = () => {
           [`@media (min-width: ${screenSizes.md}px)`]: {
             width: "50%",
             height: "100%",
+            maxHeight: "100%",
           },
         }}
       />
@@ -37,11 +39,15 @@ const HeroHeader = () => {
         <div
           css={{
             display: "grid",
-            grid: "1fr auto 6fr / auto",
+            gap: `${spacing}rem`,
             zIndex: 1,
+            justifyContent: "center",
+            justifyItems: "center",
+            alignItems: "center",
 
             [`@media (min-width: ${screenSizes.md}px)`]: {
               grid: "auto / 1fr auto 1fr",
+              padding: `${spacing}rem 0`,
             },
           }}
         >
@@ -51,23 +57,16 @@ const HeroHeader = () => {
             src={profilePicture}
             alt={title}
             css={{
-              margin: "0 auto",
-
-              width: "22rem",
-              maxWidth: "75vw",
+              width: `${photoSize}rem`,
+              maxWidth: `${photoMaxSize}vw`,
               objectFit: "cover",
               borderRadius: "50%",
               boxShadow: `0 0.2em 1em 0 ${theme.colors.shadow}`,
-
-              [`@media (min-width: ${screenSizes.md}px)`]: {
-                margin: "2rem 2.5rem",
-              },
             }}
           />
 
           <div
             css={{
-              margin: "1.5rem auto 0",
               textAlign: "center",
               display: "flex",
               flexDirection: "column",
@@ -75,7 +74,6 @@ const HeroHeader = () => {
               alignItems: "center",
 
               [`@media (min-width: ${screenSizes.md}px)`]: {
-                margin: "auto",
                 textAlign: "left",
                 alignItems: "flex-start",
               },
@@ -93,5 +91,14 @@ const HeroHeader = () => {
     </header>
   );
 };
+
+/** The photo's width and height in rem */
+const photoSize = 22;
+
+/** The photo's max width and max height in vw */
+const photoMaxSize = 75;
+
+/** The spacing between hero header elements in rem */
+const spacing = 2;
 
 export default HeroHeader;
