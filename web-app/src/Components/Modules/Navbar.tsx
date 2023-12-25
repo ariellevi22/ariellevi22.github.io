@@ -226,10 +226,9 @@ const NavMenu = ({ children, open }: NavMenuProps) => {
           minHeight: "100%",
 
           display: "flex",
-          gap: "1.5rem",
+          gap: "2rem",
           flexDirection: "column",
           alignItems: "flex-end",
-          alignContent: "center",
           justifyContent: "center",
 
           "& > *": { flexShrink: 0 },
