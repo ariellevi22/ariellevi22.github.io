@@ -4,7 +4,7 @@ import { transition } from "./Transition";
 /** Baseline styling based on the application's theme */
 const CssBaseline = () => {
   const theme = useTheme();
-  const fonts = ["Poppins", "system-ui", "sans-serif"];
+  const fonts = ["Inter", "system-ui", "sans-serif"];
 
   return (
     <Global

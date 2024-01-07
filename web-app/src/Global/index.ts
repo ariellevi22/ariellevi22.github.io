@@ -1,6 +1,5 @@
 import { faGithub, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 import { faFileLines } from "@fortawesome/free-solid-svg-icons";
-import resume from "../Assets/ArielLeviResume.pdf";
 import { IconTab, NavbarTab } from "../Types";
 
 /** Personal website title */
@@ -40,7 +39,7 @@ export const socialTabs: IconTab[] = [
     },
     {
         label: "Resume",
-        href: resume,
+        href: "/ArielLeviResume.pdf",
         openWithNewTab: true,
         icon: faFileLines,
         colorPrimary: "gray",

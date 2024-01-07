@@ -4,32 +4,31 @@ import { Section } from "../../Containers";
 /**
  * "About" section
  */
-const About = () => {
-  return (
-    <Section id="about">
-      <h2>About</h2>
+const About = () => (
+  <Section id="about">
+    <h2>About</h2>
 
-      <p>
-        Hi there, I&rsquo;m Ariel! I am a software engineer and UI/UX designer
-        passionate about technology and its ability to make the world a better
-        place. I strive to craft intuitive, memorable experiences for
-        people&mdash;to realize the full potential of technology to improve our
-        world.
-      </p>
+    <p>
+      Hi, I&rsquo;m Ariel! I am a software engineer passionate about building
+      technology to make the world a better place. I craft web applications with
+      a focus on clean code, beautiful design, and intuitive user experiences.
+    </p>
 
-      <p>
-        I recently joined{" "}
-        <Link
-          href="https://www.garmin.com/en-US/company/about-garmin/"
-          openWithNewTab
-        >
-          Garmin
-        </Link>{" "}
-        as a software engineer, where I am excited to keep learning and growing
-        my skills!
-      </p>
-    </Section>
-  );
-};
+    <p>
+      As a software engineer at{" "}
+      <Link href="https://www.garmin.com/company/about-garmin/" openWithNewTab>
+        Garmin
+      </Link>
+      , I work with incredibly talented teammates to build{" "}
+      <Link href="https://connect.garmin.com/" openWithNewTab>
+        Garmin Connect
+      </Link>
+      , helping millions of people gain insights into their health and
+      well-being. My technical proficiency revolves around React.js on the
+      frontend and Node.js/Express.js on the backend, but I am always looking
+      for new ways to learn and expand my skills!
+    </p>
+  </Section>
+);
 
 export default About;

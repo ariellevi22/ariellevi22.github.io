@@ -18,9 +18,9 @@ import {
 const experienceData: ExperienceItem[] = [
     {
         id: "garmin-2023",
-        title: "Software Engineer",
+        title: "Software Engineer 1",
         organization: "Garmin",
-        href: "https://www.garmin.com/en-US/company/about-garmin/",
+        href: "https://www.garmin.com/company/about-garmin/",
         startDate: "August 2023",
         location: "Olathe, KS",
         responsibilities: [
@@ -28,7 +28,9 @@ const experienceData: ExperienceItem[] = [
         ],
         technologies: [
             "React.js",
+            "Next.js",
             "JavaScript",
+            "TypeScript",
             "HTML/CSS",
             "Node.js",
             "GraphQL",
@@ -68,7 +70,7 @@ const experienceData: ExperienceItem[] = [
         id: "garmin-2022",
         title: "Software Engineer Intern",
         organization: "Garmin",
-        href: "https://www.garmin.com/en-US/company/about-garmin/",
+        href: "https://www.garmin.com/company/about-garmin/",
         startDate: "May 2022",
         endDate: "August 2022",
         location: "Olathe, KS",
@@ -137,7 +139,7 @@ const experienceData: ExperienceItem[] = [
         id: "zoom-2020",
         title: "Technical Support Engineer Intern",
         organization: "Zoom",
-        href: "https://explore.zoom.us/en/about/",
+        href: "https://explore.zoom.us/about/",
         startDate: "May 2020",
         endDate: "August 2020",
         location: "Overland Park, KS",
