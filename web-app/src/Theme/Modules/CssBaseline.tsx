@@ -55,6 +55,7 @@ const CssBaseline = () => {
 
         "p, ul, ol": {
           marginBottom: "0.75rem",
+          lineHeight: "140%",
         },
 
         li: {

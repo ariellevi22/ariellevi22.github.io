@@ -215,10 +215,11 @@ const NavMenu = ({ children, open }: NavMenuProps) => {
         // The menu is fully onscreen (not at all translated off) when it is
         // both open and visible
         transform: `translate(${open && visible ? "0" : "100%"})`,
-
-        // Display the menu while it is opening, open, and closing
-        display: open || visible ? "block" : "none",
       }}
+      hidden={
+        // Display the menu while it is opening, open, or closing
+        !(open || visible)
+      }
     >
       <div
         css={{
