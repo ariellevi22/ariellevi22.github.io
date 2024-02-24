@@ -1,5 +1,5 @@
 import { Theme } from "@emotion/react";
-import { useEffect, useState } from "react";
+import { useLayoutEffect, useState } from "react";
 
 // Accent colors
 const accentDark = "#007DA0";
@@ -23,9 +23,7 @@ const navigationMenuBackground = "#004B69";
 const shadowLight = "rgba(0, 0, 0, 0.15)";
 const shadowDark = "rgba(0, 0, 0, 0.35)";
 
-/**
- * The application's light theme
- */
+/** The application's light theme */
 const lightTheme: Theme = {
     type: "light",
     colors: {
@@ -47,9 +45,7 @@ const lightTheme: Theme = {
     },
 };
 
-/**
- * The application's dark theme
- */
+/** The application's dark theme */
 const darkTheme: Theme = {
     type: "dark",
     colors: {
@@ -72,46 +68,71 @@ const darkTheme: Theme = {
 };
 
 /**
- * Provides a theme (light or dark) for the application and a function to toggle the theme,
- * based on the user's OS settings for preferred theme and local storage in the browser
+ * Provides a theme (light or dark) for the application, based on the user's preferred
+ * theme type, and a function to toggle the theme
  *
- * @returns a theme for the application and a function to toggle the theme
+ * @returns the user's preferred theme and a function to toggle the theme
  */
 export const useThemePreference = () => {
-    const themeStorageLabel = "theme";
+    const [themePreference, setThemePreference] = useState("light");
 
-    const [themeType, setThemeType] = useState("light");
+    useLayoutEffect(() => {
+        // Media query for the user's theme preference based on browser or OS settings
+        const mediaQuery = matchMedia("(prefers-color-scheme: dark)");
 
-    /**
-     * Toggles the application's theme (changes a dark theme to light and vice versa)
-     */
-    const toggleTheme = () => {
-        // Based on the current theme, get the opposite theme
-        const newThemeType = themeType === "light" ? "dark" : "light";
+        // Set the theme preference on first render
+        setThemePreference(
+            getThemeFromStorage() ?? (mediaQuery.matches ? "dark" : "light")
+        );
 
-        // Store the theme in local storage
-        window.localStorage.setItem(themeStorageLabel, newThemeType);
+        /**
+         * Responds to changes in the browser's or OS's theme preference setting
+         *
+         * @param event media query change event
+         */
+        const onMediaQueryChange = (event: MediaQueryListEvent) => {
+            if (!getThemeFromStorage()) {
+                setThemePreference(event.matches ? "dark" : "light");
+            }
+        };
 
-        // Set the theme
-        setThemeType(newThemeType);
-    };
-
-    useEffect(() => {
-        // Get the preferred theme from the user's OS settings
-        const prefersDarkTheme =
-            window.matchMedia &&
-            window.matchMedia("(prefers-color-scheme: dark)").matches;
-        setThemeType(prefersDarkTheme ? "dark" : "light");
-
-        // Get the theme stored in the user's local storage (if there)
-        const localTheme = window.localStorage.getItem(themeStorageLabel);
-        if (localTheme) {
-            // If the user has a previously specified theme stored, set it as their current theme
-            setThemeType(localTheme);
-        }
+        mediaQuery.addEventListener("change", onMediaQueryChange);
+        return () =>
+            mediaQuery.removeEventListener("change", onMediaQueryChange);
     }, []);
 
-    const theme = themeType === "dark" ? darkTheme : lightTheme;
+    /** The theme corresponding to the user's theme preference */
+    const theme = themePreference === "dark" ? darkTheme : lightTheme;
+
+    /** Toggles the application's theme (changes a dark theme to light and vice versa) */
+    const toggleTheme = () => {
+        // Based on the current theme, get the opposite theme
+        const newThemeType = themePreference === "light" ? "dark" : "light";
+
+        try {
+            setThemeInStorage(newThemeType);
+        } finally {
+            setThemePreference(newThemeType);
+        }
+    };
 
     return { theme, toggleTheme };
 };
+
+/** The name of the localStorage property that stores the user's theme preference */
+const themeStorageKey = "theme";
+
+/**
+ * Gets the user's theme preference from localStorage
+ *
+ * @returns the user's theme preference (if one is stored)
+ */
+const getThemeFromStorage = () => localStorage.getItem(themeStorageKey);
+
+/**
+ * Sets the user's theme preference in localStorage
+ *
+ * @param theme the user's theme preference
+ */
+const setThemeInStorage = (theme: Theme["type"]) =>
+    localStorage.setItem(themeStorageKey, theme);

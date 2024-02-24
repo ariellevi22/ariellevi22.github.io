@@ -76,7 +76,7 @@ const Navbar = ({ toggleTheme }: NavbarProps) => {
           title={`Change to ${theme.type === "light" ? "dark" : "light"} theme`}
         >
           <FontAwesomeIcon
-            icon={theme.type === "light" ? faMoon : faSun}
+            icon={theme.type === "light" ? faSun : faMoon}
             fixedWidth
           />
         </IconButton>
