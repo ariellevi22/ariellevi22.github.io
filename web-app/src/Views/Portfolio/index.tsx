@@ -12,78 +12,87 @@ import {
   IconButtonGroup,
 } from "../../Components";
 import { Section, SimpleGrid } from "../../Containers";
-import { getPreferredFormatOption } from "../../Utils";
 import portfolioData from "./data";
 
-/**
- * "Portfolio" section
- */
+/** "Portfolio" section */
 const Portfolio = () => {
   const theme = useTheme();
+  const id = "portfolio";
 
   return (
-    <Section id="portfolio">
+    <Section id={id}>
       <h2>Portfolio</h2>
 
       <SimpleGrid numColumns={{ lg: 2, md: 2, sm: 1 }}>
-        {portfolioData.map((portfolioItem) => (
-          <Card
-            logoSrc={getPreferredFormatOption(portfolioItem.logo, theme.type)}
-            logoAlt={`${portfolioItem.title} Logo`}
-            imgSrc={portfolioItem.photo}
-            imgPosition={portfolioItem.photoPosition}
-            color={getPreferredFormatOption(portfolioItem.color, theme.type)}
-            key={portfolioItem.id}
-          >
-            <h3>{portfolioItem.title}</h3>
+        {portfolioData.map((portfolioItem) => {
+          const logoDescriptionId = `${id}-${portfolioItem.id}`;
 
-            <p>{portfolioItem.description}</p>
+          return (
+            <Card
+              imgSrc={portfolioItem.photo}
+              imgPosition={portfolioItem.photoPosition}
+              color={
+                portfolioItem.color?.[theme.type] ?? portfolioItem.color?.light
+              }
+              key={portfolioItem.id}
+            >
+              <portfolioItem.logo
+                height="1.75rem"
+                aria-labelledby={logoDescriptionId}
+              />
 
-            {portfolioItem.technologies &&
-              portfolioItem.technologies.length > 0 && (
-                <ChipGroup>
-                  {portfolioItem.technologies.map((technology) => (
-                    <Chip key={technology}>{technology}</Chip>
-                  ))}
-                </ChipGroup>
+              <h3 id={logoDescriptionId} css={{ marginTop: "0.5rem" }}>
+                {portfolioItem.title}
+              </h3>
+
+              <p>{portfolioItem.description}</p>
+
+              {portfolioItem.technologies &&
+                portfolioItem.technologies.length > 0 && (
+                  <ChipGroup>
+                    {portfolioItem.technologies.map((technology) => (
+                      <Chip key={technology}>{technology}</Chip>
+                    ))}
+                  </ChipGroup>
+                )}
+
+              {(portfolioItem.website || portfolioItem.codeWebsite) && (
+                <>
+                  <h4 css={{ marginTop: "1em" }}>View the Project</h4>
+                  <IconButtonGroup>
+                    {portfolioItem.website && (
+                      <IconButton
+                        href={portfolioItem.website}
+                        openWithNewTab={!portfolioItem.website.startsWith("#")}
+                        title={`Open ${portfolioItem.title}`}
+                        aria-label={`Open ${portfolioItem.title}`}
+                        backgroundColor={theme.colors.backgroundSecondary}
+                        textColor={theme.colors.textPrimary}
+                      >
+                        <FontAwesomeIcon
+                          icon={faArrowUpRightFromSquare}
+                          fixedWidth
+                        />
+                      </IconButton>
+                    )}
+                    {portfolioItem.codeWebsite && (
+                      <IconButton
+                        href={portfolioItem.codeWebsite}
+                        openWithNewTab
+                        title={`View Project Code for ${portfolioItem.title}`}
+                        aria-label={`View Project Code for ${portfolioItem.title}`}
+                        backgroundColor={theme.colors.backgroundSecondary}
+                        textColor={theme.colors.textPrimary}
+                      >
+                        <FontAwesomeIcon icon={faCode} fixedWidth />
+                      </IconButton>
+                    )}
+                  </IconButtonGroup>
+                </>
               )}
-
-            {(portfolioItem.website || portfolioItem.codeWebsite) && (
-              <>
-                <h4 css={{ marginTop: "1em" }}>View the Project</h4>
-                <IconButtonGroup>
-                  {portfolioItem.website && (
-                    <IconButton
-                      href={portfolioItem.website}
-                      openWithNewTab={!portfolioItem.website.startsWith("#")}
-                      title={`Open ${portfolioItem.title}`}
-                      aria-label={`Open ${portfolioItem.title}`}
-                      backgroundColor={theme.colors.backgroundSecondary}
-                      textColor={theme.colors.textPrimary}
-                    >
-                      <FontAwesomeIcon
-                        icon={faArrowUpRightFromSquare}
-                        fixedWidth
-                      />
-                    </IconButton>
-                  )}
-                  {portfolioItem.codeWebsite && (
-                    <IconButton
-                      href={portfolioItem.codeWebsite}
-                      openWithNewTab
-                      title={`View Project Code for ${portfolioItem.title}`}
-                      aria-label={`View Project Code for ${portfolioItem.title}`}
-                      backgroundColor={theme.colors.backgroundSecondary}
-                      textColor={theme.colors.textPrimary}
-                    >
-                      <FontAwesomeIcon icon={faCode} fixedWidth />
-                    </IconButton>
-                  )}
-                </IconButtonGroup>
-              </>
-            )}
-          </Card>
-        ))}
+            </Card>
+          );
+        })}
       </SimpleGrid>
     </Section>
   );

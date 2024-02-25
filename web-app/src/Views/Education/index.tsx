@@ -2,81 +2,74 @@ import { useTheme } from "@emotion/react";
 import { Card } from "../../Components";
 import { Section, SimpleGrid } from "../../Containers";
 import { separator } from "../../Global";
-import { getPreferredFormatOption, pluralize } from "../../Utils";
+import { pluralize } from "../../Utils";
 import educationData from "./data";
 
-/**
- * "Education" section
- */
+/** "Education" section */
 const Education = () => {
   const theme = useTheme();
+  const id = "education";
 
   return (
-    <Section id="education">
+    <Section id={id}>
       <h2>Education</h2>
 
       <SimpleGrid numColumns={{ lg: 2, md: 2, sm: 1 }}>
         {educationData.map((education) => {
-          // Create a component for the education's major
-          let majorInfo: JSX.Element | undefined;
-          if (education.majors) {
-            majorInfo = (
-              <div>
-                <h4>{pluralize("Major", education.majors.length)}</h4>
-                <p>{education.majors.join(", ")}</p>
-              </div>
-            );
-          }
+          const logoDescriptionId = `${id}-${education.id}`;
 
-          // Create a component for the education's minor
-          let minorInfo: JSX.Element | undefined;
-          if (education.minors) {
-            minorInfo = (
-              <div>
-                <h4>{pluralize("Minor", education.minors.length)}</h4>
-                <p>{education.minors.join(", ")}</p>
-              </div>
-            );
-          }
+          const FieldsOfStudy = () => {
+            // Create a component for the education's major
+            const MajorInfo = () =>
+              education.majors && (
+                <div>
+                  <h4>{pluralize("Major", education.majors.length)}</h4>
+                  <p>{education.majors.join(", ")}</p>
+                </div>
+              );
 
-          // Combine the timeline, major, and minor components as needed
-          let educationInfo: JSX.Element | undefined;
-          if (majorInfo && minorInfo) {
-            // If both major info and minor info are given, create a two-column display for the major and minor
-            educationInfo = (
-              <SimpleGrid
-                numColumns={{ lg: 2, md: 2, sm: 1 }}
-                rowGap={0}
-              >
-                {majorInfo}
-                {minorInfo}
-              </SimpleGrid>
+            // Create a component for the education's minor
+            const MinorInfo = () =>
+              education.minors && (
+                <div>
+                  <h4>{pluralize("Minor", education.minors.length)}</h4>
+                  <p>{education.minors.join(", ")}</p>
+                </div>
+              );
+
+            return (
+              education.majors &&
+              (education.minors ? (
+                <SimpleGrid numColumns={{ lg: 2, md: 2, sm: 1 }} rowGap={0}>
+                  <MajorInfo />
+                  <MinorInfo />
+                </SimpleGrid>
+              ) : (
+                <MajorInfo />
+              ))
             );
-          } else if (majorInfo) {
-            // If only a major is given, show it as the education data
-            educationInfo = majorInfo;
-          } else {
-            // If a major and/or minor is not given, there is no education data to show
-            educationInfo = undefined;
-          }
+          };
 
           return (
             <Card
-              logoSrc={getPreferredFormatOption(education.logo, theme.type)}
-              logoAlt={`${education.school} Logo`}
               imgSrc={education.photo}
               imgPosition={education.photoPosition}
               key={education.id}
-              color={getPreferredFormatOption(education.color, theme.type)}
+              color={education.color?.[theme.type] ?? education.color?.light}
             >
-              <h3>{education.degree}</h3>
+              <education.logo
+                height="1.75rem"
+                aria-labelledby={logoDescriptionId}
+              />
+
+              <h3 css={{ marginTop: "0.5rem" }}>{education.degree}</h3>
 
               <p>
-                <b>{education.school}</b>
+                <b id={logoDescriptionId}>{education.school}</b>
                 {["", education.graduationDate].join(separator)}
               </p>
 
-              {educationInfo}
+              <FieldsOfStudy />
 
               {education.additionalInfo?.map((info) => (
                 <div key={`${info.heading} ${info.text}`}>

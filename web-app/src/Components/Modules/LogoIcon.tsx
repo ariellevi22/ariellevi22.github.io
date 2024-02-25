@@ -1,24 +1,25 @@
 import { useTheme } from "@emotion/react";
-import { transition } from "../../Theme";
 
-/**
- * A component for the application logo's icon (the logo without the text),
- * which can have its color changed using the `color` property
- */
-const LogoIcon = (props: LogoIconProps) => {
+/** A component for the application logo's icon (the logo without the text) */
+const LogoIcon = ({
+  height,
+  width,
+  fill,
+  color,
+  ...props
+}: React.SVGProps<SVGSVGElement>) => {
   const theme = useTheme();
 
   return (
     <svg
-      id="logo"
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 1080 920"
-      {...props}
-      fill={props.fill ?? theme.colors.accentPrimary}
-      css={{
-        height: "2.75rem",
-        transition: transition("color"),
-      }}
+      height={height ?? (width ? undefined : "2.75rem")}
+      width={width}
+      fill={fill ?? theme.colors.accentPrimary}
+      color={color}
+      role="img"
     >
       <g id="a">
         <path
@@ -39,7 +40,5 @@ const LogoIcon = (props: LogoIconProps) => {
     </svg>
   );
 };
-/** Props for the logo icon component */
-type LogoIconProps = React.SVGAttributes<SVGElement>;
 
 export default LogoIcon;

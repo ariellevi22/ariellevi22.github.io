@@ -1,5 +1,6 @@
+import { BvnLogo, UnlLogo } from "../../Assets";
 import { EducationItem } from "../../Types";
-import { bvn2019Photo, bvnLogo, unl2023Photo, unlLogo } from "./Assets";
+import { bvn2019Photo, unl2023Photo } from "./Assets";
 
 /**
  * Data for the website's Education section
@@ -28,17 +29,12 @@ const educationData: EducationItem[] = [
             {
                 heading:
                     "Jeffrey S. Raikes School of Computer Science and Management",
-                text: `
-                    The Raikes School at the University of Nebraska-Lincoln is a selective
-                    honors program integrating innovative business concepts into a computer
-                    science curriculum with an emphasis on real-world experience taught
-                    through collaborative projects.
-                `,
+                text: "The Raikes School at the University of Nebraska-Lincoln is a selective honors program integrating innovative business concepts into a computer science curriculum with an emphasis on real-world experience taught through collaborative projects.",
             },
         ],
-        logo: unlLogo,
+        logo: UnlLogo,
         photo: unl2023Photo,
-        color: { lightTheme: "#DD1A32" },
+        color: { light: "#DD1A32" },
     },
     {
         id: "bvn-2019",
@@ -50,9 +46,9 @@ const educationData: EducationItem[] = [
             "Web Design (HTML/CSS)",
             "Graphic Design",
         ],
-        logo: bvnLogo,
+        logo: BvnLogo,
         photo: bvn2019Photo,
-        color: { lightTheme: "#143C7D" },
+        color: { light: "#143C7D" },
     },
 ];
 

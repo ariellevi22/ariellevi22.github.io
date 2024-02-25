@@ -1,3 +1,4 @@
+import { Theme } from "@emotion/react";
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import { CSSProperties } from "react";
 
@@ -27,16 +28,13 @@ type Content = {
     text: string;
 };
 
-/** Template for main and alternate formatting */
-export type Format = {
-    lightTheme: string;
-    darkTheme?: string;
-};
+/** Template for formatting options based on theme type */
+export type Format = { [key in Theme["type"]]?: string };
 
 /** Base template for experience, education, and portfolio data types */
 type Item = {
     id: string;
-    logo: Format;
+    logo: (props: React.SVGProps<SVGSVGElement>) => React.ReactElement;
     color?: Format;
     photo: string;
     photoPosition?: string;

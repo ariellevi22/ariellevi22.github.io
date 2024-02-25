@@ -6,8 +6,6 @@ import { ChildrenProps } from "../../Types";
 const Card = ({
   color,
   enableHorizontal,
-  logoSrc,
-  logoAlt,
   imgSrc,
   imgPosition,
   children,
@@ -73,13 +71,6 @@ const Card = ({
             },
           }}
         >
-          {logoSrc && (
-            <img
-              src={logoSrc}
-              alt={logoAlt ?? ""}
-              css={{ height: "1.75rem", marginBottom: borderRadius }}
-            />
-          )}
           {children}
         </div>
       </div>
@@ -96,12 +87,6 @@ type CardProps = ChildrenProps & {
 
   /** Whether the card can display with a horizontal layout (if large enough) */
   enableHorizontal?: boolean;
-
-  /** A logo to display on the card */
-  logoSrc?: string;
-
-  /** Alt text for the card logo */
-  logoAlt?: string;
 
   /** A cover image to display on the card */
   imgSrc?: string;

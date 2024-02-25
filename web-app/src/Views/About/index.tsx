@@ -1,9 +1,7 @@
 import { Link } from "../../Components";
 import { Section } from "../../Containers";
 
-/**
- * "About" section
- */
+/** "About" section */
 const About = () => (
   <Section id="about">
     <h2>About</h2>

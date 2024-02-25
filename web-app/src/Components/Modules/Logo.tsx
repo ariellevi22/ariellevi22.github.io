@@ -1,4 +1,5 @@
 import { CSSObject, useTheme } from "@emotion/react";
+import { useId } from "react";
 import { screenSizes, title } from "../../Global";
 import { transition } from "../../Theme";
 import Link from "./Link";
@@ -17,6 +18,7 @@ const Logo = ({
   onClick,
 }: LogoProps) => {
   const theme = useTheme();
+  const logoDescriptionId = useId();
 
   const containerStyles: CSSObject = {
     display: "flex",
@@ -29,8 +31,14 @@ const Logo = ({
 
   const LogoBase = () => (
     <>
-      <LogoIcon color={color} fill={accentColor} aria-hidden />
+      <LogoIcon
+        color={color}
+        fill={accentColor}
+        css={{ transition: transition("color") }}
+        aria-labelledby={logoDescriptionId}
+      />
       <p
+        id={logoDescriptionId}
         css={{
           // If not stacked, hide logo text on extra small screens
           display: stacked ? "block" : "none",

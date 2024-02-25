@@ -1,20 +1,15 @@
+import { EvergyLogo, GarminLogo, NelnetLogo, ZoomLogo } from "../../Assets";
 import { ExperienceItem } from "../../Types";
 import {
     evergy2021Photo,
-    evergyLogo,
     garmin2022Photo,
     garmin2023Photo,
-    garminLogo,
     nelnetDesignStudio2021Photo,
     nelnetDesignStudio2022Photo,
-    nelnetLogo,
     zoom2020Photo,
-    zoomLogo,
 } from "./Assets";
 
-/**
- * Data for the website's Experience section
- */
+/** Data for the website's Experience section */
 const experienceData: ExperienceItem[] = [
     {
         id: "garmin-2023",
@@ -37,8 +32,8 @@ const experienceData: ExperienceItem[] = [
         ],
         photo: garmin2023Photo,
         photoPosition: "50% 27%",
-        logo: garminLogo,
-        color: { lightTheme: "#000000", darkTheme: "#FFFFFF" },
+        logo: GarminLogo,
+        color: { light: "#000000", dark: "#FFFFFF" },
     },
     {
         id: "nelnet-design-studio-2022",
@@ -63,8 +58,8 @@ const experienceData: ExperienceItem[] = [
         ],
         photo: nelnetDesignStudio2022Photo,
         photoPosition: "33% 38%",
-        logo: nelnetLogo,
-        color: { lightTheme: "#8DC319" },
+        logo: NelnetLogo,
+        color: { light: "#8DC319" },
     },
     {
         id: "garmin-2022",
@@ -89,8 +84,8 @@ const experienceData: ExperienceItem[] = [
             "SQL",
         ],
         photo: garmin2022Photo,
-        logo: garminLogo,
-        color: { lightTheme: "#000000", darkTheme: "#FFFFFF" },
+        logo: GarminLogo,
+        color: { light: "#000000", dark: "#FFFFFF" },
     },
     {
         id: "nelnet-design-studio-2021",
@@ -108,8 +103,8 @@ const experienceData: ExperienceItem[] = [
         ],
         technologies: ["React.js", "TypeScript", "HTML/CSS", "Figma"],
         photo: nelnetDesignStudio2021Photo,
-        logo: nelnetLogo,
-        color: { lightTheme: "#8DC319" },
+        logo: NelnetLogo,
+        color: { light: "#8DC319" },
     },
     {
         id: "evergy-2021",
@@ -132,8 +127,8 @@ const experienceData: ExperienceItem[] = [
             "SharePoint",
         ],
         photo: evergy2021Photo,
-        logo: evergyLogo,
-        color: { lightTheme: "#004E9A", darkTheme: "#317CC0" },
+        logo: EvergyLogo,
+        color: { light: "#004E9A", dark: "#317CC0" },
     },
     {
         id: "zoom-2020",
@@ -149,8 +144,8 @@ const experienceData: ExperienceItem[] = [
         ],
         photo: zoom2020Photo,
         photoPosition: "80% 15%",
-        logo: zoomLogo,
-        color: { lightTheme: "#0b5cff" },
+        logo: ZoomLogo,
+        color: { light: "#0b5cff" },
     },
 ];
 

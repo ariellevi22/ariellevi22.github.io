@@ -1,4 +1,5 @@
 import { useTheme } from "@emotion/react";
+import { useId } from "react";
 import profilePicture from "../../Assets/ProfilePicture.jpg";
 import { Container } from "../../Containers";
 import { screenSizes, title } from "../../Global";
@@ -10,6 +11,7 @@ import SocialButtons from "./SocialButtons";
  */
 const HeroHeader = () => {
   const theme = useTheme();
+  const nameId = useId();
 
   return (
     <header css={{ width: "100%", position: "relative" }}>
@@ -55,7 +57,8 @@ const HeroHeader = () => {
 
           <img
             src={profilePicture}
-            alt={title}
+            alt=""
+            aria-labelledby={nameId}
             css={{
               width: `${photoSize}rem`,
               maxWidth: `${photoMaxSize}vw`,
@@ -80,7 +83,7 @@ const HeroHeader = () => {
             }}
           >
             <div>
-              <h1>{title}</h1>
+              <h1 id={nameId}>{title}</h1>
               <p css={{ marginBottom: 0 }}>Software Engineer at Garmin</p>
             </div>
 
