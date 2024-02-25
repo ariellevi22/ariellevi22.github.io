@@ -2,7 +2,7 @@ import { useTheme } from "@emotion/react";
 import { Card } from "../../Components";
 import { Section, SimpleGrid } from "../../Containers";
 import { separator } from "../../Global";
-import { pluralize } from "../../Utils";
+import { formatUnitForAmount } from "../../Utils";
 import educationData from "./data";
 
 /** "Education" section */
@@ -23,7 +23,13 @@ const Education = () => {
             const MajorInfo = () =>
               education.majors && (
                 <div>
-                  <h4>{pluralize("Major", education.majors.length)}</h4>
+                  <h4>
+                    {formatUnitForAmount(
+                      education.majors.length,
+                      "Major",
+                      "Majors"
+                    )}
+                  </h4>
                   <p>{education.majors.join(", ")}</p>
                 </div>
               );
@@ -32,7 +38,13 @@ const Education = () => {
             const MinorInfo = () =>
               education.minors && (
                 <div>
-                  <h4>{pluralize("Minor", education.minors.length)}</h4>
+                  <h4>
+                    {formatUnitForAmount(
+                      education.minors.length,
+                      "Minor",
+                      "Minors"
+                    )}
+                  </h4>
                   <p>{education.minors.join(", ")}</p>
                 </div>
               );

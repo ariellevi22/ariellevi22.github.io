@@ -9,23 +9,16 @@ export const getCurrentYear = () => {
 };
 
 /**
- * Pluralizes a string based on a count value
+ * Formats a unit with the correct pluralization based on an amount,
+ * like "unit" or "units"
  *
- * @param text the string to pluralize
- * @param count the count to determine whether the string should be pluralized or remain singular
- * @returns the pluralized string
+ * @param amount the amount
+ * @param unitSingular the unit to display if the amount is 1
+ * @param unitPlural the unit to display if the amount is not 1
+ * @returns the correct unit based on the amount
  */
-export const pluralize = (text: string, count: number) => {
-    let pluralizationEnding = "";
-    if (count !== 1) {
-        // Grammar reference: https://www.grammarly.com/blog/spelling-plurals-with-s-es
-        pluralizationEnding = "s";
-        if (text.endsWith("sh") || text.endsWith("ch") || text.endsWith("x")) {
-            pluralizationEnding = "es";
-        } else if (text.endsWith("s") || text.endsWith("z")) {
-            pluralizationEnding = `${text.charAt(-1)}es`;
-        }
-    }
-
-    return `${text}${pluralizationEnding}`;
-};
+export const formatUnitForAmount = (
+    amount: number,
+    unitSingular: string,
+    unitPlural: string
+) => (amount === 1 ? unitSingular : unitPlural);
