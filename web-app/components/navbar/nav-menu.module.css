@@ -1,0 +1,45 @@
+.navMenu {
+  will-change: transform;
+  transition: transform 250ms ease;
+
+  position: fixed;
+  right: 0;
+  z-index: 9;
+  overflow-y: auto;
+
+  width: 80%;
+  height: calc(100% - var(--nav-height));
+
+  background-color: var(--background-navigation-menu);
+  color: var(--text-navigation);
+}
+.navMenu.open {
+  transform: translate(0);
+}
+.navMenu.closed {
+  transform: translate(100%);
+}
+
+.navMenu a {
+  text-decoration: none;
+}
+
+.navMenu a:hover,
+.navMenu a:focus-visible,
+.navMenu a:active {
+  color: var(--accent-navigation);
+}
+
+.navMenuItems {
+  padding: 2.5rem;
+  min-height: 100%;
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.navMenuItems > * {
+  flex-shrink: 0;
+}
