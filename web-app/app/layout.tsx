@@ -4,6 +4,7 @@ import { appUrl, description, name } from "@/global";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
+import "@/theme/index.css";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import "./globals.css";
 

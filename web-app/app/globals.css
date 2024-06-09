@@ -2,23 +2,6 @@
   --nav-height: 5rem;
   --max-width: 64rem;
   --border-radius: 0.5rem;
-
-  --color-primary: #007da0;
-  --color-secondary: #48cae4;
-
-  --color-text-main: #000000;
-  --color-text-button: #ffffff;
-
-  --color-background-main: #e4edf3;
-  --color-background-surface-1: #ffffff;
-  --color-background-surface-2: #e8e8e8;
-
-  --color-background-nav-bar: #000000;
-  --color-background-nav-menu: #004b69;
-  --color-text-nav: #ffffff;
-  --color-accent-nav: #48cae4;
-
-  --color-shadow: rgba(0, 0, 0, 0.15);
 }
 
 * {
@@ -30,6 +13,13 @@
 
 html {
   scroll-behavior: smooth;
+  color-scheme: light dark;
+}
+html[data-color-scheme="light"] {
+  color-scheme: light;
+}
+html[data-color-scheme="dark"] {
+  color-scheme: dark;
 }
 
 body {
