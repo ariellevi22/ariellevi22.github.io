@@ -1,8 +1,8 @@
 .button {
-  --background-color: var(--accent-primary);
-  --text-color: var(--text-secondary);
-  --interaction-background-color: var(--text-primary);
-  --interaction-text-color: var(--text-secondary);
+  --color-background: var(--color-primary);
+  --color-text: var(--color-text-button);
+  --color-background-interaction: var(--color-text-main);
+  --color-text-interaction: var(--color-text-button);
 
   cursor: pointer;
   font-size: 1em;
@@ -10,8 +10,8 @@
   text-decoration: none;
   padding: 0.25rem 0.5rem;
   border-radius: 0.5rem;
-  background-color: var(--background-color);
-  color: var(--text-color);
+  background-color: var(--color-background);
+  color: var(--color-text);
   border: none;
 
   transition:
@@ -21,14 +21,14 @@
     box-shadow 250ms ease;
 }
 .button:not(.transparent) {
-  box-shadow: 0 0.1em 0.5em 0 var(--shadow);
+  box-shadow: 0 0.1em 0.5em 0 var(--color-shadow);
 }
 
 .button.transparent {
-  --background-color: transparent;
-  --text-color: inherit;
-  --interaction-background-color: transparent;
-  --interaction-text-color: var(--accent-primary);
+  --color-background: transparent;
+  --color-text: inherit;
+  --color-background-interaction: transparent;
+  --color-text-interaction: var(--color-primary);
 }
 
 .button.icon {
@@ -47,29 +47,29 @@
 
 @media (hover: hover) and (pointer: fine) {
   .button:hover {
-    background-color: var(--interaction-background-color);
-    color: var(--interaction-text-color);
+    background-color: var(--color-background-interaction);
+    color: var(--color-text-interaction);
   }
   .button:not(.transparent):hover {
-    box-shadow: 0 0.1em 0.5em 0 var(--shadow);
+    box-shadow: 0 0.1em 0.5em 0 var(--color-shadow);
     transform: scale(1.05);
   }
 }
 
 .button:focus-visible {
-  background-color: var(--interaction-background-color);
-  color: var(--interaction-text-color);
+  background-color: var(--color-background-interaction);
+  color: var(--color-text-interaction);
 }
 .button:not(.transparent):focus-visible {
-  box-shadow: 0 0.1em 0.5em 0 var(--shadow);
+  box-shadow: 0 0.1em 0.5em 0 var(--color-shadow);
   transform: scale(1.05);
 }
 
 .button:active {
-  background-color: var(--interaction-background-color);
-  color: var(--interaction-text-color);
+  background-color: var(--color-background-interaction);
+  color: var(--color-text-interaction);
 }
 .button:not(.transparent):active {
-  box-shadow: 0 0.1em 0.5em 0 var(--shadow);
+  box-shadow: 0 0.1em 0.5em 0 var(--color-shadow);
   transform: scale(0.95);
 }

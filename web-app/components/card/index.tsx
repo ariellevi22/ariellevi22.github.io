@@ -4,7 +4,7 @@ import styles from "./card.module.css";
 /** A component for a display card */
 const Card = ({
   children,
-  color = `var(--accent-primary)`,
+  color = `var(--color-primary)`,
   enableHorizontal,
   imgSrc,
   imgPosition,

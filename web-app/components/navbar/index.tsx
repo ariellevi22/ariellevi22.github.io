@@ -68,8 +68,8 @@ const Navbar = () => {
               <Logo
                 href="#top"
                 onClick={closeMenu}
-                accentColor="var(--accent-navigation)"
-                interactionColor="var(--accent-navigation)"
+                accentColor="var(--color-accent-nav)"
+                interactionColor="var(--color-accent-nav)"
               />
             </div>
 
@@ -84,7 +84,7 @@ const Navbar = () => {
                 onClick={() => setMenuOpen((open) => !open)}
                 aria-label={`${isMenuOpen ? "Close" : "Open"} Menu`}
                 title={`${isMenuOpen ? "Close" : "Open"} Menu`}
-                interactionTextColor="var(--accent-navigation)"
+                interactionTextColor="var(--color-accent-nav)"
               >
                 <MenuIcon close={isMenuOpen} />
               </Button>

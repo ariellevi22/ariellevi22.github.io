@@ -1,7 +1,7 @@
 .footer {
   width: 100%;
-  background-color: var(--background-navigation);
-  color: var(--text-navigation);
+  background-color: var(--color-background-nav-bar);
+  color: var(--color-text-nav);
 }
 
 .footerContent {

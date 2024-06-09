@@ -10,8 +10,8 @@
   width: 80%;
   height: calc(100% - var(--nav-height));
 
-  background-color: var(--background-navigation-menu);
-  color: var(--text-navigation);
+  background-color: var(--color-background-nav-menu);
+  color: var(--color-text-nav);
 }
 .navMenu.open {
   transform: translate(0);
@@ -27,7 +27,7 @@
 .navMenu a:hover,
 .navMenu a:focus-visible,
 .navMenu a:active {
-  color: var(--accent-navigation);
+  color: var(--color-accent-nav);
 }
 
 .navMenuItems {

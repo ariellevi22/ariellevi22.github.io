@@ -2,7 +2,7 @@
 const LogoIcon = ({
   height,
   width,
-  fill = "var(--accent-primary)",
+  fill = "var(--color-primary)",
   color,
   ...props
 }: React.SVGProps<SVGSVGElement>) => {

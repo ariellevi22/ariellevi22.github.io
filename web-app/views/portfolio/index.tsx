@@ -60,8 +60,8 @@ const Portfolio = () => {
                         openWithNewTab={!portfolioItem.website.startsWith("#")}
                         title={`Open ${portfolioItem.title}`}
                         aria-label={`Open ${portfolioItem.title}`}
-                        backgroundColor="var(--background-secondary)"
-                        textColor="var(--text-primary)"
+                        backgroundColor="var(--color-background-surface-1)"
+                        textColor="var(--color-text-main)"
                       >
                         <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
                       </Button>
@@ -73,8 +73,8 @@ const Portfolio = () => {
                         openWithNewTab
                         title={`View Project Code for ${portfolioItem.title}`}
                         aria-label={`View Project Code for ${portfolioItem.title}`}
-                        backgroundColor="var(--background-secondary)"
-                        textColor="var(--text-primary)"
+                        backgroundColor="var(--color-background-surface-1)"
+                        textColor="var(--color-text-main)"
                       >
                         <FontAwesomeIcon icon={faCode} />
                       </Button>

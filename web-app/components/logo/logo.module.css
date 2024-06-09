@@ -1,5 +1,5 @@
 .logoContainer {
-  --interaction-color: var(--accent-primary);
+  --color-interaction: var(--color-primary);
 
   border: none;
   background: none;
@@ -32,13 +32,13 @@ a.logoContainer {
 @media (hover: hover) and (pointer: fine) {
   a.logoContainer:hover,
   button.logoContainer:hover {
-    color: var(--interaction-color);
+    color: var(--color-interaction);
   }
 }
 
 a.logoContainer:focus-visible,
 button.logoContainer:focus-visible {
-  color: var(--interaction-color);
+  color: var(--color-interaction);
 }
 
 .logoContainer p {

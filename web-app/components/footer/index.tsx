@@ -14,15 +14,15 @@ const Footer = () => (
       <Logo
         href="#top"
         stacked
-        accentColor="var(--accent-navigation)"
-        interactionColor="var(--accent-navigation)"
+        accentColor="var(--color-accent-nav)"
+        interactionColor="var(--color-accent-nav)"
       />
 
       <SocialButtons
-        backgroundColor="var(--text-navigation)"
-        textColor="var(--background-navigation)"
-        interactionBackgroundColor="var(--accent-primary)"
-        interactionTextColor="var(--text-secondary)"
+        backgroundColor="var(--color-text-nav)"
+        textColor="var(--color-background-nav-bar)"
+        interactionBackgroundColor="var(--color-primary)"
+        interactionTextColor="var(--color-text-button)"
       />
 
       <p className={styles.copyright}>

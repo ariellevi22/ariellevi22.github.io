@@ -26,7 +26,7 @@ const Logo = ({
     .join(" ");
 
   const logoStyles: CSSProperties = {
-    "--interaction-color": interactionColor,
+    "--color-interaction": interactionColor,
   } as CSSProperties;
 
   const LogoBase = () => (

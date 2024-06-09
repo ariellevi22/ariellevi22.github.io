@@ -14,8 +14,8 @@
 .navbar {
   padding: 1rem 7.5%;
 
-  background-color: var(--background-navigation);
-  color: var(--text-navigation);
+  background-color: var(--color-background-nav-bar);
+  color: var(--color-text-nav);
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -37,7 +37,7 @@
 .navbar a:hover,
 .navbar a:focus-visible,
 .navbar a:active {
-  color: var(--accent-navigation);
+  color: var(--color-accent-nav);
 }
 
 .tabs {

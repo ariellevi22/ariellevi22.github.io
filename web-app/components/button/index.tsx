@@ -20,10 +20,10 @@ const Button = ({
   ...otherProps
 }: ButtonProps) => {
   const buttonStyleVariables: CSSProperties = {
-    "--background-color": backgroundColor,
-    "--text-color": textColor,
-    "--interaction-background-color": interactionBackgroundColor,
-    "--interaction-text-color": interactionTextColor,
+    "--color-background": backgroundColor,
+    "--color-text": textColor,
+    "--color-background-interaction": interactionBackgroundColor,
+    "--color-text-interaction": interactionTextColor,
   } as CSSProperties;
   const buttonStyles: CSSProperties = { ...style, ...buttonStyleVariables };
 

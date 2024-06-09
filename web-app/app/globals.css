@@ -1,22 +1,24 @@
 :root {
   --nav-height: 5rem;
   --max-width: 64rem;
-  --shadow: rgba(0, 0, 0, 0.15);
   --border-radius: 0.5rem;
 
-  --accent-primary: #007da0;
-  --accent-secondary: #48cae4;
-  --accent-navigation: #48cae4;
+  --color-primary: #007da0;
+  --color-secondary: #48cae4;
 
-  --text-primary: #000000;
-  --text-secondary: #ffffff;
-  --text-navigation: #ffffff;
+  --color-text-main: #000000;
+  --color-text-button: #ffffff;
 
-  --background-primary: #e4edf3;
-  --background-secondary: #ffffff;
-  --background-tertiary: #e8e8e8;
-  --background-navigation: #000000;
-  --background-navigation-menu: #004b69;
+  --color-background-main: #e4edf3;
+  --color-background-surface-1: #ffffff;
+  --color-background-surface-2: #e8e8e8;
+
+  --color-background-nav-bar: #000000;
+  --color-background-nav-menu: #004b69;
+  --color-text-nav: #ffffff;
+  --color-accent-nav: #48cae4;
+
+  --color-shadow: rgba(0, 0, 0, 0.15);
 }
 
 * {
@@ -31,8 +33,8 @@ html {
 }
 
 body {
-  background: var(--background-primary);
-  color: var(--text-primary);
+  background: var(--color-background-main);
+  color: var(--color-text-main);
 }
 
 a {
@@ -46,7 +48,7 @@ a {
 a:hover,
 a:focus-visible,
 a:active {
-  color: var(--accent-primary);
+  color: var(--color-primary);
 }
 
 h1 {
