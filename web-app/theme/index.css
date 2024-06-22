@@ -1,5 +1,6 @@
-:root,
-:root[data-color-scheme="light"] {
+:root {
+  color-scheme: light;
+
   --color-primary: #007da0;
   --color-secondary: #48cae4;
 
@@ -16,10 +17,10 @@
   --color-accent-nav: #48cae4;
 
   --color-shadow: rgba(0, 0, 0, 0.15);
-}
 
-:root:not([data-color-scheme]) {
   @media (prefers-color-scheme: dark) {
+    color-scheme: dark;
+
     --color-primary: #48cae4;
     --color-secondary: #007da0;
 
@@ -37,23 +38,4 @@
 
     --color-shadow: rgba(0, 0, 0, 0.35);
   }
-}
-
-:root[data-color-scheme="dark"] {
-  --color-primary: #48cae4;
-  --color-secondary: #007da0;
-
-  --color-text-main: #ffffff;
-  --color-text-button: #000000;
-
-  --color-background-main: #092229;
-  --color-background-surface-1: #1a414d;
-  --color-background-surface-2: #3b6774;
-
-  --color-background-nav-bar: #000000;
-  --color-background-nav-menu: #004b69;
-  --color-text-nav: #ffffff;
-  --color-accent-nav: #48cae4;
-
-  --color-shadow: rgba(0, 0, 0, 0.35);
 }
