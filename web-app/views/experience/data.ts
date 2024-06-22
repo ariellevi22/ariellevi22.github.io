@@ -2,15 +2,15 @@ import EvergyLogo from "@/assets/logos/evergy";
 import GarminLogo from "@/assets/logos/garmin";
 import NelnetLogo from "@/assets/logos/nelnet";
 import ZoomLogo from "@/assets/logos/zoom";
+
+import evergy2021Photo from "@/assets/photos/evergy-2021.jpg";
+import garmin2022Photo from "@/assets/photos/garmin-2022.jpg";
+import garmin2023Photo from "@/assets/photos/garmin-2023.png";
+import nelnetDesignStudio2021Photo from "@/assets/photos/nelnet-design-studio-2021.png";
+import nelnetDesignStudio2022Photo from "@/assets/photos/nelnet-design-studio-2022.png";
+import zoom2020Photo from "@/assets/photos/zoom-2020.jpg";
+
 import { ExperienceItem } from "@/types";
-import {
-    evergy2021Photo,
-    garmin2022Photo,
-    garmin2023Photo,
-    nelnetDesignStudio2021Photo,
-    nelnetDesignStudio2022Photo,
-    zoom2020Photo,
-} from "./photos";
 
 /** Data for the website's Experience section */
 const experienceData: ExperienceItem[] = [

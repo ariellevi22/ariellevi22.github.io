@@ -1,6 +1,7 @@
 import UnlLogo from "@/assets/logos/unl";
+import unl2023Photo from "@/assets/photos/unl-2023.jpg";
+
 import { EducationItem } from "@/types";
-import { unl2023Photo } from "./photos";
 
 /** Data for the website's Education section */
 const educationData: EducationItem[] = [

@@ -1,8 +1,12 @@
 import CookBookLogo from "@/assets/logos/cookbook";
 import ToGatherLogo from "@/assets/logos/togather";
 import LogoIcon from "@/components/logo-icon";
+
+import cookBookPhoto from "@/assets/photos/cookbook.png";
+import personalWebsitePhoto from "@/assets/photos/personal-website.png";
+import toGatherPhoto from "@/assets/photos/togather.png";
+
 import { PortfolioItem } from "@/types";
-import { cookBookPhoto, personalWebsitePhoto, toGatherPhoto } from "./photos";
 
 /** Data for the website's portfolio section */
 const portfolioData: PortfolioItem[] = [
