@@ -8,7 +8,6 @@
   font-size: 1em;
   display: inline-block;
   text-decoration: none;
-  padding: 0.25rem 0.5rem;
   border-radius: 0.5rem;
   background-color: var(--color-background);
   color: var(--color-text);
@@ -18,12 +17,17 @@
     color 250ms ease,
     background-color 250ms ease,
     transform 250ms ease,
-    box-shadow 250ms ease;
+    box-shadow 250ms ease,
+    opacity 250ms ease;
 }
 .button:not(.transparent) {
+  padding: 0.25rem 0.5rem;
   box-shadow:
     0 0.1em 0.15em 0 var(--color-shadow),
     0 0.1em 0.6em 0 var(--color-shadow);
+}
+.button.transparent {
+  padding: 0;
 }
 
 .button.transparent {
@@ -40,19 +44,22 @@
   text-align: center;
   font-size: inherit;
   border-radius: 50%;
+}
+.button:not(.transparent).icon {
   padding: 0.75em;
 }
+
 .button.icon svg {
   height: 1em;
   width: 1em;
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .button:hover {
+  .button:not(:disabled):hover {
     background-color: var(--color-background-interaction);
     color: var(--color-text-interaction);
   }
-  .button:not(.transparent):hover {
+  .button:not(:disabled):not(.transparent):hover {
     box-shadow:
       0 0.1em 0.2em 0 var(--color-shadow),
       0 0.3em 0.6em 0 var(--color-shadow);
@@ -60,24 +67,29 @@
   }
 }
 
-.button:focus-visible {
+.button:not(:disabled):focus-visible {
   background-color: var(--color-background-interaction);
   color: var(--color-text-interaction);
 }
-.button:not(.transparent):focus-visible {
+.button:not(:disabled):not(.transparent):focus-visible {
   box-shadow:
     0 0.1em 0.2em 0 var(--color-shadow),
     0 0.3em 0.6em 0 var(--color-shadow);
   transform: scale(1.05);
 }
 
-.button:active {
+.button:not(:disabled):active {
   background-color: var(--color-background-interaction);
   color: var(--color-text-interaction);
 }
-.button:not(.transparent):active {
+.button:not(:disabled):not(.transparent):active {
   box-shadow:
     0 0.1em 0.15em 0 var(--color-shadow),
     0 0.1em 0.6em 0 var(--color-shadow);
   transform: scale(0.95);
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }

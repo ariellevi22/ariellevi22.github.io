@@ -8,8 +8,6 @@ import styles from "./button.module.css";
 const Button = ({
   transparent,
   icon,
-  href,
-  openWithNewTab,
   backgroundColor,
   textColor,
   interactionBackgroundColor,
@@ -25,7 +23,10 @@ const Button = ({
     "--color-background-interaction": interactionBackgroundColor,
     "--color-text-interaction": interactionTextColor,
   } as CSSProperties;
-  const buttonStyles: CSSProperties = { ...style, ...buttonStyleVariables };
+  const buttonStyles: CSSProperties = {
+    ...style,
+    ...buttonStyleVariables,
+  };
 
   const buttonClassNames = [
     styles.button,
@@ -36,17 +37,18 @@ const Button = ({
     .filter(Boolean)
     .join(" ");
 
-  if (href) {
+  if ("href" in otherProps) {
+    const { href, openWithNewTab, ...otherLinkProps } = otherProps;
+
     return (
       // If the button should link somewhere, return a link styled as a button
       <Link
         href={href}
-        role="button"
         target={openWithNewTab ? "_blank" : undefined}
         rel={openWithNewTab ? "noopener noreferrer" : undefined}
         className={buttonClassNames}
         style={buttonStyles}
-        {...otherProps}
+        {...otherLinkProps}
       >
         {children}
       </Link>
@@ -61,23 +63,19 @@ const Button = ({
   }
 };
 
-/** Props for the button component that come from default HTML attributes */
-type HtmlButtonProps = React.HTMLAttributes<HTMLButtonElement> &
-  React.HTMLAttributes<HTMLAnchorElement>;
-
 /** Props for the button component */
-export type ButtonProps = HtmlButtonProps & {
+type ButtonProps = ButtonBaseProps & (ButtonLinkProps | ButtonStandardProps);
+
+/**
+ * Props common to all instances of the button component (both standard
+ * and link buttons)
+ */
+type ButtonBaseProps = {
   /** Whether the button should have a transparent background */
   transparent?: boolean;
 
   /** Whether to render the button as an icon button */
   icon?: boolean;
-
-  /** The link for the button to follow */
-  href?: string;
-
-  /** Whether the button should open its link in a new tab */
-  openWithNewTab?: boolean;
 
   /** The button background color */
   backgroundColor?: string;
@@ -91,5 +89,17 @@ export type ButtonProps = HtmlButtonProps & {
   /** The button text color when interacted with */
   interactionTextColor?: string;
 };
+
+/** Props for the button component when it acts as a link */
+type ButtonLinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
+  /** The link for the button to follow */
+  href: string;
+
+  /** Whether the button should open its link in a new tab */
+  openWithNewTab?: boolean;
+};
+
+/** Props for the button component when it acts as a standard (non-link) button */
+type ButtonStandardProps = React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 export default Button;
