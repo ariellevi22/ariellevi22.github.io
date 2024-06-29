@@ -16,7 +16,7 @@
   --color-text-nav: #ffffff;
   --color-accent-nav: #48cae4;
 
-  --color-shadow: rgba(0, 0, 0, 0.15);
+  --color-shadow: rgba(0, 75, 105, 0.1);
 
   @media (prefers-color-scheme: dark) {
     color-scheme: dark;
@@ -36,6 +36,6 @@
     --color-text-nav: #ffffff;
     --color-accent-nav: #48cae4;
 
-    --color-shadow: rgba(0, 0, 0, 0.35);
+    --color-shadow: rgba(0, 0, 0, 0.2);
   }
 }

@@ -21,7 +21,9 @@
     box-shadow 250ms ease;
 }
 .button:not(.transparent) {
-  box-shadow: 0 0.1em 0.5em 0 var(--color-shadow);
+  box-shadow:
+    0 0.1em 0.15em 0 var(--color-shadow),
+    0 0.1em 0.6em 0 var(--color-shadow);
 }
 
 .button.transparent {
@@ -51,7 +53,9 @@
     color: var(--color-text-interaction);
   }
   .button:not(.transparent):hover {
-    box-shadow: 0 0.1em 0.5em 0 var(--color-shadow);
+    box-shadow:
+      0 0.1em 0.2em 0 var(--color-shadow),
+      0 0.3em 0.6em 0 var(--color-shadow);
     transform: scale(1.05);
   }
 }
@@ -61,7 +65,9 @@
   color: var(--color-text-interaction);
 }
 .button:not(.transparent):focus-visible {
-  box-shadow: 0 0.1em 0.5em 0 var(--color-shadow);
+  box-shadow:
+    0 0.1em 0.2em 0 var(--color-shadow),
+    0 0.3em 0.6em 0 var(--color-shadow);
   transform: scale(1.05);
 }
 
@@ -70,6 +76,8 @@
   color: var(--color-text-interaction);
 }
 .button:not(.transparent):active {
-  box-shadow: 0 0.1em 0.5em 0 var(--color-shadow);
+  box-shadow:
+    0 0.1em 0.15em 0 var(--color-shadow),
+    0 0.1em 0.6em 0 var(--color-shadow);
   transform: scale(0.95);
 }
