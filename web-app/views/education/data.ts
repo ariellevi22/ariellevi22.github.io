@@ -30,7 +30,7 @@ const educationData: EducationItem[] = [
         ],
         logo: UnlLogo,
         photo: unl2023Photo,
-        color: "#DD1A32",
+        color: { light: "#DD1A32" },
     },
 ];
 

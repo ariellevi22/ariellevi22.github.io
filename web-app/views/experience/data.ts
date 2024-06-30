@@ -36,7 +36,7 @@ const experienceData: ExperienceItem[] = [
         photo: garmin2023Photo,
         photoPosition: "50% 27%",
         logo: GarminLogo,
-        color: "#000000",
+        color: { light: "#000000", dark: "#ffffff" },
     },
     {
         id: "nelnet-design-studio-2022",
@@ -62,7 +62,7 @@ const experienceData: ExperienceItem[] = [
         photo: nelnetDesignStudio2022Photo,
         photoPosition: "33% 38%",
         logo: NelnetLogo,
-        color: "#8DC319",
+        color: { light: "#8DC319" },
     },
     {
         id: "garmin-2022",
@@ -88,7 +88,7 @@ const experienceData: ExperienceItem[] = [
         ],
         photo: garmin2022Photo,
         logo: GarminLogo,
-        color: "#000000",
+        color: { light: "#000000", dark: "#ffffff" },
     },
     {
         id: "nelnet-design-studio-2021",
@@ -107,7 +107,7 @@ const experienceData: ExperienceItem[] = [
         technologies: ["React.js", "TypeScript", "HTML/CSS", "Figma"],
         photo: nelnetDesignStudio2021Photo,
         logo: NelnetLogo,
-        color: "#8DC319",
+        color: { light: "#8DC319" },
     },
     {
         id: "evergy-2021",
@@ -131,7 +131,7 @@ const experienceData: ExperienceItem[] = [
         ],
         photo: evergy2021Photo,
         logo: EvergyLogo,
-        color: "#004E9A",
+        color: { light: "#004E9A", dark: "#317CC0" },
     },
     {
         id: "zoom-2020",
@@ -148,7 +148,7 @@ const experienceData: ExperienceItem[] = [
         photo: zoom2020Photo,
         photoPosition: "80% 15%",
         logo: ZoomLogo,
-        color: "#0b5cff",
+        color: { light: "#0b5cff" },
     },
 ];
 

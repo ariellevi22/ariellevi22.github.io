@@ -19,7 +19,7 @@ export type IconTab = NavbarTab & {
 type Item = {
     id: string;
     logo: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
-    color?: string;
+    color?: { light: string; dark?: string };
     photo: StaticImageData | string;
     photoPosition?: string;
 };

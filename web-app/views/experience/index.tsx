@@ -23,7 +23,8 @@ const Experience = () => {
             <Card
               imgSrc={experience.photo}
               imgPosition={experience.photoPosition}
-              color={experience.color}
+              colorLight={experience.color?.light}
+              colorDark={experience.color?.dark}
               key={experience.id}
               enableHorizontal
             >

@@ -67,7 +67,8 @@ const Education = () => {
               imgSrc={education.photo}
               imgPosition={education.photoPosition}
               key={education.id}
-              color={education.color}
+              colorLight={education.color?.light}
+              colorDark={education.color?.dark}
               enableHorizontal
             >
               <education.logo

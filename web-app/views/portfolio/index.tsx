@@ -28,7 +28,8 @@ const Portfolio = () => {
             <Card
               imgSrc={portfolioItem.photo}
               imgPosition={portfolioItem.photoPosition}
-              color={portfolioItem.color}
+              colorLight={portfolioItem.color?.light}
+              colorDark={portfolioItem.color?.dark}
               key={portfolioItem.id}
             >
               <portfolioItem.logo

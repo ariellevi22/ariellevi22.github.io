@@ -1,10 +1,12 @@
 import Image, { StaticImageData } from "next/image";
+import { CSSProperties } from "react";
 import styles from "./card.module.css";
 
 /** A component for a display card */
 const Card = ({
   children,
-  color = `var(--color-primary)`,
+  colorLight = `var(--color-primary)`,
+  colorDark = colorLight,
   enableHorizontal,
   imgSrc,
   imgPosition,
@@ -14,7 +16,12 @@ const Card = ({
       className={[styles.card, enableHorizontal ? styles.horizontal : undefined]
         .filter(Boolean)
         .join(" ")}
-      style={{ borderLeft: `var(--border-radius) solid ${color}` }}
+      style={
+        {
+          "--color-accent-light": colorLight,
+          "--color-accent-dark": colorDark,
+        } as CSSProperties
+      }
     >
       {imgSrc && (
         <div className={styles.cardCover}>
@@ -32,8 +39,11 @@ type CardProps = {
   /** The card's contents */
   children?: React.ReactNode;
 
-  /** The card's accent color */
-  color?: string;
+  /** The card's accent color using a light color scheme */
+  colorLight?: string;
+
+  /** The card's accent color using a dark color scheme */
+  colorDark?: string;
 
   /** Whether the card can display with a horizontal layout (if large enough) */
   enableHorizontal?: boolean;

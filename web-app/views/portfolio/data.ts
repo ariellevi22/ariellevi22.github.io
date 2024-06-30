@@ -28,7 +28,7 @@ const portfolioData: PortfolioItem[] = [
             "ToGather is an application aiming to simplify safe event planning for friends and families during the COVID-19 pandemic. Working within a team of 5 computer science students, I designed and developed the front-end web application.",
         technologies: ["React.js", "TypeScript", "HTML/CSS", "Figma"],
         logo: ToGatherLogo,
-        color: "#439A9C",
+        color: { light: "#439A9C" },
         photo: toGatherPhoto,
     },
     {
@@ -40,7 +40,7 @@ const portfolioData: PortfolioItem[] = [
         website:
             "https://www.figma.com/proto/VdFLUObQi7DC6YG2EooRcG/CookBook?type=design&node-id=2-3&t=cgjYHM2rZxra2p6S-1&scaling=scale-down&page-id=0%3A1&starting-point-node-id=2%3A3",
         logo: CookBookLogo,
-        color: "#6176A9",
+        color: { light: "#6176A9" },
         photo: cookBookPhoto,
     },
 ];
