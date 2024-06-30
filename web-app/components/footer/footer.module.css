@@ -2,6 +2,7 @@
   width: 100%;
   background-color: var(--color-background-nav-bar);
   color: var(--color-text-nav);
+  grid-area: footer;
 }
 
 .footerContent {

@@ -36,7 +36,7 @@ const RootLayout = ({ children }: RootLayoutProps) => (
   <html lang="en">
     <body className={font.className}>
       <Navbar />
-      {children}
+      <main>{children}</main>
       <Footer />
     </body>
   </html>

@@ -19,6 +19,18 @@ html {
 body {
   background: var(--color-background-main);
   color: var(--color-text-main);
+
+  min-height: 100vh;
+  display: grid;
+  grid-template-areas:
+    "nav"
+    "main"
+    "footer";
+  grid-template-rows: auto 1fr auto;
+}
+
+main {
+  grid-area: main;
 }
 
 a {

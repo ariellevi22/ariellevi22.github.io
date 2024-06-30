@@ -6,13 +6,13 @@ import Portfolio from "@/views/portfolio";
 
 /** The app's landing page */
 const HomePage = () => (
-  <main>
+  <>
     <HeroHeader />
     <About />
     <Experience />
     <Portfolio />
     <Education />
-  </main>
+  </>
 );
 
 export default HomePage;
