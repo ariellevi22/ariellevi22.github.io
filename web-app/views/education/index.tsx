@@ -3,8 +3,8 @@ import Section from "@/containers/section";
 import SimpleGrid from "@/containers/simple-grid";
 import { separator } from "@/global";
 import { formatUnitForAmount } from "@/utils";
-import educationData from "./data";
 import Link from "next/link";
+import educationData from "./data";
 
 /** Education section */
 const Education = () => {
@@ -92,15 +92,24 @@ const Education = () => {
 
               <FieldsOfStudy />
 
-              {education.additionalInfo?.map((info) => (
-                <div key={`${info.heading} ${info.text}`}>
-                  <h4>{info.heading}</h4>
-                  <p>{info.text}</p>
-                </div>
-              ))}
+              {education.details &&
+                education.details.length > 0 &&
+                (education.details.length > 1 ? (
+                  <ul>
+                    {education.details.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p>{education.details[0]}</p>
+                ))}
 
-              <h4>What I Learned</h4>
-              <p>{education.classes.join(", ")}</p>
+              {education.classes && education.classes.length > 0 && (
+                <>
+                  <h4>What I Learned</h4>
+                  <p>{education.classes.join(", ")}</p>
+                </>
+              )}
             </Card>
           );
         })}

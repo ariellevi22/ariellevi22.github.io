@@ -22,16 +22,16 @@ const experienceData: ExperienceItem[] = [
         startDate: "August 2023",
         location: "Olathe, KS",
         responsibilities: [
-            "Develop new features, improvements, and bug fixes for the Garmin Connect web application, enhancing the user experience for 25 million users",
+            "Develop new features, improvements, and bug fixes for the Garmin Connect web application, enhancing the experience for 25 million users",
         ],
         technologies: [
             "React.js",
-            "Next.js",
             "JavaScript",
             "TypeScript",
             "HTML/CSS",
             "Node.js",
             "GraphQL",
+            "Cloudflare",
         ],
         photo: garmin2023Photo,
         photoPosition: "50% 27%",
@@ -48,7 +48,7 @@ const experienceData: ExperienceItem[] = [
         endDate: "May 2023",
         location: "Lincoln, NE",
         responsibilities: [
-            "Led and mentored a team of 5 web developers in UI/UX design, agile processes, software engineering, and software architecture",
+            "Co-led and mentored a team of 5 web developers in UI/UX design, agile processes, software engineering, and software architecture",
             "Developed a web application to consolidate loan program data from 10+ systems into 1 central knowledgebase, eliminating inconsistencies and enabling call center agents to quickly find answers to customer questions",
         ],
         technologies: [
@@ -118,7 +118,7 @@ const experienceData: ExperienceItem[] = [
         endDate: "August 2021",
         location: "Kansas City, MO",
         responsibilities: [
-            "Created a chatbot empowering 2,000+ associates to find relevant information across multiple systems, including HR data, payroll, and policies and procedures",
+            "Created an internal company chatbot empowering 2,000+ associates to find relevant information across multiple systems, including HR data, payroll, and policies and procedures",
             "Integrated internal project databases with an enhanced user interface for project managers in Jira, reducing the time needed to record project data by up to 90%",
         ],
         technologies: [
@@ -137,7 +137,7 @@ const experienceData: ExperienceItem[] = [
         id: "zoom-2020",
         title: "Technical Support Engineer Intern",
         organization: "Zoom",
-        href: "https://explore.zoom.us/about/",
+        href: "https://www.zoom.us/about/",
         startDate: "May 2020",
         endDate: "August 2020",
         location: "Overland Park, KS",

@@ -51,18 +51,19 @@ const Experience = () => {
                   "",
                   experience.location,
                   `${experience.startDate} to ${
-                    experience.endDate ?? "Present"
+                    experience.endDate ?? "present"
                   }`,
                 ].join(separator)}
               </p>
 
-              {experience.responsibilities.length > 0 && (
-                <ul>
-                  {experience.responsibilities.map((item, index) => (
-                    <li key={index}>{item}</li>
-                  ))}
-                </ul>
-              )}
+              {experience.responsibilities &&
+                experience.responsibilities.length > 0 && (
+                  <ul>
+                    {experience.responsibilities.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                )}
 
               {experience.technologies &&
                 experience.technologies.length > 0 && (

@@ -25,12 +25,8 @@ const educationData: EducationItem[] = [
             "Operating Systems Kernels (C)",
             "Unix Programming",
         ],
-        additionalInfo: [
-            {
-                heading:
-                    "Jeffrey S. Raikes School of Computer Science and Management",
-                text: "The Raikes School at the University of Nebraska-Lincoln is a selective honors program integrating innovative business concepts into a computer science curriculum with an emphasis on real-world experience taught through collaborative projects.",
-            },
+        details: [
+            "Graduated with high distinction from the Raikes School, a selective honors program integrating innovative business concepts into a computer science curriculum through collaborative projects",
         ],
         logo: UnlLogo,
         photo: unl2023Photo,

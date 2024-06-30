@@ -35,7 +35,7 @@ const portfolioData: PortfolioItem[] = [
         id: "cookbook",
         title: "CookBook Web App Prototype",
         description:
-            "CookBook is a recipe-sharing application that inspires connection through food. Collaborating with another UI/UX designer, I created a design system, wireframes, and prototypes for the application based on feedback from user research and usability tests.",
+            "CookBook is a recipe-sharing application that inspires connection through food. Collaborating with a UI/UX design classmate, I created a design system, wireframes, and prototypes for the application based on feedback from user research and usability tests.",
         technologies: ["Figma"],
         website:
             "https://www.figma.com/proto/VdFLUObQi7DC6YG2EooRcG/CookBook?type=design&node-id=2-3&t=cgjYHM2rZxra2p6S-1&scaling=scale-down&page-id=0%3A1&starting-point-node-id=2%3A3",

@@ -21,16 +21,16 @@ const About = () => (
       >
         Garmin
       </Link>
-      , I work with incredibly talented teammates to build{" "}
+      , I work with a group of incredibly talented teammates to build{" "}
       <Link
         href="https://connect.garmin.com/"
         target="_blank"
         rel="noopener noreferrer"
       >
         Garmin Connect
-      </Link>
-      , helping millions of people gain insights into their health and
-      well-being. My technical proficiency revolves around React.js on the
+      </Link>{" "}
+      and LiveTrack, helping millions of people gain insights into their health
+      and well-being. My technical proficiency revolves around React.js on the
       frontend and Node.js/Express.js on the backend, but I am always looking
       for new ways to learn and expand my skills!
     </p>

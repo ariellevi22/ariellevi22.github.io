@@ -15,12 +15,6 @@ export type IconTab = NavbarTab & {
     colorSecondary?: string;
 };
 
-/** Template for written content (consisting of a heading and body text) */
-type Content = {
-    heading: string;
-    text: string;
-};
-
 /** Base template for experience, education, and portfolio data types */
 type Item = {
     id: string;
@@ -38,8 +32,8 @@ export type EducationItem = Item & {
     majors?: string[];
     minors?: string[];
     graduationDate: string;
-    classes: string[];
-    additionalInfo?: Content[];
+    details?: string[];
+    classes?: string[];
 };
 
 /** Template for experience data */
@@ -51,7 +45,7 @@ export type ExperienceItem = Item & {
     startDate: string;
     endDate?: string;
     location: string;
-    responsibilities: string[];
+    responsibilities?: string[];
     technologies?: string[];
 };
 
