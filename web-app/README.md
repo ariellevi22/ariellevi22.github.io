@@ -8,35 +8,31 @@ View the finished product at [ariellevi22.github.io](https://ariellevi22.github.
 
 ## Technologies
 
-This project is made with [React.js](https://react.dev/) using [TypeScript](https://www.typescriptlang.org/) and [Vite](https://vitejs.dev/).
+This project is made with [React.js](https://react.dev/) using [TypeScript](https://www.typescriptlang.org/) and [Next.js](https://nextjs.org/).
 
 ## Project Structure
 
--   `index.html` is the main entry point to the app
--   `public` contains the assets and metadata used in `index.html`
--   `src` contains all the project code
-    -   `main.tsx` is the entry point for React
-    -   `App.tsx` is the top-level React component for the app
-    -   `Assets` contains common assets (like photos) used in the app
-    -   `Components` contains common React components used in the app, like the logo and cards
-    -   `Containers` contains common React components that help structure the app, like grids and sections
-    -   `Views` contains React components for the main views and content of the app, which are made up of components from `Components` and `Containers`
-    -   `Types` contains TypeScript types used across the app
-    -   `Global` contains global variables used across the app
-    -   `Utils` contains utility functions used across the app
-    -   `Theme` contains theming and styling information for the app
+-   `app` contains the app's pages and metadata
+-   `components` contains common React components used in the app, like the logo and cards
+-   `containers` contains common React components that help structure the app, like grids and sections
+-   `views` contains React components for the main views and content of the app, which are made up of components from `components` and `containers`
+-   `assets` contains photos, logos, and icons displayed throughout the app
+-   `public` contains static file assets
+-   `global` contains global variables used across the app
+-   `utils` contains utility functions used across the app
+-   `types` contains TypeScript types used across the app
 -   `package.json` and `package-lock.json` contain information about project scripts and dependencies
--   `tsconfig.json` and `tsconfig.node.json` contain TypeScript configuration information
+-   `tsconfig.json` contains TypeScript configuration information
 -   `.eslintrc.json` contains configuration information for [ESLint](https://eslint.org/) code analysis
 -   `.prettierrc.json` contains configuration information for [Prettier](https://prettier.io/) code formatting
 
 ## Development
 
-To run the app in development mode, run:
+To open the app in development mode, run:
 
 ```sh
 npm install
-npm start
+npm run dev
 ```
 
 Then, follow the link provided in the terminal to the local web app.

@@ -1,0 +1,15 @@
+.to {
+  fill: #3f3e3b;
+
+  @media (prefers-color-scheme: dark) {
+    fill: #daf7f2;
+  }
+}
+
+.gather {
+  fill: #439a9c;
+
+  @media (prefers-color-scheme: dark) {
+    fill: #81c6d1;
+  }
+}

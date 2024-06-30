@@ -1,0 +1,65 @@
+.cardContainer {
+  container: card / inline-size;
+
+  --color-accent-light: var(--color-primary);
+  --color-accent-dark: var(--color-accent-light);
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-background-surface-1);
+  border-radius: var(--border-radius);
+  border-left: var(--border-radius) solid;
+  border-color: var(--color-accent-light);
+  box-shadow: 0 0.2em 0.5em 0 var(--color-shadow);
+  display: flex;
+  flex-direction: column;
+
+  @media (prefers-color-scheme: dark) {
+    border-color: var(--color-accent-dark);
+  }
+}
+
+.card .cardCover {
+  position: relative;
+  height: 13.5rem;
+  border-radius: 0 var(--border-radius) 0 0;
+}
+.card .cardCover img {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: inherit;
+}
+
+.cardContents {
+  width: 100%;
+  padding: 2rem;
+}
+.cardContents > :last-child {
+  margin-bottom: 0;
+}
+.cardContents h3 {
+  margin-top: 0.5rem;
+}
+
+@container card (min-width: 48.025rem) {
+  .card.horizontal {
+    flex-direction: row;
+  }
+
+  .card.horizontal .cardCover {
+    height: auto;
+    width: 28%;
+    flex-grow: 0;
+    flex-shrink: 0;
+    border-radius: 0;
+  }
+}
