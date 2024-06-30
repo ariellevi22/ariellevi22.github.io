@@ -4,7 +4,7 @@
 
 Welcome to the code repository for my personal portfolio website! Continue through this repository to look through the code, or view my finished work at **[ariellevi22.github.io](https://ariellevi22.github.io)**.
 
-<img src="./web-app/public/assets/social-cover.png" alt="Ariel Levi's personal portfolio website" />
+<img src="./web-app/app/opengraph-image.png" alt="Ariel Levi's personal portfolio website" />
 
 ## About the Project
 
