@@ -17,27 +17,25 @@ const HeroHeader = () => {
     <header className={styles.header}>
       <div className={styles.background} role="presentation" />
 
-      <Container>
-        <div className={styles.grid}>
-          <div />
+      <Container className={styles.grid}>
+        <div />
 
-          <Image
-            src={profileImg}
-            priority
-            quality={100}
-            alt=""
-            aria-labelledby={nameId}
-            className={styles.profileImage}
-          />
+        <Image
+          src={profileImg}
+          priority
+          quality={100}
+          alt=""
+          aria-labelledby={nameId}
+          className={styles.profileImage}
+        />
 
-          <div className={styles.profileInfo}>
-            <div>
-              <h1 id={nameId}>{name}</h1>
-              <p>Software Engineer at Garmin</p>
-            </div>
-
-            <SocialButtons />
+        <div className={styles.profileInfo}>
+          <div>
+            <h1 id={nameId}>{name}</h1>
+            <p>Software Engineer at Garmin</p>
           </div>
+
+          <SocialButtons />
         </div>
       </Container>
     </header>

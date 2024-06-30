@@ -12,7 +12,7 @@ const Footer = () => (
   <footer className={styles.footer}>
     <Container className={styles.footerContent}>
       <Logo
-        href="#top"
+        href="/#top"
         stacked
         accentColor="var(--color-accent-nav)"
         interactionColor="var(--color-accent-nav)"

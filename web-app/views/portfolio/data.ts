@@ -16,7 +16,7 @@ const portfolioData: PortfolioItem[] = [
         description:
             "To combine my passions for code, writing, and design, I created this personal portfolio website that showcases my experiences, accomplishments, and interests.",
         technologies: ["React.js", "TypeScript", "HTML/CSS", "Figma"],
-        website: "#top",
+        website: "/#top",
         codeWebsite: "https://github.com/ariellevi22/ariellevi22.github.io",
         logo: LogoIcon,
         photo: personalWebsitePhoto,

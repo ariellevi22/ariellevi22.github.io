@@ -6,12 +6,13 @@ const Section = ({ children, className, ...props }: SectionProps) => {
   const sectionClassNames = [styles.section, className].join(" ");
 
   return (
-    <section {...props} className={sectionClassNames}>
-      <Container>{children}</Container>
-    </section>
+    <Container component="section" {...props} className={sectionClassNames}>
+      {children}
+    </Container>
   );
 };
 
+/** Props for the section component */
 type SectionProps = React.HTMLAttributes<HTMLElement>;
 
 export default Section;

@@ -66,7 +66,7 @@ const Navbar = () => {
           <div className={styles.navbar}>
             <div>
               <Logo
-                href="#top"
+                href="/#top"
                 onClick={closeMenu}
                 accentColor="var(--color-accent-nav)"
                 interactionColor="var(--color-accent-nav)"

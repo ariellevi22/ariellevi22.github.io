@@ -17,10 +17,10 @@ export const separator = " | ";
 
 /** Navigation bar tabs' information */
 export const navbarTabs: NavbarTab[] = [
-    { label: "About", href: "#about" },
-    { label: "Experience", href: "#experience" },
-    { label: "Portfolio", href: "#portfolio" },
-    { label: "Education", href: "#education" },
+    { label: "About", href: "/#about" },
+    { label: "Experience", href: "/#experience" },
+    { label: "Portfolio", href: "/#portfolio" },
+    { label: "Education", href: "/#education" },
 ];
 
 /** Social button icons and links */
