@@ -4,7 +4,7 @@ import { navbarTabs, socialTabs } from "@/global";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { FocusOn } from "react-focus-on";
+import { AutoFocusInside, FocusOn } from "react-focus-on";
 import Button from "../button";
 import Logo from "../logo";
 import MenuIcon from "../menu-icon";
@@ -62,6 +62,7 @@ const Navbar = () => {
           onClickOutside={closeMenu}
           onEscapeKey={closeMenu}
           enabled={isMenuOpen}
+          returnFocus
         >
           <div className={styles.navbar}>
             <div>
@@ -78,16 +79,18 @@ const Navbar = () => {
             </div>
 
             <div className={styles.menuButton}>
-              <Button
-                icon
-                transparent
-                onClick={() => setMenuOpen((open) => !open)}
-                aria-label={`${isMenuOpen ? "Close" : "Open"} Menu`}
-                title={`${isMenuOpen ? "Close" : "Open"} Menu`}
-                interactionTextColor="var(--color-accent-nav)"
-              >
-                <MenuIcon close={isMenuOpen} />
-              </Button>
+              <AutoFocusInside>
+                <Button
+                  icon
+                  transparent
+                  onClick={() => setMenuOpen((open) => !open)}
+                  aria-label={`${isMenuOpen ? "Close" : "Open"} Menu`}
+                  title={`${isMenuOpen ? "Close" : "Open"} Menu`}
+                  interactionTextColor="var(--color-accent-nav)"
+                >
+                  <MenuIcon close={isMenuOpen} />
+                </Button>
+              </AutoFocusInside>
             </div>
           </div>
 
