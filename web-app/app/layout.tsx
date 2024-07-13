@@ -13,12 +13,14 @@ export const metadata: Metadata = {
   title: name,
   applicationName: name,
   description,
+  authors: { name, url: appUrl },
   keywords: [name, "personal website", "portfolio"],
   openGraph: {
     title: name,
     siteName: name,
     description,
-    url: "https://ariellevi22.github.io",
+    url: appUrl,
+    type: "website",
   },
   twitter: {
     title: name,
