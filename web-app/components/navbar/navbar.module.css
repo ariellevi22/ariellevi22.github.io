@@ -6,8 +6,7 @@
   grid-area: nav;
 }
 
-.navbar,
-.spacer {
+.navbar {
   height: var(--nav-height);
   width: 100%;
 }

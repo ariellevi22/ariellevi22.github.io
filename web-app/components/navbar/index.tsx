@@ -99,9 +99,6 @@ const Navbar = () => {
           </NavMenu>
         </FocusOn>
       </nav>
-
-      {/* Prevent the navbar from covering the top of the page content */}
-      <div className={styles.spacer} />
     </>
   );
 };
