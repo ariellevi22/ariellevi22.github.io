@@ -35,10 +35,15 @@
   text-decoration: none;
 }
 
-.navbar a:hover,
 .navbar a:focus-visible,
 .navbar a:active {
   color: var(--color-accent-nav);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .navbar a:hover {
+    color: var(--color-accent-nav);
+  }
 }
 
 .tabs {

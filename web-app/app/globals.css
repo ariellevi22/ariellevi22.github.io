@@ -41,10 +41,15 @@ a {
     text-decoration 250ms ease;
 }
 
-a:hover,
 a:focus-visible,
 a:active {
   color: var(--color-primary);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  a:hover {
+    color: var(--color-primary);
+  }
 }
 
 h1 {

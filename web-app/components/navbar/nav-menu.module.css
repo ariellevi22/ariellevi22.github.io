@@ -19,10 +19,15 @@
   text-decoration: none;
 }
 
-.navMenu a:hover,
 .navMenu a:focus-visible,
 .navMenu a:active {
   color: var(--color-accent-nav);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .navMenu a:hover {
+    color: var(--color-accent-nav);
+  }
 }
 
 .navMenuItems {
