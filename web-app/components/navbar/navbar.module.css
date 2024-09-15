@@ -1,17 +1,18 @@
 .nav {
-  position: sticky;
   top: 0;
   z-index: 10;
   width: 100%;
   grid-area: nav;
 }
 
-.navbar {
+.navbar,
+.spacer {
   height: var(--nav-height);
   width: 100%;
 }
 
 .navbar {
+  position: fixed;
   padding: 1rem 7.5%;
 
   background-color: var(--color-background-nav-bar);

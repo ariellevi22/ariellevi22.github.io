@@ -3,6 +3,7 @@
   touch-action: none;
 
   position: fixed;
+  top: var(--nav-height);
   right: 0;
   z-index: 9;
   overflow-y: auto;

@@ -97,6 +97,8 @@ const Navbar = () => {
           <Tabs />
         </NavMenu>
       </FocusOn>
+
+      <div className={styles.spacer} />
     </nav>
   );
 };
