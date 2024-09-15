@@ -1,6 +1,6 @@
 .navMenu {
   will-change: transform;
-  transition: transform 250ms ease;
+  touch-action: none;
 
   position: fixed;
   right: 0;
@@ -12,12 +12,6 @@
 
   background-color: var(--color-background-nav-menu);
   color: var(--color-text-nav);
-}
-.navMenu.open {
-  transform: translate(0);
-}
-.navMenu.closed {
-  transform: translate(100%);
 }
 
 .navMenu a {

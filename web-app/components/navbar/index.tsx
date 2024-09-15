@@ -94,7 +94,7 @@ const Navbar = () => {
             </div>
           </div>
 
-          <NavMenu open={isMenuOpen}>
+          <NavMenu open={isMenuOpen} setOpen={setMenuOpen}>
             <Tabs />
           </NavMenu>
         </FocusOn>
