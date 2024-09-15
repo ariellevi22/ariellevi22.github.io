@@ -56,50 +56,48 @@ const Navbar = () => {
   );
 
   return (
-    <>
-      <nav className={styles.nav}>
-        <FocusOn
-          onClickOutside={closeMenu}
-          onEscapeKey={closeMenu}
-          enabled={isMenuOpen}
-          returnFocus
-        >
-          <div className={styles.navbar}>
-            <div>
-              <Logo
-                href="/#top"
-                onClick={closeMenu}
-                accentColor="var(--color-accent-nav)"
-                interactionColor="var(--color-accent-nav)"
-              />
-            </div>
-
-            <div className={styles.tabs}>
-              <Tabs />
-            </div>
-
-            <div className={styles.menuButton}>
-              <AutoFocusInside>
-                <Button
-                  icon
-                  transparent
-                  onClick={() => setMenuOpen((open) => !open)}
-                  aria-label={`${isMenuOpen ? "Close" : "Open"} Menu`}
-                  title={`${isMenuOpen ? "Close" : "Open"} Menu`}
-                  interactionTextColor="var(--color-accent-nav)"
-                >
-                  <MenuIcon close={isMenuOpen} />
-                </Button>
-              </AutoFocusInside>
-            </div>
+    <nav className={styles.nav}>
+      <FocusOn
+        onClickOutside={closeMenu}
+        onEscapeKey={closeMenu}
+        enabled={isMenuOpen}
+        returnFocus
+      >
+        <div className={styles.navbar}>
+          <div>
+            <Logo
+              href="/#top"
+              onClick={closeMenu}
+              accentColor="var(--color-accent-nav)"
+              interactionColor="var(--color-accent-nav)"
+            />
           </div>
 
-          <NavMenu open={isMenuOpen} setOpen={setMenuOpen}>
+          <div className={styles.tabs}>
             <Tabs />
-          </NavMenu>
-        </FocusOn>
-      </nav>
-    </>
+          </div>
+
+          <div className={styles.menuButton}>
+            <AutoFocusInside>
+              <Button
+                icon
+                transparent
+                onClick={() => setMenuOpen((open) => !open)}
+                aria-label={`${isMenuOpen ? "Close" : "Open"} Menu`}
+                title={`${isMenuOpen ? "Close" : "Open"} Menu`}
+                interactionTextColor="var(--color-accent-nav)"
+              >
+                <MenuIcon close={isMenuOpen} />
+              </Button>
+            </AutoFocusInside>
+          </div>
+        </div>
+
+        <NavMenu open={isMenuOpen} setOpen={setMenuOpen}>
+          <Tabs />
+        </NavMenu>
+      </FocusOn>
+    </nav>
   );
 };
 
