@@ -55,20 +55,24 @@ const NavMenu = ({ children, open, setOpen }: NavMenuProps) => {
       onTouchStart={onSwipeEnd}
       onTouchMove={(event) => {
         if (event.targetTouches.length === 1) {
-          const drawerPosition = event.currentTarget.getBoundingClientRect().x;
+          const menuPosition = event.currentTarget.getBoundingClientRect().x;
           const newTouchPosition = event.targetTouches[0].clientX;
 
           // If the user is first starting to swipe, record the distance from the leftmost
-          // edge of the drawer to their touch
+          // edge of the menu to their touch
           if (!touchPosition) {
-            touchOffsetRef.current = newTouchPosition - drawerPosition;
+            touchOffsetRef.current = newTouchPosition - menuPosition;
           }
 
-          // Determine if the user is swiping the drawer open (negative direction) or
+          // Determine if the user is swiping the menu open (negative direction) or
           // closed (positive direction)
-          swipeDirectionRef.current = Math.sign(
-            newTouchPosition - (touchPosition || drawerPosition)
-          );
+          swipeDirectionRef.current = touchPosition
+            ? Math.sign(newTouchPosition - touchPosition)
+            : open
+              ? // The menu is open, so the user is beginning to swipe it closed
+                1
+              : // The menu is closed, so the user is beginning to swipe it open
+                -1;
 
           setTouchPosition(newTouchPosition);
         }
