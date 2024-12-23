@@ -1,6 +1,5 @@
 .navMenu {
   will-change: transform;
-  touch-action: none;
 
   position: fixed;
   top: var(--nav-height);

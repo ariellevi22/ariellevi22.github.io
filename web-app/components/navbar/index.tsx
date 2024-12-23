@@ -25,7 +25,7 @@ const Navbar = () => {
   }, []);
 
   // Create the display for the navigation bar tabs
-  const Tabs = () => (
+  const tabs = (
     <>
       {navbarTabs.map((tab) => (
         <Link
@@ -73,9 +73,7 @@ const Navbar = () => {
             />
           </div>
 
-          <div className={styles.tabs}>
-            <Tabs />
-          </div>
+          <div className={styles.tabs}>{tabs}</div>
 
           <div className={styles.menuButton}>
             <AutoFocusInside>
@@ -94,7 +92,7 @@ const Navbar = () => {
         </div>
 
         <NavMenu open={isMenuOpen} setOpen={setMenuOpen}>
-          <Tabs />
+          {tabs}
         </NavMenu>
       </FocusOn>
 
