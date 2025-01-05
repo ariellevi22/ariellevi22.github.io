@@ -1,4 +1,4 @@
-import { ReactHTML, createElement } from "react";
+import { createElement } from "react";
 import styles from "./container.module.css";
 
 /** A container of page content */
@@ -8,7 +8,9 @@ const Container = ({
   className,
   ...props
 }: ContainerProps) => {
-  const containerClassNames = [styles.container, className].join(" ");
+  const containerClassNames = [styles.container, className]
+    .filter(Boolean)
+    .join(" ");
 
   return createElement(
     component,
@@ -19,7 +21,7 @@ const Container = ({
 
 /** Props for the container component */
 type ContainerProps = React.HTMLAttributes<HTMLElement> & {
-  component?: keyof ReactHTML;
+  component?: keyof React.JSX.IntrinsicElements;
 };
 
 export default Container;

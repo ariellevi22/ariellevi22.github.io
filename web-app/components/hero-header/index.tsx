@@ -18,8 +18,6 @@ const HeroHeader = () => {
       <div className={styles.background} role="presentation" />
 
       <Container className={styles.grid}>
-        <div />
-
         <Image
           src={profileImg}
           priority
