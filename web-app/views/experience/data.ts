@@ -16,7 +16,7 @@ import { ExperienceItem } from "@/types";
 const experienceData: ExperienceItem[] = [
     {
         id: "garmin-2023",
-        title: "Software Engineer 1",
+        title: "Software Engineer",
         organization: "Garmin",
         href: "https://www.garmin.com/company/about-garmin/",
         startDate: "August 2023",
