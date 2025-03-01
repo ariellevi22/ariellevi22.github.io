@@ -26,7 +26,7 @@ const Footer = () => (
       />
 
       <p className={styles.copyright}>
-        &copy; {getCurrentYear()} {name}
+        &copy; 2021&ndash;{getCurrentYear()} {name}
       </p>
     </Container>
   </footer>

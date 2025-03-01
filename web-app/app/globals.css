@@ -87,6 +87,16 @@ ol {
   margin-bottom: 0.75rem;
 }
 
+ul,
+ol {
+  padding-inline-start: 1.5rem;
+}
+
 li {
   margin-bottom: 0.25rem;
+}
+
+li ul,
+li ol {
+  margin: 0.25rem 0;
 }
