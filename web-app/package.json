@@ -21,8 +21,7 @@
     "@fortawesome/react-fontawesome": "^0.2.2",
     "next": "^14",
     "react": "^18",
-    "react-dom": "^18",
-    "react-focus-on": "^3"
+    "react-dom": "^18"
   },
   "devDependencies": {
     "@types/node": "^20",

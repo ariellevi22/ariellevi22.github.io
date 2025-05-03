@@ -55,12 +55,12 @@ const NavMenu = ({ children, open, setOpen }: NavMenuProps) => {
       onTouchStart={onSwipeEnd}
       onTouchMove={(event) => {
         if (event.targetTouches.length === 1) {
-          const menuPosition = event.currentTarget.getBoundingClientRect().x;
           const newTouchPosition = event.targetTouches[0].clientX;
 
           // If the user is first starting to swipe, record the distance from the leftmost
           // edge of the menu to their touch
           if (!touchPosition) {
+            const menuPosition = event.currentTarget.getBoundingClientRect().x;
             touchOffsetRef.current = newTouchPosition - menuPosition;
           }
 
