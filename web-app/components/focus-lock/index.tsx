@@ -6,6 +6,7 @@ import { useEffect, useRef } from "react";
 const FocusLock = ({
   children,
   enabled = true,
+  disableScroll = true,
   onEscapeKey,
   onClickOutside,
 }: FocusLockProps) => {
@@ -126,9 +127,14 @@ const FocusLock = ({
     };
   }, [enabled, onClickOutside]);
 
+  // Handle scrolling of the page
   useEffect(() => {
-    document.body.style.overflow = enabled ? "hidden" : "";
-  }, [enabled]);
+    document.body.style.overflow = enabled && disableScroll ? "hidden" : "";
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [enabled, disableScroll]);
 
   return <div ref={rootRef}>{children}</div>;
 };
@@ -136,10 +142,13 @@ const FocusLock = ({
 /** Props for the focus lock component */
 type FocusLockProps = {
   /** The focus lock's contents */
-  children?: React.ReactNode;
+  children: React.ReactNode;
 
   /** Whether the focus lock is enabled */
   enabled?: boolean;
+
+  /** Whether to disable scrolling the page when focus is locked */
+  disableScroll?: boolean;
 
   /** Handles a press of the escape key when the focus lock is enabled */
   onEscapeKey?: (event: KeyboardEvent) => void;
