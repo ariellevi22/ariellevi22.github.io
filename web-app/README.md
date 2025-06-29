@@ -12,19 +12,19 @@ This project is made with [React.js](https://react.dev/) using [TypeScript](http
 
 ## Project Structure
 
--   `app` contains the app's pages and metadata
--   `components` contains common React components used in the app, like the logo and cards
--   `containers` contains common React components that help structure the app, like grids and sections
--   `views` contains React components for the main views and content of the app, which are made up of components from `components` and `containers`
--   `assets` contains photos, logos, and icons displayed throughout the app
--   `public` contains static file assets
--   `global` contains global variables used across the app
--   `utils` contains utility functions used across the app
--   `types` contains TypeScript types used across the app
--   `package.json` and `package-lock.json` contain information about project scripts and dependencies
--   `tsconfig.json` contains TypeScript configuration information
--   `.eslintrc.json` contains configuration information for [ESLint](https://eslint.org/) code analysis
--   `.prettierrc.json` contains configuration information for [Prettier](https://prettier.io/) code formatting
+- `app` contains the app's pages and metadata
+- `components` contains common React components used in the app, like the logo and cards
+- `containers` contains common React components that help structure the app, like grids and sections
+- `views` contains React components for the main views and content of the app, which are made up of components from `components` and `containers`
+- `assets` contains photos, logos, and icons displayed throughout the app
+- `public` contains static file assets
+- `global` contains global variables used across the app
+- `utils` contains utility functions used across the app
+- `types` contains TypeScript types used across the app
+- `package.json` and `package-lock.json` contain information about project scripts and dependencies
+- `tsconfig.json` contains TypeScript configuration information
+- `.eslintrc.json` contains configuration information for [ESLint](https://eslint.org/) code analysis
+- `.prettierrc.json` contains configuration information for [Prettier](https://prettier.io/) code formatting
 
 ## Development
 

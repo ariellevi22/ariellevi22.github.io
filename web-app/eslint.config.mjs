@@ -14,7 +14,7 @@ const compat = new FlatCompat({
 });
 
 export default defineConfig([
-    globalIgnores(["**/dist", "**/.eslintrc.json"]),
+    globalIgnores(["**/dist"]),
     {
         extends: compat.extends("next", "prettier"),
     },

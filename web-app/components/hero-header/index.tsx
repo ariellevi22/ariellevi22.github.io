@@ -11,33 +11,33 @@ import styles from "./hero-header.module.css";
  * a photo, and social buttons
  */
 const HeroHeader = () => {
-  const nameId = useId();
+    const nameId = useId();
 
-  return (
-    <header className={styles.header}>
-      <div className={styles.background} role="presentation" />
+    return (
+        <header className={styles.header}>
+            <div className={styles.background} role="presentation" />
 
-      <Container className={styles.grid}>
-        <Image
-          src={profileImg}
-          priority
-          quality={100}
-          alt=""
-          aria-labelledby={nameId}
-          className={styles.profileImage}
-        />
+            <Container className={styles.grid}>
+                <Image
+                    src={profileImg}
+                    priority
+                    quality={100}
+                    alt=""
+                    aria-labelledby={nameId}
+                    className={styles.profileImage}
+                />
 
-        <div className={styles.profileInfo}>
-          <div>
-            <h1 id={nameId}>{name}</h1>
-            <p>Software Engineer at Garmin</p>
-          </div>
+                <div className={styles.profileInfo}>
+                    <div>
+                        <h1 id={nameId}>{name}</h1>
+                        <p>Software Engineer at Garmin</p>
+                    </div>
 
-          <SocialButtons />
-        </div>
-      </Container>
-    </header>
-  );
+                    <SocialButtons />
+                </div>
+            </Container>
+        </header>
+    );
 };
 
 export default HeroHeader;

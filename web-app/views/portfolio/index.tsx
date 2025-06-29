@@ -6,89 +6,108 @@ import ChipGroup from "@/components/chip-group";
 import Section from "@/containers/section";
 import SimpleGrid from "@/containers/simple-grid";
 import {
-  faArrowUpRightFromSquare,
-  faCode,
+    faArrowUpRightFromSquare,
+    faCode,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import portfolioData from "./data";
 
 /** Portfolio section */
 const Portfolio = () => {
-  const id = "portfolio";
+    const id = "portfolio";
 
-  return (
-    <Section id={id}>
-      <h2>Portfolio</h2>
+    return (
+        <Section id={id}>
+            <h2>Portfolio</h2>
 
-      <SimpleGrid numColumns={{ lg: 2, md: 2, sm: 1 }}>
-        {portfolioData.map((portfolioItem) => {
-          const logoDescriptionId = `${id}-${portfolioItem.id}`;
+            <SimpleGrid numColumns={{ lg: 2, md: 2, sm: 1 }}>
+                {portfolioData.map((portfolioItem) => {
+                    const logoDescriptionId = `${id}-${portfolioItem.id}`;
 
-          return (
-            <Card
-              imgSrc={portfolioItem.photo}
-              imgPosition={portfolioItem.photoPosition}
-              colorLight={portfolioItem.color?.light}
-              colorDark={portfolioItem.color?.dark}
-              key={portfolioItem.id}
-            >
-              <portfolioItem.logo
-                height="1.75rem"
-                aria-labelledby={logoDescriptionId}
-              />
+                    return (
+                        <Card
+                            imgSrc={portfolioItem.photo}
+                            imgPosition={portfolioItem.photoPosition}
+                            colorLight={portfolioItem.color?.light}
+                            colorDark={portfolioItem.color?.dark}
+                            key={portfolioItem.id}
+                        >
+                            <portfolioItem.logo
+                                height="1.75rem"
+                                aria-labelledby={logoDescriptionId}
+                            />
 
-              <h3 id={logoDescriptionId}>{portfolioItem.title}</h3>
+                            <h3 id={logoDescriptionId}>
+                                {portfolioItem.title}
+                            </h3>
 
-              <p>{portfolioItem.description}</p>
+                            <p>{portfolioItem.description}</p>
 
-              {portfolioItem.technologies &&
-                portfolioItem.technologies.length > 0 && (
-                  <ChipGroup>
-                    {portfolioItem.technologies.map((technology) => (
-                      <Chip key={technology}>{technology}</Chip>
-                    ))}
-                  </ChipGroup>
-                )}
+                            {portfolioItem.technologies &&
+                                portfolioItem.technologies.length > 0 && (
+                                    <ChipGroup>
+                                        {portfolioItem.technologies.map(
+                                            (technology) => (
+                                                <Chip key={technology}>
+                                                    {technology}
+                                                </Chip>
+                                            )
+                                        )}
+                                    </ChipGroup>
+                                )}
 
-              {(portfolioItem.website || portfolioItem.codeWebsite) && (
-                <>
-                  <h4 style={{ marginTop: "1rem" }}>View the Project</h4>
-                  <ButtonGroup>
-                    {portfolioItem.website && (
-                      <Button
-                        icon
-                        href={portfolioItem.website}
-                        openWithNewTab={!portfolioItem.website.startsWith("#")}
-                        title={`Open ${portfolioItem.title}`}
-                        aria-label={`Open ${portfolioItem.title}`}
-                        backgroundColor="var(--color-background-surface-1)"
-                        textColor="var(--color-text-main)"
-                      >
-                        <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
-                      </Button>
-                    )}
-                    {portfolioItem.codeWebsite && (
-                      <Button
-                        icon
-                        href={portfolioItem.codeWebsite}
-                        openWithNewTab
-                        title={`View Project Code for ${portfolioItem.title}`}
-                        aria-label={`View Project Code for ${portfolioItem.title}`}
-                        backgroundColor="var(--color-background-surface-1)"
-                        textColor="var(--color-text-main)"
-                      >
-                        <FontAwesomeIcon icon={faCode} />
-                      </Button>
-                    )}
-                  </ButtonGroup>
-                </>
-              )}
-            </Card>
-          );
-        })}
-      </SimpleGrid>
-    </Section>
-  );
+                            {(portfolioItem.website ||
+                                portfolioItem.codeWebsite) && (
+                                <>
+                                    <h4 style={{ marginTop: "1rem" }}>
+                                        View the Project
+                                    </h4>
+                                    <ButtonGroup>
+                                        {portfolioItem.website && (
+                                            <Button
+                                                icon
+                                                href={portfolioItem.website}
+                                                openWithNewTab={
+                                                    !portfolioItem.website.startsWith(
+                                                        "#"
+                                                    )
+                                                }
+                                                title={`Open ${portfolioItem.title}`}
+                                                aria-label={`Open ${portfolioItem.title}`}
+                                                backgroundColor="var(--color-background-surface-1)"
+                                                textColor="var(--color-text-main)"
+                                            >
+                                                <FontAwesomeIcon
+                                                    icon={
+                                                        faArrowUpRightFromSquare
+                                                    }
+                                                />
+                                            </Button>
+                                        )}
+                                        {portfolioItem.codeWebsite && (
+                                            <Button
+                                                icon
+                                                href={portfolioItem.codeWebsite}
+                                                openWithNewTab
+                                                title={`View Project Code for ${portfolioItem.title}`}
+                                                aria-label={`View Project Code for ${portfolioItem.title}`}
+                                                backgroundColor="var(--color-background-surface-1)"
+                                                textColor="var(--color-text-main)"
+                                            >
+                                                <FontAwesomeIcon
+                                                    icon={faCode}
+                                                />
+                                            </Button>
+                                        )}
+                                    </ButtonGroup>
+                                </>
+                            )}
+                        </Card>
+                    );
+                })}
+            </SimpleGrid>
+        </Section>
+    );
 };
 
 export default Portfolio;

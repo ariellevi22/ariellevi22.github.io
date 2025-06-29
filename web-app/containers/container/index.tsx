@@ -3,25 +3,25 @@ import styles from "./container.module.css";
 
 /** A container of page content */
 const Container = ({
-  component = "div",
-  children,
-  className,
-  ...props
+    component = "div",
+    children,
+    className,
+    ...props
 }: ContainerProps) => {
-  const containerClassNames = [styles.container, className]
-    .filter(Boolean)
-    .join(" ");
+    const containerClassNames = [styles.container, className]
+        .filter(Boolean)
+        .join(" ");
 
-  return createElement(
-    component,
-    { className: containerClassNames, ...props },
-    children
-  );
+    return createElement(
+        component,
+        { className: containerClassNames, ...props },
+        children
+    );
 };
 
 /** Props for the container component */
 type ContainerProps = React.HTMLAttributes<HTMLElement> & {
-  component?: keyof React.JSX.IntrinsicElements;
+    component?: keyof React.JSX.IntrinsicElements;
 };
 
 export default Container;

@@ -1,7 +1,7 @@
 .text {
-  fill: #000000;
+    fill: #000000;
 
-  @media (prefers-color-scheme: dark) {
-    fill: #ffffff;
-  }
+    @media (prefers-color-scheme: dark) {
+        fill: #ffffff;
+    }
 }

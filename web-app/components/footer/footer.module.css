@@ -1,19 +1,19 @@
 .footer {
-  width: 100%;
-  background-color: var(--color-background-nav-bar);
-  color: var(--color-text-nav);
-  grid-area: footer;
+    width: 100%;
+    background-color: var(--color-background-nav-bar);
+    color: var(--color-text-nav);
+    grid-area: footer;
 }
 
 .footerContent {
-  padding: 2.5rem 0;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  align-items: center;
+    padding: 2.5rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
 }
 
 .copyright {
-  font-size: 0.75rem;
-  margin: 0;
+    font-size: 0.75rem;
+    margin: 0;
 }

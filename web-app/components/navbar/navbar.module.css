@@ -1,70 +1,70 @@
 .nav {
-  top: 0;
-  z-index: 10;
-  width: 100%;
-  grid-area: nav;
+    top: 0;
+    z-index: 10;
+    width: 100%;
+    grid-area: nav;
 }
 
 .navbar,
 .spacer {
-  height: var(--nav-height);
-  width: 100%;
+    height: var(--nav-height);
+    width: 100%;
 }
 
 .navbar {
-  position: fixed;
-  padding: 1rem 7.5%;
+    position: fixed;
+    padding: 1rem 7.5%;
 
-  background-color: var(--color-background-nav-bar);
-  color: var(--color-text-nav);
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  align-content: center;
-  align-items: center;
-  gap: 1rem;
+    background-color: var(--color-background-nav-bar);
+    color: var(--color-text-nav);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+    gap: 1rem;
 }
 
 @media (min-width: 920px) {
-  .navbar {
-    padding: 1rem 2.5rem;
-  }
+    .navbar {
+        padding: 1rem 2.5rem;
+    }
 }
 
 .navbar a {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 .navbar a:focus-visible,
 .navbar a:active {
-  color: var(--color-accent-nav);
+    color: var(--color-accent-nav);
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .navbar a:hover {
-    color: var(--color-accent-nav);
-  }
+    .navbar a:hover {
+        color: var(--color-accent-nav);
+    }
 }
 
 .tabs {
-  display: none;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-  align-items: center;
+    display: none;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    align-items: center;
 }
 
 @media (min-width: 920px) {
-  .tabs {
-    display: flex;
-  }
+    .tabs {
+        display: flex;
+    }
 }
 
 .menuButton {
-  display: block;
+    display: block;
 }
 
 @media (min-width: 920px) {
-  .menuButton {
-    display: none;
-  }
+    .menuButton {
+        display: none;
+    }
 }

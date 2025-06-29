@@ -1,9 +1,9 @@
 .section {
-  --padding-vertical: calc(var(--nav-height) + 0.5rem);
+    --padding-vertical: calc(var(--nav-height) + 0.5rem);
 
-  padding-top: var(--padding-vertical);
+    padding-top: var(--padding-vertical);
 }
 
 .section:last-child {
-  padding-bottom: var(--padding-vertical);
+    padding-bottom: var(--padding-vertical);
 }

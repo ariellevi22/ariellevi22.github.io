@@ -10,24 +10,24 @@ import "./globals.css";
 
 /** Application metadata */
 export const metadata: Metadata = {
-  title: name,
-  applicationName: name,
-  description,
-  authors: { name, url: appUrl },
-  keywords: [name, "personal website", "portfolio"],
-  openGraph: {
     title: name,
-    siteName: name,
+    applicationName: name,
     description,
-    url: appUrl,
-    type: "website",
-  },
-  twitter: {
-    title: name,
-    description,
-    card: "summary",
-  },
-  metadataBase: new URL(appUrl),
+    authors: { name, url: appUrl },
+    keywords: [name, "personal website", "portfolio"],
+    openGraph: {
+        title: name,
+        siteName: name,
+        description,
+        url: appUrl,
+        type: "website",
+    },
+    twitter: {
+        title: name,
+        description,
+        card: "summary",
+    },
+    metadataBase: new URL(appUrl),
 };
 
 /** The app's font styles */
@@ -35,13 +35,13 @@ const font = Inter({ subsets: ["latin"] });
 
 /** Root layout for the app */
 const RootLayout = ({ children }: RootLayoutProps) => (
-  <html lang="en">
-    <body className={font.className}>
-      <Navbar />
-      <main>{children}</main>
-      <Footer />
-    </body>
-  </html>
+    <html lang="en">
+        <body className={font.className}>
+            <Navbar />
+            <main>{children}</main>
+            <Footer />
+        </body>
+    </html>
 );
 
 export default RootLayout;

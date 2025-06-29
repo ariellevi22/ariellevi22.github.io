@@ -1,44 +1,44 @@
 .navMenu {
-  will-change: translate;
+    will-change: translate;
 
-  position: fixed;
-  top: var(--nav-height);
-  right: 0;
-  z-index: 9;
-  overflow-y: auto;
+    position: fixed;
+    top: var(--nav-height);
+    right: 0;
+    z-index: 9;
+    overflow-y: auto;
 
-  width: 80%;
-  height: calc(100% - var(--nav-height));
+    width: 80%;
+    height: calc(100% - var(--nav-height));
 
-  background-color: var(--color-background-nav-menu);
-  color: var(--color-text-nav);
+    background-color: var(--color-background-nav-menu);
+    color: var(--color-text-nav);
 }
 
 .navMenu a {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 .navMenu a:focus-visible,
 .navMenu a:active {
-  color: var(--color-accent-nav);
+    color: var(--color-accent-nav);
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .navMenu a:hover {
-    color: var(--color-accent-nav);
-  }
+    .navMenu a:hover {
+        color: var(--color-accent-nav);
+    }
 }
 
 .navMenuItems {
-  padding: 2.5rem;
-  min-height: 100%;
-  display: flex;
-  gap: 2rem;
-  flex-direction: column;
-  align-items: flex-end;
-  justify-content: center;
+    padding: 2.5rem;
+    min-height: 100%;
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
 }
 
 .navMenuItems > * {
-  flex-shrink: 0;
+    flex-shrink: 0;
 }

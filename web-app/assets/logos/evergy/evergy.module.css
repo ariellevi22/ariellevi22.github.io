@@ -1,32 +1,32 @@
 .topLeftFeather {
-  fill: #76bb40;
+    fill: #76bb40;
 
-  @media (prefers-color-scheme: dark) {
-    fill: #ffffff;
-  }
+    @media (prefers-color-scheme: dark) {
+        fill: #ffffff;
+    }
 }
 
 .topRightFeather {
-  fill: #317cc0;
+    fill: #317cc0;
 
-  @media (prefers-color-scheme: dark) {
-    fill: #ffffff;
-  }
+    @media (prefers-color-scheme: dark) {
+        fill: #ffffff;
+    }
 }
 
 .bottomLeftFeather {
-  fill: #72808a;
+    fill: #72808a;
 
-  @media (prefers-color-scheme: dark) {
-    fill: #ffffff;
-  }
+    @media (prefers-color-scheme: dark) {
+        fill: #ffffff;
+    }
 }
 
 .bottomRightFeather,
 .text {
-  fill: #003353;
+    fill: #003353;
 
-  @media (prefers-color-scheme: dark) {
-    fill: #ffffff;
-  }
+    @media (prefers-color-scheme: dark) {
+        fill: #ffffff;
+    }
 }

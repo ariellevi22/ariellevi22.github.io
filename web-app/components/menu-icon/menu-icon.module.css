@@ -1,83 +1,83 @@
 .icon {
-  --bar-height: 0.15em;
-  --bar-offset: -0.35em;
+    --bar-height: 0.15em;
+    --bar-offset: -0.35em;
 
-  --movement-transition-duration: 150ms;
-  --appearance-transition-duration: 250ms;
+    --movement-transition-duration: 150ms;
+    --appearance-transition-duration: 250ms;
 
-  height: 1em;
-  width: 1em;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    height: 1em;
+    width: 1em;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .icon div,
 .icon div::before,
 .icon div::after {
-  width: 100%;
-  height: var(--bar-height);
-  border-radius: var(--bar-height);
-  background-color: currentColor;
-  position: absolute;
-  left: 0;
-  right: 0;
+    width: 100%;
+    height: var(--bar-height);
+    border-radius: var(--bar-height);
+    background-color: currentColor;
+    position: absolute;
+    left: 0;
+    right: 0;
 }
 
 .icon div::before,
 .icon div::after {
-  content: "";
+    content: "";
 }
 
 .icon.open div,
 .icon.open div::before,
 .icon.open div::after {
-  transition:
-    top var(--movement-transition-duration) ease
-      var(--appearance-transition-duration),
-    bottom var(--movement-transition-duration) ease
-      var(--appearance-transition-duration),
-    opacity var(--appearance-transition-duration) ease,
-    transform var(--appearance-transition-duration) ease;
+    transition:
+        top var(--movement-transition-duration) ease
+            var(--appearance-transition-duration),
+        bottom var(--movement-transition-duration) ease
+            var(--appearance-transition-duration),
+        opacity var(--appearance-transition-duration) ease,
+        transform var(--appearance-transition-duration) ease;
 }
 
 .icon.close div,
 .icon.close div::before,
 .icon.close div::after {
-  transition:
-    top var(--movement-transition-duration) ease,
-    bottom var(--appearance-transition-duration) ease,
-    opacity var(--appearance-transition-duration) ease
-      var(--movement-transition-duration),
-    transform var(--appearance-transition-duration) ease
-      var(--movement-transition-duration);
+    transition:
+        top var(--movement-transition-duration) ease,
+        bottom var(--appearance-transition-duration) ease,
+        opacity var(--appearance-transition-duration) ease
+            var(--movement-transition-duration),
+        transform var(--appearance-transition-duration) ease
+            var(--movement-transition-duration);
 }
 
 /* The top bar in the menu icon */
 .icon.open div::before {
-  top: var(--bar-offset);
-  opacity: 1;
+    top: var(--bar-offset);
+    opacity: 1;
 }
 .icon.close div::before {
-  top: 0;
-  opacity: 0;
+    top: 0;
+    opacity: 0;
 }
 
 /* The middle bar in the menu icon and the \ in the X */
 .icon.open div {
-  transform: rotate(0deg);
+    transform: rotate(0deg);
 }
 .icon.close div {
-  transform: rotate(45deg);
+    transform: rotate(45deg);
 }
 
 /* The bottom bar in the menu icon and the / in the X */
 .icon.open div::after {
-  bottom: var(--bar-offset);
-  transform: rotate(0deg);
+    bottom: var(--bar-offset);
+    transform: rotate(0deg);
 }
 .icon.close div::after {
-  bottom: 0;
-  transform: rotate(90deg);
+    bottom: 0;
+    transform: rotate(90deg);
 }

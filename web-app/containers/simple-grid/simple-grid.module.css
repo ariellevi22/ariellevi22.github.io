@@ -1,27 +1,27 @@
 .grid {
-  --num-columns-sm: 1;
-  --num-columns-md: var(--num-columns-sm);
-  --num-columns-lg: var(--num-columns-md);
+    --num-columns-sm: 1;
+    --num-columns-md: var(--num-columns-sm);
+    --num-columns-lg: var(--num-columns-md);
 
-  width: 100%;
-  display: grid;
-  gap: var(--gap);
+    width: 100%;
+    display: grid;
+    gap: var(--gap);
 
-  grid-template-columns: repeat(var(--num-columns-sm), 1fr);
+    grid-template-columns: repeat(var(--num-columns-sm), 1fr);
 }
 
 @media (min-width: 920px) {
-  .grid {
-    grid-template-columns: repeat(var(--num-columns-md), 1fr);
-  }
+    .grid {
+        grid-template-columns: repeat(var(--num-columns-md), 1fr);
+    }
 }
 
 @media (min-width: 1280px) {
-  .grid {
-    grid-template-columns: repeat(var(--num-columns-lg), 1fr);
-  }
+    .grid {
+        grid-template-columns: repeat(var(--num-columns-lg), 1fr);
+    }
 }
 
 .grid.priority :first-child {
-  grid-column: 1/-1;
+    grid-column: 1/-1;
 }

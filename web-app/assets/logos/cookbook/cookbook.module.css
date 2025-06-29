@@ -1,11 +1,11 @@
 .main {
-  fill: #6176a9;
+    fill: #6176a9;
 
-  @media (prefers-color-scheme: dark) {
-    fill: #9698cf;
-  }
+    @media (prefers-color-scheme: dark) {
+        fill: #9698cf;
+    }
 }
 
 .icon {
-  stroke: #ffffff;
+    stroke: #ffffff;
 }
