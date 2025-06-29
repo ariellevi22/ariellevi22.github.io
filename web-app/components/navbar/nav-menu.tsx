@@ -42,15 +42,15 @@ const NavMenu = ({ children, open, setOpen }: NavMenuProps) => {
       style={{
         transition: touchPosition
           ? undefined
-          : `transform ${transitionDurationMilliseconds}ms ease`,
-        transform: touchPosition
+          : `translate ${transitionDurationMilliseconds}ms ease`,
+        translate: touchPosition
           ? // The menu is positioned according to the user's touch
-            `translate(clamp(0px, 100% - ${window.innerWidth - (touchPosition - touchOffsetRef.current)}px, 100%))`
+            `clamp(0px, 100% - ${window.innerWidth - (touchPosition - touchOffsetRef.current)}px, 100%)`
           : open && visible
             ? // The menu is open, so it is not translated off the screen
-              "translate(0px)"
+              "0px"
             : // The menu is closed, so it is translated all the way off the screen
-              "translate(100%)",
+              "100%",
       }}
       onTouchStart={onSwipeEnd}
       onTouchMove={(event) => {
