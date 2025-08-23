@@ -65,8 +65,10 @@ const Navbar = () => {
                 <div className={styles.navbar}>
                     <div>
                         <Logo
-                            href="/#top"
-                            onClick={closeMenu}
+                            onClick={() => {
+                                closeMenu();
+                                window.scrollTo({ top: 0 });
+                            }}
                             accentColor="var(--color-accent-nav)"
                             interactionColor="var(--color-accent-nav)"
                         />

@@ -70,6 +70,9 @@ const Portfolio = () => {
                                                 openWithNewTab={
                                                     !portfolioItem.website.startsWith(
                                                         "#"
+                                                    ) &&
+                                                    !portfolioItem.website.startsWith(
+                                                        "/"
                                                     )
                                                 }
                                                 title={`Open ${portfolioItem.title}`}

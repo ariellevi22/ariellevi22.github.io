@@ -12,7 +12,9 @@ const Footer = () => (
     <footer className={styles.footer}>
         <Container className={styles.footerContent}>
             <Logo
-                href="/#top"
+                onClick={() => {
+                    window.scrollTo({ top: 0 });
+                }}
                 stacked
                 accentColor="var(--color-accent-nav)"
                 interactionColor="var(--color-accent-nav)"

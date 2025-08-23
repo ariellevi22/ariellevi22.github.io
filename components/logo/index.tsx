@@ -50,7 +50,11 @@ const Logo = ({
         );
     } else if (onClick) {
         return (
-            <button className={logoClassNames} style={logoStyles}>
+            <button
+                onClick={onClick}
+                className={logoClassNames}
+                style={logoStyles}
+            >
                 <LogoBase />
             </button>
         );
