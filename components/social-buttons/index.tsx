@@ -30,7 +30,7 @@ const SocialButtons = ({
                 title={socialTab.label}
                 aria-label={socialTab.label}
             >
-                <FontAwesomeIcon icon={socialTab.icon} fixedWidth />
+                <FontAwesomeIcon icon={socialTab.icon} />
             </Button>
         ))}
     </ButtonGroup>

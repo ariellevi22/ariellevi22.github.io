@@ -49,7 +49,7 @@ const Navbar = () => {
                     title={tab.label}
                     onClick={closeMenu}
                 >
-                    <FontAwesomeIcon icon={tab.icon} fixedWidth />
+                    <FontAwesomeIcon icon={tab.icon} />
                 </Link>
             ))}
         </>
