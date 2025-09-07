@@ -22,10 +22,13 @@ const experienceData: ExperienceItem[] = [
         startDate: "August 2023",
         location: "Olathe, KS",
         responsibilities: [
-            "Develop new features, improvements, and bug fixes for the Garmin Connect web application, enhancing the experience for 25 million users",
+            "Owned web development for 2 major projects expanding the Garmin LiveTrack app, ensuring robust technical architecture and user experience to support 80+ million active sessions per year",
+            "Improved web app performance with a 60% reduction in page load times by optimizing server-side rendering and modernizing software architecture",
+            "Develop new features, improvements, and bug fixes for the Garmin Connect web app, enhancing the experience for 25 million users",
         ],
         technologies: [
             "React.js",
+            "Next.js",
             "JavaScript",
             "TypeScript",
             "HTML/CSS",
