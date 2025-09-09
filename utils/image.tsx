@@ -10,7 +10,8 @@ import { ImageResponse } from "next/og";
  */
 export const generateLogoIconImageResponse = (
     width: number = 32,
-    height: number = width
+    height: number = width,
+    borderRadius: boolean = false
 ) =>
     new ImageResponse(
         (
@@ -23,10 +24,13 @@ export const generateLogoIconImageResponse = (
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
+                    borderRadius: borderRadius
+                        ? Math.min(width, height) * 0.15
+                        : "0",
                 }}
             >
                 <LogoIcon
-                    height={Math.round(Math.min(width, height) * 0.5)}
+                    height={Math.round(Math.min(width, height) * 0.6)}
                     fill="#48cae4"
                 />
             </div>
