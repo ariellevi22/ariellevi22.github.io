@@ -15,8 +15,8 @@ concurrency:
     cancel-in-progress: true
 
 jobs:
-    build:
-        name: Build
+    setup:
+        name: Set Up
         runs-on: ubuntu-latest
 
         steps:
@@ -28,12 +28,10 @@ jobs:
               with:
                   node-version: current
 
-            - name: Cache
+            - name: Set up cache
               uses: actions/cache@v4
               with:
-                  path: |
-                      ~/.npm
-                      ${{ github.workspace }}/.next/cache
+                  path: ${{ github.workspace }}/.next/cache
                   # Generate a new cache whenever packages or source files change
                   key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx') }}
                   # If source files changed but packages did not, rebuild from a prior cache
@@ -43,6 +41,21 @@ jobs:
             - name: Install dependencies
               run: npm ci
 
+    test:
+        name: Test
+        needs: setup
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Lint
+              run: npm run lint
+
+    build:
+        name: Build
+        needs: test
+        runs-on: ubuntu-latest
+
+        steps:
             - name: Build
               run: npm run build
 
