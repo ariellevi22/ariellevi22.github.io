@@ -15,8 +15,8 @@ concurrency:
     cancel-in-progress: true
 
 jobs:
-    setup:
-        name: Set Up
+    build:
+        name: Build
         runs-on: ubuntu-latest
 
         steps:
@@ -38,12 +38,6 @@ jobs:
                   restore-keys: |
                       ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
 
-    build:
-        name: Build
-        needs: setup
-        runs-on: ubuntu-latest
-
-        steps:
             - name: Install dependencies
               run: npm ci
 
