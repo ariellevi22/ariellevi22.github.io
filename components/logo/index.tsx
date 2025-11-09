@@ -29,7 +29,7 @@ const Logo = ({
         "--color-interaction": interactionColor,
     } as CSSProperties;
 
-    const LogoBase = () => (
+    const logoBase = (
         <>
             <LogoIcon color={color} fill={accentColor} aria-hidden />
             <p>{name}</p>
@@ -45,7 +45,7 @@ const Logo = ({
                 className={logoClassNames}
                 style={logoStyles}
             >
-                <LogoBase />
+                {logoBase}
             </Link>
         );
     } else if (onClick) {
@@ -55,13 +55,13 @@ const Logo = ({
                 className={logoClassNames}
                 style={logoStyles}
             >
-                <LogoBase />
+                {logoBase}
             </button>
         );
     } else {
         return (
             <div className={logoClassNames} style={logoStyles}>
-                <LogoBase />
+                {logoBase}
             </div>
         );
     }

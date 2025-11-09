@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import styles from "./nav-menu.module.css";
 
 const transitionDurationMilliseconds = 250;
@@ -10,43 +10,46 @@ const transitionDurationMilliseconds = 250;
  * bar on small screens
  */
 const NavMenu = ({ children, open, setOpen }: NavMenuProps) => {
-    // Keep track of whether the menu is on the screen (opening, open, or closing)
-    const [visible, setVisible] = useState(false);
-
-    // When the menu is opened, make it visible immediately
-    useEffect(() => {
-        if (open) {
-            setVisible(true);
-        }
-    }, [open]);
-
     // Keep track of whether the user is swiping the menu open/closed
     const [touchPosition, setTouchPosition] = useState<number>();
-    const touchOffsetRef = useRef(0);
+    const [touchOffset, setTouchOffset] = useState(0);
     const swipeDirectionRef = useRef(0);
 
     /** Resets the touch states to indicate that the user is no longer swiping */
     const onSwipeEnd = () => {
         setTouchPosition(undefined);
-        touchOffsetRef.current = 0;
+        setTouchOffset(0);
         swipeDirectionRef.current = 0;
     };
 
     return (
         <div
             className={styles.navMenu}
-            hidden={
-                // Display the menu while it is opening, open, or closing
-                !(open || visible)
-            }
             style={{
+                // Display the menu while it is opening, open, or closing
+                visibility: open || touchPosition ? "visible" : "hidden",
+
                 transition: touchPosition
-                    ? undefined
-                    : `translate ${transitionDurationMilliseconds}ms ease`,
+                    ? // When the user is swiping the menu, do not use a transition time so that the swipe
+                      // does not lag behind their touch
+                      undefined
+                    : [
+                          `translate ${transitionDurationMilliseconds}ms ease`,
+                          open
+                              ? // When the menu is opening, transition immediately from "hidden" to "visible"
+                                // so that the content is visible while sliding onto the screen
+                                ""
+                              : // When the menu is closing, delay the transition from "visible" to "hidden" to
+                                // ensure that the content fully slides off the screen before it disappears
+                                `visibility 1ms ${transitionDurationMilliseconds}ms`,
+                      ]
+                          .filter(Boolean)
+                          .join(", "),
+
                 translate: touchPosition
                     ? // The menu is positioned according to the user's touch
-                      `clamp(0px, 100% - ${window.innerWidth - (touchPosition - touchOffsetRef.current)}px, 100%)`
-                    : open && visible
+                      `clamp(0px, 100% - ${window.innerWidth - (touchPosition - touchOffset)}px, 100%)`
+                    : open
                       ? // The menu is open, so it is not translated off the screen
                         "0px"
                       : // The menu is closed, so it is translated all the way off the screen
@@ -62,8 +65,7 @@ const NavMenu = ({ children, open, setOpen }: NavMenuProps) => {
                     if (!touchPosition) {
                         const menuPosition =
                             event.currentTarget.getBoundingClientRect().x;
-                        touchOffsetRef.current =
-                            newTouchPosition - menuPosition;
+                        setTouchOffset(newTouchPosition - menuPosition);
                     }
 
                     // Determine if the user is swiping the menu open (negative direction) or
@@ -85,11 +87,6 @@ const NavMenu = ({ children, open, setOpen }: NavMenuProps) => {
                 }
 
                 onSwipeEnd();
-            }}
-            onTransitionEnd={() => {
-                // When the menu is closed, wait until it is finished animating off
-                // the screen before making it invisible
-                setVisible(open || Boolean(touchPosition));
             }}
         >
             <div className={styles.navMenuItems}>{children}</div>

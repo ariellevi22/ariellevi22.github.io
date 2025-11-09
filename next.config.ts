@@ -8,20 +8,6 @@ const nextConfig: NextConfig = {
         unoptimized: true,
         qualities: [80, 100],
     },
-    eslint: {
-        dirs: [
-            "app",
-            "assets",
-            "components",
-            "containers",
-            "global",
-            "public",
-            "theme",
-            "types",
-            "utils",
-            "views",
-        ],
-    },
 };
 
 export default nextConfig;
