@@ -63,16 +63,14 @@ const Navbar = () => {
                 enabled={isMenuOpen}
             >
                 <div className={styles.navbar}>
-                    <div>
-                        <Logo
-                            onClick={() => {
-                                closeMenu();
-                                window.scrollTo({ top: 0 });
-                            }}
-                            accentColor="var(--color-accent-nav)"
-                            interactionColor="var(--color-accent-nav)"
-                        />
-                    </div>
+                    <Logo
+                        onClick={() => {
+                            closeMenu();
+                            window.scrollTo({ top: 0 });
+                        }}
+                        accentColor="var(--color-accent-nav)"
+                        interactionColor="var(--color-accent-nav)"
+                    />
 
                     <div className={styles.tabs}>{tabs}</div>
 
