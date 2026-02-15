@@ -4,6 +4,7 @@ import { socialTabs } from "@/global";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Button from "../button";
 import ButtonGroup from "../button-group";
+import Tooltip from "../tooltip";
 
 /** A component for a group of social buttons */
 const SocialButtons = ({
@@ -14,24 +15,28 @@ const SocialButtons = ({
 }: SocialButtonsProps) => (
     <ButtonGroup>
         {socialTabs.map((socialTab) => (
-            <Button
-                icon
-                backgroundColor={backgroundColor}
-                textColor={textColor}
-                interactionBackgroundColor={
-                    socialTab.colorPrimary ?? interactionBackgroundColor
-                }
-                interactionTextColor={
-                    socialTab.colorSecondary ?? interactionTextColor
-                }
-                href={socialTab.href}
-                openWithNewTab={socialTab.openWithNewTab}
+            <Tooltip
                 key={socialTab.label}
                 title={socialTab.label}
-                aria-label={socialTab.label}
+                position="bottom"
             >
-                <FontAwesomeIcon icon={socialTab.icon} />
-            </Button>
+                <Button
+                    icon
+                    backgroundColor={backgroundColor}
+                    textColor={textColor}
+                    interactionBackgroundColor={
+                        socialTab.colorPrimary ?? interactionBackgroundColor
+                    }
+                    interactionTextColor={
+                        socialTab.colorSecondary ?? interactionTextColor
+                    }
+                    href={socialTab.href}
+                    openWithNewTab={socialTab.openWithNewTab}
+                    aria-label={socialTab.label}
+                >
+                    <FontAwesomeIcon icon={socialTab.icon} />
+                </Button>
+            </Tooltip>
         ))}
     </ButtonGroup>
 );

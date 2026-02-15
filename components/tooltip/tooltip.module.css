@@ -1,0 +1,18 @@
+.tooltip {
+    display: inline-block;
+
+    background-color: var(--color-background-nav-menu);
+    color: var(--color-text-button);
+    border-radius: 0.25rem;
+    padding: 0.25rem 0.5rem;
+    box-shadow:
+        0 0.1em 0.15em 0 var(--color-shadow),
+        0 0.1em 0.6em 0 var(--color-shadow);
+
+    font-size: 0.9rem;
+    text-align: center;
+    text-wrap: wrap;
+    text-wrap: pretty;
+
+    z-index: 8;
+}

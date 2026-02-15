@@ -16,6 +16,7 @@
 
 .navMenu a {
     text-decoration: none;
+    padding: 0.75rem;
 }
 
 .navMenu a:focus-visible,
@@ -37,9 +38,4 @@
     flex-direction: column;
     align-items: flex-end;
     justify-content: center;
-}
-
-.navMenuItems > * {
-    flex-shrink: 0;
-    padding: 0.75rem;
 }

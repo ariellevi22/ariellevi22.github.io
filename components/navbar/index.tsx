@@ -46,7 +46,6 @@ const Navbar = () => {
                     target={tab.openWithNewTab ? "_blank" : undefined}
                     rel={tab.openWithNewTab ? "noopener noreferrer" : undefined}
                     aria-label={tab.label}
-                    title={tab.label}
                     onClick={closeMenu}
                 >
                     <FontAwesomeIcon icon={tab.icon} />
@@ -80,7 +79,6 @@ const Navbar = () => {
                             transparent
                             onClick={() => setMenuOpen((open) => !open)}
                             aria-label={`${isMenuOpen ? "Close" : "Open"} Menu`}
-                            title={`${isMenuOpen ? "Close" : "Open"} Menu`}
                             interactionTextColor="var(--color-accent-nav)"
                         >
                             <MenuIcon close={isMenuOpen} />

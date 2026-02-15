@@ -3,6 +3,7 @@ import ButtonGroup from "@/components/button-group";
 import Card from "@/components/card";
 import Chip from "@/components/chip";
 import ChipGroup from "@/components/chip-group";
+import Tooltip from "@/components/tooltip";
 import Section from "@/containers/section";
 import SimpleGrid from "@/containers/simple-grid";
 import {
@@ -64,43 +65,53 @@ const Portfolio = () => {
                                     </h4>
                                     <ButtonGroup>
                                         {portfolioItem.website && (
-                                            <Button
-                                                icon
-                                                href={portfolioItem.website}
-                                                openWithNewTab={
-                                                    !portfolioItem.website.startsWith(
-                                                        "#"
-                                                    ) &&
-                                                    !portfolioItem.website.startsWith(
-                                                        "/"
-                                                    )
-                                                }
+                                            <Tooltip
                                                 title={`Open ${portfolioItem.title}`}
-                                                aria-label={`Open ${portfolioItem.title}`}
-                                                backgroundColor="var(--color-background-surface-1)"
-                                                textColor="var(--color-text-main)"
+                                                position="bottom"
                                             >
-                                                <FontAwesomeIcon
-                                                    icon={
-                                                        faArrowUpRightFromSquare
+                                                <Button
+                                                    icon
+                                                    href={portfolioItem.website}
+                                                    openWithNewTab={
+                                                        !portfolioItem.website.startsWith(
+                                                            "#"
+                                                        ) &&
+                                                        !portfolioItem.website.startsWith(
+                                                            "/"
+                                                        )
                                                     }
-                                                />
-                                            </Button>
+                                                    aria-label={`Open ${portfolioItem.title}`}
+                                                    backgroundColor="var(--color-background-surface-1)"
+                                                    textColor="var(--color-text-main)"
+                                                >
+                                                    <FontAwesomeIcon
+                                                        icon={
+                                                            faArrowUpRightFromSquare
+                                                        }
+                                                    />
+                                                </Button>
+                                            </Tooltip>
                                         )}
                                         {portfolioItem.codeWebsite && (
-                                            <Button
-                                                icon
-                                                href={portfolioItem.codeWebsite}
-                                                openWithNewTab
+                                            <Tooltip
                                                 title={`View Project Code for ${portfolioItem.title}`}
-                                                aria-label={`View Project Code for ${portfolioItem.title}`}
-                                                backgroundColor="var(--color-background-surface-1)"
-                                                textColor="var(--color-text-main)"
+                                                position="bottom"
                                             >
-                                                <FontAwesomeIcon
-                                                    icon={faCode}
-                                                />
-                                            </Button>
+                                                <Button
+                                                    icon
+                                                    href={
+                                                        portfolioItem.codeWebsite
+                                                    }
+                                                    openWithNewTab
+                                                    aria-label={`View Project Code for ${portfolioItem.title}`}
+                                                    backgroundColor="var(--color-background-surface-1)"
+                                                    textColor="var(--color-text-main)"
+                                                >
+                                                    <FontAwesomeIcon
+                                                        icon={faCode}
+                                                    />
+                                                </Button>
+                                            </Tooltip>
                                         )}
                                     </ButtonGroup>
                                 </>
