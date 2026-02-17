@@ -1,6 +1,4 @@
 .tooltip {
-    display: inline-block;
-
     background-color: var(--color-background-nav-menu);
     color: var(--color-text-button);
     border-radius: 0.25rem;
