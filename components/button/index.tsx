@@ -17,15 +17,12 @@ const Button = ({
     className,
     ...otherProps
 }: ButtonProps) => {
-    const buttonStyleVariables: CSSProperties = {
+    const buttonStyles: CSSProperties = {
+        ...style,
         "--color-background": backgroundColor,
         "--color-text": textColor,
         "--color-background-interaction": interactionBackgroundColor,
         "--color-text-interaction": interactionTextColor,
-    } as CSSProperties;
-    const buttonStyles: CSSProperties = {
-        ...style,
-        ...buttonStyleVariables,
     };
 
     const buttonClassNames = [

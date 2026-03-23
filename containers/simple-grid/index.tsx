@@ -26,7 +26,7 @@ const SimpleGrid = ({
             rowGap !== undefined || columnGap !== undefined
                 ? `${rowGap ?? gap} ${columnGap ?? gap}`
                 : gap,
-    } as CSSProperties;
+    };
 
     return (
         <div className={gridClassNames} style={gridStyles}>

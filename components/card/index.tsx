@@ -1,5 +1,4 @@
 import Image, { StaticImageData } from "next/image";
-import { CSSProperties } from "react";
 import styles from "./card.module.css";
 
 /** A component for a display card */
@@ -19,12 +18,10 @@ const Card = ({
             ]
                 .filter(Boolean)
                 .join(" ")}
-            style={
-                {
-                    "--color-accent-light": colorLight,
-                    "--color-accent-dark": colorDark,
-                } as CSSProperties
-            }
+            style={{
+                "--color-accent-light": colorLight,
+                "--color-accent-dark": colorDark,
+            }}
         >
             {imgSrc && (
                 <div className={styles.cardCover}>
