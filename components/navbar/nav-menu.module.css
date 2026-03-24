@@ -10,8 +10,8 @@
     width: 80%;
     height: calc(100% - var(--nav-height));
 
-    background-color: var(--color-background-nav-menu);
-    color: var(--color-text-nav);
+    background-color: var(--background-nav-menu);
+    color: var(--text-nav-menu);
 }
 
 .navMenu a {
@@ -20,12 +20,12 @@
 
 .navMenu a:focus-visible,
 .navMenu a:active {
-    color: var(--color-accent-nav);
+    color: var(--text-nav-menu-action);
 }
 
 @media (hover: hover) and (pointer: fine) {
     .navMenu a:hover {
-        color: var(--color-accent-nav);
+        color: var(--text-nav-menu-action);
     }
 }
 

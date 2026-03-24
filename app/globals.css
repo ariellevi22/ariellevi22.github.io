@@ -1,7 +1,6 @@
 :root {
     --nav-height: 5rem;
     --max-width: 64rem;
-    --border-radius: 0.5rem;
 }
 
 * {
@@ -17,8 +16,8 @@ html {
 }
 
 body {
-    background: var(--color-background-main);
-    color: var(--color-text-main);
+    background: var(--background-main);
+    color: var(--text-primary);
 
     min-height: 100vh;
     display: grid;
@@ -43,12 +42,12 @@ a {
 
 a:focus-visible,
 a:active {
-    color: var(--color-primary);
+    color: var(--text-action);
 }
 
 @media (hover: hover) and (pointer: fine) {
     a:hover {
-        color: var(--color-primary);
+        color: var(--text-action);
     }
 }
 

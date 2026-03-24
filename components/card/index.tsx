@@ -1,10 +1,11 @@
+import { clsx } from "@/utils/css";
 import Image, { StaticImageData } from "next/image";
 import styles from "./card.module.css";
 
 /** A component for a display card */
 const Card = ({
     children,
-    colorLight = `var(--color-primary)`,
+    colorLight = "var(--fill-primary)",
     colorDark = colorLight,
     enableHorizontal,
     imgSrc,
@@ -12,15 +13,13 @@ const Card = ({
 }: CardProps) => (
     <div className={styles.cardContainer}>
         <div
-            className={[
+            className={clsx(
                 styles.card,
-                enableHorizontal ? styles.horizontal : undefined,
-            ]
-                .filter(Boolean)
-                .join(" ")}
+                enableHorizontal ? styles.horizontal : undefined
+            )}
             style={{
-                "--color-accent-light": colorLight,
-                "--color-accent-dark": colorDark,
+                "--card-accent-light": colorLight,
+                "--card-accent-dark": colorDark,
             }}
         >
             {imgSrc && (

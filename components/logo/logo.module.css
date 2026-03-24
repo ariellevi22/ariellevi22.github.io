@@ -1,5 +1,5 @@
 .logoContainer {
-    --color-interaction: var(--color-primary);
+    --logo-fill-interaction: var(--fill-primary);
 
     border: none;
     background: none;
@@ -32,16 +32,16 @@ a.logoContainer {
 @media (hover: hover) and (pointer: fine) {
     a.logoContainer:hover,
     button.logoContainer:hover {
-        color: var(--color-interaction);
+        color: var(--logo-fill-interaction);
     }
 }
 
 a.logoContainer:focus-visible,
 button.logoContainer:focus-visible {
-    color: var(--color-interaction);
+    color: var(--logo-fill-interaction);
 }
 
-.logoContainer p {
+.logoContainer .text {
     color: inherit;
     font-size: 1.5rem;
     padding: 0;
@@ -53,11 +53,11 @@ button.logoContainer:focus-visible {
 }
 
 @media (min-width: 320px) {
-    .logoContainer p {
+    .logoContainer .text {
         display: block;
     }
 }
 
-.logoContainer.stacked p {
+.logoContainer.stacked .text {
     display: block;
 }

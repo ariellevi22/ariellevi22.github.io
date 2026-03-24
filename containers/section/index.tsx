@@ -1,9 +1,10 @@
+import { clsx } from "@/utils/css";
 import Container from "../container";
 import styles from "./section.module.css";
 
 /** A container for a section of the app */
 const Section = ({ children, className, ...props }: SectionProps) => {
-    const sectionClassNames = [styles.section, className].join(" ");
+    const sectionClassNames = clsx(styles.section, className);
 
     return (
         <Container component="section" {...props} className={sectionClassNames}>

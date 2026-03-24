@@ -77,8 +77,7 @@ const Portfolio = () => {
                                                 }
                                                 title={`Open ${portfolioItem.title}`}
                                                 aria-label={`Open ${portfolioItem.title}`}
-                                                backgroundColor="var(--color-background-surface-1)"
-                                                textColor="var(--color-text-main)"
+                                                color="subtle"
                                             >
                                                 <FontAwesomeIcon
                                                     icon={
@@ -94,8 +93,7 @@ const Portfolio = () => {
                                                 openWithNewTab
                                                 title={`View Project Code for ${portfolioItem.title}`}
                                                 aria-label={`View Project Code for ${portfolioItem.title}`}
-                                                backgroundColor="var(--color-background-surface-1)"
-                                                textColor="var(--color-text-main)"
+                                                color="subtle"
                                             >
                                                 <FontAwesomeIcon
                                                     icon={faCode}

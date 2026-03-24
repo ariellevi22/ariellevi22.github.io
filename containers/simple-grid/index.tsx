@@ -1,4 +1,4 @@
-import { Property as CSSProperty } from "csstype";
+import { clsx } from "@/utils/css";
 import { CSSProperties } from "react";
 import styles from "./simple-grid.module.css";
 
@@ -13,9 +13,10 @@ const SimpleGrid = ({
     priority,
     children,
 }: SimpleGridProps) => {
-    const gridClassNames = [styles.grid, priority ? styles.priority : undefined]
-        .filter(Boolean)
-        .join(" ");
+    const gridClassNames = clsx(
+        styles.grid,
+        priority ? styles.priority : undefined
+    );
 
     const gridStyles: CSSProperties = {
         "--num-columns-sm": numColumns?.sm,
@@ -47,13 +48,13 @@ type SimpleGridProps = {
     priority?: boolean;
 
     /** The gap between rows and columns in the grid */
-    gap?: CSSProperty.Gap;
+    gap?: CSSProperties["gap"];
 
     /** The gap between rows in the grid */
-    rowGap?: CSSProperty.RowGap;
+    rowGap?: CSSProperties["rowGap"];
 
     /** The gap between columns in the grid */
-    columnGap?: CSSProperty.ColumnGap;
+    columnGap?: CSSProperties["columnGap"];
 };
 
 /** Settings for the grid's columns' sizes */

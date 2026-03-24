@@ -16,18 +16,13 @@ const Footer = () => (
                     window.scrollTo({ top: 0 });
                 }}
                 stacked
-                accentColor="var(--color-accent-nav)"
-                interactionColor="var(--color-accent-nav)"
+                accentColor="var(--text-nav-bar-action)"
+                interactionColor="var(--text-nav-bar-action)"
             />
 
-            <SocialButtons
-                backgroundColor="var(--color-text-nav)"
-                textColor="var(--color-background-nav-bar)"
-                interactionBackgroundColor="var(--color-primary)"
-                interactionTextColor="var(--color-text-button)"
-            />
+            <SocialButtons color="subtle" />
 
-            <p className={styles.copyright}>
+            <p className={styles.copyright} suppressHydrationWarning>
                 &copy; 2021&ndash;{getCurrentYear()} {name}
             </p>
         </Container>

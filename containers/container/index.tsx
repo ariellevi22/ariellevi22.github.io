@@ -1,3 +1,4 @@
+import { clsx } from "@/utils/css";
 import { createElement } from "react";
 import styles from "./container.module.css";
 
@@ -8,9 +9,7 @@ const Container = ({
     className,
     ...props
 }: ContainerProps) => {
-    const containerClassNames = [styles.container, className]
-        .filter(Boolean)
-        .join(" ");
+    const containerClassNames = clsx(styles.container, className);
 
     return createElement(
         component,

@@ -1,6 +1,7 @@
 "use client";
 
 import { name } from "@/global";
+import { clsx } from "@/utils/css";
 import Link from "next/link";
 import { CSSProperties } from "react";
 import LogoIcon from "../logo-icon";
@@ -18,21 +19,19 @@ const Logo = ({
     interactionColor,
     onClick,
 }: LogoProps) => {
-    const logoClassNames = [
+    const logoClassNames = clsx(
         styles.logoContainer,
-        stacked ? styles.stacked : undefined,
-    ]
-        .filter(Boolean)
-        .join(" ");
+        stacked ? styles.stacked : undefined
+    );
 
     const logoStyles: CSSProperties = {
-        "--color-interaction": interactionColor,
+        "--logo-fill-interaction": interactionColor,
     };
 
     const logoBase = (
         <>
             <LogoIcon color={color} fill={accentColor} aria-hidden />
-            <p>{name}</p>
+            <span className={styles.text}>{name}</span>
         </>
     );
 

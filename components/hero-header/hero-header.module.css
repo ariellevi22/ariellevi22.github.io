@@ -16,13 +16,13 @@
     top: 0;
     left: 0;
     z-index: 0;
-    background-color: var(--color-primary);
+    background-color: var(--fill-primary);
     background-image: linear-gradient(
         to right,
-        var(--color-primary),
-        var(--color-secondary)
+        var(--fill-primary),
+        var(--fill-secondary)
     );
-    box-shadow: 0 0 3rem 0 var(--color-shadow) inset;
+    box-shadow: 0 0 3rem 0 var(--fill-shadow) inset;
 }
 
 @media (min-width: 920px) {
@@ -61,7 +61,7 @@
     aspect-ratio: 1/1;
     object-fit: cover;
     border-radius: 50%;
-    box-shadow: 0 0.2em 1em 0 var(--color-shadow);
+    box-shadow: 0 0.2em 1em 0 var(--fill-shadow);
 }
 
 .profileInfo {
