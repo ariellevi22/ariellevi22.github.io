@@ -1,24 +1,26 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { mergeRefs } from "@/utils/ref";
+import { RefCallback, useCallback, useEffect, useRef } from "react";
+import Escapable, { EscapableProps } from "../escapable";
 
 /** Component that locks the user's focus within its contents */
 const FocusLock = ({
+    ref,
     children,
     enabled = true,
     disableScroll = true,
     onEscapeKey,
     onClickOutside,
 }: FocusLockProps) => {
-    const rootRef = useRef<HTMLDivElement>(null);
     const focusableItemsRef = useRef<HTMLElement[]>([]);
 
     // Keep track of the focusable items within the focus lock
-    useEffect(() => {
+    const localRef = useCallback<RefCallback<HTMLDivElement>>((node) => {
         const setFocusableItems = () => {
-            if (rootRef.current) {
+            if (node) {
                 focusableItemsRef.current = Array.from(
-                    rootRef.current.querySelectorAll(
+                    node.querySelectorAll(
                         [
                             "button:not(:disabled)",
                             "[href]",
@@ -39,8 +41,8 @@ const FocusLock = ({
         // Observe changes to the contents of the focus lock, and whenever changes occur,
         // reset the list of focusable items
         const observer = new MutationObserver(setFocusableItems);
-        if (rootRef.current) {
-            observer.observe(rootRef.current, { childList: true });
+        if (node) {
+            observer.observe(node, { childList: true });
         }
 
         return () => {
@@ -89,45 +91,6 @@ const FocusLock = ({
         return () => window.removeEventListener("keydown", onKeyDown);
     }, [enabled]);
 
-    // Handle presses of the escape key
-    useEffect(() => {
-        const onKeyDown = (event: KeyboardEvent) => {
-            if (event.key === "Escape" && enabled && onEscapeKey) {
-                onEscapeKey(event);
-            }
-        };
-
-        if (enabled && onEscapeKey) {
-            window.addEventListener("keydown", onKeyDown);
-        }
-
-        return () => {
-            window.removeEventListener("keydown", onKeyDown);
-        };
-    }, [enabled, onEscapeKey]);
-
-    // Handle clicks outside the focus lock
-    useEffect(() => {
-        const onClick = (event: MouseEvent) => {
-            if (
-                enabled &&
-                onClickOutside &&
-                rootRef.current &&
-                !event.composedPath().includes(rootRef.current)
-            ) {
-                onClickOutside(event);
-            }
-        };
-
-        if (enabled && onClickOutside) {
-            window.addEventListener("click", onClick);
-        }
-
-        return () => {
-            window.removeEventListener("click", onClick);
-        };
-    }, [enabled, onClickOutside]);
-
     // Handle scrolling of the page
     useEffect(() => {
         document.body.style.overflow = enabled && disableScroll ? "hidden" : "";
@@ -137,25 +100,24 @@ const FocusLock = ({
         };
     }, [enabled, disableScroll]);
 
-    return <div ref={rootRef}>{children}</div>;
+    return (
+        <Escapable
+            ref={mergeRefs(ref, localRef)}
+            onEscapeKey={onEscapeKey}
+            onClickOutside={onClickOutside}
+        >
+            {children}
+        </Escapable>
+    );
 };
 
 /** Props for the focus lock component */
-type FocusLockProps = {
-    /** The focus lock's contents */
-    children: React.ReactNode;
-
+type FocusLockProps = EscapableProps & {
     /** Whether the focus lock is enabled */
     enabled?: boolean;
 
     /** Whether to disable scrolling the page when focus is locked */
     disableScroll?: boolean;
-
-    /** Handles a press of the escape key when the focus lock is enabled */
-    onEscapeKey?: (event: KeyboardEvent) => void;
-
-    /** Handles clicks outside the focus lock when the focus lock is enabled */
-    onClickOutside?: (event: MouseEvent) => void;
 };
 
 export default FocusLock;
