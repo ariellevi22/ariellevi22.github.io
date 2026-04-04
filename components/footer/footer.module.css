@@ -1,7 +1,7 @@
 .footer {
     width: 100%;
-    background-color: var(--color-background-nav-bar);
-    color: var(--color-text-nav);
+    background-color: var(--background-nav-bar);
+    color: var(--text-nav-bar);
     grid-area: footer;
 }
 

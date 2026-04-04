@@ -67,8 +67,8 @@ const Navbar = () => {
                             closeMenu();
                             window.scrollTo({ top: 0 });
                         }}
-                        accentColor="var(--color-accent-nav)"
-                        interactionColor="var(--color-accent-nav)"
+                        accentColor="var(--text-nav-bar-action)"
+                        interactionColor="var(--text-nav-bar-action)"
                     />
 
                     <div className={styles.tabs}>{tabs}</div>
@@ -76,10 +76,14 @@ const Navbar = () => {
                     <div className={styles.menuButton}>
                         <Button
                             icon
-                            transparent
                             onClick={() => setMenuOpen((open) => !open)}
                             aria-label={`${isMenuOpen ? "Close" : "Open"} Menu`}
-                            interactionTextColor="var(--color-accent-nav)"
+                            color="transparent"
+                            colorOverrides={{
+                                textColor: "inherit",
+                                interactionTextColor:
+                                    "var(--text-nav-bar-action)",
+                            }}
                         >
                             <MenuIcon close={isMenuOpen} />
                         </Button>

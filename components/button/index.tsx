@@ -1,41 +1,40 @@
 "use client";
 
+import { clsx } from "@/utils/css";
 import Link from "next/link";
 import { CSSProperties } from "react";
 import styles from "./button.module.css";
 
 /** A component for a button */
 const Button = ({
-    transparent,
-    icon,
-    backgroundColor,
-    textColor,
-    interactionBackgroundColor,
-    interactionTextColor,
+    icon = false,
+    color = "primary",
+    colorOverrides,
     children,
     style,
     className,
     ...otherProps
 }: ButtonProps) => {
-    const buttonStyleVariables: CSSProperties = {
-        "--color-background": backgroundColor,
-        "--color-text": textColor,
-        "--color-background-interaction": interactionBackgroundColor,
-        "--color-text-interaction": interactionTextColor,
-    } as CSSProperties;
-    const buttonStyles: CSSProperties = {
-        ...style,
-        ...buttonStyleVariables,
-    };
+    const buttonStyles: CSSProperties | undefined =
+        style || colorOverrides
+            ? {
+                  ...style,
 
-    const buttonClassNames = [
+                  "--button-background": colorOverrides?.backgroundColor,
+                  "--button-text": colorOverrides?.textColor,
+                  "--button-background-interaction":
+                      colorOverrides?.interactionBackgroundColor,
+                  "--button-text-interaction":
+                      colorOverrides?.interactionTextColor,
+              }
+            : undefined;
+
+    const buttonClassNames = clsx(
         styles.button,
-        transparent ? styles.transparent : undefined,
+        styles[color],
         icon ? styles.icon : undefined,
-        className,
-    ]
-        .filter(Boolean)
-        .join(" ");
+        className
+    );
 
     if ("href" in otherProps) {
         const { href, openWithNewTab, ...otherLinkProps } = otherProps;
@@ -68,19 +67,26 @@ const Button = ({
 };
 
 /** Props for the button component */
-type ButtonProps = ButtonBaseProps & (ButtonLinkProps | ButtonStandardProps);
+export type ButtonProps = ButtonBaseProps &
+    (ButtonLinkProps | ButtonStandardProps);
 
 /**
  * Props common to all instances of the button component (both standard
  * and link buttons)
  */
-type ButtonBaseProps = {
-    /** Whether the button should have a transparent background */
-    transparent?: boolean;
-
+export type ButtonBaseProps = {
     /** Whether to render the button as an icon button */
     icon?: boolean;
 
+    /** The button's display color */
+    color?: "primary" | "subtle" | "transparent";
+
+    /** Overrides for the button's display color */
+    colorOverrides?: ButtonColorOverrides;
+};
+
+/** Type for custom coloring for a button */
+type ButtonColorOverrides = {
     /** The button background color */
     backgroundColor?: string;
 
@@ -95,7 +101,10 @@ type ButtonBaseProps = {
 };
 
 /** Props for the button component when it acts as a link */
-type ButtonLinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
+type ButtonLinkProps = Omit<
+    React.AnchorHTMLAttributes<HTMLAnchorElement>,
+    "color"
+> & {
     /** The link for the button to follow */
     href: string;
 
@@ -104,6 +113,9 @@ type ButtonLinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
 };
 
 /** Props for the button component when it acts as a standard (non-link) button */
-type ButtonStandardProps = React.ButtonHTMLAttributes<HTMLButtonElement>;
+type ButtonStandardProps = Omit<
+    React.ButtonHTMLAttributes<HTMLButtonElement>,
+    "color"
+>;
 
 export default Button;

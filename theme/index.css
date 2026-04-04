@@ -1,41 +1,86 @@
 :root {
+    --color-teal: #007da0;
+
+    --color-aqua: #48cae4;
+    --color-aqua-darkest: #092229;
+
+    --color-blue-gray-light: #e4edf3;
+
+    --color-cerulean-dark: #004b69;
+    --color-cerulean-transparent-10: rgba(0, 75, 105, 0.1);
+    --color-cerulean-darkest: #1a414d;
+    --color-cerulean-gray-dark: #3b6774;
+
+    --color-white: #ffffff;
+    --color-gray-light: #e8e8e8;
+    --color-black: #000000;
+    --color-black-transparent-20: rgba(0, 0, 0, 0.2);
+}
+
+:root {
     color-scheme: light;
 
-    --color-primary: #007da0;
-    --color-secondary: #48cae4;
+    --fill-primary: var(--color-teal);
+    --fill-secondary: var(--color-aqua);
 
-    --color-text-main: #000000;
-    --color-text-button: #ffffff;
+    --text-primary: var(--color-black);
+    --text-action: var(--color-teal);
+    --text-nav-bar: var(--color-white);
+    --text-nav-bar-action: var(--color-aqua);
+    --text-nav-menu: var(--color-white);
+    --text-nav-menu-action: var(--color-aqua);
+    --text-floating: var(--color-white);
 
-    --color-background-main: #e4edf3;
-    --color-background-surface-1: #ffffff;
-    --color-background-surface-2: #e8e8e8;
+    --background-main: var(--color-blue-gray-light);
+    --background-surface-1: var(--color-white);
+    --background-surface-2: var(--color-gray-light);
+    --background-nav-bar: var(--color-black);
+    --background-nav-menu: var(--color-cerulean-dark);
+    --background-floating: var(--color-cerulean-gray-dark);
 
-    --color-background-nav-bar: #000000;
-    --color-background-nav-menu: #004b69;
-    --color-text-nav: #ffffff;
-    --color-accent-nav: #48cae4;
+    --button-fill-primary: var(--color-teal);
+    --button-fill-primary-interaction: var(--color-black);
+    --button-text-primary: var(--color-white);
+    --button-text-primary-interaction: var(--color-white);
 
-    --color-shadow: rgba(0, 75, 105, 0.1);
+    --button-fill-subtle: var(--color-white);
+    --button-fill-subtle-interaction: var(--color-black);
+    --button-text-subtle: var(--color-black);
+    --button-text-subtle-interaction: var(--color-white);
+
+    --fill-shadow: var(--color-cerulean-transparent-10);
 
     @media (prefers-color-scheme: dark) {
         color-scheme: dark;
 
-        --color-primary: #48cae4;
-        --color-secondary: #007da0;
+        --fill-primary: var(--color-aqua);
+        --fill-secondary: var(--color-teal);
 
-        --color-text-main: #ffffff;
-        --color-text-button: #000000;
+        --text-primary: var(--color-white);
+        --text-action: var(--color-aqua);
+        --text-nav-bar: var(--color-white);
+        --text-nav-bar-action: var(--color-aqua);
+        --text-nav-menu: var(--color-white);
+        --text-nav-menu-action: var(--color-aqua);
+        --text-floating: var(--color-white);
 
-        --color-background-main: #092229;
-        --color-background-surface-1: #1a414d;
-        --color-background-surface-2: #3b6774;
+        --background-main: var(--color-aqua-darkest);
+        --background-surface-1: var(--color-cerulean-darkest);
+        --background-surface-2: var(--color-cerulean-gray-dark);
+        --background-nav-bar: var(--color-black);
+        --background-nav-menu: var(--color-cerulean-dark);
+        --background-floating: var(--color-cerulean-gray-dark);
 
-        --color-background-nav-bar: #000000;
-        --color-background-nav-menu: #004b69;
-        --color-text-nav: #ffffff;
-        --color-accent-nav: #48cae4;
+        --button-fill-primary: var(--color-aqua);
+        --button-fill-primary-interaction: var(--color-black);
+        --button-text-primary: var(--color-black);
+        --button-text-primary-interaction: var(--color-white);
 
-        --color-shadow: rgba(0, 0, 0, 0.2);
+        --button-fill-subtle: var(--color-cerulean-darkest);
+        --button-fill-subtle-interaction: var(--color-white);
+        --button-text-subtle: var(--color-white);
+        --button-text-subtle-interaction: var(--color-black);
+
+        --fill-shadow: var(--color-black-transparent-20);
     }
 }

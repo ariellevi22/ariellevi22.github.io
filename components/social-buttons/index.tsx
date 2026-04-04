@@ -2,17 +2,12 @@
 
 import { socialTabs } from "@/global";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Button from "../button";
+import Button, { ButtonBaseProps } from "../button";
 import ButtonGroup from "../button-group";
 import Tooltip from "../tooltip";
 
 /** A component for a group of social buttons */
-const SocialButtons = ({
-    backgroundColor,
-    textColor,
-    interactionBackgroundColor,
-    interactionTextColor,
-}: SocialButtonsProps) => (
+const SocialButtons = ({ color, colorOverrides }: SocialButtonsProps) => (
     <ButtonGroup>
         {socialTabs.map((socialTab) => (
             <Tooltip
@@ -22,17 +17,18 @@ const SocialButtons = ({
             >
                 <Button
                     icon
-                    backgroundColor={backgroundColor}
-                    textColor={textColor}
-                    interactionBackgroundColor={
-                        socialTab.colorPrimary ?? interactionBackgroundColor
-                    }
-                    interactionTextColor={
-                        socialTab.colorSecondary ?? interactionTextColor
-                    }
+                    color={color}
+                    colorOverrides={{
+                        ...colorOverrides,
+                        interactionBackgroundColor:
+                            socialTab.colorPrimary ??
+                            colorOverrides?.interactionBackgroundColor,
+                        interactionTextColor:
+                            socialTab.colorSecondary ??
+                            colorOverrides?.interactionTextColor,
+                    }}
                     href={socialTab.href}
                     openWithNewTab={socialTab.openWithNewTab}
-                    aria-label={socialTab.label}
                 >
                     <FontAwesomeIcon icon={socialTab.icon} />
                 </Button>
@@ -42,18 +38,6 @@ const SocialButtons = ({
 );
 
 /** Props for the social buttons component */
-type SocialButtonsProps = {
-    /** The social buttons' background color */
-    backgroundColor?: string;
-
-    /** The social buttons' text color */
-    textColor?: string;
-
-    /** The social buttons' background color when interacted with */
-    interactionBackgroundColor?: string;
-
-    /** The social buttons' text color when interacted with */
-    interactionTextColor?: string;
-};
+type SocialButtonsProps = Omit<ButtonBaseProps, "icon">;
 
 export default SocialButtons;

@@ -1,11 +1,11 @@
 .tooltip {
-    background-color: var(--color-background-nav-menu);
-    color: var(--color-text-button);
+    background-color: var(--background-floating);
+    color: var(--text-floating);
     border-radius: 0.25rem;
     padding: 0.25rem 0.5rem;
     box-shadow:
-        0 0.1em 0.15em 0 var(--color-shadow),
-        0 0.1em 0.6em 0 var(--color-shadow);
+        0 0.1em 0.15em 0 var(--fill-shadow),
+        0 0.1em 0.6em 0 var(--fill-shadow);
 
     font-size: 0.9rem;
     text-align: center;
