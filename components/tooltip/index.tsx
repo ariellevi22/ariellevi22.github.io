@@ -4,6 +4,7 @@ import {
     autoUpdate,
     flip,
     FlipOptions,
+    hide,
     offset,
     Placement,
     safePolygon,
@@ -34,7 +35,7 @@ const Tooltip = ({
     const [visible, setVisible] = useState(false);
 
     // Set up the floating functionality for the tooltip
-    const { refs, floatingStyles, context } = useFloating({
+    const { refs, floatingStyles, context, middlewareData } = useFloating({
         placement: position,
 
         open: visible,
@@ -62,6 +63,9 @@ const Tooltip = ({
                     elements.floating.style.maxWidth = `${Math.min(Math.max(0, availableWidth), TOOLTIP_MAX_WIDTH)}px`;
                 },
             }),
+
+            // Hide the tooltip when the reference element is not visible in the viewport
+            hide({ strategy: "referenceHidden" }),
         ],
 
         strategy: positionStrategy,
@@ -115,7 +119,13 @@ const Tooltip = ({
                         refs.setFloating(node);
                     }}
                     className={styles.tooltip}
-                    style={{ ...transitionStyles, ...floatingStyles }}
+                    style={{
+                        ...transitionStyles,
+                        ...floatingStyles,
+                        visibility: middlewareData.hide?.referenceHidden
+                            ? "hidden"
+                            : "visible",
+                    }}
                     {...getFloatingProps()}
                 >
                     {title}

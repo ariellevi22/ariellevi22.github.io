@@ -16,7 +16,7 @@
         "pretty": "prettier . --write"
     },
     "dependencies": {
-        "@floating-ui/react": "^0.27.17",
+        "@floating-ui/react": "^0.27.19",
         "@fortawesome/fontawesome-svg-core": "^7",
         "@fortawesome/free-brands-svg-icons": "^7",
         "@fortawesome/free-solid-svg-icons": "^7",
