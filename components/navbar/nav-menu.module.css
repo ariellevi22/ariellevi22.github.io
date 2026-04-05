@@ -17,6 +17,7 @@
 .navMenu a {
     text-decoration: none;
     padding: 0.75rem;
+    display: inline-block;
 }
 
 .navMenu a:focus-visible,

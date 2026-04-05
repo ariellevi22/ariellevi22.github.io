@@ -1,14 +1,12 @@
 "use client";
 
-import { navbarTabs, socialTabs } from "@/global";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import Button from "../button";
 import FocusLock from "../focus-lock";
 import Logo from "../logo";
 import MenuIcon from "../menu-icon";
 import NavMenu from "./nav-menu";
+import NavLinks from "./nav-links";
 import styles from "./navbar.module.css";
 
 /** A component for the website's navigation bar */
@@ -23,36 +21,6 @@ const Navbar = () => {
         window.addEventListener("resize", closeMenu);
         return () => window.removeEventListener("resize", closeMenu);
     }, []);
-
-    // Create the display for the navigation bar tabs
-    const tabs = (
-        <>
-            {navbarTabs.map((tab) => (
-                <Link
-                    key={tab.label}
-                    href={tab.href}
-                    target={tab.openWithNewTab ? "_blank" : undefined}
-                    rel={tab.openWithNewTab ? "noopener noreferrer" : undefined}
-                    onClick={closeMenu}
-                >
-                    {tab.label}
-                </Link>
-            ))}
-
-            {socialTabs.map((tab) => (
-                <Link
-                    key={tab.label}
-                    href={tab.href}
-                    target={tab.openWithNewTab ? "_blank" : undefined}
-                    rel={tab.openWithNewTab ? "noopener noreferrer" : undefined}
-                    aria-label={tab.label}
-                    onClick={closeMenu}
-                >
-                    <FontAwesomeIcon icon={tab.icon} />
-                </Link>
-            ))}
-        </>
-    );
 
     return (
         <nav className={styles.nav}>
@@ -71,7 +39,12 @@ const Navbar = () => {
                         interactionColor="var(--text-nav-bar-action)"
                     />
 
-                    <div className={styles.tabs}>{tabs}</div>
+                    <div className={styles.tabs}>
+                        <NavLinks
+                            onClickLink={closeMenu}
+                            tooltipPosition="bottom"
+                        />
+                    </div>
 
                     <div className={styles.menuButton}>
                         <Button
@@ -91,7 +64,10 @@ const Navbar = () => {
                 </div>
 
                 <NavMenu open={isMenuOpen} setOpen={setMenuOpen}>
-                    {tabs}
+                    <NavLinks
+                        onClickLink={closeMenu}
+                        tooltipPosition="left"
+                    />
                 </NavMenu>
             </FocusLock>
 
