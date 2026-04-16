@@ -5,8 +5,9 @@ const ChipGroup = ({ children }: ChipGroupProps) => (
     <ul className={styles.chipGroup}>{children}</ul>
 );
 
-/** Props for the chip group component */
+/** Props for the {@linkcode ChipGroup} component */
 type ChipGroupProps = {
+    /** The chip group's contents */
     children?: React.ReactNode;
 };
 

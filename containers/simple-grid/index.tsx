@@ -2,41 +2,33 @@ import { clsx } from "@/utils/css";
 import { CSSProperties } from "react";
 import styles from "./simple-grid.module.css";
 
-const defaultGap = "2rem";
-
 /** A container for grid items */
 const SimpleGrid = ({
-    gap = defaultGap,
+    gap = "2rem",
     rowGap,
     columnGap,
     numColumns,
     priority,
     children,
-}: SimpleGridProps) => {
-    const gridClassNames = clsx(
-        styles.grid,
-        priority ? styles.priority : undefined
-    );
+}: SimpleGridProps) => (
+    <div
+        className={clsx(styles.grid, priority ? styles.priority : undefined)}
+        style={{
+            "--num-columns-sm": numColumns?.sm,
+            "--num-columns-md": numColumns?.md,
+            "--num-columns-lg": numColumns?.lg,
 
-    const gridStyles: CSSProperties = {
-        "--num-columns-sm": numColumns?.sm,
-        "--num-columns-md": numColumns?.md,
-        "--num-columns-lg": numColumns?.lg,
+            "--gap":
+                rowGap !== undefined || columnGap !== undefined
+                    ? `${rowGap ?? gap} ${columnGap ?? gap}`
+                    : gap,
+        }}
+    >
+        {children}
+    </div>
+);
 
-        "--gap":
-            rowGap !== undefined || columnGap !== undefined
-                ? `${rowGap ?? gap} ${columnGap ?? gap}`
-                : gap,
-    };
-
-    return (
-        <div className={gridClassNames} style={gridStyles}>
-            {children}
-        </div>
-    );
-};
-
-/** Props for the simple grid component */
+/** Props for the {@linkcode SimpleGrid} component */
 type SimpleGridProps = {
     /** Contents for the grid */
     children: React.ReactNode;
@@ -59,8 +51,13 @@ type SimpleGridProps = {
 
 /** Settings for the grid's columns' sizes */
 type ColumnSettings = {
+    /** Setting for the grid columns on large screens */
     lg: number;
+
+    /** Setting for the grid columns on medium screens */
     md: number;
+
+    /** Setting for the grid columns on small screens */
     sm: number;
 };
 

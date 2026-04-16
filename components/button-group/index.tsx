@@ -5,7 +5,7 @@ const ButtonGroup = ({ children }: ButtonGroupProps) => (
     <div className={styles.buttonGroup}>{children}</div>
 );
 
-/** Props for the button group component */
+/** Props for the {@linkcode ButtonGroup} component */
 type ButtonGroupProps = {
     /** The button group's contents */
     children: React.ReactNode;

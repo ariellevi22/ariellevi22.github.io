@@ -12,6 +12,7 @@
         "dev": "next dev",
         "build": "next build",
         "start": "npx serve dist",
+        "type-check": "tsc --pretty --noEmit",
         "lint": "eslint .",
         "pretty": "prettier . --write"
     },

@@ -4,14 +4,24 @@ import { mergeRefs } from "@/utils/ref";
 import { RefCallback, useCallback, useEffect, useRef } from "react";
 import Escapable, { EscapableProps } from "../escapable";
 
+/** Query selector string for all focusable HTML elements */
+const FOCUSABLE_ELEMENTS_QUERY_SELECTOR = [
+    "button:not(:disabled)",
+    "[href]",
+    "input:not(:disabled)",
+    "select:not(:disabled)",
+    "textarea:not(:disabled)",
+    '[tabindex]:not([tabindex="-1"])',
+    "video",
+].join(", ");
+
 /** Component that locks the user's focus within its contents */
 const FocusLock = ({
     ref,
     children,
     enabled = true,
     disableScroll = true,
-    onEscapeKey,
-    onClickOutside,
+    ...otherProps
 }: FocusLockProps) => {
     const focusableItemsRef = useRef<HTMLElement[]>([]);
 
@@ -20,17 +30,7 @@ const FocusLock = ({
         const setFocusableItems = () => {
             if (node) {
                 focusableItemsRef.current = Array.from(
-                    node.querySelectorAll(
-                        [
-                            "button:not(:disabled)",
-                            "[href]",
-                            "input:not(:disabled)",
-                            "select:not(:disabled)",
-                            "textarea:not(:disabled)",
-                            '[tabindex]:not([tabindex="-1"])',
-                            "video",
-                        ].join(", ")
-                    )
+                    node.querySelectorAll(FOCUSABLE_ELEMENTS_QUERY_SELECTOR)
                 );
             }
         };
@@ -101,17 +101,13 @@ const FocusLock = ({
     }, [enabled, disableScroll]);
 
     return (
-        <Escapable
-            ref={mergeRefs(ref, localRef)}
-            onEscapeKey={onEscapeKey}
-            onClickOutside={onClickOutside}
-        >
+        <Escapable ref={mergeRefs(ref, localRef)} {...otherProps}>
             {children}
         </Escapable>
     );
 };
 
-/** Props for the focus lock component */
+/** Props for the {@linkcode FocusLock} component */
 type FocusLockProps = EscapableProps & {
     /** Whether the focus lock is enabled */
     enabled?: boolean;

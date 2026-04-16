@@ -37,7 +37,7 @@ const SocialButtons = ({ color, colorOverrides }: SocialButtonsProps) => (
     </ButtonGroup>
 );
 
-/** Props for the social buttons component */
+/** Props for the {@linkcode SocialButtons} component */
 type SocialButtonsProps = Omit<ButtonBaseProps, "icon">;
 
 export default SocialButtons;

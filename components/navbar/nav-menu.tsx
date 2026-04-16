@@ -94,7 +94,7 @@ const NavMenu = ({ children, open, setOpen }: NavMenuProps) => {
     );
 };
 
-/** Props for the navigation menu component */
+/** Props for the {@linkcode NavMenu} component */
 type NavMenuProps = {
     /** The menu's contents */
     children?: React.ReactNode;
