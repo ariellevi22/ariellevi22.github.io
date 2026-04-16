@@ -29,14 +29,14 @@
     --text-nav-bar-action: var(--color-aqua);
     --text-nav-menu: var(--color-white);
     --text-nav-menu-action: var(--color-aqua);
-    --text-floating: var(--color-white);
+    --text-tooltip: var(--color-white);
 
     --background-main: var(--color-blue-gray-light);
     --background-surface-1: var(--color-white);
     --background-surface-2: var(--color-gray-light);
     --background-nav-bar: var(--color-black);
     --background-nav-menu: var(--color-cerulean-dark);
-    --background-floating: var(--color-cerulean-gray-dark);
+    --background-tooltip: var(--color-cerulean-gray-dark);
 
     --button-fill-primary: var(--color-teal);
     --button-fill-primary-interaction: var(--color-black);
@@ -62,14 +62,14 @@
         --text-nav-bar-action: var(--color-aqua);
         --text-nav-menu: var(--color-white);
         --text-nav-menu-action: var(--color-aqua);
-        --text-floating: var(--color-white);
+        --text-tooltip: var(--color-white);
 
         --background-main: var(--color-aqua-darkest);
         --background-surface-1: var(--color-cerulean-darkest);
         --background-surface-2: var(--color-cerulean-gray-dark);
         --background-nav-bar: var(--color-black);
         --background-nav-menu: var(--color-cerulean-dark);
-        --background-floating: var(--color-cerulean-gray-dark);
+        --background-tooltip: var(--color-cerulean-gray-dark);
 
         --button-fill-primary: var(--color-aqua);
         --button-fill-primary-interaction: var(--color-black);

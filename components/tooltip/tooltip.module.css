@@ -1,6 +1,6 @@
 .tooltip {
-    background-color: var(--background-floating);
-    color: var(--text-floating);
+    background-color: var(--background-tooltip);
+    color: var(--text-tooltip);
     border-radius: 0.25rem;
     padding: 0.25rem 0.5rem;
     box-shadow:
