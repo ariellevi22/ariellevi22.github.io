@@ -1,7 +1,7 @@
 "use client";
 
 import { mergeRefs } from "@/utils/ref";
-import { Ref, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 
 /**
  * Component that allows the user to "escape" its contents by clicking the escape
@@ -12,6 +12,7 @@ const Escapable = ({
     children,
     onEscapeKey,
     onClickOutside,
+    ...otherProps
 }: EscapableProps) => {
     const localRef = useRef<HTMLDivElement>(null);
 
@@ -53,17 +54,15 @@ const Escapable = ({
         };
     }, [onClickOutside]);
 
-    return <div ref={mergeRefs(ref, localRef)}>{children}</div>;
+    return (
+        <div ref={mergeRefs(ref, localRef)} {...otherProps}>
+            {children}
+        </div>
+    );
 };
 
-/** Props for the escapable component */
-export type EscapableProps = {
-    /** Ref to the element */
-    ref?: Ref<HTMLDivElement>;
-
-    /** The element's contents */
-    children: React.ReactNode;
-
+/** Props for the {@linkcode Escapable} component */
+export type EscapableProps = React.JSX.IntrinsicElements["div"] & {
     /** Handles a press of the escape key */
     onEscapeKey?: (event: KeyboardEvent) => void;
 

@@ -2,7 +2,7 @@
 
 import { clsx } from "@/utils/css";
 import Link from "next/link";
-import { CSSProperties } from "react";
+import React, { CSSProperties } from "react";
 import styles from "./button.module.css";
 
 /** A component for a button */
@@ -66,12 +66,12 @@ const Button = ({
     }
 };
 
-/** Props for the button component */
+/** Props for the {@linkcode Button} component */
 export type ButtonProps = ButtonBaseProps &
     (ButtonLinkProps | ButtonStandardProps);
 
 /**
- * Props common to all instances of the button component (both standard
+ * Props common to all instances of the {@linkcode Button} component (both standard
  * and link buttons)
  */
 export type ButtonBaseProps = {
@@ -85,7 +85,7 @@ export type ButtonBaseProps = {
     colorOverrides?: ButtonColorOverrides;
 };
 
-/** Type for custom coloring for a button */
+/** Type for custom coloring for a {@linkcode Button} */
 type ButtonColorOverrides = {
     /** The button background color */
     backgroundColor?: string;
@@ -100,22 +100,16 @@ type ButtonColorOverrides = {
     interactionTextColor?: string;
 };
 
-/** Props for the button component when it acts as a link */
-type ButtonLinkProps = Omit<
-    React.AnchorHTMLAttributes<HTMLAnchorElement>,
-    "color"
-> & {
-    /** The link for the button to follow */
-    href: string;
+/** Props for the {@linkcode Button} component when it acts as a link */
+type ButtonLinkProps = Required<
+    Pick<React.JSX.IntrinsicElements["a"], "href">
+> &
+    Omit<React.JSX.IntrinsicElements["a"], "color"> & {
+        /** Whether the button should open its link in a new tab */
+        openWithNewTab?: boolean;
+    };
 
-    /** Whether the button should open its link in a new tab */
-    openWithNewTab?: boolean;
-};
-
-/** Props for the button component when it acts as a standard (non-link) button */
-type ButtonStandardProps = Omit<
-    React.ButtonHTMLAttributes<HTMLButtonElement>,
-    "color"
->;
+/** Props for the {@linkcode Button} component when it acts as a standard (non-link) button */
+type ButtonStandardProps = Omit<React.JSX.IntrinsicElements["button"], "color">;
 
 export default Button;

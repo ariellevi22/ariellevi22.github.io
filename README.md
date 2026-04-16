@@ -27,7 +27,7 @@ This project is made with [React.js](https://react.dev/) using [TypeScript](http
 - `types` contains TypeScript types used across the app
 - `package.json` and `package-lock.json` contain information about project scripts and dependencies
 - `tsconfig.json` contains TypeScript configuration information
-- `.eslintrc.json` contains configuration information for [ESLint](https://eslint.org/) code analysis
+- `eslint.config.js` contains configuration information for [ESLint](https://eslint.org/) code linting
 - `.prettierrc.json` contains configuration information for [Prettier](https://prettier.io/) code formatting
 
 ## Development

@@ -37,7 +37,7 @@ const Card = ({
     </div>
 );
 
-/** Props for the card component */
+/** Props for the {@linkcode Card} component */
 type CardProps = {
     /** The card's contents */
     children?: React.ReactNode;

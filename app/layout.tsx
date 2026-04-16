@@ -44,6 +44,10 @@ const RootLayout = ({ children }: RootLayoutProps) => (
     </html>
 );
 
-export default RootLayout;
+/** Props for the {@linkcode RootLayout} component */
+type RootLayoutProps = Readonly<{
+    /** Contents to render within the layout */
+    children: React.ReactNode;
+}>;
 
-type RootLayoutProps = Readonly<{ children: React.ReactNode }>;
+export default RootLayout;

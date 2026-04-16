@@ -3,24 +3,30 @@ import { createElement } from "react";
 import styles from "./container.module.css";
 
 /** A container of page content */
-const Container = ({
-    component = "div",
+const Container = <TElement extends keyof React.JSX.IntrinsicElements>({
+    as,
     children,
     className,
     ...props
-}: ContainerProps) => {
+}: ContainerProps<TElement>) => {
     const containerClassNames = clsx(styles.container, className);
 
     return createElement(
-        component,
+        as || "div",
         { className: containerClassNames, ...props },
         children
     );
 };
 
-/** Props for the container component */
-type ContainerProps = React.HTMLAttributes<HTMLElement> & {
-    component?: keyof React.JSX.IntrinsicElements;
-};
+/** Props for the {@linkcode Container} component */
+type ContainerProps<TElement extends keyof React.JSX.IntrinsicElements> =
+    React.JSX.IntrinsicElements[TElement] & {
+        /**
+         * The HTML element as which to render the container
+         * @example "section"
+         * @default "div"
+         */
+        as?: TElement;
+    };
 
 export default Container;

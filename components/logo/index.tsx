@@ -66,7 +66,7 @@ const Logo = ({
     }
 };
 
-/** Props for the logo component */
+/** Props for the {@linkcode Logo} component */
 type LogoProps = {
     /** A link for the logo to go to when clicked on */
     href?: string;

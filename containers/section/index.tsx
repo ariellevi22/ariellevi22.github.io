@@ -7,13 +7,13 @@ const Section = ({ children, className, ...props }: SectionProps) => {
     const sectionClassNames = clsx(styles.section, className);
 
     return (
-        <Container component="section" {...props} className={sectionClassNames}>
+        <Container as="section" {...props} className={sectionClassNames}>
             {children}
         </Container>
     );
 };
 
-/** Props for the section component */
-type SectionProps = React.HTMLAttributes<HTMLElement>;
+/** Props for the {@linkcode Section} component */
+type SectionProps = React.JSX.IntrinsicElements["section"];
 
 export default Section;

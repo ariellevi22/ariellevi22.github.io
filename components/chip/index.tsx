@@ -5,8 +5,9 @@ const Chip = ({ children }: ChipProps) => (
     <li className={styles.chip}>{children}</li>
 );
 
-/** Props for the chip component */
+/** Props for the {@linkcode Chip} component */
 type ChipProps = {
+    /** The chip's contents */
     children?: React.ReactNode;
 };
 
