@@ -3,7 +3,6 @@ import Section from "@/containers/section";
 import SimpleGrid from "@/containers/simple-grid";
 import { separator } from "@/global";
 import { formatUnitForAmount } from "@/utils";
-import Link from "next/link";
 import educationData from "./data";
 
 /** Education section */
@@ -83,13 +82,13 @@ const Education = () => {
 
                             <p>
                                 <b id={logoDescriptionId}>
-                                    <Link
+                                    <a
                                         href={education.href}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
                                         {education.school}
-                                    </Link>
+                                    </a>
                                 </b>
                                 {["", education.graduationDate].join(separator)}
                             </p>

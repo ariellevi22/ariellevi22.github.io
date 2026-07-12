@@ -1,5 +1,4 @@
 import Section from "@/containers/section";
-import Link from "next/link";
 
 /** About section */
 const About = () => (
@@ -15,21 +14,21 @@ const About = () => (
 
         <p>
             As a software engineer at{" "}
-            <Link
+            <a
                 href="https://www.garmin.com/company/about-garmin/"
                 target="_blank"
                 rel="noopener noreferrer"
             >
                 Garmin
-            </Link>
+            </a>
             , I work with a group of incredibly talented teammates to build{" "}
-            <Link
+            <a
                 href="https://connect.garmin.com/"
                 target="_blank"
                 rel="noopener noreferrer"
             >
                 Garmin Connect
-            </Link>{" "}
+            </a>{" "}
             and LiveTrack, helping millions of people gain insights into their
             health and well-being. My technical proficiency revolves around
             React.js on the frontend and Node.js/Express.js on the backend, but

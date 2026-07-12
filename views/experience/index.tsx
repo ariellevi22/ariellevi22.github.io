@@ -4,7 +4,6 @@ import ChipGroup from "@/components/chip-group";
 import Section from "@/containers/section";
 import SimpleGrid from "@/containers/simple-grid";
 import { separator } from "@/global";
-import Link from "next/link";
 import experienceData from "./data";
 
 /** Experience section */
@@ -37,13 +36,13 @@ const Experience = () => {
 
                             <p>
                                 <b id={logoDescriptionId}>
-                                    <Link
+                                    <a
                                         href={experience.href}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
                                         {experience.organization}
-                                    </Link>
+                                    </a>
                                 </b>
                                 {experience.organizationNote &&
                                     ` (${experience.organizationNote})`}
