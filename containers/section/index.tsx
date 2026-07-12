@@ -14,6 +14,6 @@ const Section = ({ children, className, ...props }: SectionProps) => {
 };
 
 /** Props for the {@linkcode Section} component */
-type SectionProps = React.JSX.IntrinsicElements["section"];
+type SectionProps = React.ComponentPropsWithRef<"section">;
 
 export default Section;

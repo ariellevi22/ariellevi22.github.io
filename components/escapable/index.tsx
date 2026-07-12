@@ -62,7 +62,7 @@ const Escapable = ({
 };
 
 /** Props for the {@linkcode Escapable} component */
-export type EscapableProps = React.JSX.IntrinsicElements["div"] & {
+export type EscapableProps = React.ComponentPropsWithRef<"div"> & {
     /** Handles a press of the escape key */
     onEscapeKey?: (event: KeyboardEvent) => void;
 
